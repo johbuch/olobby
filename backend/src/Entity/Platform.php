@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\PlatformRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -36,6 +38,22 @@ class Platform
      * @ORM\Column(type="datetime")
      */
     private $updatedAt;
+
+    /**
+     * @ORM\OneToMany(targetEntity=User::class, mappedBy="platform")
+     */
+    private $users;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Videogame::class, inversedBy="platforms")
+     */
+    private $videogames;
+
+    public function __construct()
+    {
+        $this->users = new ArrayCollection();
+        $this->videogames = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -86,6 +104,60 @@ class Platform
     public function setUpdatedAt(\DateTimeInterface $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|User[]
+     */
+    public function getUsers(): Collection
+    {
+        return $this->users;
+    }
+
+    public function addUser(User $user): self
+    {
+        if (!$this->users->contains($user)) {
+            $this->users[] = $user;
+            $user->setPlatform($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUser(User $user): self
+    {
+        if ($this->users->removeElement($user)) {
+            // set the owning side to null (unless already changed)
+            if ($user->getPlatform() === $this) {
+                $user->setPlatform(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Videogame[]
+     */
+    public function getVideogames(): Collection
+    {
+        return $this->videogames;
+    }
+
+    public function addVideogame(Videogame $videogame): self
+    {
+        if (!$this->videogames->contains($videogame)) {
+            $this->videogames[] = $videogame;
+        }
+
+        return $this;
+    }
+
+    public function removeVideogame(Videogame $videogame): self
+    {
+        $this->videogames->removeElement($videogame);
 
         return $this;
     }

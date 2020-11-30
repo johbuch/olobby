@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -88,6 +90,21 @@ class User implements UserInterface
      * @ORM\Column(type="datetime")
      */
     private $updatedAt;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Platform::class, inversedBy="users")
+     */
+    private $platform;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Videogame::class, inversedBy="users")
+     */
+    private $videogames;
+
+    public function __construct()
+    {
+        $this->videogames = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -295,6 +312,42 @@ class User implements UserInterface
     public function setUpdatedAt(\DateTimeInterface $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function getPlatform(): ?Platform
+    {
+        return $this->platform;
+    }
+
+    public function setPlatform(?Platform $platform): self
+    {
+        $this->platform = $platform;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Videogame[]
+     */
+    public function getVideogames(): Collection
+    {
+        return $this->videogames;
+    }
+
+    public function addVideogame(Videogame $videogame): self
+    {
+        if (!$this->videogames->contains($videogame)) {
+            $this->videogames[] = $videogame;
+        }
+
+        return $this;
+    }
+
+    public function removeVideogame(Videogame $videogame): self
+    {
+        $this->videogames->removeElement($videogame);
 
         return $this;
     }
