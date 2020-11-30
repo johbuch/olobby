@@ -88,6 +88,12 @@
     &-nav{
       display: none;
     }
+    &-toggler{
+      background-color: white;
+      &-icon{
+        
+      }
+    }
   }
 }
 @media screen and (max-width: 1024px){
