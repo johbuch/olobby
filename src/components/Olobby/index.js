@@ -7,11 +7,13 @@ import './styles.scss';
 
 // == Import
 import Header from 'src/components/Header';
+import Footer from 'src/components/Footer';
 
 // == Composant
 const Olobby = () => (
   <div className="olobby">
     <Header />
+    <Footer />
   </div>
 );
 
