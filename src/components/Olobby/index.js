@@ -2,6 +2,7 @@
 import React from 'react';
 
 // == Import css
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.scss';
 
 // == Import
