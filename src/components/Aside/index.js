@@ -96,7 +96,6 @@ const Aside = () => (
       <a href="#!" className="aside__console__link">
         <FaPlaystation />
       </a>
-      
     </div>
   </div>
 );
