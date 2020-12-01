@@ -7,11 +7,13 @@ import './styles.scss';
 
 // == Import
 import Header from 'src/components/Header';
+import CardProfile from 'src/components/CardProfile';
 
 // == Composant
 const Olobby = () => (
   <div className="olobby">
     <Header />
+    <CardProfile />
   </div>
 );
 
