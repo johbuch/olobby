@@ -1,15 +1,16 @@
 .header{
-  
+  position: relative;
 
   &__title {
     color: purple;
     position: relative; 
     left: 30rem;
-    top: 5rem;
+    top: 10rem;
   }
 
   &__image {
     position: absolute;
+    z-index: -1;
     display: block;
     max-width: 50%;
     top: 5rem;
