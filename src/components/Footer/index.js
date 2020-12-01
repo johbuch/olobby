@@ -13,61 +13,54 @@ const Footer = () => (
   <div className="footer">
     <Container>
       <Row>
-        <Navbar expand="lg" variant="light" bg="light" fixed="bottom">
-          <Col>
-            <Nav defaultActiveKey="/home" className="flex-column">
-              <Nav.Link href="/home">Active</Nav.Link>
-              <Nav.Link eventKey="link-1">Link</Nav.Link>
-              <Nav.Link eventKey="link-2">Link</Nav.Link>
+        <Navbar expand="lg">
+          <Col sm md lg>
+            <Nav className="flex-column">
+              <Nav.Link href="/home">Conditions générales d'utilisation</Nav.Link>
+              <Nav.Link href="/home">Cookies</Nav.Link>              
+              <Nav.Link href="/home">Politique de confidentialité</Nav.Link>
+              <br />
+              <br />
             </Nav>
           </Col>
-          <Col>
-            <Nav defaultActiveKey="/home" className="flex-column">
-              <Nav.Link href="/home">Active</Nav.Link>
-              <Nav.Link eventKey="link-1">Link</Nav.Link>
-              <Nav.Link eventKey="link-2">Link</Nav.Link>
+          <Col sm md lg>
+            <Nav defaultActiveKey="none" className="flex-column">
+              <Nav.Link href="/home">Plan du site</Nav.Link>
+              <Nav.Link href="">Qui sommes nous ?</Nav.Link>
+              <Nav.Link href="">Nous contacter</Nav.Link>
+              <br />
+              <br />
             </Nav>
           </Col>
-          <Col>
-            <Nav defaultActiveKey="/home" className="flex-column">
-              <Nav.Link href="/home">Active</Nav.Link>
-              <Nav.Link eventKey="link-1">Link</Nav.Link>
-              <Nav.Link eventKey="link-2">Link</Nav.Link>
+          <Col></Col>
+          <Col sm md lg>
+            <Nav className="flex-column">
+              <Nav.Link href="">Annuaire de Joueur</Nav.Link>
+              <Nav.Link href="" >Annuaire de Jeux</Nav.Link>
+              <Nav.Link href="" >Annuaire de Plateforme</Nav.Link>
+              <br />
+              <br />
+            </Nav>
+          </Col>
+          <Col sm md lg>
+            <Nav defaultActiveKey="none" className="flex-column">
+              <Nav.Link href="">Mes Jeux</Nav.Link>
+              <Nav.Link href="">Mes Amis</Nav.Link>
+              <br />
+              <br />
+              <br />
             </Nav>
           </Col>
         </Navbar>
       </Row>
-
     </Container>
+    <hr />
+    <div className="flex-column">
+      <p className="col-sm copyright">
+        O'Lobby | Tous droits réservé O'lobby &copy;{new Date().getFullYear()} 
+      </p>
+    </div>
   </div>
-
-  /*
-      <div className="row">
-        column 1
-        <div className="col-md-3 col-sm-6">
-          <ul className="list-unstyled">
-            <li><a>Conditions générales d'utilisation</a></li>
-            <li><a>Mention légales</a></li>
-            <li><a>Plan du site</a></li>
-            <li><a>Cookies</a></li>
-          </ul>
-        </div>
-          column 2
-        <div className="col-md-3 col-sm-6">
-          <ul className="list-unstyled">
-            <li><a>Qui sommes nous ?</a></li>
-            <li><a>Nous contacter</a></li>
-          </ul>
-        </div>
-          Social
-        <div className="col-md-3 col-sm-6">
-          <ul className="list-unstyled">
-            <li><a>Facebook</a></li>
-            <li><a>Twitter</a></li>
-            <li><a>Youtube</a></li>
-            <li><a>Twitch</a></li>
-          </ul>
-  </div> */
 );
 
 export default Footer;
