@@ -4,19 +4,20 @@
   position: relative;
 
   &__title {
-    color: vars.$main-color;
+    color: whitesmoke;
     font-weight: vars.$ft-bold;
     position: relative; 
     left: 27rem;
-    top: 6rem;
+    top: 4rem;
   }
 
   &__image {
     position: absolute;
     z-index: -1;
     display: block;
-    max-width: 50%;
-    top: 5rem;
-    left: 21rem;
+    height: 500px;
+    width: 100%;
+    top: 0rem;
+    left: 0rem;
   }
 }
