@@ -1,0 +1,8 @@
+@use 'src/styles/vars';
+
+.section 
+{
+  position: relative;
+  top: 30rem;
+  color: vars.$main-color;
+}
