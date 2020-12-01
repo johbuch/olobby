@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Api\V1;
 
 use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/", name="main_")
+ * @Route("/api/v1/", name="api_v1_main_")
  */
 class MainController extends AbstractController
 {
@@ -17,15 +17,14 @@ class MainController extends AbstractController
      */
     public function home(): Response
     {
-        return $this->render('main/home.html.twig', [
-        ]);
+        return $this->json([]);
     }
 
     /**
      * @Route("dashboard", name="show")
      */
-    public function dasboard(): Response
+    public function dashboard(): Response
     {
-        return $this->render('main/index.html.twig');
+        return $this->json([]);
     }
 }
