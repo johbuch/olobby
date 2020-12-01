@@ -1,1 +1,27 @@
 @use 'src/styles/vars';
+
+.linechoice{
+    margin-bottom: 2rem!important;
+    align-items: center!important;
+    flex-direction: row!important;
+    display: flex!important;
+    width: 100%!important;
+}
+
+.linechoiceleft{
+    margin-left: .5rem!important;
+    flex-grow: 1!important;
+    border-bottom: 1px solid black!important;
+}
+
+.linechoiceright{
+    margin-right: .5rem!important;
+    flex-grow: 1!important;
+    border-bottom: 1px solid black!important;
+}
+
+.choice{
+    color: gray!important;
+    justify-content: center;
+    vertical-align: baseline;
+}

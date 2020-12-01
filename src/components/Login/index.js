@@ -3,6 +3,7 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import ModalBody from 'react-bootstrap/ModalBody';
 import ModalFooter from 'react-bootstrap/ModalFooter';
+import Form from 'react-bootstrap/Form'
 
 // == Import scss
 import './login.scss';
@@ -18,16 +19,36 @@ const Login = () => {
         >
             <Modal.Header closeButton>
             <Modal.Title id="contained-modal-title-vcenter">
-                Modal heading
+                O'lobby logo  -  Se connecter à O'Lobby
             </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-            <h4>Centered Modal</h4>
-            <p>
-                Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-                dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-                consectetur ac, vestibulum at eros.
-            </p>
+            <Form>
+                <Form.Group controlId="formBasicEmail">
+                    <Form.Label><h4>Indentifiant</h4></Form.Label>
+                    <Form.Control type="email" placeholder="Adresse Email" />
+                    <Form.Text className="text-muted">
+                    We'll never share your email with anyone else.
+                    </Form.Text>
+                </Form.Group>
+
+                <Form.Group controlId="formBasicPassword">
+                    <Form.Label><h4>Mot de passe</h4></Form.Label>
+                    <Form.Control type="password" placeholder="mot de passe" />
+                </Form.Group>
+            
+                <Button variant="primary" type="submit">
+                    Se connecter
+                </Button>
+                <div className="linechoice">
+                    <div className="linechoiceleft"></div>   
+                    <p className="choice">Pas de compte ? clic ci-dessous</p>
+                    <div className="linechoiceright"></div>
+                </div>
+                <Button variant="primary" type="submit">
+                    S'inscrire
+                </Button>
+            </Form>
             </Modal.Body>
             <Modal.Footer>
             <Button onClick={props.onHide}>Close</Button>
@@ -41,7 +62,7 @@ const Login = () => {
         return (
         <>
             <Button variant="primary" onClick={() => setModalShow(true)}>
-            Launch vertically centered modal
+            Launch Login modal
             </Button>
     
             <MyVerticallyCenteredModal
