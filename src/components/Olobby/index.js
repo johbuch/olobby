@@ -7,13 +7,13 @@ import './styles.scss';
 
 // == Import
 import Header from 'src/components/Header';
-import HomeDisconnected from 'src/components/HomeDisconnected';
+import HeaderHomeDisconnected from 'src/components/HeaderHomeDisconnected';
 
 // == Composant
 const Olobby = () => (
   <div className="olobby">
     <Header />
-    <HomeDisconnected />
+    <HeaderHomeDisconnected />
   </div>
 );
 
