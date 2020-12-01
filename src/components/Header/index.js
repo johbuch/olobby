@@ -31,9 +31,13 @@ const Header = () => (
       <div className="header__profil--responsive">
         <Dropdown>
           <Dropdown.Toggle id="dropdown-basic">
-            <Image src="https://androidgadget.org/wp-content/uploads/2020/03/Regardez-la-bande-annonce-de-Trevor-GTA-5-recr%C3%A9%C3%A9e-dans-Les.jpg" roundedCircle />
+            <div className="img">
+              <Image src="https://androidgadget.org/wp-content/uploads/2020/03/Regardez-la-bande-annonce-de-Trevor-GTA-5-recr%C3%A9%C3%A9e-dans-Les.jpg" roundedCircle />
+            </div>
           </Dropdown.Toggle>
           <Dropdown.Menu>
+            <Dropdown.Item href="#/action-1">Mes amis</Dropdown.Item>
+            <Dropdown.Item href="#/action-1">Mes jeux</Dropdown.Item>
             <Dropdown.Item href="#/action-1">Mon compte</Dropdown.Item>
             <Dropdown.Item href="#/action-2">Se déconnecter</Dropdown.Item>
           </Dropdown.Menu>
@@ -54,7 +58,9 @@ const Header = () => (
             <span className="header__profil__notifications__number">2</span>
             <MdNotifications />
           </div>
-          <Image src="https://androidgadget.org/wp-content/uploads/2020/03/Regardez-la-bande-annonce-de-Trevor-GTA-5-recr%C3%A9%C3%A9e-dans-Les.jpg" roundedCircle />
+          <div className="img">
+            <Image src="https://androidgadget.org/wp-content/uploads/2020/03/Regardez-la-bande-annonce-de-Trevor-GTA-5-recr%C3%A9%C3%A9e-dans-Les.jpg" roundedCircle />
+          </div>
           <Dropdown>
             <Dropdown.Toggle id="dropdown-basic">
               Trevor
