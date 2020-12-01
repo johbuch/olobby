@@ -25,7 +25,7 @@ const Login = () => {
             <Modal.Body>
             <Form>
                 <Form.Group controlId="formBasicEmail">
-                    <Form.Label><h4>Indentifiant</h4></Form.Label>
+                    <Form.Label><h4>Identifiant</h4></Form.Label>
                     <Form.Control type="email" placeholder="Adresse Email" />
                     <Form.Text className="text-muted">
                     We'll never share your email with anyone else.
@@ -42,7 +42,7 @@ const Login = () => {
                 </Button>
                 <div className="linechoice">
                     <div className="linechoiceleft"></div>   
-                    <p className="choice">Pas de compte ? clic ci-dessous</p>
+                    <p className="choice">Pas de compte ? clique ci-dessous</p>
                     <div className="linechoiceright"></div>
                 </div>
                 <Button variant="primary" type="submit">
