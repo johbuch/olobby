@@ -1,11 +1,14 @@
+@use 'src/styles/vars';
+
 .header{
   position: relative;
 
   &__title {
-    color: purple;
+    color: vars.$main-color;
+    font-weight: vars.$ft-bold;
     position: relative; 
-    left: 30rem;
-    top: 10rem;
+    left: 27rem;
+    top: 6rem;
   }
 
   &__image {
