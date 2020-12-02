@@ -19,6 +19,7 @@ import './header.scss';
 
 const Header = () => (
   <div className="header">
+    
     {/*
     <Navbar collapseOnSelect expand="lg" fixed="top" variant="dark">
 
