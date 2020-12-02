@@ -29,6 +29,7 @@
       &:focus{
         box-shadow: none;
         outline: none;
+        background-color: vars.$main-color;
       }
     }
     &-body{
