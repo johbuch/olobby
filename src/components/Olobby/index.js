@@ -17,14 +17,11 @@ import Login from 'src/components/Login';
 const Olobby = () => (
   <div className="olobby">
     <Header />
-<<<<<<< HEAD
     <Aside />
     <CardProfile />
     <Footer />
     <MenuFooter />
-=======
     <Login />
->>>>>>> origin/dev-front-login
   </div>
 );
 
