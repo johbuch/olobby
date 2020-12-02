@@ -2,7 +2,6 @@ import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import ModalBody from 'react-bootstrap/ModalBody';
-import ModalFooter from 'react-bootstrap/ModalFooter';
 import Form from 'react-bootstrap/Form'
 
 // == Import scss
@@ -25,19 +24,19 @@ const Login = () => {
             <Modal.Body>
             <Form>
                 <Form.Group controlId="formBasicEmail">
-                    <Form.Label><h4>Identifiant</h4></Form.Label>
-                    <Form.Control type="email" placeholder="Adresse Email" />
+                    <Form.Label>Identifiant</Form.Label>
+                    <Form.Control className="input_color" type="email" placeholder="Adresse Email" />
                     <Form.Text className="text-muted">
                     We'll never share your email with anyone else.
                     </Form.Text>
                 </Form.Group>
 
                 <Form.Group controlId="formBasicPassword">
-                    <Form.Label><h4>Mot de passe</h4></Form.Label>
-                    <Form.Control type="password" placeholder="mot de passe" />
+                    <Form.Label>Mot de passe</Form.Label>
+                    <Form.Control className="input_color" type="password" placeholder="mot de passe" />
                 </Form.Group>
             
-                <Button className="btn-login" variant="primary" type="submit">
+                <Button className="btn_login" variant="primary" type="submit">
                     Se connecter
                 </Button>
                 <div className="linechoice">
@@ -50,9 +49,6 @@ const Login = () => {
                 </Button>
             </Form>
             </Modal.Body>
-            <Modal.Footer>
-            <Button onClick={props.onHide}>Close</Button>
-            </Modal.Footer>
         </Modal>
         );
     }
