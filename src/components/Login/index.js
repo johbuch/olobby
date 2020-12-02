@@ -16,12 +16,12 @@ const Login = ({ modalShow, setModalShow }) => {
         aria-labelledby="contained-modal-title-vcenter"
         centered
       >
-        <Modal.Header closeButton>
+        <Modal.Header closeButton className="modal__header">
           <Modal.Title id="contained-modal-title-vcenter">
             O'lobby logo  -  Se connecter à O'Lobby
           </Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body className="modal__body">
           <Form>
             <Form.Group controlId="formBasicEmail">
               <Form.Label>Identifiant</Form.Label>

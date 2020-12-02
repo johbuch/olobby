@@ -1,96 +1,96 @@
 @use 'src/styles/vars';
 
 .linechoice{
-    margin-bottom: 1rem!important;
-    align-items: center!important;
-    flex-direction: row!important;
-    display: flex!important;
-    width: 100%!important;
+  margin-bottom: 1rem!important;
+  align-items: center!important;
+  flex-direction: row!important;
+  display: flex!important;
+  width: 100%!important;
 }
 
 .linechoiceleft{
-    margin-left: .5rem!important;
-    flex-grow: 1!important;
-    border-bottom: 1px solid black!important;
+  margin-left: .5rem!important;
+  flex-grow: 1!important;
+  border-bottom: 1px solid black!important;
 }
 
 .linechoiceright{
-    margin-right: .5rem!important;
-    flex-grow: 1!important;
-    border-bottom: 1px solid black!important;
+  margin-right: .5rem!important;
+  flex-grow: 1!important;
+  border-bottom: 1px solid black!important;
 }
 
 .choice{
-    color: gray!important;
-    justify-content: center;
-    vertical-align: baseline;
-    margin-top: 10px;
+  color: gray!important;
+  justify-content: center;
+  vertical-align: baseline;
+  margin-top: 10px;
 }
 
 .modal-content{
-    .modal-header{
-        background-color: vars.$bg-color;
-        color: white;
-        .close{
-            background-color: vars.$main-color;
-            opacity: initial;
-            color: white;
-            width: 30px;
-            height: 30px;
-            padding: 0;
-            border-radius: 100%;
-            box-shadow: 0px 3px 6px vars.$main-color;
-            //position: absolute;
-            //top: 0;
-            //right: 0;
-            &:focus{
-            outline: none;
-            box-shadow: none;
-            background-color: vars.$main-color;
-            }
-        }
+  .modal__header{
+    background-color: vars.$bg-color;
+    color: white;
+    .close{
+      background-color: vars.$main-color;
+      opacity: initial;
+      color: white;
+      width: 30px;
+      height: 30px;
+      padding: 0;
+      border-radius: 100%;
+      box-shadow: 0px 3px 6px vars.$main-color;
+      position: absolute;
+      top: 0;
+      right: 0;
+      &:focus{
+        outline: none;
+        box-shadow: none;
+        background-color: vars.$main-color;
+      }
     }
-    .modal-body{
-            .input_color{
-                &:focus{
-                    border: 1px solid vars.$main-color;
-                    box-shadow: 0px 3px 6px vars.$main-color;
-                }
-            }
-        .btn_login{
-            background-color: vars.$main-color;
-            border: 1px solid transparent;
-            width: 100%;
-            height: 30px;
-            padding: 0;
-            margin-top: 20px;
-            margin-bottom: 20px;
-            &:focus{
-                outline: none;
-                box-shadow: none;
-                background-color: vars.$main-color;
-            }
-            &:hover{
-                box-shadow: 0px 3px 6px vars.$main-color;
-            }
-        }
-
-        .btn_createAccount{
-            background-color: transparent;
-            color: vars.$main-color;
-            border: 1px solid vars.$main-color;
-            width: 100%;
-            height: 30px;
-            padding: 0;
-            margin-bottom: 20px;
-            &:focus{
-                outline: none;
-                box-shadow: none;
-                background-color: vars.$main-color;
-            }
-            &:hover{
-                box-shadow: 0px 3px 6px vars.$main-color;
-            }
-        }
+  }
+  .modal__body{
+    display: inline !important;
+    .input_color{
+      &:focus{
+        border: 1px solid vars.$main-color;
+        box-shadow: 0px 3px 6px vars.$main-color;
+      }
     }
+    .btn_login{
+      background-color: vars.$main-color;
+      border: 1px solid transparent;
+      width: 100%;
+      height: 30px;
+      padding: 0;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      &:focus{
+        outline: none;
+        box-shadow: none;
+        background-color: vars.$main-color;
+      }
+      &:hover{
+        box-shadow: 0px 3px 6px vars.$main-color;
+      }
+    }
+    .btn_createAccount{
+      background-color: transparent;
+      color: vars.$main-color;
+      border: 1px solid vars.$main-color;
+      width: 100%;
+      height: 30px;
+      padding: 0;
+      margin-bottom: 20px;
+      &:focus{
+        outline: none;
+        box-shadow: none;
+        background-color: vars.$main-color;
+      }
+      &:hover{
+        box-shadow: 0px 3px 6px vars.$main-color;
+      }
+    }
+  }
 }
