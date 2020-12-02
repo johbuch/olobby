@@ -37,7 +37,7 @@ const Login = () => {
                     <Form.Control type="password" placeholder="mot de passe" />
                 </Form.Group>
             
-                <Button variant="primary" type="submit">
+                <Button className="btn-login" variant="primary" type="submit">
                     Se connecter
                 </Button>
                 <div className="linechoice">
@@ -45,7 +45,7 @@ const Login = () => {
                     <p className="choice">Pas de compte ? clique ci-dessous</p>
                     <div className="linechoiceright"></div>
                 </div>
-                <Button variant="primary" type="submit">
+                <Button className="btn_createAccount" type="submit">
                     S'inscrire
                 </Button>
             </Form>

@@ -26,6 +26,48 @@
     vertical-align: baseline;
 }
 
-.button{
-    background-color: black;
+.modal-content{
+    .modal-header{
+      //position: relative;
+      .close{
+        background-color: vars.$main-color;
+        opacity: initial;
+        color: white;
+        width: 30px;
+        height: 30px;
+        padding: 0;
+        border-radius: 100%;
+        box-shadow: 0px 3px 6px vars.$main-color;
+        //position: absolute;
+        //top: 0;
+        //right: 0;
+        &:focus{
+          outline: none;
+          box-shadow: none;
+          background-color: vars.$main-color;
+        }
+      }
+
+    .btn-login{
+        background-color: vars.$main-color;
+            border: 1px solid transparent;
+            margin-left: vars.$gutter * 1.5;
+            &:focus{
+                outline: none;
+                box-shadow: none;
+                background-color: vars.$main-color;
+            }
+        }
+
+    .btn_createAccount{
+        background-color: vars.$main-color;
+            border: 1px solid transparent;
+            margin-left: vars.$gutter * 1.5;
+            &:focus{
+                outline: none;
+                box-shadow: none;
+                background-color: vars.$main-color;
+            }
+        }
+    }
 }
