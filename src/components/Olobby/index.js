@@ -17,9 +17,9 @@ const Olobby = () => (
   <div className="olobby">
     <Header />
     <Aside />
+    <CardProfile />
     <Footer />
     <MenuFooter />
-    <CardProfile />
   </div>
 );
 

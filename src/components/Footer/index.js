@@ -32,7 +32,6 @@ const Footer = () => (
               <br />
             </Nav>
           </Col>
-          <Col></Col>
           <Col sm md lg>
             <Nav className="flex-column">
               <Nav.Link href="">Annuaire de Joueur</Nav.Link>

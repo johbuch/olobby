@@ -36,7 +36,7 @@
     }
     .header__profil{
       display: flex;
-      margin-right: vars.$gutter * 12;
+      margin-right: vars.$gutter;
       &__notifications{
         background-color: vars.$main-color;
         height: 40px;

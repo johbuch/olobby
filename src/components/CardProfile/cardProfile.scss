@@ -1,8 +1,9 @@
 @use 'src/styles/vars';
 
 .cardProfile{
-  margin-top: vars.$gutter * 3;
-  margin-left: vars.$gutter * 3;
+  margin-top: 150px;
+  margin-left: 350px;
+  margin-bottom: vars.$gutter * 2;
   .card{
     box-shadow: 3px 3px 8px white;
     border: none;
@@ -156,5 +157,13 @@
         }
       }
     }
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .cardProfile{
+    margin-left: vars.$gutter;
+    margin-top: 180px;
   }
 }
