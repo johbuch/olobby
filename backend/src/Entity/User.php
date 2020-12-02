@@ -8,6 +8,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Serializer\Annotation\Ignore;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
@@ -99,6 +100,7 @@ class User implements UserInterface
     private $platform;
 
     /**
+     * 
      * @ORM\ManyToMany(targetEntity=Videogame::class, inversedBy="users")
      */
     private $videogames;
@@ -318,6 +320,23 @@ class User implements UserInterface
         return $this;
     }
 
+    public function getVideogamesCollection(): array
+    {
+        $videogamesJson = [];
+        foreach ($this->videogames as $videogame) {
+            $videogamesJson[] = [
+                'id' => $videogame->getId(),
+                'title' => $videogame->getTitle(),
+            ];
+        }
+
+        return $videogamesJson;
+    }
+
+
+    /**
+     * @Ignore()
+     */
     public function getPlatform(): ?Platform
     {
         return $this->platform;
@@ -331,6 +350,7 @@ class User implements UserInterface
     }
 
     /**
+     * @Ignore()
      * @return Collection|Videogame[]
      */
     public function getVideogames(): Collection

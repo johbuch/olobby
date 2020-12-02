@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Guard\GuardAuthenticatorHandler;
+use Symfony\Component\Serializer\SerializerInterface;
 
  /**
  * @Route("/api/v1", name="api_v1_")
@@ -18,13 +19,17 @@ use Symfony\Component\Security\Guard\GuardAuthenticatorHandler;
 class RegistrationController extends AbstractController
 {
     /**
-     * @Route("/register", name="register")
+     * @Route("/register", name="register", methods={"POST"})
      */
-    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, GuardAuthenticatorHandler $guardHandler, LoginFormAuthenticator $authenticator): Response
+    public function register(Request $request, SerializerInterface $serializer, UserPasswordEncoderInterface $passwordEncoder, GuardAuthenticatorHandler $guardHandler, LoginFormAuthenticator $authenticator): Response
     {
+        $json = $request->getContent();
+
+        $userArray = json_decode($json, true);
+
         $user = new User();
-        $form = $this->createForm(RegistrationFormType::class, $user);
-        $form->handleRequest($request);
+        $form = $this->createForm(RegistrationFormType::class, $user, ['csrf_protection' => false]);
+        $form->submit($userArray);
 
         if ($form->isSubmitted() && $form->isValid()) {
             // encode the plain password
@@ -50,10 +55,16 @@ class RegistrationController extends AbstractController
                 $authenticator,
                 'main' // firewall name in security.yaml
             );
+            return $this->json($user);
+        } else {
+            // Si le formulaire n'est pas valide (les contraintes de validation ne sont pas respectées)
+            // on retourne un code 400 avec un tableau de toutes les erreurs
+            // https://symfonycasts.com/screencast/symfony-rest2/validation-errors-response
+            return $this->json([
+                'errors' => (string) $form->getErrors(true, false),
+            ], 400);
         }
 
-        return $this->json([
-            'registrationForm' => $form->createView(),
-        ]);
+        
     }
 }
