@@ -144,6 +144,14 @@ const Header = () => (
       </Navbar.Collapse>
     </Navbar>
     */}
+
+    <Navbar collapseOnSelect expand="lg" fixed="top" variant="dark">
+      <Navbar.Brand href="#home">O'Lobby</Navbar.Brand>
+      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      <Navbar.Collapse className="justify-content-end">
+        <Button className="btn__login">S'identifier</Button>
+      </Navbar.Collapse>
+    </Navbar>
   </div>
 );
 
