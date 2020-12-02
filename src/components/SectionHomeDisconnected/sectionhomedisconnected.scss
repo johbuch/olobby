@@ -5,4 +5,19 @@
   position: relative;
   top: 30rem;
   color: vars.$main-color;
+
+  &__title {
+    font-weight: vars.$ft-bold;
+  }
+
+  &__text {
+    font-weight: vars.$ft-regular;
+  }
+  
+  &__image1 {
+    font-weight: vars.$ft-regular;
+    position: absolute;
+    object-fit: cover;
+    width: 50%;
+  }
 }
