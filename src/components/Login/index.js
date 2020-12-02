@@ -7,7 +7,7 @@ import Form from 'react-bootstrap/Form';
 // == Import scss
 import './login.scss';
 
-const Login = () => {
+const Login = ({ modalShow, setModalShow }) => {
   function MyVerticallyCenteredModal(props) {
     return (
       <Modal
@@ -51,14 +51,8 @@ const Login = () => {
       </Modal>
     );
   }
-
-  const [modalShow, setModalShow] = React.useState(false);
-
   return (
     <>
-      <Button variant="primary" onClick={() => setModalShow(true)}>
-        Launch Login modal
-      </Button>
       <MyVerticallyCenteredModal
         show={modalShow}
         onHide={() => setModalShow(false)}
