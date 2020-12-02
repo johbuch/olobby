@@ -11,7 +11,6 @@ import Aside from 'src/components/Aside';
 import Footer from 'src/components/Footer';
 import MenuFooter from 'src/components/MenuFooter';
 import CardProfile from 'src/components/CardProfile';
-import Login from 'src/components/Login';
 
 // == Composant
 const Olobby = () => (
@@ -21,7 +20,6 @@ const Olobby = () => (
     <CardProfile />
     <Footer />
     <MenuFooter />
-    <Login />
   </div>
 );
 

@@ -8,6 +8,7 @@ import Button from 'react-bootstrap/Button';
 import Image from 'react-bootstrap/Image';
 import Dropdown from 'react-bootstrap/Dropdown';
 
+import Login from 'src/components/Login';
 import {
   MdSearch,
   MdNotifications,
@@ -155,6 +156,9 @@ const Header = ({ isLogged }) => (
       </Navbar.Collapse>
     </Navbar>
     )}
+
+    <Login />
+
   </div>
 );
 
