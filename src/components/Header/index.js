@@ -17,6 +17,7 @@ import {
   MdMessage,
 } from 'react-icons/md';
 import { FaPlaystation } from 'react-icons/fa';
+import { BiLogInCircle } from 'react-icons/bi';
 
 // == Import scss
 import './header.scss';
@@ -156,7 +157,7 @@ const Header = ({ isLogged }) => {
         <Navbar.Brand href="#home">O'Lobby</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse className="justify-content-end">
-          <Button onClick={() => setModalShow(true)} className="btn__login">S'identifier</Button>
+          <Button onClick={() => setModalShow(true)} className="btn__login"><BiLogInCircle />S'identifier</Button>
         </Navbar.Collapse>
       </Navbar>
       )}
