@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\Api\V1;
+namespace App\Controller\Api\V1\User;
 
 use App\Entity\User;
 use App\Form\UserType;
@@ -12,20 +12,12 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Serializer\SerializerInterface;
 
 /**
- * @Route("/api/v1/", name="api_v1_main_")
+ * @Route("/api/v1/users", name="api_v1_user_")
  */
-class MainController extends AbstractController
+class UserController extends AbstractController
 {
     /**
-     * @Route("home", name="browse")
-     */
-    public function home(): Response
-    {
-        return $this->json([]);
-    }
-
-    /**
-     * @Route("dashboard", name="show", methods={"GET"})
+     * @Route("", name="browse", methods={"GET"})
      */
     public function dashboard(UserRepository $userRepository): Response
     {
@@ -35,17 +27,18 @@ class MainController extends AbstractController
     }
 
      /**
-     * @Route("{id}", name="read", methods={"GET"})
+     * @Route("/{id}", name="read", methods={"GET"})
      */
     public function read(User $user): Response
     {
         return $this->json($user);
     }
 
-    /**
-     * @Route("user/edit/{id}", name="user_edit")
+   
+     /**
+     * @Route("/edit/{id}", name="edit", methods={"PUT"})
      */
-    public function edit(Request $request, SerializerInterface $serializer)
+/*  public function edit(Request $request, SerializerInterface $serializer)
     {
         $json = $request->getContent();
 
@@ -68,4 +61,20 @@ class MainController extends AbstractController
         }
 
     }
+*/
+
+    /**
+     * @Route("/{id}", name="delete", methods={"DELETE"})
+     */
+/*  public function delete(Request $request, User $user): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($user);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('user_index');
+    }
+*/
 }
