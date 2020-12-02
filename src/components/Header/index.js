@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import Navbar from 'react-bootstrap/Navbar';
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
@@ -17,10 +19,9 @@ import { FaPlaystation } from 'react-icons/fa';
 // == Import scss
 import './header.scss';
 
-const Header = () => (
+const Header = ({ isLogged }) => (
   <div className="header">
-    
-    {/*
+    {isLogged && (
     <Navbar collapseOnSelect expand="lg" fixed="top" variant="dark">
 
       <div className="header__notifications">
@@ -144,8 +145,8 @@ const Header = () => (
         </div>
       </Navbar.Collapse>
     </Navbar>
-    */}
-
+    )}
+    {!isLogged && (
     <Navbar collapseOnSelect expand="lg" fixed="top" variant="dark">
       <Navbar.Brand href="#home">O'Lobby</Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -153,7 +154,15 @@ const Header = () => (
         <Button className="btn__login">S'identifier</Button>
       </Navbar.Collapse>
     </Navbar>
+    )}
   </div>
 );
 
+Header.propTypes = {
+  isLogged: PropTypes.bool,
+};
+
+Header.defaultProps = {
+  isLogged: false,
+};
 export default Header;
