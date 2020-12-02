@@ -9,8 +9,7 @@ import './styles.scss';
 import Header from 'src/components/Header';
 import Aside from 'src/components/Aside';
 import Footer from 'src/components/Footer';
-
-
+import MenuFooter from 'src/components/MenuFooter';
 
 // == Composant
 const Olobby = () => (
@@ -18,6 +17,7 @@ const Olobby = () => (
     <Header />
     <Aside />
     <Footer />
+    <MenuFooter />
   </div>
 );
 
