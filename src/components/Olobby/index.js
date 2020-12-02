@@ -8,12 +8,16 @@ import './styles.scss';
 // == Import
 import Header from 'src/components/Header';
 import Aside from 'src/components/Aside';
+import Footer from 'src/components/Footer';
+
+
 
 // == Composant
 const Olobby = () => (
   <div className="olobby">
     <Header />
     <Aside />
+    <Footer />
   </div>
 );
 
