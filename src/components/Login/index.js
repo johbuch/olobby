@@ -2,7 +2,7 @@ import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import ModalBody from 'react-bootstrap/ModalBody';
-import Form from 'react-bootstrap/Form'
+import Form from 'react-bootstrap/Form';
 
 // == Import scss
 import './login.scss';
@@ -12,7 +12,7 @@ const Login = () => {
     return (
       <Modal
         {...props}
-        size="lg"
+        size="ls"
         aria-labelledby="contained-modal-title-vcenter"
         centered
       >
