@@ -10,6 +10,7 @@ import Header from 'src/components/Header';
 import Aside from 'src/components/Aside';
 import Footer from 'src/components/Footer';
 import MenuFooter from 'src/components/MenuFooter';
+import CardProfile from 'src/components/CardProfile';
 
 // == Composant
 const Olobby = () => (
@@ -18,6 +19,7 @@ const Olobby = () => (
     <Aside />
     <Footer />
     <MenuFooter />
+    <CardProfile />
   </div>
 );
 
