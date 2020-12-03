@@ -21,6 +21,7 @@ const Login = ({
   const handleSubmit = (evt) => {
     evt.preventDefault();
     handleLogin();
+    setModalShow(false);
   };
   return (
     <>
