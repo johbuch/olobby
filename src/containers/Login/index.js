@@ -5,14 +5,13 @@ import Login from 'src/components/Login';
 import { createUpdateUserFieldAction } from 'src/actions/user';
 
 const mapStateToProps = (state) => ({
-  email: state.email,
+  email: state.user.email,
   password: state.user.password,
   isLogged: state.user.isLogged,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   changeField: (newValue, name) => {
-    console.log(`Nouvelle valeur ${newValue} pour le champ ${name}`);
     dispatch(createUpdateUserFieldAction(newValue, name));
   },
 });

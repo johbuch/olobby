@@ -8,7 +8,7 @@ import Button from 'react-bootstrap/Button';
 import Image from 'react-bootstrap/Image';
 import Dropdown from 'react-bootstrap/Dropdown';
 
-import Login from 'src/components/Login';
+import Login from 'src/containers/Login';
 
 import {
   MdSearch,

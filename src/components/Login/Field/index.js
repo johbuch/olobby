@@ -18,15 +18,13 @@ const Field = ({
   };
 
   return (
-    <Form>
-      <Form.Group controlId="formBasicEmail">
-        <Form.Label>{placeholder}</Form.Label>
-        <Form.Control className="input_color" type={type} placeholder={placeholder} onChange={handleChange} value={value} name={name} />
-        <Form.Text className="text-muted">
-          We'll never share your email with anyone else.
-        </Form.Text>
-      </Form.Group>
-    </Form>
+    <Form.Group controlId="formBasicEmail">
+      <Form.Label>{placeholder}</Form.Label>
+      <Form.Control className="input_color" type={type} placeholder={placeholder} onChange={handleChange} value={value} name={name} />
+      <Form.Text className="text-muted">
+        We'll never share your email with anyone else.
+      </Form.Text>
+    </Form.Group>
   );
 };
 

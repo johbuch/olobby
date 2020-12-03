@@ -4,7 +4,7 @@ const initialState = {
   // ici l'état initial
   isLogged: false,
   password: '',
-  email: 'maxime',
+  email: '',
 };
 
 const user = (state = initialState, action = {}) => {

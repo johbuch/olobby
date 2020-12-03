@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 import Field from './Field';
 
@@ -16,6 +17,10 @@ const Login = ({
   password,
   changeField,
 }) => {
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+  };
+
   function MyVerticallyCenteredModal(props) {
     return (
       <Modal
@@ -30,22 +35,24 @@ const Login = ({
           </Modal.Title>
         </Modal.Header>
         <Modal.Body className="modal__body">
-          <Field
-            name="email"
-            placeholder="Adresse Email"
-            onChange={changeField}
-            value={email}
-          />
-          <Field
-            name="password"
-            type="password"
-            placeholder="Mot de passe"
-            onChange={changeField}
-            value={password}
-          />
-          <Button className="btn_login" variant="primary" type="submit">
-            Se connecter
-          </Button>
+          <Form onSubmit={handleSubmit}>
+            <Field
+              name="email"
+              placeholder="Adresse Email"
+              onChange={changeField}
+              value={email}
+            />
+            <Field
+              name="password"
+              type="password"
+              placeholder="Mot de passe"
+              onChange={changeField}
+              value={password}
+            />
+            <Button className="btn_login" variant="primary" type="submit">
+              Se connecter
+            </Button>
+          </Form>
           <div className="linechoice">
             <div className="linechoiceleft"></div>
             <p className="choice">Pas de compte ? clique ci-dessous</p>
