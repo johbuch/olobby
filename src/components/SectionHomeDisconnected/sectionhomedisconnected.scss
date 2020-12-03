@@ -2,37 +2,25 @@
 
 .section 
 {
-  position: relative;
-  top: 27rem;
-  display: inline-block;
-
-
+  margin-top: vars.$gutter * 4;
   &__title {
-    display: block;
-    position: fixed;
-    top: 40rem;
-    left: 45rem;
     color: whitesmoke;
     font-weight: vars.$ft-bold;
     
   }
 
-  &__text {
-    display: block;
-    position: fixed;
-    top: 45rem;
-    left: 45rem;
+  &__paragraph {
+    display: inline;
     color: vars.$main-color;
     font-weight: vars.$ft-regular;
-    width: 40%;
   }
 
-  
-  &__image1 {
-    display: block;
-    position: fixed;
-    object-fit: cover;
-    width: 50%;
-    top: 40rem;
+  &__img{
+    height: 330px;
+    &__image1 {
+      object-fit: cover;
+      width:100%;
+      height: 100%;
+    }
   }
 }

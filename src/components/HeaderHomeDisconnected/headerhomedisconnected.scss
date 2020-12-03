@@ -1,24 +1,23 @@
 @use 'src/styles/vars';
 
 .header{
-  position: absolute;
-  top: 5rem;
+  display: inline;
+  position: static;
+  top: 0rem;
   left: 0;
   right: 0;
 
   &__title {
-    position: fixed;
+    position: absolute;
     color: whitesmoke;
     font-weight: vars.$ft-bold;
-    position: relative; 
     left: 27rem;
-    top: 5rem;
+    top: 10rem;
   }
 
   &__image {
-    position: fixed;
+    position: relative;
     object-fit: cover;
-    justify-content: stretch;
     z-index: -1;
     display: block;
     height: 500px;
