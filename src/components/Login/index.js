@@ -59,7 +59,7 @@ const Login = ({
             <div className="linechoiceright"></div>
           </div>
           <Button className="btn_createAccount" type="submit">
-            S'inscrire
+            S'inscrires
           </Button>
         </Modal.Body>
       </Modal>
