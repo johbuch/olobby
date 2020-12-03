@@ -30,7 +30,6 @@ const Login = ({
           </Modal.Title>
         </Modal.Header>
         <Modal.Body className="modal__body">
-
           <Field
             name="email"
             placeholder="Adresse Email"
@@ -44,6 +43,17 @@ const Login = ({
             onChange={changeField}
             value={password}
           />
+          <Button className="btn_login" variant="primary" type="submit">
+            Se connecter
+          </Button>
+          <div className="linechoice">
+            <div className="linechoiceleft"></div>
+            <p className="choice">Pas de compte ? clique ci-dessous</p>
+            <div className="linechoiceright"></div>
+          </div>
+          <Button className="btn_createAccount" type="submit">
+            S'inscrire
+          </Button>
         </Modal.Body>
       </Modal>
     );

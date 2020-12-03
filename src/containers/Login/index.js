@@ -5,9 +5,9 @@ import Login from 'src/components/Login';
 import { createUpdateUserFieldAction } from 'src/actions/user';
 
 const mapStateToProps = (state) => ({
-  email: state.user.email,
-  password: state.user.password,
-  isLogged: state.user.isLogged,
+  email: state.email,
+  password: state.password,
+  isLogged: state.isLogged,
 });
 
 const mapDispatchToProps = (dispatch) => ({
