@@ -63,23 +63,11 @@ class RegistrationController extends AbstractController
 
          $mailer->send($email);
 
-
-            return $guardHandler->authenticateUserAndHandleSuccess(
-                $user,
-                $request,
-                $authenticator,
-                'main' // firewall name in security.yaml
-            );
             return $this->json($user);
         } else {
-            // Si le formulaire n'est pas valide (les contraintes de validation ne sont pas respectées)
-            // on retourne un code 400 avec un tableau de toutes les erreurs
-            // https://symfonycasts.com/screencast/symfony-rest2/validation-errors-response
             return $this->json([
                 'errors' => (string) $form->getErrors(true, false),
             ], 400);
         }
-
-        
     }
 }
