@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\ControllerDev;
 
 use App\Entity\User;
+use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -15,9 +16,10 @@ class MainController extends AbstractController
     /**
      * @Route("home", name="browse")
      */
-    public function home(): Response
+    public function home(UserRepository $userRepository): Response
     {
         return $this->render('main/home.html.twig', [
+            'users' => $userRepository->findAll()
         ]);
     }
 
