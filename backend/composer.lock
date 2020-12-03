@@ -4,13 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-
-    "content-hash": "80d98d1538389bfadff43acf6ea31d03",
-
-=======
-    "content-hash": "80d98d1538389bfadff43acf6ea31d03",
->>>>>>> a8a087216f37d04894d7a35d71eaf83338987e44
+    "content-hash": "7617d7cb830c00a50b6a2baa78dcf106",
     "packages": [
         {
             "name": "composer/package-versions-deprecated",
@@ -4112,6 +4106,9 @@
             ],
             "description": "Symfony Google Mailer Bridge",
             "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/google-mailer/tree/v5.2.0-RC2"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
