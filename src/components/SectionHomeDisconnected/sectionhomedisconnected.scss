@@ -3,21 +3,36 @@
 .section 
 {
   position: relative;
-  top: 30rem;
-  color: vars.$main-color;
+  top: 27rem;
+  display: inline-block;
+
 
   &__title {
+    display: block;
+    position: fixed;
+    top: 40rem;
+    left: 45rem;
+    color: whitesmoke;
     font-weight: vars.$ft-bold;
+    
   }
 
   &__text {
+    display: block;
+    position: fixed;
+    top: 45rem;
+    left: 45rem;
+    color: vars.$main-color;
     font-weight: vars.$ft-regular;
+    width: 40%;
   }
+
   
   &__image1 {
-    font-weight: vars.$ft-regular;
-    position: absolute;
+    display: block;
+    position: fixed;
     object-fit: cover;
     width: 50%;
+    top: 40rem;
   }
 }
