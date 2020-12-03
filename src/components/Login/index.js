@@ -20,11 +20,11 @@ const Login = ({
   const handleSubmit = (evt) => {
     evt.preventDefault();
   };
-
-  function MyVerticallyCenteredModal(props) {
-    return (
+  return (
+    <>
       <Modal
-        {...props}
+        show={modalShow}
+        onHide={() => setModalShow(false)}
         size="ls"
         aria-labelledby="contained-modal-title-vcenter"
         centered
@@ -63,14 +63,6 @@ const Login = ({
           </Button>
         </Modal.Body>
       </Modal>
-    );
-  }
-  return (
-    <>
-      <MyVerticallyCenteredModal
-        show={modalShow}
-        onHide={() => setModalShow(false)}
-      />
     </>
   );
 };
