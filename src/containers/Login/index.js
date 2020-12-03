@@ -6,8 +6,8 @@ import { createUpdateUserFieldAction } from 'src/actions/user';
 
 const mapStateToProps = (state) => ({
   email: state.email,
-  password: state.password,
-  isLogged: state.isLogged,
+  password: state.user.password,
+  isLogged: state.user.isLogged,
 });
 
 const mapDispatchToProps = (dispatch) => ({
