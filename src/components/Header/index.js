@@ -22,7 +22,7 @@ import { BiLogInCircle } from 'react-icons/bi';
 // == Import scss
 import './header.scss';
 
-const Header = ({ isLogged }) => {
+const Header = ({ isLogged, handleLogout }) => {
   const [modalShow, setModalShow] = React.useState(false);
 
   return (
@@ -76,7 +76,7 @@ const Header = ({ isLogged }) => {
               </Dropdown.Toggle>
               <Dropdown.Menu>
                 <Dropdown.Item href="#/action-1">Mon compte</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">Se déconnecter</Dropdown.Item>
+                <Dropdown.Item onClick={handleLogout}>Se déconnecter</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
           </div>
@@ -169,7 +169,7 @@ const Header = ({ isLogged }) => {
 
 Header.propTypes = {
   isLogged: PropTypes.bool,
-  //setModalShow: PropTypes.func.isRequired,
+  handleLogout: PropTypes.func.isRequired,
 };
 
 Header.defaultProps = {

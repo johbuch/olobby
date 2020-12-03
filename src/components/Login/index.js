@@ -16,9 +16,11 @@ const Login = ({
   email,
   password,
   changeField,
+  handleLogin,
 }) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
+    handleLogin();
   };
   return (
     <>
@@ -73,6 +75,7 @@ Login.propTypes = {
   changeField: PropTypes.func.isRequired,
   modalShow: PropTypes.bool.isRequired,
   setModalShow: PropTypes.func.isRequired,
+  handleLogin: PropTypes.func.isRequired,
 };
 
 export default Login;

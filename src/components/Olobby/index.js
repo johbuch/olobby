@@ -1,5 +1,6 @@
 // == Import npm
-import React from 'react';
+import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 // == Import css
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -13,15 +14,24 @@ import MenuFooter from 'src/components/MenuFooter';
 import CardProfile from 'src/components/CardProfile';
 
 // == Composant
-const Olobby = () => (
-  <div className="olobby">
-    <Header />
-    <Aside />
-    <CardProfile />
-    <Footer />
-    <MenuFooter />
-  </div>
-);
+const Olobby = ({ checkLogged }) => {
+  useEffect(() => {
+    checkLogged();
+  }, []);
 
+  return (
+    <div className="olobby">
+      <Header />
+      <Aside />
+      <CardProfile />
+      <Footer />
+      <MenuFooter />
+    </div>
+  );
+};
+
+Olobby.propTypes = {
+  checkLogged: PropTypes.func.isRequired,
+};
 // == Export
 export default Olobby;
