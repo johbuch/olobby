@@ -17,7 +17,7 @@ use Symfony\Component\Serializer\SerializerInterface;
 class UserController extends AbstractController
 {
     /**
-     * @Route("", name="browse", methods={"GET"})
+     * @Route("", name="dashboard", methods={"GET"})
      */
     public function dashboard(UserRepository $userRepository): Response
     {
