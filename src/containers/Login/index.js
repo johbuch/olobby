@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import Login from 'src/components/Login';
 
-import { createUpdateUserFieldAction } from 'src/actions/user';
+import { createUpdateUserFieldAction, logIn } from 'src/actions/user';
 
 const mapStateToProps = (state) => ({
   email: state.user.email,
@@ -13,6 +13,10 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   changeField: (newValue, name) => {
     dispatch(createUpdateUserFieldAction(newValue, name));
+  },
+  handleLogin: () => {
+    // console.log('handleLogin');
+    dispatch(logIn());
   },
 });
 
