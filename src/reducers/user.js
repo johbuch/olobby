@@ -1,12 +1,22 @@
+import { UPDATE_USER_FIELD } from 'src/actions/user';
+
 const initialState = {
   // ici l'état initial
   isLogged: false,
+  password: '',
+  email: 'maxime',
 };
 
-const userReducer = (state = initialState, action = {}) => {
+const user = (state = initialState, action = {}) => {
   switch (action.type) {
-    default: return { ...state };
+    case UPDATE_USER_FIELD:
+      return {
+        ...state,
+        [action.name]: action.value,
+      };
+    default:
+      return { ...state };
   }
 };
 
-export default userReducer;
+export default user;
