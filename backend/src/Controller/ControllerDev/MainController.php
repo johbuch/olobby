@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class MainController extends AbstractController
 {
     /**
-     * @Route("home", name="browse")
+     * @Route("", name="browse")
      */
     public function home(UserRepository $userRepository): Response
     {
