@@ -2,7 +2,7 @@ import { UPDATE_USER_FIELD, SAVE_USER_INFO, LOG_IN } from 'src/actions/user';
 
 const initialState = {
   // ici l'état initial
-  isLogged: false,
+  isLogged: true,
   password: '',
   email: '',
   nickname: '',

@@ -111,6 +111,16 @@
             box-shadow: none;
           }
         }
+        .dropdown-menu{
+          top:50px;
+          left: -70px;
+          .dropdown-item{
+            &:hover{
+              background-color: vars.$main-color;
+              color: white;
+            }
+          }
+        }
       }
     }
 
