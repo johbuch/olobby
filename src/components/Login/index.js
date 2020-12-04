@@ -38,7 +38,7 @@ const Login = ({
         aria-labelledby="contained-modal-title-vcenter"
         centered
       >
-        <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
+        <ReactCardFlip isFlipped={isFlipped} flipDirection="vertical">
           <div>
             <Modal.Header closeButton className="modal__header">
               <Modal.Title id="contained-modal-title-vcenter">
@@ -77,11 +77,13 @@ const Login = ({
           <div>
           <Modal.Header closeButton className="modal__header">
               <Modal.Title id="contained-modal-title-vcenter">
-                O'lobby logo  -  Se connecter à O'Lobby
+                O'lobby logo  -  S'inscrire à O'Lobby
               </Modal.Title>
             </Modal.Header>
             <Modal.Body className="modal__body">
-            <p><a onClick={handleClick}>  <IoIosArrowBack /> retour login </a></p>
+            <Button onClick={handleClick} className="btn_back" variant="primary" size="sm">
+              <IoIosArrowBack />retour login  
+            </Button>
               <Form onSubmit={handleSubmit}>
                 <Field
                   name="email"
