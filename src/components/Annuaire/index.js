@@ -17,7 +17,7 @@ const Annuaire= () => (
             <Form.Group as={Col} controlId="formGridState">
                 <Form.Control
                     as="select"
-                    className="mr-sm-1"
+                    className="mr-sm-1 ctrl_form"
                     id="inlineFormCustomSelect"
                     custom
                 >
@@ -31,7 +31,7 @@ const Annuaire= () => (
             <Form.Group as={Col} controlId="formGridState">
                 <Form.Control
                     as="select"
-                    className="mr-sm-1"
+                    className="mr-sm-1 ctrl_form"
                     id="inlineFormCustomSelect"
                     custom
                 >
@@ -47,7 +47,7 @@ const Annuaire= () => (
             <Form.Group as={Col} controlId="formGridState">
                 <Form.Control
                     as="select"
-                    className="mr-sm-1"
+                    className="mr-sm-1 ctrl_form"
                     id="inlineFormCustomSelect"
                     custom
                 >
@@ -60,8 +60,8 @@ const Annuaire= () => (
                     <option value="6">World Of Warcraft</option>
                 </Form.Control>
             </Form.Group>            
-            <Col xs="auto" className="my-1">
-            <Button type="submit">Appliquer</Button>
+            <Col xs="auto" className="my-2">
+            <Button className="button_form btn_submit" type="submit">Appliquer</Button>
             <Form.Check
                 className="remember"
                 type="checkbox"
