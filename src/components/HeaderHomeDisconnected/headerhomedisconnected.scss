@@ -10,11 +10,9 @@
   &__title {
     position: absolute;
     color: whitesmoke;
-    background-image: radial-gradient( #921ECC);
-    
-    border-radius: 3rem;
-
-    padding: 1rem;
+    background: radial-gradient(closest-side at 50% 45%, #921ECC, transparent);
+    border-radius: 1.5rem;
+    padding: 0.8rem;
     font-weight: vars.$ft-bold;
     left: 27rem;
     top: 10rem;
