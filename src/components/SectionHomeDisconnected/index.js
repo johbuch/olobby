@@ -23,8 +23,8 @@ const SectionHomeDisconnected = () => (
             </Col>
             <Col sm md lg>
               <div className="section__text">
-                <h1 className="section__title">Titre</h1>
-                <p className="section__paragraph"> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure ducimus sint expedita esse sunt tempore quas nihil eligendi nostrum, aperiam ipsa est ad quam quia placeat fugiat officiis corrupti. Deleniti similique modi ut consequatur eius vitae corrupti ullam cumque ratione!
+                <h1 className="section__title">O'Lobby, c'est quoi ?</h1>
+                <p className="section__paragraph"> O’Lobby est un réseau social destiné aux joueurs avec peu de relation ou cherchant une meilleure expérience de jeu en trouvant des joueurs qui correspondent à leurs critères. Le joueur pourra se constituer un carnet de profils de joueur plus rapidement qu’en les trouvant seulement en partie et dans son entourage proche.
                 </p>
               </div>
             </Col>
@@ -34,8 +34,19 @@ const SectionHomeDisconnected = () => (
           <Row>
             <Col sm md lg>
               <div className="section__text">
-                <h1 className="section__title">Titre</h1>
-                <p className="section__paragraph"> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure ducimus sint expedita esse sunt tempore quas nihil eligendi nostrum, aperiam ipsa est ad quam quia placeat fugiat officiis corrupti. Deleniti similique modi ut consequatur eius vitae corrupti ullam cumque ratione!
+                <h1 className="section__title">Pourquoi O'Lobby ?</h1>
+                <p className="section__paragraph">
+                  Le matchmaking des jeux vidéos (Fortnite, COD, Apex Legends, GTA, etc.)
+                  en réseau sur les plateformes Playstation, Xbox, PC peut gâcher
+                  l’expérience des utilisateurs de ces jeux et ils ressortent de sessions
+                  de parties déçus du comportement des autres participants (abandon en
+                  cours de jeu, incivisme, non-collaboration), regrettent la
+                  non-équivalence de niveau, sans oublier la barrière de la langue.
+                  <br></br>
+                  <br></br>
+                  O'Lobby permet donc d'améliorer
+                  l’expérience de jeu des joueurs de jeux vidéo en ligne
+                  et aux joueurs d'étendre leur réseau de joueurs.
                 </p>
               </div>
             </Col>
