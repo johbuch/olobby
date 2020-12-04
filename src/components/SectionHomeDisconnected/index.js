@@ -36,7 +36,7 @@ const SectionHomeDisconnected = () => (
               <div className="section__text">
                 <h1 className="section__title">Pourquoi O'Lobby ?</h1>
                 <p className="section__paragraph">
-                  Le matchmaking des jeux vidéos (Fortnite, COD, Apex Legends, GTA, etc.)
+                  Le matchmaking des jeux vidéos (Fortnite, COD, Apex Legends, GTA...)
                   en réseau sur les plateformes Playstation, Xbox, PC peut gâcher
                   l’expérience des utilisateurs de ces jeux et ils ressortent de sessions
                   de parties déçus du comportement des autres participants (abandon en
