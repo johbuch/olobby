@@ -6,7 +6,6 @@ const initialState = {
   password: '',
   email: '',
   nickname: '',
-  accessToken: '',
 };
 
 const user = (state = initialState, action = {}) => {

@@ -18,14 +18,9 @@ export const logOut = () => ({
   type: LOG_OUT,
 });
 
-export const saveUserInfo = (isLogged, nickname) => ({
+export const saveUserInfo = (isLogged, token, nickname) => ({
   type: SAVE_USER_INFO,
   isLogged,
+  token,
   nickname,
-});
-
-export const checkLogged = (email, password) => ({
-  type: CHECK_LOGGED,
-  email,
-  password,
 });

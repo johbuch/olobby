@@ -15,10 +15,10 @@ import CardProfile from 'src/components/CardProfile';
 
 // == Composant
 const Olobby = ({ checkLogged }) => {
-  useEffect(() => {
+  /*useEffect(() => {
     checkLogged();
-  }, []);
-
+  }, []);*/
+  console.log('test');
   return (
     <div className="olobby">
       <Header />
