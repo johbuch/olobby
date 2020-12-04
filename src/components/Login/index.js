@@ -5,6 +5,7 @@ import ReactCardFlip from "react-card-flip";
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { IoIosArrowBack } from "react-icons/io";
 
 import Field from './Field';
 
@@ -80,6 +81,7 @@ const Login = ({
               </Modal.Title>
             </Modal.Header>
             <Modal.Body className="modal__body">
+            <p><a onClick={handleClick}>  <IoIosArrowBack /> retour login </a></p>
               <Form onSubmit={handleSubmit}>
                 <Field
                   name="email"
@@ -97,13 +99,30 @@ const Login = ({
                 <Field
                   name="password"
                   type="password"
-                  placeholder="Mot de passe"
+                  placeholder="Confirmer le Mot de passe"
                   onChange={changeField}
                   value={password}
                 />
-              </Form>              
-              <Button onClick={handleClick} className="btn_createAccount" type="submit">
-                Valider l'inscription
+              </Form>
+              <h4>Choisir mes jeux favoris   3/3</h4>
+              <Form.Group controlId="formBasicCheckbox">
+                <Form.Check type="checkbox" label="CalofDuTea" />
+                <Form.Check type="checkbox" label="Fifou 21" />
+                <Form.Check type="checkbox" label="Munster Hunter AOP world" />
+                <Form.Check type="checkbox" label="Fournight" />
+                <Form.Check type="checkbox" label="World of Farmcraft" />
+                <Form.Check type="checkbox" label="GTAssis " />
+                <Form.Check type="checkbox" label="CyberFunk" />
+              </Form.Group>
+              <h4>Choisir ma plateforme</h4>
+              <Form.Group controlId="formBasicCheckbox">
+                <Form.Check type="checkbox" label="Playstation" />
+                <Form.Check type="checkbox" label="Xbox" />
+                <Form.Check type="checkbox" label="PC" />
+              </Form.Group>
+              <p>En cliquant sur S'inscrire, vous reconnaissez avoir lu et approuvé les Conditions d'utilisation et la Politique de confidentialité.</p>
+              <Button className="btn_createAccount" type="submit">
+                S'inscrire
               </Button>
             </Modal.Body>
           </div>
