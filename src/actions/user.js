@@ -24,6 +24,8 @@ export const saveUserInfo = (isLogged, nickname) => ({
   nickname,
 });
 
-export const checkLogged = () => ({
+export const checkLogged = (email, password) => ({
   type: CHECK_LOGGED,
+  email,
+  password,
 });
