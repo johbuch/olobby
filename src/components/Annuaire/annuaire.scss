@@ -1,0 +1,27 @@
+@use 'src/styles/vars';
+
+.annuaireForm{
+    margin-top: 100px;
+    margin-left: 350px;
+    margin-bottom: vars.$gutter * 2;
+    .form__row{
+        .form__group{
+            .form__control{
+                background-color: vars.$main-color;
+            }
+        }
+    }
+};
+
+.remember{
+    color: white;
+}
+
+
+@media screen and (max-width: 768px) {
+    .annuaireForm{
+      margin-left: vars.$gutter;
+      margin-right: vars.$gutter;
+      margin-top: 180px;
+    }
+  }
