@@ -38,30 +38,31 @@ class UserController extends AbstractController
      /**
      * @Route("/edit/{id}", name="edit", methods={"PUT"})
      */
-/*  public function edit(Request $request, SerializerInterface $serializer)
+    public function edit(Request $request, User $user): Response
     {
-        $json = $request->getContent();
 
-        $userArray = json_decode($json, true);
+         $donnees = json_decode($request->getContent());
 
-        $user = $this->getUser();
+        $user->setPseudo($donnees->pseudo);
+        $user->setEmail($donnees->email);
+        $user->setPassword($donnees->password);
 
-        $form = $this->createForm(UserType::class, $user);
+        $user->setUpdatedAt(new \DateTime());
 
-        $form->submit($userArray);
 
-        if ($form->isSubmitted() && $form->isValid()) {
 
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->flush();
+            
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($user);
+        $entityManager->flush();
 
             $this->addFlash('success', 'Profil modifié.');
 
-            return $this->json($user);
-        }
-
+            
+        
+        return $this->json($user);
     }
-*/
+
 
     /**
      * @Route("/{id}", name="delete", methods={"DELETE"})
