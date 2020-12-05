@@ -333,21 +333,6 @@ class User implements UserInterface
         return $videogamesJson;
     }
 
-    public function getPlatformCollection(): array
-    {
-        $platformJson = [];
-        foreach ($this->platform as $platform) {
-            $platformJson[] = [
-                'id' => $platform->getId(),
-                'name' => $platform->getName(),
-            ];
-        }
-
-        return $platformJson;
-    }
-
-
-
     /**
      * @Ignore()
      */
