@@ -36,7 +36,7 @@ class UserController extends AbstractController
     /**
     * @Route("/edit/{id}", name="edit", methods={"PUT"})
     */
-    public function edit(Request $request, User $user, int $id, UserRepository $userRepository): Response
+    public function edit(Request $request, int $id): Response
     {
         $user = $this->getDoctrine()
         ->getRepository('App:User')
@@ -45,13 +45,14 @@ class UserController extends AbstractController
         $form = $this->createForm(UserType::class, $user);
         $form->submit($data);
 
+        if ($form->isSubmitted() && $form->isValid()) {
             $user->setUpdatedAt(new \DateTime());
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
 
             $this->addFlash('success', 'Profil modifié.');
-            
+        } 
         return $this->json($data, 200, [], ['groups' => 'user:dashboard']);
     }
     
