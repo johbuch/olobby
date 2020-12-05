@@ -6,6 +6,7 @@ const initialState = {
   password: '',
   email: '',
   nickname: '',
+  avatar: '',
 };
 
 const user = (state = initialState, action = {}) => {
@@ -27,6 +28,7 @@ const user = (state = initialState, action = {}) => {
         ...state,
         isLogged: action.isLogged,
         nickname: action.nickname,
+        avatar: action.avatar,
       };
     default:
       return { ...state };

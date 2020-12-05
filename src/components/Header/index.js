@@ -22,7 +22,7 @@ import { BiLogInCircle } from 'react-icons/bi';
 // == Import scss
 import './header.scss';
 
-const Header = ({ isLogged, handleLogout }) => {
+const Header = ({ isLogged, handleLogout, nickname, avatar }) => {
   const [modalShow, setModalShow] = React.useState(false);
 
   return (
@@ -41,7 +41,7 @@ const Header = ({ isLogged, handleLogout }) => {
           <Dropdown>
             <Dropdown.Toggle id="dropdown-basic">
               <div className="img">
-                <Image src="https://androidgadget.org/wp-content/uploads/2020/03/Regardez-la-bande-annonce-de-Trevor-GTA-5-recr%C3%A9%C3%A9e-dans-Les.jpg" roundedCircle />
+                <Image src={avatar} roundedCircle />
               </div>
             </Dropdown.Toggle>
             <Dropdown.Menu>
@@ -68,11 +68,11 @@ const Header = ({ isLogged, handleLogout }) => {
               <MdNotifications />
             </div>
             <div className="img">
-              <Image src="https://androidgadget.org/wp-content/uploads/2020/03/Regardez-la-bande-annonce-de-Trevor-GTA-5-recr%C3%A9%C3%A9e-dans-Les.jpg" roundedCircle />
+              <Image src={avatar} roundedCircle />
             </div>
             <Dropdown>
               <Dropdown.Toggle id="dropdown-basic">
-                Trevor
+                {nickname}
               </Dropdown.Toggle>
               <Dropdown.Menu>
                 <Dropdown.Item href="#/action-1">Mon compte</Dropdown.Item>
@@ -170,6 +170,8 @@ const Header = ({ isLogged, handleLogout }) => {
 Header.propTypes = {
   isLogged: PropTypes.bool,
   handleLogout: PropTypes.func.isRequired,
+  nickname: PropTypes.string.isRequired,
+  avatar: PropTypes.string.isRequired,
 };
 
 Header.defaultProps = {

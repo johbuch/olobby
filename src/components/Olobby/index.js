@@ -31,7 +31,7 @@ const Olobby = ({ checkLogged }) => {
 };
 
 Olobby.propTypes = {
-  checkLogged: PropTypes.func.isRequired,
+  //checkLogged: PropTypes.func.isRequired,
 };
 // == Export
 export default Olobby;
