@@ -9,7 +9,14 @@
 
 
 {% for user in users %} 
-    <h2>{{ user.pseudo }}</h2>
+  <h2>
+    {{ user.pseudo }}, 
+    {{ user.email }}, 
+    {{ user.platform.name }},
+     {% for videogame in user.videogames %}
+        <span>{{ videogame.title }}</span>  
+    {% endfor %}
+  </h2>
 {% endfor %}
 
 {% endblock %}
