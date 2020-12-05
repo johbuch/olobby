@@ -42,7 +42,7 @@ class UserController extends AbstractController
         ->getRepository('App:User')
         ->find($id);
         $data = json_decode($request->getContent(), true);
-        $form = $this->createForm(UserType::class, $user);
+        $form = $this->createForm(UserType::class, $user, ['is_edit' => true,]);
         $form->submit($data);
 
         if ($form->isSubmitted() && $form->isValid()) {
