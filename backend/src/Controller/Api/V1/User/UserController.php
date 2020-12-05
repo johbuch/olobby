@@ -21,9 +21,7 @@ class UserController extends AbstractController
      */
     public function dashboard(UserRepository $userRepository): Response
     {
-        $users = $userRepository->findAll();
-
-        return $this->json($users);
+        return $this->json($userRepository->findAll(), 200, [], ['groups' => 'user:dashboard']);
     }
 
      /**
