@@ -27,6 +27,6 @@ class PlatformController extends AbstractController
     */
     public function read(Platform $platform): Response
     {
-        return $this->json($platform);
+        return $this->json($platform, 200, [], ['groups' => 'platform:dashboard']);
     }
 }

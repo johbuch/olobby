@@ -20,13 +20,13 @@ class User implements UserInterface
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups({"platform:dashboard", "user:dashboard"})
+     * @Groups({"platform:dashboard", "user:dashboard", "videogame:dashboard"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
-     * @Groups({"platform:dashboard", "user:dashboard"})
+     * @Groups({"platform:dashboard", "user:dashboard", "videogame:dashboard"})
      */
     private $email;
 

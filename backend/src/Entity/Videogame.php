@@ -17,19 +17,19 @@ class Videogame
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups("user:dashboard")
+     * @Groups({"platform:dashboard", "user:dashboard", "videogame:dashboard"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=120)
-     * @Groups("user:dashboard")
+     * @Groups({"platform:dashboard", "user:dashboard", "videogame:dashboard"})
      */
     private $title;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups("user:dashboard")
+     * @Groups({"platform:dashboard", "user:dashboard", "videogame:dashboard"})
      */
     private $image;
 
@@ -45,11 +45,13 @@ class Videogame
 
     /**
      * @ORM\ManyToMany(targetEntity=User::class, mappedBy="videogames")
+     * @Groups("videogame:dashboard")
      */
     private $users;
 
     /**
      * @ORM\ManyToMany(targetEntity=Platform::class, mappedBy="videogames")
+     * @Groups("videogame:dashboard")
      */
     private $platforms;
 

@@ -19,7 +19,7 @@ class VideogameController extends AbstractController
      */
     public function browse(VideogameRepository $videogameRepository): Response
     {
-        return $this->json($videogameRepository->findAll(), 200, [], ['groups' => 'platform:dashboard']);
+        return $this->json($videogameRepository->findAll(), 200, [], ['groups' => 'vieogame:dashboard']);
     }
 
     /**
@@ -27,6 +27,6 @@ class VideogameController extends AbstractController
     */
     public function read(Videogame $videogame): Response
     {
-        return $this->json($videogame);
+        return $this->json($videogame, 200, [], ['groups' => 'vieogame:dashboard']);
     }
 }
