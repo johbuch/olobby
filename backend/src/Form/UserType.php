@@ -12,9 +12,9 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            //->add('email')
-            //->add('roles')
-            //->add('password')
+            ->add('email')
+            ->add('roles')
+            ->add('password')
             ->add('pseudo')
             ->add('level')
             ->add('description')
@@ -26,8 +26,8 @@ class UserType extends AbstractType
             ->add('discord')
             //->add('createdAt')
             //->add('updatedAt')
-            //->add('platform')
-            //->add('videogames')
+            ->add('platform')
+            ->add('videogames')
         ;
     }
 

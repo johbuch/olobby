@@ -35,7 +35,7 @@ class UserController extends AbstractController
 
    
     /**
-    * @Route("/edit/{id}", name="edit", methods={"PUT"})
+    * @Route("/edit/{id}", name="edit", methods={"PATCH"})
     */
     public function edit(Request $request, int $id): Response
     {
@@ -51,7 +51,7 @@ class UserController extends AbstractController
         
 
         $form = $this->createForm(UserType::class, $user);
-        $form->submit($data);
+        $form->submit($data, false);
 
             $user->setUpdatedAt(new \DateTime());
             $entityManager = $this->getDoctrine()->getManager();
