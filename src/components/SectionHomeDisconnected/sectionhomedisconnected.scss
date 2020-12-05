@@ -13,7 +13,8 @@
   &__paragraph {
     display: inline;
     color: vars.$main-color;
-    font-weight: vars.$ft-regular;
+    font-weight: vars.$ft-medium;
+    font-size: 1.1rem;
   }
 
   &__img{

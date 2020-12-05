@@ -9,7 +9,7 @@ import './headerhomedisconnected.scss';
 const HeaderHomeDisconnected = () => (
   <div>
     <header className="header">
-      <h1 className="header__title">Bienvenu sur O'Lobby</h1>
+      <h1 className="header__title">Bienvenue sur O'Lobby</h1>
       <img
         className="header__image"
         alt="Photoduheader"
