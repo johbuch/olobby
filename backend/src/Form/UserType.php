@@ -13,8 +13,8 @@ class UserType extends AbstractType
     {
         $builder
             ->add('email')
-            ->add('roles')
-            ->add('password')
+            //->add('roles')
+            //->add('password')
             ->add('pseudo')
             ->add('level')
             ->add('description')
@@ -24,10 +24,10 @@ class UserType extends AbstractType
             ->add('youtube')
             ->add('twitch')
             ->add('discord')
-            ->add('createdAt')
-            ->add('updatedAt')
-            ->add('platform')
-            ->add('videogames')
+            //->add('createdAt')
+            //->add('updatedAt')
+            //->add('platform')
+            //->add('videogames')
         ;
     }
 

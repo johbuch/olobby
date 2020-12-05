@@ -24,44 +24,37 @@ class UserController extends AbstractController
         return $this->json($userRepository->findAll(), 200, [], ['groups' => 'user:dashboard']);
     }
 
-     /**
-     * @Route("/{id}", name="read", methods={"GET"})
-     */
+    /**
+    * @Route("/{id}", name="read", methods={"GET"})
+    */
     public function read(User $user): Response
     {
         return $this->json($user, 200, [], ['groups' => 'user:dashboard']);
     }
 
    
-     /**
-     * @Route("/edit/{id}", name="edit", methods={"PUT"})
-     */
-    public function edit(Request $request, User $user): Response
+    /**
+    * @Route("/edit/{id}", name="edit", methods={"PUT"})
+    */
+    public function edit(Request $request, User $user, int $id, UserRepository $userRepository): Response
     {
+        $user = $this->getDoctrine()
+        ->getRepository('App:User')
+        ->find($id);
+        $data = json_decode($request->getContent(), true);
+        $form = $this->createForm(UserType::class, $user);
+        $form->submit($data);
 
-         $donnees = json_decode($request->getContent());
-
-        $user->setPseudo($donnees->pseudo);
-        $user->setEmail($donnees->email);
-        $user->setPassword($donnees->password);
-
-        $user->setUpdatedAt(new \DateTime());
-
-
-
-            
-        $entityManager = $this->getDoctrine()->getManager();
-        $entityManager->persist($user);
-        $entityManager->flush();
+            $user->setUpdatedAt(new \DateTime());
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($user);
+            $entityManager->flush();
 
             $this->addFlash('success', 'Profil modifié.');
-
             
-        
-        return $this->json($user);
+        return $this->json($data, 200, [], ['groups' => 'user:dashboard']);
     }
-
-
+    
     /**
      * @Route("/{id}", name="delete", methods={"DELETE"})
      */
