@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Serializer\SerializerInterface;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
  * @Route("/api/v1/users", name="api_v1_user_")
@@ -38,21 +39,27 @@ class UserController extends AbstractController
     */
     public function edit(Request $request, int $id): Response
     {
+        $data = json_decode($request->getContent(), true);
+
         $user = $this->getDoctrine()
         ->getRepository('App:User')
         ->find($id);
-        $data = json_decode($request->getContent(), true);
-        $form = $this->createForm(UserType::class, $user, ['is_edit' => true,]);
+
+        if(!$user) {
+            return new JsonResponse(['msg' => 'Cette Id d\'utilisateur n\'existe pas !'], 404);
+        }
+        
+
+        $form = $this->createForm(UserType::class, $user);
         $form->submit($data);
 
-        if ($form->isSubmitted() && $form->isValid()) {
             $user->setUpdatedAt(new \DateTime());
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
 
             $this->addFlash('success', 'Profil modifié.');
-        } 
+            
         return $this->json($data, 200, [], ['groups' => 'user:dashboard']);
     }
     

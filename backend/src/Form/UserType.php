@@ -12,15 +12,9 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('email', null, [
-                'disabled' => $options['is_edit']
-            ])
-            ->add('roles', null, [
-                'disabled' => $options['is_edit']
-            ])
-            ->add('password', null, [
-                'disabled' => $options['is_edit']
-            ])
+            //->add('email')
+            //->add('roles')
+            //->add('password')
             ->add('pseudo')
             ->add('level')
             ->add('description')
@@ -32,10 +26,8 @@ class UserType extends AbstractType
             ->add('discord')
             //->add('createdAt')
             //->add('updatedAt')
-            ->add('platform', null, [
-                'disabled' => $options['is_edit']
-            ])
-            ->add('videogames')
+            //->add('platform')
+            //->add('videogames')
         ;
     }
 
@@ -43,7 +35,6 @@ class UserType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => User::class,
-            'is_edit' => false,
         ]);
     }
 }
