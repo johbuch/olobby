@@ -17,7 +17,7 @@ const Footer = () => (
           <Col sm md lg>
             <Nav className="flex-column">
               <Nav.Link href="/home">Conditions générales d'utilisation</Nav.Link>
-              <Nav.Link href="/home">Cookies</Nav.Link>              
+              <Nav.Link href="/home">Cookies</Nav.Link>
               <Nav.Link href="/home">Politique de confidentialité</Nav.Link>
               <br />
               <br />
@@ -56,7 +56,7 @@ const Footer = () => (
     <hr />
     <div className="flex-column">
       <p className="col-sm copyright">
-        O'Lobby | Tous droits réservé O'lobby &copy;{new Date().getFullYear()} 
+        O'Lobby | Tous droits réservé O'lobby &copy;{new Date().getFullYear()}
       </p>
     </div>
   </div>
