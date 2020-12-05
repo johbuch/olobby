@@ -60,21 +60,19 @@ class UserController extends AbstractController
 
             $this->addFlash('success', 'Profil modifié.');
             
-        return $this->json($data, 200, [], ['groups' => 'user:dashboard']);
+        return $this->json(['msg' => 'Cette utilisateur a été actualisé avec succés!'], 200);
     }
     
     /**
      * @Route("/{id}", name="delete", methods={"DELETE"})
      */
-/*  public function delete(Request $request, User $user): Response
+    public function delete(User $id): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($user);
-            $entityManager->flush();
-        }
+       $doctrine = $this->getDoctrine()->getManager();
+       $doctrine->remove($id);
+       $doctrine->flush();
 
-        return $this->redirectToRoute('user_index');
+       return $this->json(['msg' => 'Cette utilisateur a été supprimé avec succés!'], 200);
     }
-*/
+
 }
