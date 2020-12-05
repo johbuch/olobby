@@ -7,6 +7,7 @@ use App\Repository\PlatformRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Serializer\SerializerInterface;
 
 /**
  * @Route("/api/v1/platforms", name="api_v1_platform_")
@@ -18,9 +19,7 @@ class PlatformController extends AbstractController
      */
     public function browse(PlatformRepository $platformRepository): Response
     {
-        $platforms = $platformRepository->findAll();
-
-        return $this->json($platforms);
+        return $this->json($platformRepository->findAll(), 200, [], ['groups' => 'platform:dashboard']);
     }
 
     /**

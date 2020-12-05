@@ -62,8 +62,7 @@ class RegistrationController extends AbstractController
          ;
 
          $mailer->send($email);
-
-            return $this->json($user);
+         return $this->json($user, 201, [], ['groups' => 'user:dashboard']);
         } else {
             return $this->json([
                 'errors' => (string) $form->getErrors(true, false),

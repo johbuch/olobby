@@ -7,6 +7,7 @@ use App\Repository\VideogameRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Serializer\SerializerInterface;
 
 /**
  * @Route("/api/v1/videogames", name="api_v1_videogame_")
@@ -18,9 +19,7 @@ class VideogameController extends AbstractController
      */
     public function browse(VideogameRepository $videogameRepository): Response
     {
-        $videogames = $videogameRepository->findAll();
-
-        return $this->json($videogames);
+        return $this->json($videogameRepository->findAll(), 200, [], ['groups' => 'platform:dashboard']);
     }
 
     /**
