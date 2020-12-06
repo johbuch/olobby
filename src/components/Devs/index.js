@@ -19,11 +19,20 @@ const Devs = () => (
       </Row>
       <Row>
         <Col>
-          <img src="https://imagizer.imageshack.com/img924/176/UNamhl.jpg" alt="photodetristan">
-            <h2 className="devs__dev1">
+          <img
+            className="devs__image1"
+            alt="photodetristan"
+            src="https://imagizer.imageshack.com/img924/176/UNamhl.jpg"
+          />
+          <h2 className="devs__devname1">
             Tristan
-            </h2>
-          </img>
+          </h2>
+          <p className="devs__devdescription1">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Id, placeat officiis nostrum eos nulla quibusdam vel ex unde.
+            Id, molestias. Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Error, minus?
+          </p>
         </Col>
       </Row>
     </Container>

@@ -12,9 +12,22 @@
     font-weight: vars.$ft-bold;
   }
 
-  &__dev1{
+  &__image1 {
+    size: 300px;
+    margin-bottom: 1.5rem;
+  }
+
+  &__devname1{
+    position: relative;
+    left: 6rem;
     color: white;
     font-weight: vars.$ft-bold;
     font-size: 1.6rem;
   } 
+
+  &__devdescription1{
+    font-size: 1.1rem;
+    color: vars.$main-color;
+    text-align: center;
+  }
 }
