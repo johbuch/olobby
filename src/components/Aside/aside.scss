@@ -16,7 +16,7 @@
   }
   .nav{
     padding-top: vars.$gutter * 2.5;
-    &-link{
+    .nav-item{
       margin-top: vars.$gutter;
       color: white;
       width: 90%;

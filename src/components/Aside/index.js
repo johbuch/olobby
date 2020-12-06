@@ -24,13 +24,23 @@ import './aside.scss';
 const Aside = () => (
   <div className="aside">
     <Nav defaultActiveKey="/home" className="flex-column">
-      <NavLink href="/home"><MdHome />Accueil</NavLink>
-      <NavLink className="nav-item" to="/" activeClassName="nav-item-active" exact><MdImportContacts />Annuaire de joueurs</NavLink>
+      <NavLink className="nav-item" to="/home" activeClassName="nav-item-active" exact><MdHome />Accueil</NavLink>
+      <NavLink className="nav-item" to="/annuaire-de-joueur" activeClassName="nav-item-active" exact><MdImportContacts />Annuaire de joueurs</NavLink>
       <NavLink className="nav-item" to="/annuaire-de-jeux" activeClassName="nav-item-active" ><MdGames />Annuaire de jeux</NavLink>
       <NavLink className="nav-item" to="/annuaire-de-plateformes" activeClassName="nav-item-active" ><GiGameConsole />Annuaire de plateformes</NavLink>
       <NavLink className="nav-item" to="/mes-jeux" activeClassName="nav-item-active" ><MdVideogameAsset />Mes jeux</NavLink>
       <NavLink className="nav-item" to="/mes-amis" activeClassName="nav-item-active" ><MdSupervisorAccount />Mes amis</NavLink>
     </Nav>
+
+    {/* <Nav defaultActiveKey="/home" className="flex-column">
+      <NavLink className="nav-item" to="/home" activeClassName="nav-item-active" exact><MdHome />Accueil</NavLink>
+      <NavLink className="nav-item" to="/home" activeClassName="nav-item-active"><MdImportContacts />Annuaire de joueurs</NavLink>
+      <NavLink className="nav-item" to="/annuaire-de-jeux" activeClassName="nav-item-active" ><MdGames />Annuaire de jeux</NavLink>
+      <NavLink className="nav-item" to="/annuaire-de-plateformes" activeClassName="nav-item-active" ><GiGameConsole />Annuaire de plateformes</NavLink>
+      <NavLink className="nav-item" to="/mes-jeux" activeClassName="nav-item-active" ><MdVideogameAsset />Mes jeux</NavLink>
+      <NavLink className="nav-item" to="/mes-amis" activeClassName="nav-item-active" ><MdSupervisorAccount />Mes amis</NavLink>
+    </Nav> */}
+
 
     <div className="aside__friend">
       <h5 className="aside__friend__title">Mes 3 premiers Amis ajoutés</h5>
