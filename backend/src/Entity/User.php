@@ -121,6 +121,23 @@ class User implements UserInterface
      */
     private $videogames;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=FriendRelation::class, inversedBy="users")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $friendRelation;
+
+    /**
+     * @ORM\OneToOne(targetEntity=Friend::class, mappedBy="sender", cascade={"persist", "remove"})
+     */
+    private $friendSender;
+
+    /**
+     * @ORM\OneToOne(targetEntity=Friend::class, mappedBy="receiver", cascade={"persist", "remove"})
+     */
+    private $friendReceiver;
+
+
     public function __construct()
     {
         $this->videogames = new ArrayCollection();
@@ -371,4 +388,52 @@ class User implements UserInterface
 
         return $this;
     }
+
+    public function getFriendRelation(): ?FriendRelation
+    {
+        return $this->friendRelation;
+    }
+
+    public function setFriendRelation(?FriendRelation $friendRelation): self
+    {
+        $this->friendRelation = $friendRelation;
+
+        return $this;
+    }
+
+    public function getFriendSender(): ?Friend
+    {
+        return $this->friendSender;
+    }
+
+    public function setFriendSender(Friend $friendSender): self
+    {
+        $this->friendSender = $friendSender;
+
+        // set the owning side of the relation if necessary
+        if ($friendSender->getSender() !== $this) {
+            $friendSender->setSender($this);
+        }
+
+        return $this;
+    }
+
+    public function getFriendReceiver(): ?Friend
+    {
+        return $this->friendReceiver;
+    }
+
+    public function setFriendReceiver(Friend $friendReceiver): self
+    {
+        $this->friendReceiver = $friendReceiver;
+
+        // set the owning side of the relation if necessary
+        if ($friendReceiver->getReceiver() !== $this) {
+            $friendReceiver->setReceiver($this);
+        }
+
+        return $this;
+    }
+
+   
 }
