@@ -1,0 +1,20 @@
+@use 'src/styles/vars';
+
+.devs{
+  position: relative;
+  margin-bottom: 10rem;
+
+  &__title {
+    position: relative;
+    left: 31rem;
+    color: white;
+    font-size: 2rem;
+    font-weight: vars.$ft-bold;
+  }
+
+  &__dev1{
+    color: white;
+    font-weight: vars.$ft-bold;
+    font-size: 1.6rem;
+  } 
+}
