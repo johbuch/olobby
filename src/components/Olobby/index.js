@@ -12,14 +12,14 @@ import Footer from 'src/components/Footer';
 import MenuFooter from 'src/components/MenuFooter';
 import CardProfile from 'src/components/CardProfile';
 import Login from 'src/components/Login';
-import Annuaire from 'src/components/Annuaire';
+import Pages from 'src/components/Annuaire/Pages/index.js';
 
 // == Composant
 const Olobby = () => (
   <div className="olobby">
     <Header />
     <Aside />
-    <Annuaire />
+    <Pages />
     <CardProfile />
     <Footer />
     <MenuFooter />
