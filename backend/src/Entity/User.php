@@ -336,19 +336,6 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getVideogamesCollection(): array
-    {
-        $videogamesJson = [];
-        foreach ($this->videogames as $videogame) {
-            $videogamesJson[] = [
-                'id' => $videogame->getId(),
-                'title' => $videogame->getTitle(),
-            ];
-        }
-
-        return $videogamesJson;
-    }
-
     public function getPlatform(): ?Platform
     {
         return $this->platform;

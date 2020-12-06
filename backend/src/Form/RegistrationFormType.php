@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use App\Entity\Videogame;
 use App\Entity\Platform;
 use App\Entity\User;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -58,6 +59,17 @@ class RegistrationFormType extends AbstractType
                 'class' => Platform::class,
                 'choice_label' => 'name',
                 'expanded' => true,
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Choisir une plateforme'
+                    ])
+                ]
+            ])
+            ->add('videogames', EntityType::class, [
+                'class' => Videogame::class,
+                'choice_label' => 'title',
+                'expanded' => true,
+                'multiple' => true,
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Choisir une plateforme'
