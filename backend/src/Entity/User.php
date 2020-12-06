@@ -128,6 +128,7 @@ class User implements UserInterface
 
     /**
      * @ORM\OneToMany(targetEntity=Friend::class, mappedBy="receiver", orphanRemoval=true)
+     * @Groups("user:dashboard")
      */
     private $friendReceiver;
 

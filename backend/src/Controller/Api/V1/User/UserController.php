@@ -33,7 +33,7 @@ class UserController extends AbstractController
     */
     public function read(User $user): Response
     {
-        return $this->json($user, 200, [], ['groups' => 'user:dashboard']);
+        return $this->json($user, 200, [], ['groups' => ['user:dashboard', 'user:friend']]);
     }
 
    

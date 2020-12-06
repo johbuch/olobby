@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\FriendRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=FriendRepository::class)
@@ -29,6 +30,7 @@ class Friend
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
+     * @Groups("user:friend")
      */
     private $status;
 

@@ -9,14 +9,18 @@
 
 
 {% for user in users %} 
-  <h2>
-    {{ user.pseudo }}, 
-    {{ user.email }}, 
-    {{ user.platform.name }},
-     {% for videogame in user.videogames %}
-        <span>{{ videogame.title }}</span>  
-    {% endfor %}
-  </h2>
+  
+ <h2>Mon pseudo est: {{ user.pseudo }},</h2> 
+ <p1>-Mon mail:  {{ user.email }},<br>
+  -J'aime jouer sur: {{ user.platform.name }},<br>
+  -Mes jeux préférés sont: {% for videogame in user.videogames %}
+                                  {{ videogame.title }},   
+                          {% endfor %}<br>
+  -Je suis amis avec:{% for friendReceiver in user.friendReceiver %}
+                                  {{ friendReceiver.receiver.pseudo }},   
+                          {% endfor %}
+ </p1>
+  
 {% endfor %}
 
 {% endblock %}
