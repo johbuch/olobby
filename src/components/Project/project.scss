@@ -1,0 +1,21 @@
+@use 'src/styles/vars';
+
+.project{
+  position: relative;
+  top: 5rem;
+  margin-bottom: 10rem;
+  &__title {
+    position: relative;
+    left: 31rem;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    font-weight: vars.$ft-bold;
+    color: white;
+  }
+
+  &__paragraph {
+    font-size: 1.1rem;
+    color: vars.$main-color;
+    text-align: center;
+  }
+}
