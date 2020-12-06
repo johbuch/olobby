@@ -23,22 +23,26 @@ class Friend
     private $createdAt;
 
     /**
-     * @ORM\ManyToOne(targetEntity=FriendRelation::class, inversedBy="friends")
+     * @ORM\Column(type="datetime")
      */
-    private $friendRelation;
+    private $updatedAt;
 
     /**
-     * @ORM\OneToOne(targetEntity=User::class, inversedBy="friendSender", cascade={"persist", "remove"})
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $status;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="friendSender")
      * @ORM\JoinColumn(nullable=false)
      */
     private $sender;
 
     /**
-     * @ORM\OneToOne(targetEntity=User::class, inversedBy="friendReceiver", cascade={"persist", "remove"})
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="friendReceiver")
      * @ORM\JoinColumn(nullable=false)
      */
     private $receiver;
-
 
     public function getId(): ?int
     {
@@ -57,14 +61,26 @@ class Friend
         return $this;
     }
 
-    public function getFriendRelation(): ?FriendRelation
+    public function getUpdatedAt(): ?\DateTimeInterface
     {
-        return $this->friendRelation;
+        return $this->updatedAt;
     }
 
-    public function setFriendRelation(?FriendRelation $friendRelation): self
+    public function setUpdatedAt(\DateTimeInterface $updatedAt): self
     {
-        $this->friendRelation = $friendRelation;
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function getStatus(): ?bool
+    {
+        return $this->status;
+    }
+
+    public function setStatus(?bool $status): self
+    {
+        $this->status = $status;
 
         return $this;
     }
@@ -74,7 +90,7 @@ class Friend
         return $this->sender;
     }
 
-    public function setSender(User $sender): self
+    public function setSender(?User $sender): self
     {
         $this->sender = $sender;
 
@@ -86,10 +102,11 @@ class Friend
         return $this->receiver;
     }
 
-    public function setReceiver(User $receiver): self
+    public function setReceiver(?User $receiver): self
     {
         $this->receiver = $receiver;
 
         return $this;
     }
+
 }

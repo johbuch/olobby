@@ -122,25 +122,21 @@ class User implements UserInterface
     private $videogames;
 
     /**
-     * @ORM\ManyToOne(targetEntity=FriendRelation::class, inversedBy="users")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $friendRelation;
-
-    /**
-     * @ORM\OneToOne(targetEntity=Friend::class, mappedBy="sender", cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity=Friend::class, mappedBy="sender", orphanRemoval=true)
      */
     private $friendSender;
 
     /**
-     * @ORM\OneToOne(targetEntity=Friend::class, mappedBy="receiver", cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity=Friend::class, mappedBy="receiver", orphanRemoval=true)
      */
     private $friendReceiver;
 
-
+    
     public function __construct()
     {
         $this->videogames = new ArrayCollection();
+        $this->friendSender = new ArrayCollection();
+        $this->friendReceiver = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -389,47 +385,61 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getFriendRelation(): ?FriendRelation
-    {
-        return $this->friendRelation;
-    }
-
-    public function setFriendRelation(?FriendRelation $friendRelation): self
-    {
-        $this->friendRelation = $friendRelation;
-
-        return $this;
-    }
-
-    public function getFriendSender(): ?Friend
+    /**
+     * @return Collection|Friend[]
+     */
+    public function getFriendSender(): Collection
     {
         return $this->friendSender;
     }
 
-    public function setFriendSender(Friend $friendSender): self
+    public function addFriendSender(Friend $friendSender): self
     {
-        $this->friendSender = $friendSender;
-
-        // set the owning side of the relation if necessary
-        if ($friendSender->getSender() !== $this) {
+        if (!$this->friendSender->contains($friendSender)) {
+            $this->friendSender[] = $friendSender;
             $friendSender->setSender($this);
         }
 
         return $this;
     }
 
-    public function getFriendReceiver(): ?Friend
+    public function removeFriendSender(Friend $friendSender): self
+    {
+        if ($this->friendSender->removeElement($friendSender)) {
+            // set the owning side to null (unless already changed)
+            if ($friendSender->getSender() === $this) {
+                $friendSender->setSender(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Friend[]
+     */
+    public function getFriendReceiver(): Collection
     {
         return $this->friendReceiver;
     }
 
-    public function setFriendReceiver(Friend $friendReceiver): self
+    public function addFriendReceiver(Friend $friendReceiver): self
     {
-        $this->friendReceiver = $friendReceiver;
-
-        // set the owning side of the relation if necessary
-        if ($friendReceiver->getReceiver() !== $this) {
+        if (!$this->friendReceiver->contains($friendReceiver)) {
+            $this->friendReceiver[] = $friendReceiver;
             $friendReceiver->setReceiver($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFriendReceiver(Friend $friendReceiver): self
+    {
+        if ($this->friendReceiver->removeElement($friendReceiver)) {
+            // set the owning side to null (unless already changed)
+            if ($friendReceiver->getReceiver() === $this) {
+                $friendReceiver->setReceiver(null);
+            }
         }
 
         return $this;
