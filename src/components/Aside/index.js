@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 // == Import Bootstrap
 import Nav from 'react-bootstrap/Nav';
@@ -23,12 +24,12 @@ import './aside.scss';
 const Aside = () => (
   <div className="aside">
     <Nav defaultActiveKey="/home" className="flex-column">
-      <Nav.Link href="/home"><MdHome />Accueil</Nav.Link>
-      <Nav.Link eventKey="link-1"><MdImportContacts />Annuaire de joueurs</Nav.Link>
-      <Nav.Link eventKey="link-2"><MdGames />Annuaire de jeux</Nav.Link>
-      <Nav.Link eventKey="link-2"><GiGameConsole />Annuaire de plateformes</Nav.Link>
-      <Nav.Link eventKey="link-2"><MdVideogameAsset />Mes jeux</Nav.Link>
-      <Nav.Link eventKey="link-2"><MdSupervisorAccount />Mes amis</Nav.Link>
+      <NavLink href="/home"><MdHome />Accueil</NavLink>
+      <NavLink className="nav-item" to="/" activeClassName="nav-item-active" exact><MdImportContacts />Annuaire de joueurs</NavLink>
+      <NavLink className="nav-item" to="/annuaire-de-jeux" activeClassName="nav-item-active" ><MdGames />Annuaire de jeux</NavLink>
+      <NavLink className="nav-item" to="/annuaire-de-plateformes" activeClassName="nav-item-active" ><GiGameConsole />Annuaire de plateformes</NavLink>
+      <NavLink className="nav-item" to="/mes-jeux" activeClassName="nav-item-active" ><MdVideogameAsset />Mes jeux</NavLink>
+      <NavLink className="nav-item" to="/mes-amis" activeClassName="nav-item-active" ><MdSupervisorAccount />Mes amis</NavLink>
     </Nav>
 
     <div className="aside__friend">
