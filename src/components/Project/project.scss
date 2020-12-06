@@ -3,17 +3,32 @@
 .project{
   position: relative;
   top: 5rem;
-  margin-bottom: 8rem;
+  left: 23rem;
+  margin-bottom: 10rem;
+
+  &__maintitle {
+    position: relative;
+    left: 38rem;
+    margin-bottom: 5rem;
+    font-size: 2rem;
+    font-weight: vars.$ft-bold;
+    color: white;
+    text-decoration: vars.$main-color underline;
+  }
+
   &__title {
     position: relative;
-    left: 31rem;
-    margin-bottom: 2rem;
+    left: 22rem;
+    top: 5rem;
+    margin-bottom: 6rem;
     font-size: 2rem;
     font-weight: vars.$ft-bold;
     color: white;
   }
 
   &__paragraph {
+    position: relative;
+    left: 10rem;
     font-size: 1.1rem;
     color: vars.$main-color;
     text-align: center;

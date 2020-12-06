@@ -1,5 +1,7 @@
 @use 'src/styles/vars';
 .footer{
+  position: relative;
+  left: 27rem;
   color: white;
   padding-top: 3em;
   //width: 100%;
@@ -7,9 +9,12 @@
   z-index: -99;
   margin-left: 280px;
   .navbar {
+    
     width: 100%;
     .navbar-nav{
       .nav-link{
+        position: relative;
+        left: 4rem;
         color: white;
         transition: ease-in-out 0.3s;
         &:hover{
