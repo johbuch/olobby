@@ -2,9 +2,11 @@
 
 namespace App\Controller\Api\V1\User;
 
+use App\Entity\FriendRelation;
 use App\Entity\Friend;
 use App\Entity\User;
 use App\Form\UserType;
+use App\Form\RelationType;
 use App\Form\FriendType;
 use App\Repository\FriendRepository;
 use App\Repository\UserRepository;
@@ -90,7 +92,7 @@ class UserController extends AbstractController
 
         $friend = new Friend();
 
-        $form = $this->createForm(FriendType::class, $friend);
+        $form = $this->createForm(FriendType::class, $friend, ['csrf_protection' => false]);
         $form->submit($friendArray);
         
         if ($form->isSubmitted() && $form->isValid()) {
@@ -100,7 +102,7 @@ class UserController extends AbstractController
             $entityManager->persist($friend);
             $entityManager->flush();
 
-            return $this->json($friend);
+            return $this->json(['msg' => 'Cette utilisateur a bien été ajouté, votre relation est en attente de sa confirmation!'], 200);
         } else {
             // Si le formulaire n'est pas valide (les contraintes de validation ne sont pas respectées)
             // on retourne un code 400 avec un tableau de toutes les erreurs
@@ -110,6 +112,56 @@ class UserController extends AbstractController
             ], 400);
         }
     }
+    /**
+     * @Route("/accept/friend/{id}", name="accept_friend", methods={"PUT"})
+     */
+    public function acceptFriend(Request $request, int $id): Response
+    {
+
+        $data = json_decode($request->getContent(), true);
+
+        $invit = $this->getDoctrine()
+        ->getRepository('App:Friend')
+        ->find($id);
+
+        if(!$invit) {
+            return new JsonResponse(['msg' => 'Cette invitation n\'existe pas !'.$id], 404);
+        }
+//dd($invit);
+        $relation = new FriendRelation();
+
+        $form = $this->createForm(RelationType::class, $relation, ['csrf_protection' => false]);
+        $form->submit($data);
+        
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($relation);
+            $entityManager->flush();
+        
+            
+        }
+        dd($relation);
+            if(!$relation) {
+                return new JsonResponse(['msg' => 'Cette relation n\'existe pas !'.$id], 404);
+            }
+            
+    
+            //$form2 = $this->createForm(FriendType::class, $invit);
+            //$form2->submit($data, false);
+            
+            
+            //$friendRelation = $relation->getId();
+            //$invit->setFriendRelation($friendRelation);
+
+                //$entityManager = $this->getDoctrine()->getManager();
+                //$entityManager->persist($invit);
+                //$entityManager->flush();
+
+            return $this->json(['msg' => 'Relation acceptée !'], 200);
+         
+    }
+
+    
 }
 
 
