@@ -44,7 +44,7 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=120)
-     * @Groups("user:dashboard")
+     * @Groups({"user:dashboard", "user:friend"})
      */
     private $pseudo;
 
@@ -123,6 +123,7 @@ class User implements UserInterface
 
     /**
      * @ORM\OneToMany(targetEntity=Friend::class, mappedBy="sender", orphanRemoval=true)
+     * @Groups("user:dashboard")
      */
     private $friendSender;
 
