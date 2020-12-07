@@ -1,12 +1,21 @@
-import { UPDATE_USER_FIELD, SAVE_USER_INFO, LOG_IN } from 'src/actions/user';
+import {
+  UPDATE_USER_FIELD,
+  SAVE_USER_INFO,
+  LOG_IN,
+  SAVE_GAMES,
+  SAVE_PLATFORMS,
+} from 'src/actions/user';
 
 const initialState = {
   // ici l'état initial
   isLogged: false,
   password: '',
+  pseudo: '',
   email: '',
   nickname: '',
   avatar: '',
+  platformsList: [],
+  gamesList: [],
 };
 
 const user = (state = initialState, action = {}) => {
@@ -29,6 +38,16 @@ const user = (state = initialState, action = {}) => {
         isLogged: action.isLogged,
         nickname: action.nickname,
         avatar: action.avatar,
+      };
+    case SAVE_GAMES:
+      return {
+        ...state,
+        gamesList: action.games,
+      };
+    case SAVE_PLATFORMS:
+      return {
+        ...state,
+        platformsList: action.platforms,
       };
     default:
       return { ...state };

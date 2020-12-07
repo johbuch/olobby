@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import ReactCardFlip from "react-card-flip";
 
@@ -17,14 +17,24 @@ const Login = ({
   setModalShow,
   email,
   password,
+  pseudo,
+  platforms,
   changeField,
   handleLogin,
+  launchFetchGames,
+  launchFetchPlatforms,
+  games,
 }) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
     handleLogin();
     setModalShow(false);
   };
+
+  useEffect(() => {
+    launchFetchGames();
+    launchFetchPlatforms();
+  }, []);
 
   const [isFlipped, setIsFlipped] = useState(false);
 
@@ -47,7 +57,7 @@ const Login = ({
               <Modal.Title id="contained-modal-title-vcenter">
                 O'lobby logo  -  Se connecter à O'Lobby
               </Modal.Title>
-            </Modal.Header>
+            </Modal.Header>confirmedPassword
             <Modal.Body className="modal__body">
               <Form onSubmit={handleSubmit}>
                 <Field
@@ -77,6 +87,7 @@ const Login = ({
               </Button>
             </Modal.Body>
           </div>
+
           <div className="div-flipCard">
           <Modal.Header closeButton className="modal__header">
             <Modal.Title id="contained-modal-title-vcenter">
@@ -90,6 +101,7 @@ const Login = ({
             <Form onSubmit={handleSubmit}>
               <Field
                 name="email"
+                type="email"
                 placeholder="Adresse Email"
                 onChange={changeField}
                 value={email}
@@ -102,28 +114,24 @@ const Login = ({
                 value={password}
               />
               <Field
-                name="password"
-                type="password"
-                placeholder="Confirmer le Mot de passe"
+                name="pseudo"
+                type="text"
+                placeholder="Votre pseudo"
                 onChange={changeField}
-                value={password}
+                value={pseudo}
               />
             </Form>
-            <h4>Choisir mes jeux favoris   3/3</h4>
+            <h4>Choisir mes jeux favoris</h4>
             <Form.Group controlId="formBasicCheckbox">
-              <Form.Check type="checkbox" label="CalofDuTea" />
-              <Form.Check type="checkbox" label="Fifou 21" />
-              <Form.Check type="checkbox" label="Munster Hunter AOP world" />
-              <Form.Check type="checkbox" label="Fournight" />
-              <Form.Check type="checkbox" label="World of Farmcraft" />
-              <Form.Check type="checkbox" label="GTAssis " />
-              <Form.Check type="checkbox" label="CyberFunk" />
+              {games.map((game) => (
+                <Form.Check type="checkbox" label={game.title} value={game.title} name={game.title} id={`game-${game.id}`} key={game.id} />
+              ))}
             </Form.Group>
             <h4>Choisir ma plateforme</h4>
             <Form.Group controlId="formBasicCheckbox">
-              <Form.Check type="checkbox" label="Playstation" />
-              <Form.Check type="checkbox" label="Xbox" />
-              <Form.Check type="checkbox" label="PC" />
+              {platforms.map((platform) => (
+                <Form.Check type="radio" label={platform.name} value={platform.name} name="platforms" key={platform.id} id={`platform-${platform.id}`} />
+              ))}
             </Form.Group>
             <p>
               En cliquant sur S'inscrire, vous reconnaissez avoir lu et approuvé
@@ -147,6 +155,21 @@ Login.propTypes = {
   modalShow: PropTypes.bool.isRequired,
   setModalShow: PropTypes.func.isRequired,
   handleLogin: PropTypes.func.isRequired,
+  pseudo: PropTypes.string.isRequired,
+  launchFetchGames: PropTypes.func.isRequired,
+  launchFetchPlatforms: PropTypes.func.isRequired,
+  games: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+    }).isRequired,
+  ).isRequired,
+  platforms: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+    }).isRequired,
+  ).isRequired,
 };
 
 export default Login;
