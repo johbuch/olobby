@@ -137,7 +137,6 @@ class UserController extends AbstractController
             return $this->json(['msg' => 'Relation acceptée !'], 200);
         
     }
-    youpiiiiiii
 }
 
 
