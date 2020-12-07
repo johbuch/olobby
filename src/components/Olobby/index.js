@@ -9,7 +9,6 @@ import './styles.scss';
 import Header from 'src/components/Header';
 import Project from 'src/components/Project';
 import Devs from 'src/components/Devs';
-import Footer from 'src/components/Footer';
 
 // == Composant
 const Olobby = () => (
@@ -17,7 +16,6 @@ const Olobby = () => (
     <Header />
     <Project />
     <Devs />
-    <Footer />
   </div>
 );
 

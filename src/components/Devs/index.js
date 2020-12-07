@@ -13,13 +13,15 @@ const Devs = () => (
   <div className="devs">
     <Container>
       <Row>
-        <h1 className="devs__title">
-          • Les Devs •
-        </h1>
+        <Col sm md lg>
+          <h1 className="devs__title">
+            • Les Devs •
+          </h1>
+        </Col>
       </Row>
       <div className="devs__3devs">
         <Row>
-          <Col>
+          <Col sm md lg>
             <img
               className="devs__image1"
               alt="photodetristan"
@@ -35,7 +37,7 @@ const Devs = () => (
               adipisicing elit. Error, minus?
             </p>
           </Col>
-          <Col>
+          <Col sm md lg>
             <img
               className="devs__image1"
               alt="photodemaxime"
@@ -51,7 +53,7 @@ const Devs = () => (
               adipisicing elit. Error, minus?
             </p>
           </Col>
-          <Col>
+          <Col sm md lg>
             <img
               className="devs__image1"
               alt="photodecorentin"
@@ -71,41 +73,41 @@ const Devs = () => (
       </div>
       <div className="devs__2devs">
         <Row>
-        <Col>
-          <img
-            className="devs__image2"
-            alt="photodejohan"
-            src="https://imagizer.imageshack.com/img923/9006/cjMAsm.png"
-          />
-          <h2 className="devs__devname2">
-            Johan
-          </h2>
-          <p className="devs__devdescription2">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.<br></br>
-            Id, placeat officiis nostrum eos nulla quibusdam vel ex unde.<br></br>
-            Id, molestias. Lorem ipsum dolor sit amet consectetur
-            adipisicing elit.<br></br>
-            Error, minus?
-          </p>
-        </Col>
-        <Col>
-          <img
-            className="devs__image2"
-            alt="photodestan"
-            src="https://imagizer.imageshack.com/img924/7536/30rhum.png"
-          />
-          <h2 className="devs__devname2">
-            Stan
-          </h2>
-          <p className="devs__devdescription2">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.<br></br>
-            Id, placeat officiis nostrum eos nulla quibusdam vel ex unde.<br></br>
-            Id, molestias. Lorem ipsum dolor sit amet consectetur
-            adipisicing elit.<br></br>
-            Error, minus?
-          </p>
-        </Col>
-      </Row>
+          <Col sm md lg>
+            <img
+              className="devs__image2"
+              alt="photodejohan"
+              src="https://imagizer.imageshack.com/img923/9006/cjMAsm.png"
+            />
+            <h2 className="devs__devname2">
+              Johan
+            </h2>
+            <p className="devs__devdescription2">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.<br></br>
+              Id, placeat officiis nostrum eos nulla quibusdam vel ex unde.<br></br>
+              Id, molestias. Lorem ipsum dolor sit amet consectetur
+              adipisicing elit.<br></br>
+              Error, minus?
+            </p>
+          </Col>
+          <Col sm md lg>
+            <img
+              className="devs__image2"
+              alt="photodestan"
+              src="https://imagizer.imageshack.com/img924/7536/30rhum.png"
+            />
+            <h2 className="devs__devname2">
+              Stan
+            </h2>
+            <p className="devs__devdescription2">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.<br></br>
+              Id, placeat officiis nostrum eos nulla quibusdam vel ex unde.<br></br>
+              Id, molestias. Lorem ipsum dolor sit amet consectetur
+              adipisicing elit.<br></br>
+              Error, minus?
+            </p>
+          </Col>
+        </Row>
       </div>
     </Container>
   </div>
