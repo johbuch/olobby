@@ -7,7 +7,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import store from 'src/store';
 // == Import : local
 // Composants
-import Olobby from 'src/components/Olobby';
+import Olobby from 'src/containers/Olobby';
 
 // == Render
 // 1. Élément React racine (celui qui contient l'ensemble de l'app)

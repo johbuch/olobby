@@ -22,7 +22,12 @@ import { BiLogInCircle } from 'react-icons/bi';
 // == Import scss
 import './header.scss';
 
-const Header = ({ isLogged, handleLogout, nickname, avatar }) => {
+const Header = ({
+  isLogged,
+  handleLogout,
+  nickname,
+  avatar,
+}) => {
   const [modalShow, setModalShow] = React.useState(false);
 
   return (

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 // == Import Bootstrap
 import Card from 'react-bootstrap/Card';
@@ -16,7 +17,11 @@ import { FaPlaystation } from 'react-icons/fa';
 // == Import scss
 import './cardProfile.scss';
 
-const cardProfile = () => {
+const CardProfile = ({ launchFetchPlayers }) => {
+  useEffect(() => {
+    launchFetchPlayers();
+  }, []);
+
   function MyVerticallyCenteredModal(props) {
     return (
       <Modal
@@ -138,4 +143,8 @@ const cardProfile = () => {
   );
 };
 
-export default cardProfile;
+CardProfile.propTypes = {
+  launchFetchPlayers: PropTypes.func.isRequired,
+};
+
+export default CardProfile;

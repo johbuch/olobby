@@ -26,6 +26,9 @@
     text-align: center;
     margin-bottom: vars.$gutter;
   }
+  &-disconnected {
+    margin-left: 0px;
+  }
 }
 
 @media screen and (max-width: 768px) {

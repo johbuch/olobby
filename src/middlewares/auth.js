@@ -19,7 +19,7 @@ const authMiddleware = (store) => (next) => (action) => {
         withCredentials: true,
       })
         .then((response) => {
-          const JWTToken = response.data.token;
+          window.localStorage.setItem('token', response.data.token);
           store.dispatch(saveUserInfo(
             true,
             response.data.token,
@@ -27,7 +27,6 @@ const authMiddleware = (store) => (next) => (action) => {
             response.data.data.avatar,
           ));
           console.log(response);
-          console.log(JWTToken);
         })
         .catch((error) => {
           console.warn(error);
