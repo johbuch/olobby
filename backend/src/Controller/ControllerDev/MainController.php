@@ -2,10 +2,14 @@
 
 namespace App\Controller\ControllerDev;
 
+use App\Entity\Videogame;
 use App\Entity\Friend;
 use App\Entity\User;
+use App\Entity\Platform;
 use App\Form\FriendType;
 use App\Repository\UserRepository;
+use App\Repository\VideogameRepository;
+use App\Repository\PlatformRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
@@ -59,12 +63,14 @@ class MainController extends AbstractController
     /**
      * @Route("test/{id}", name="test", requirements={"id": "\d+"})
      */
-    public function match(UserRepository $userRepository, int $id): Response
+    public function match(UserRepository $userRepository, PlatformRepository $platformRepository, VideogameRepository $videogameRepository, int $id): Response
     {
         
         return $this->render('main/test.html.twig', [
             'user' => $user = $userRepository->matchMaking($id),
-            'users' => $user = $userRepository->match(),
+            //'users' => $user = $userRepository->match(),
+            'platform' => $platform = $platformRepository->matchP(),
+            'videogames' => $videogame = $videogameRepository->matchV(),
         ]);
     }
 

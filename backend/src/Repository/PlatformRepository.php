@@ -19,22 +19,27 @@ class PlatformRepository extends ServiceEntityRepository
         parent::__construct($registry, Platform::class);
     }
 
-    // /**
-    //  * @return Platform[] Returns an array of Platform objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    /**
+      * @return Platform[] Returns an array of Platform objects
+      */
+    
+    public function matchP()
     {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('p.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
+         return $this->createQueryBuilder('p')
+
+
+        ->leftJoin('p.users', 'u')
+        ->addSelect('u')
+        ->where('p.id = :id')
+        ->setParameter('id', '2')
+
+        ->getQuery()
+        ->getOneOrNullResult()
+
+
         ;
     }
-    */
+    
 
     /*
     public function findOneBySomeField($value): ?Platform
