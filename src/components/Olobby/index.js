@@ -9,11 +9,13 @@ import './styles.scss';
 import Header from 'src/components/Header';
 import Project from 'src/components/Project';
 import Devs from 'src/components/Devs';
+import MainTitle from '../MainTitle';
 
 // == Composant
 const Olobby = () => (
   <div className="olobby">
     <Header />
+    <MainTitle />
     <Project />
     <Devs />
   </div>

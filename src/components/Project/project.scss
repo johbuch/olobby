@@ -4,18 +4,9 @@
   /* position: relative; */
   /* top: 5rem; */
   /* left: 3rem; */
+  margin-top: 5rem;
   margin-bottom: 10rem;
   text-align: center;
-
-  &__maintitle {
-    /* position: relative; */
-    /* left: 38rem; */
-    margin-bottom: 2rem;
-    font-size: 2rem;
-    font-weight: vars.$ft-bold;
-    color: white;
-    text-decoration: vars.$main-color underline;
-  }
 
   &__title {
     /* position: relative; */
@@ -27,8 +18,6 @@
   }
 
   &__paragraph {
-    /* position: relative; */
-    /* left: 10rem; */
     font-size: 1.1rem;
     color: vars.$main-color;
     text-align: center;

@@ -13,8 +13,7 @@ const Project = () => (
   <div className="project">
     <Container>
       <Row>
-        <Col sm md lg>
-          <h1 className="project__maintitle"> QUI SOMMES NOUS ?</h1>
+        <Col>
           <h1 className="project__title">• Le Projet •</h1>
           <p className="project__paragraph">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque,
