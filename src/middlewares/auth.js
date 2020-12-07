@@ -42,6 +42,7 @@ const authMiddleware = (store) => (next) => (action) => {
       })
         .then((response) => {
           store.dispatch(saveUserInfo(response.data.logged, response.data.pseudo));
+          console.log(JWTToken);
         })
         .catch((error) => {
           console.log(error);
