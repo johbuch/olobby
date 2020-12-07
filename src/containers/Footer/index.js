@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import Olobby from 'src/components/Olobby';
+import Footer from 'src/components/Footer';
 
 const mapStateToProps = (state) => ({
   isLogged: state.user.isLogged,
@@ -10,4 +10,5 @@ const mapDispatchToProps = (dispatch) => ({
 
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Olobby);
+// === création de l'assistant
+export default connect(mapStateToProps, mapDispatchToProps)(Footer);

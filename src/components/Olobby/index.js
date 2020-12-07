@@ -10,34 +10,41 @@ import './styles.scss';
 
 import Header from 'src/containers/Header';
 import Aside from 'src/components/Aside';
-import Footer from 'src/components/Footer';
+import Footer from 'src/containers/Footer';
 import MenuFooter from 'src/components/MenuFooter';
 import CardProfile from 'src/components/CardProfile';
 import Login from 'src/components/Login';
-
 import HeaderHomeDisconnected from 'src/components/HeaderHomeDisconnected';
 import SectionHomeDisconnected from 'src/components/SectionHomeDisconnected';
 
 // == Composant
 
-const Olobby = () => (
+const Olobby = ({ isLogged }) => (
   <div className="olobby">
-
     <Header />
-    <Aside />
-    <CardProfile />
+    {isLogged && (
+      <>
+        <Aside />
+        <CardProfile />
+        <MenuFooter />
+      </>
+    )}
+    {!isLogged && (
+      <>
+        <HeaderHomeDisconnected />
+        <SectionHomeDisconnected />
+      </>
+    )}
     <Footer />
-    <MenuFooter />
     <Login />
-    {/*
-    <HeaderHomeDisconnected />
-    <SectionHomeDisconnected />*/}
   </div>
 );
 
-
 Olobby.propTypes = {
-  //checkLogged: PropTypes.func.isRequired,
+  isLogged: PropTypes.bool,
+};
+Olobby.defaultProps = {
+  isLogged: false,
 };
 // == Export
 export default Olobby;
