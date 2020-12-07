@@ -4,18 +4,32 @@
 
 {% block body %}
 
-{{ dump(app.user)}} 
+{{ dump(users)}} 
  <h1>User</h1>
 
     <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ user.id }}</td>
-            </tr>
-            <tr>
                 <th>Email</th>
-                <td>{{ user.email }}, {{ user.platform }}, {{ user.videogame }}, {{ user.email }}</td>
+                <td>
+                    {{ user.email }}, 
+                    {{ user.platform }}, 
+                    {% for videogame in user.videogames %}
+                        {{ videogame.title }},
+                    {% endfor %}
+                    
+                </td>
+{% for user in users %}
+    <h2>{{ user.email }}, 
+                    {{ user.platform }}, 
+                    {% for videogame in user.videogames %}
+                        {{ videogame.title }},
+                    {% endfor %}</h2>
+{% endfor %}
+
+                <td>
+                
+                </td>
             </tr>
         </tbody>
     </table> 

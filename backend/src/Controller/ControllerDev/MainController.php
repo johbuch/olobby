@@ -57,13 +57,15 @@ class MainController extends AbstractController
     }
 
     /**
-     * @Route("test/{id}", name="test", requirements={"id": "\d+"})
+     * @Route("tesppt/{id}", name="test", requirements={"id": "\d+"})
      */
-    public function match(int $id, UserRepository $userRepository): Response
+    public function match(UserRepository $userRepository, int $id): Response
     {
-        $user = $userRepository->matchMaking($id);
+        
         return $this->render('main/test.html.twig', [
-            'user' => $user,
+            'user' => $user = $userRepository->matchMaking($id),
+            'users' => $user = $userRepository->match(),
         ]);
     }
+
 }

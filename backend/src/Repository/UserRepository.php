@@ -45,7 +45,8 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
 
         ->leftJoin('u.platform', 'p')
         ->addSelect('p')
-
+        ->leftJoin('u.videogames', 'v')
+        ->addSelect('v')
         ->where('u.id = :id')
         ->setParameter('id', $id)
 
@@ -55,16 +56,24 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
 
         ;
     }
-
-    /*
-    public function findOneBySomeField($value): ?User
+    /**
+     * @return User[] Returns an array of User objects
+     */
+    public function match()
     {
         return $this->createQueryBuilder('u')
-            ->andWhere('u.exampleField = :val')
-            ->setParameter('val', $value)
+
+            ->leftJoin('u.videogames', 'v')
+            ->addSelect('v')
+
+            ->setMaxResults(5)
+            ->orderBy('u.createdAt', 'DESC')
+
+            
             ->getQuery()
-            ->getOneOrNullResult()
+            ->getResult()
+
+
         ;
     }
-    */
 }
