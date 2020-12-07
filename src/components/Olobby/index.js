@@ -17,7 +17,6 @@ import Login from 'src/components/Login';
 import HeaderHomeDisconnected from 'src/components/HeaderHomeDisconnected';
 import SectionHomeDisconnected from 'src/components/SectionHomeDisconnected';
 
-
 // == Composant
 const Olobby = () => (
   <div className="olobby">
@@ -28,8 +27,9 @@ const Olobby = () => (
     <Footer />
     <MenuFooter />
     <Login />
+    {/*
     <HeaderHomeDisconnected />
-    <SectionHomeDisconnected />
+    <SectionHomeDisconnected />*/}
   </div>
 );
 
