@@ -4,6 +4,7 @@ import { Route } from 'react-router-dom';
 
 // == Import
 import Annuaire from 'src/components/Annuaire';
+import CardProfile from 'src/containers/CardProfile';
 
 // == Import scss
 import './pages.scss';
@@ -18,6 +19,7 @@ const Pages = () => (
         path="/annuaire-de-joueur">
         <Annuaire />
         <h1 className="title_pages">Annuaire de joueurs</h1>
+        <CardProfile />
     </Route>  
     <Route
         path="/annuaire-de-jeux">
