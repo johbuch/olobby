@@ -1,7 +1,7 @@
 export const FETCH_PLAYERS = 'FETCH_PLAYERS';
 export const SAVE_PLAYERS = 'SAVE_PLAYERS';
 
-export const fetchRecipes = () => ({
+export const fetchPlayers = () => ({
   type: FETCH_PLAYERS,
 });
 
