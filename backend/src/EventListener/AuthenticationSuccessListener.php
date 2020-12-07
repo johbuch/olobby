@@ -37,9 +37,6 @@ class AuthenticationSuccessListener
         $data['data'] = array(
         'pseudo' => $user->getPseudo(),
         'avatar' => $user->getAvatar(),
-        'platform' => $user->getPlatform(),
-        'videogame' => $user->getVideogame(),
-        'amiEnAttente' => $user->getFriendSender(),
         );
 
         $event->setData($data);

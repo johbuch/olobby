@@ -55,4 +55,15 @@ class MainController extends AbstractController
         } 
         return $this->redirectToRoute('main_browse');
     }
+
+    /**
+     * @Route("test/{id}", name="test", requirements={"id": "\d+"})
+     */
+    public function match(int $id, UserRepository $userRepository): Response
+    {
+        $user = $userRepository->matchMaking($id);
+        return $this->render('main/test.html.twig', [
+            'user' => $user,
+        ]);
+    }
 }
