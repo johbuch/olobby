@@ -3,24 +3,32 @@
 {% block title %}Hello MainController!{% endblock %}
 
 {% block body %}
+
+
+{% if app.user %}
+<div class="mb-3">
+        You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+</div>
+{% else %}
 <span class="mr-2">Bienvenue invité</span>
-                    <a href="{{ path('app_register') }}" class="btn btn-success">Inscription</a>
+<a href="{{ path('app_register') }}" class="btn btn-success">Inscription</a>
+<a href="{{ path('app_login') }}" class="btn btn-primary">Connexion</a>
 
+{% endif %}
+{% for user in users %}
 
+<h2>Mon pseudo est: {{ user.pseudo }},</h2>
 
-{% for user in users %} 
-  
- <h2>Mon pseudo est: {{ user.pseudo }},</h2> 
- <p1>-Mon mail:  {{ user.email }},<br>
-  -J'aime jouer sur: {{ user.platform.name }},<br>
-  -Mes jeux préférés sont: {% for videogame in user.videogames %}
-                                  {{ videogame.title }},   
-                          {% endfor %}<br>
-  -Je suis amis avec:{% for friendReceiver in user.friendReceiver %}
-                                  {{ friendReceiver.receiver.pseudo }},   
-                          {% endfor %}
- </p1>
-  
+<p1>-Mon mail: {{ user.email }},<br>
+        -J'aime jouer sur: {{ user.platform.name }},<br>
+        -Mes jeux préférés sont: {% for videogame in user.videogames %}
+        {{ videogame.title }},
+        {% endfor %}<br>
+        -Je suis amis avec:{% for friendReceiver in user.friendReceiver %}
+        {{ friendReceiver.receiver.pseudo }},
+        {% endfor %}
+</p1>
+
 {% endfor %}
 
 {% endblock %}
