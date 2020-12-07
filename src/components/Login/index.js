@@ -16,7 +16,9 @@ const Login = ({
   modalShow,
   setModalShow,
   email,
+  emailRegister,
   password,
+  passwordRegister,
   pseudo,
   platforms,
   changeField,
@@ -57,7 +59,7 @@ const Login = ({
               <Modal.Title id="contained-modal-title-vcenter">
                 O'lobby logo  -  Se connecter à O'Lobby
               </Modal.Title>
-            </Modal.Header>confirmedPassword
+            </Modal.Header>
             <Modal.Body className="modal__body">
               <Form onSubmit={handleSubmit}>
                 <Field
@@ -89,58 +91,54 @@ const Login = ({
           </div>
 
           <div className="div-flipCard">
-          <Modal.Header closeButton className="modal__header">
-            <Modal.Title id="contained-modal-title-vcenter">
-              O'lobby logo  -  S'inscrire à O'Lobby
-            </Modal.Title>
-          </Modal.Header>
-          <Modal.Body className="modal__body">
-            <Button onClick={handleClick} className="btn_back" size="sm">
-              <IoIosArrowBack />retour login
-            </Button>
-            <Form onSubmit={handleSubmit}>
-              <Field
-                name="email"
-                type="email"
-                placeholder="Adresse Email"
-                onChange={changeField}
-                value={email}
-              />
-              <Field
-                name="password"
-                type="password"
-                placeholder="Mot de passe"
-                onChange={changeField}
-                value={password}
-              />
-              <Field
-                name="pseudo"
-                type="text"
-                placeholder="Votre pseudo"
-                onChange={changeField}
-                value={pseudo}
-              />
-            </Form>
-            <h4>Choisir mes jeux favoris</h4>
-            <Form.Group controlId="formBasicCheckbox">
-              {games.map((game) => (
-                <Form.Check type="checkbox" label={game.title} value={game.title} name={game.title} id={`game-${game.id}`} key={game.id} />
-              ))}
-            </Form.Group>
-            <h4>Choisir ma plateforme</h4>
-            <Form.Group controlId="formBasicCheckbox">
-              {platforms.map((platform) => (
-                <Form.Check type="radio" label={platform.name} value={platform.name} name="platforms" key={platform.id} id={`platform-${platform.id}`} />
-              ))}
-            </Form.Group>
-            <p>
-              En cliquant sur S'inscrire, vous reconnaissez avoir lu et approuvé
-              les Conditions d'utilisation et la Politique de confidentialité.
-            </p>
-            <Button className="btn_createAccount" type="submit">
-              S'inscrire
-            </Button>
-          </Modal.Body>
+            <Modal.Header closeButton className="modal__header">
+              <Modal.Title id="contained-modal-title-vcenter">
+                O'lobby logo  -  S'inscrire à O'Lobby
+              </Modal.Title>
+            </Modal.Header>
+            <Modal.Body className="modal__body">
+              <Button onClick={handleClick} className="btn_back" size="sm">
+                <IoIosArrowBack />retour login
+              </Button>
+              <Form onSubmit={handleSubmit}>
+                <Field
+                  name="emailRegister"
+                  type="email"
+                  placeholder="Adresse Email"
+                  onChange={changeField}
+                  value={emailRegister}
+                />
+                <Field
+                  name="passwordRegister"
+                  type="password"
+                  placeholder="Mot de passe"
+                  onChange={changeField}
+                  value={passwordRegister}
+                />
+                <Field
+                  name="pseudo"
+                  type="text"
+                  placeholder="Votre pseudo"
+                  onChange={changeField}
+                  value={pseudo}
+                />
+              </Form>
+              <h4>Choisir mes jeux favoris</h4>
+              <Form.Group controlId="formBasicCheckbox">
+                {games.map((game) => (
+                  <Form.Check type="checkbox" label={game.title} value={game.title} name={game.title} id={`game-${game.id}`} key={game.id} />
+                ))}
+              </Form.Group>
+              <h4>Choisir ma plateforme</h4>
+              <Form.Group controlId="formBasicCheckbox">
+                {platforms.map((platform) => (
+                  <Form.Check type="radio" label={platform.name} value={platform.name} name="platforms" key={platform.id} id={`platform-${platform.id}`} />
+                ))}
+              </Form.Group>
+              <Button className="btn_createAccount" type="submit">
+                S'inscrire
+              </Button>
+            </Modal.Body>
           </div>
         </ReactCardFlip>
       </Modal>
@@ -150,7 +148,9 @@ const Login = ({
 
 Login.propTypes = {
   email: PropTypes.string.isRequired,
+  emailRegister: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
+  passwordRegister: PropTypes.string.isRequired,
   changeField: PropTypes.func.isRequired,
   modalShow: PropTypes.bool.isRequired,
   setModalShow: PropTypes.func.isRequired,

@@ -11,6 +11,8 @@ const initialState = {
   isLogged: false,
   password: '',
   pseudo: '',
+  passwordRegister: '',
+  emailRegister: '',
   email: '',
   nickname: '',
   avatar: '',
