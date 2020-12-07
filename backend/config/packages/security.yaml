@@ -27,6 +27,12 @@ security:
                 password_path: password
                 success_handler:          lexik_jwt_authentication.handler.authentication_success
                 failure_handler:          lexik_jwt_authentication.handler.authentication_failure
+        platforms:
+            pattern:  ^/api/v1/platforms
+            anonymous: true
+        videogames:
+            pattern:  ^/api/v1/videogames
+            anonymous: true
         api:
             pattern:   ^/api/v1
             stateless: true
