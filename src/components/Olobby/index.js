@@ -14,6 +14,7 @@ import Footer from 'src/components/Footer';
 import MenuFooter from 'src/components/MenuFooter';
 import CardProfile from 'src/components/CardProfile';
 import Login from 'src/components/Login';
+import Pages from 'src/components/Pages';
 
 import HeaderHomeDisconnected from 'src/components/HeaderHomeDisconnected';
 import SectionHomeDisconnected from 'src/components/SectionHomeDisconnected';
@@ -25,6 +26,7 @@ const Olobby = () => (
 
     <Header />
     <Aside />
+    <Pages />
     <CardProfile />
     <Footer />
     <MenuFooter />

@@ -1,0 +1,24 @@
+@use 'src/styles/vars';
+
+.title_pages{
+    margin-left: 350px;
+    color: white;
+}
+
+.title_pages2{
+    margin-top: 80px;
+    margin-left: 350px;
+    color: white;
+}
+
+@media screen and (max-width: 768px) {
+    .title_pages{
+      margin-left: vars.$gutter;
+      color: white;
+    }
+
+    .title_pages2{
+        margin-left: vars.$gutter;
+        color: white;
+      }
+  };

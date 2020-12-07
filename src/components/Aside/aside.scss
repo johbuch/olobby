@@ -16,7 +16,7 @@
   }
   .nav{
     padding-top: vars.$gutter * 2.5;
-    &-link{
+    .nav-item{
       margin-top: vars.$gutter;
       color: white;
       width: 90%;
@@ -28,6 +28,10 @@
       svg{
         vertical-align: -2px;
         margin-right: vars.$gutter * 0.5;
+      }
+      &.nav-item-active{
+        background-color: vars.$main-color;
+        border-radius: 0 50px 50px 0;
       }
     }
     .active{
