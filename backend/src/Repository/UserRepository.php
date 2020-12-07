@@ -43,6 +43,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     {
         return $this->createQueryBuilder('u')
 
+
         ->leftJoin('u.platform', 'p')
         ->addSelect('p')
         ->leftJoin('u.videogames', 'v')
@@ -63,10 +64,12 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     {
         return $this->createQueryBuilder('u')
 
+            ->leftJoin('u.platform', 'p')
+            ->addSelect('p')
             ->leftJoin('u.videogames', 'v')
             ->addSelect('v')
 
-            ->setMaxResults(5)
+            ->setMaxResults(10)
             ->orderBy('u.createdAt', 'DESC')
 
             

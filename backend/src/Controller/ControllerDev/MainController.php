@@ -57,7 +57,7 @@ class MainController extends AbstractController
     }
 
     /**
-     * @Route("tesppt/{id}", name="test", requirements={"id": "\d+"})
+     * @Route("test/{id}", name="test", requirements={"id": "\d+"})
      */
     public function match(UserRepository $userRepository, int $id): Response
     {

@@ -4,7 +4,7 @@
 
 {% block body %}
 
-{{ dump(users)}} 
+{{ dump(user)}} 
  <h1>User</h1>
 
     <table class="table">
@@ -12,6 +12,7 @@
             <tr>
                 <th>Email</th>
                 <td>
+                 {{ user.id }},
                     {{ user.email }}, 
                     {{ user.platform }}, 
                     {% for videogame in user.videogames %}
