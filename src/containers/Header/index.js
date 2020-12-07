@@ -1,19 +1,19 @@
 import { connect } from 'react-redux';
 
-// === on importe le composant de présentation
 import Header from 'src/components/Header';
 
-// === mapStateToProps
-// si j'ai besoin de lire des informations dans le state
+import { logOut } from 'src/actions/user';
+
 const mapStateToProps = (state) => ({
-  // nom de la prop à remplir : élément à récupérer dans le state
   isLogged: state.user.isLogged,
+  nickname: state.user.nickname,
+  avatar: state.user.avatar,
 });
 
-// === mapDispatchToProps
-// si j'ai besoin de dispatcher une action vers le store
 const mapDispatchToProps = (dispatch) => ({
-  // nom de la prop à remplir: fonction qui dispatch l'action
+  handleLogout: () => {
+    dispatch(logOut());
+  },
 });
 
 // === création de l'assistant

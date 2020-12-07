@@ -26,9 +26,9 @@ const Aside = () => (
       <Nav.Link href="/home"><MdHome />Accueil</Nav.Link>
       <Nav.Link eventKey="link-1"><MdImportContacts />Annuaire de joueurs</Nav.Link>
       <Nav.Link eventKey="link-2"><MdGames />Annuaire de jeux</Nav.Link>
-      <Nav.Link eventKey="link-2"><GiGameConsole />Annuaire de plateformes</Nav.Link>
-      <Nav.Link eventKey="link-2"><MdVideogameAsset />Mes jeux</Nav.Link>
-      <Nav.Link eventKey="link-2"><MdSupervisorAccount />Mes amis</Nav.Link>
+      <Nav.Link eventKey="link-3"><GiGameConsole />Annuaire de plateformes</Nav.Link>
+      <Nav.Link eventKey="link-4"><MdVideogameAsset />Mes jeux</Nav.Link>
+      <Nav.Link eventKey="link-5"><MdSupervisorAccount />Mes amis</Nav.Link>
     </Nav>
 
     <div className="aside__friend">
