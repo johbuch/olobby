@@ -4,7 +4,6 @@ import { Route } from 'react-router-dom';
 
 // == Import
 import Annuaire from 'src/components/Annuaire';
-import Olobby from '../../Olobby';
 
 // == Import scss
 import './pages.scss';

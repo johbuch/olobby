@@ -12,7 +12,7 @@ import Footer from 'src/components/Footer';
 import MenuFooter from 'src/components/MenuFooter';
 import CardProfile from 'src/components/CardProfile';
 import Login from 'src/components/Login';
-import Pages from 'src/components/Annuaire/Pages/index.js';
+import Pages from 'src/components/Pages';
 
 // == Composant
 const Olobby = () => (
