@@ -12,7 +12,7 @@ import Header from 'src/containers/Header';
 import Aside from 'src/components/Aside';
 import Footer from 'src/containers/Footer';
 import MenuFooter from 'src/components/MenuFooter';
-import CardProfile from 'src/components/CardProfile';
+import CardProfile from 'src/containers/CardProfile';
 import Login from 'src/components/Login';
 import HeaderHomeDisconnected from 'src/components/HeaderHomeDisconnected';
 import SectionHomeDisconnected from 'src/components/SectionHomeDisconnected';
