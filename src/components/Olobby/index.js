@@ -21,11 +21,8 @@ import SectionHomeDisconnected from 'src/components/SectionHomeDisconnected';
 
 // == Composant
 
-const Olobby = ({ isActive, checkLogged }) => {
-  useEffect(() => {
-    checkLogged();
-  }, []);
-
+const Olobby = ({ isActive }) => {
+  console.log('test');
   return (
     <div className="olobby">
       <Header />
@@ -51,7 +48,6 @@ const Olobby = ({ isActive, checkLogged }) => {
 
 Olobby.propTypes = {
   isActive: PropTypes.bool,
-  checkLogged: PropTypes.func.isRequired,
 };
 Olobby.defaultProps = {
   isActive: false,

@@ -3,8 +3,9 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { PersistGate } from 'redux-persist/integration/react'
 
-import store from 'src/store';
+import { store, persistor } from 'src/store';
 // == Import : local
 // Composants
 import Olobby from 'src/containers/Olobby';
@@ -15,7 +16,9 @@ import Olobby from 'src/containers/Olobby';
 const rootReactElement = (
   <Router>
     <Provider store={store}>
-      <Olobby />;
+      <PersistGate loading={null} persistor={persistor}>
+        <Olobby />
+      </PersistGate>
     </Provider>
   </Router>
 );

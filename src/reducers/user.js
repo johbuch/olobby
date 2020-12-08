@@ -1,4 +1,5 @@
 import { UPDATE_USER_FIELD, SAVE_USER_INFO, LOG_IN } from 'src/actions/user';
+import { REHYDRATE } from 'redux-persist';
 
 const initialState = {
   // ici l'état initial
@@ -17,6 +18,13 @@ const user = (state = initialState, action = {}) => {
         [action.name]: action.value,
       };
     case LOG_IN:
+      return {
+        ...state,
+        users: {
+          ...state.user,
+        },
+      };
+    case REHYDRATE:
       return {
         ...state,
         users: {
