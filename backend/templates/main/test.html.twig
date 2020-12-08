@@ -5,8 +5,6 @@
 {% block body %}
 
 {{ dump(user)}} 
-{{ dump(platform)}}
-{{ dump(videogames)}}
  <h1>User</h1>
 
     <table class="table">
@@ -14,27 +12,6 @@
             <tr>
                 <th>Email</th>
                 <td>
-                 {{ user.id }},
-                    {{ user.email }}, 
-                    {{ user.platform }}, 
-                    {% for videogame in user.videogames %}
-                        {{ videogame.title }},
-                    {% endfor %}
-                    
-                </td>
-    <h2>{{ platform.name }}, 
-                    {% for user in platform.users %}
-                        {{ user.pseudo }},
-                    {% endfor %}</h2>
-
- <h2>{{ videogames.title }}, 
-                    {% for user in videogames.users %}
-                        {{ user.pseudo }},
-                    {% endfor %}</h2>
-
-                <td>
-                
-                </td>
             </tr>
         </tbody>
     </table> 

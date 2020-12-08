@@ -31,7 +31,7 @@ class VideogameRepository extends ServiceEntityRepository
         ->leftJoin('v.users', 'u')
         ->addSelect('u')
         ->where('v.id = :id')
-        ->setParameter('id', ['1'])
+        ->setParameter('id', '1')
 
         ->getQuery()
         ->getOneOrNullResult()
