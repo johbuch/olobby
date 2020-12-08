@@ -133,12 +133,18 @@ class User implements UserInterface
      */
     private $friendReceiver;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isActive;
+
     
     public function __construct()
     {
         $this->videogames = new ArrayCollection();
         $this->friendSender = new ArrayCollection();
         $this->friendReceiver = new ArrayCollection();
+        $this->isActive = true;
     }
 
     public function getId(): ?int
@@ -443,6 +449,18 @@ class User implements UserInterface
                 $friendReceiver->setReceiver(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getIsActive(): ?bool
+    {
+        return $this->isActive;
+    }
+
+    public function setIsActive(bool $isActive): self
+    {
+        $this->isActive = $isActive;
 
         return $this;
     }
