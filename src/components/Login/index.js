@@ -167,7 +167,7 @@ Login.propTypes = {
   platforms: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
-      title: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
     }).isRequired,
   ).isRequired,
 };
