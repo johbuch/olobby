@@ -16,13 +16,12 @@ const authMiddleware = (store) => (next) => (action) => {
         email,
         password,
       }, {
-        withCredentials: true,
       })
         .then((response) => {
           window.localStorage.setItem('token', response.data.token);
+          window.localStorage.setItem('refresh_token', response.data.refresh_token);
           store.dispatch(saveUserInfo(
             true,
-            response.data.token,
             response.data.data.pseudo,
             response.data.data.avatar,
           ));
@@ -43,7 +42,6 @@ const authMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           store.dispatch(saveUserInfo(
             false,
-            response.data.token,
             response.data.data.pseudo,
             response.data.data.avatar,
           ));
