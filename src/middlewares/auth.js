@@ -16,12 +16,14 @@ const authMiddleware = (store) => (next) => (action) => {
         email,
         password,
       }, {
+        withCredentials: true,
       })
         .then((response) => {
           window.localStorage.setItem('token', response.data.token);
           window.localStorage.setItem('refresh_token', response.data.refresh_token);
+          window.localStorage.setItem('logged', response.data.data.isActive);
           store.dispatch(saveUserInfo(
-            true,
+            response.data.data.isActive,
             response.data.data.pseudo,
             response.data.data.avatar,
           ));

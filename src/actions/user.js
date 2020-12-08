@@ -14,13 +14,17 @@ export const logIn = () => ({
   type: LOG_IN,
 });
 
+export const checkLogged = () => ({
+  type: LOG_IN,
+});
+
 export const logOut = () => ({
   type: LOG_OUT,
 });
 
-export const saveUserInfo = (isLogged, nickname, avatar) => ({
+export const saveUserInfo = (isActive, nickname, avatar) => ({
   type: SAVE_USER_INFO,
-  isLogged,
+  isActive,
   nickname,
   avatar,
 });

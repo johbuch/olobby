@@ -5,7 +5,7 @@ import Header from 'src/components/Header';
 import { logOut } from 'src/actions/user';
 
 const mapStateToProps = (state) => ({
-  isLogged: state.user.isLogged,
+  isActive: state.user.isActive,
   nickname: state.user.nickname,
   avatar: state.user.avatar,
 });

@@ -21,33 +21,40 @@ import SectionHomeDisconnected from 'src/components/SectionHomeDisconnected';
 
 // == Composant
 
-const Olobby = ({ isLogged }) => (
-  <div className="olobby">
-    <Header />
-    {isLogged && (
-      <>
-        <Aside />
-        <Pages />
-        <CardProfile />
-        <MenuFooter />
-      </>
-    )}
-    {!isLogged && (
-      <>
-        <HeaderHomeDisconnected />
-        <SectionHomeDisconnected />
-      </>
-    )}
-    <Footer />
-    <Login />
-  </div>
-);
+const Olobby = ({ isActive, checkLogged }) => {
+  useEffect(() => {
+    checkLogged();
+  }, []);
+
+  return (
+    <div className="olobby">
+      <Header />
+      {isActive && (
+        <>
+          <Aside />
+          <Pages />
+          <CardProfile />
+          <MenuFooter />
+        </>
+      )}
+      {!isActive && (
+        <>
+          <HeaderHomeDisconnected />
+          <SectionHomeDisconnected />
+        </>
+      )}
+      <Footer />
+      <Login />
+    </div>
+  );
+};
 
 Olobby.propTypes = {
-  isLogged: PropTypes.bool,
+  isActive: PropTypes.bool,
+  checkLogged: PropTypes.func.isRequired,
 };
 Olobby.defaultProps = {
-  isLogged: false,
+  isActive: false,
 };
 // == Export
 export default Olobby;

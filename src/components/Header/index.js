@@ -23,7 +23,7 @@ import { BiLogInCircle } from 'react-icons/bi';
 import './header.scss';
 
 const Header = ({
-  isLogged,
+  isActive,
   handleLogout,
   nickname,
   avatar,
@@ -32,7 +32,7 @@ const Header = ({
 
   return (
     <div className="header">
-      {isLogged && (
+      {isActive && (
       <Navbar collapseOnSelect expand="lg" fixed="top" variant="dark">
 
         <div className="header__notifications">
@@ -157,7 +157,7 @@ const Header = ({
         </Navbar.Collapse>
       </Navbar>
       )}
-      {!isLogged && (
+      {!isActive && (
       <Navbar collapseOnSelect expand="lg" fixed="top" variant="dark">
         <Navbar.Brand href="#home">O'Lobby</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -173,13 +173,13 @@ const Header = ({
 };
 
 Header.propTypes = {
-  isLogged: PropTypes.bool,
+  isActive: PropTypes.bool,
   handleLogout: PropTypes.func.isRequired,
   nickname: PropTypes.string.isRequired,
   avatar: PropTypes.string.isRequired,
 };
 
 Header.defaultProps = {
-  isLogged: false,
+  isActive: false,
 };
 export default Header;
