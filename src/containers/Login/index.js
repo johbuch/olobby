@@ -7,6 +7,7 @@ import {
   logIn,
   fetchGames,
   fetchPlatforms,
+  addProfile,
 } from 'src/actions/user';
 
 const mapStateToProps = (state) => ({
@@ -27,6 +28,11 @@ const mapDispatchToProps = (dispatch) => ({
   handleLogin: () => {
     dispatch(logIn());
   },
+
+  handleRegister: () => {
+    dispatch(addProfile());
+  },
+
   launchFetchGames: () => {
     dispatch(fetchGames());
   },

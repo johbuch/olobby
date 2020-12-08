@@ -2,7 +2,9 @@ export const UPDATE_USER_FIELD = 'UPDATE_USER_FIELD';
 export const LOG_IN = 'LOG_IN';
 export const LOG_OUT = 'LOG_OUT';
 export const SAVE_USER_INFO = 'SAVE_USER_INFO';
-export const CHECK_LOGGED = 'CHECK_LOGGED';
+
+export const ADD_USER = 'ADD_USER';
+
 export const FETCH_GAMES = 'FETCH_GAMES';
 export const SAVE_GAMES = 'SAVE_GAMES';
 export const SAVE_PLATFORMS = 'SAVE_PLATFORMS';
@@ -28,6 +30,11 @@ export const saveUserInfo = (isLogged, token, nickname, avatar) => ({
   token,
   nickname,
   avatar,
+});
+
+export const addProfile = (user) => ({
+  type: ADD_USER,
+  user,
 });
 
 export const fetchGames = () => ({

@@ -20,23 +20,14 @@ const Login = ({
   password,
   passwordRegister,
   pseudo,
-  platforms,
   changeField,
   handleLogin,
-  launchFetchGames,
-  launchFetchPlatforms,
-  games,
 }) => {
-  const handleSubmit = (evt) => {
+  const handleSubmitLogin = (evt) => {
     evt.preventDefault();
     handleLogin();
     setModalShow(false);
   };
-
-  useEffect(() => {
-    launchFetchGames();
-    launchFetchPlatforms();
-  }, []);
 
   const [isFlipped, setIsFlipped] = useState(false);
 
@@ -61,7 +52,7 @@ const Login = ({
               </Modal.Title>
             </Modal.Header>
             <Modal.Body className="modal__body">
-              <Form onSubmit={handleSubmit}>
+              <Form onSubmit={handleSubmitLogin}>
                 <Field
                   name="email"
                   placeholder="Adresse Email"
@@ -100,7 +91,7 @@ const Login = ({
               <Button onClick={handleClick} className="btn_back" size="sm">
                 <IoIosArrowBack />retour login
               </Button>
-              <Form onSubmit={handleSubmit}>
+              <Form onSubmit={handleSubmitLogin}>
                 <Field
                   name="emailRegister"
                   type="email"
@@ -123,18 +114,6 @@ const Login = ({
                   value={pseudo}
                 />
               </Form>
-              <h4>Choisir mes jeux favoris</h4>
-              <Form.Group controlId="formBasicCheckbox">
-                {games.map((game) => (
-                  <Form.Check type="checkbox" label={game.title} value={game.title} name={game.title} id={`game-${game.id}`} key={game.id} />
-                ))}
-              </Form.Group>
-              <h4>Choisir ma plateforme</h4>
-              <Form.Group controlId="formBasicCheckbox">
-                {platforms.map((platform) => (
-                  <Form.Check type="radio" label={platform.name} value={platform.name} name="platforms" key={platform.id} id={`platform-${platform.id}`} />
-                ))}
-              </Form.Group>
               <Button className="btn_createAccount" type="submit">
                 S'inscrire
               </Button>
@@ -156,20 +135,6 @@ Login.propTypes = {
   setModalShow: PropTypes.func.isRequired,
   handleLogin: PropTypes.func.isRequired,
   pseudo: PropTypes.string.isRequired,
-  launchFetchGames: PropTypes.func.isRequired,
-  launchFetchPlatforms: PropTypes.func.isRequired,
-  games: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      title: PropTypes.string.isRequired,
-    }).isRequired,
-  ).isRequired,
-  platforms: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      name: PropTypes.string.isRequired,
-    }).isRequired,
-  ).isRequired,
 };
 
 export default Login;

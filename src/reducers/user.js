@@ -4,6 +4,7 @@ import {
   LOG_IN,
   SAVE_GAMES,
   SAVE_PLATFORMS,
+  ADD_USER,
 } from 'src/actions/user';
 
 const initialState = {
@@ -40,6 +41,13 @@ const user = (state = initialState, action = {}) => {
         isLogged: action.isLogged,
         nickname: action.nickname,
         avatar: action.avatar,
+      };
+    case ADD_USER:
+      return {
+        ...state,
+        users: {
+          ...state.user,
+        },
       };
     case SAVE_GAMES:
       return {
