@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import ReactCardFlip from "react-card-flip";
+import ReactCardFlip from 'react-card-flip';
 
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { IoIosArrowBack } from "react-icons/io";
+import { IoIosArrowBack } from 'react-icons/io';
 
 import Field from './Field';
 
@@ -22,10 +22,17 @@ const Login = ({
   pseudo,
   changeField,
   handleLogin,
+  handleRegister,
 }) => {
   const handleSubmitLogin = (evt) => {
     evt.preventDefault();
     handleLogin();
+    setModalShow(false);
+  };
+
+  const handleSubmitRegister = (evt) => {
+    evt.preventDefault();
+    handleRegister();
     setModalShow(false);
   };
 
@@ -91,7 +98,7 @@ const Login = ({
               <Button onClick={handleClick} className="btn_back" size="sm">
                 <IoIosArrowBack />retour login
               </Button>
-              <Form onSubmit={handleSubmitLogin}>
+              <Form onSubmit={handleSubmitRegister}>
                 <Field
                   name="emailRegister"
                   type="email"
@@ -113,10 +120,10 @@ const Login = ({
                   onChange={changeField}
                   value={pseudo}
                 />
+                <Button className="btn_createAccount" type="submit">
+                  S'inscrire
+                </Button>
               </Form>
-              <Button className="btn_createAccount" type="submit">
-                S'inscrire
-              </Button>
             </Modal.Body>
           </div>
         </ReactCardFlip>
@@ -134,6 +141,7 @@ Login.propTypes = {
   modalShow: PropTypes.bool.isRequired,
   setModalShow: PropTypes.func.isRequired,
   handleLogin: PropTypes.func.isRequired,
+  handleRegister: PropTypes.func.isRequired,
   pseudo: PropTypes.string.isRequired,
 };
 

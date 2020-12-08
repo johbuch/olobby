@@ -8,6 +8,7 @@ import {
   saveGames,
   FETCH_PLATFORMS,
   savePlatforms,
+  ADD_USER,
 } from 'src/actions/user';
 
 const authMiddleware = (store) => (next) => (action) => {
@@ -55,6 +56,7 @@ const authMiddleware = (store) => (next) => (action) => {
     }
     case FETCH_GAMES:
       axios.get('http://ec2-52-3-54-243.compute-1.amazonaws.com/api/v1/videogames', {
+        headers: { Authorization: `Bearer ${window.localStorage.getItem('token')}` },
       }, {
         withCredentials: true,
       })
@@ -69,6 +71,7 @@ const authMiddleware = (store) => (next) => (action) => {
       break;
     case FETCH_PLATFORMS:
       axios.get('http://ec2-52-3-54-243.compute-1.amazonaws.com/api/v1/platforms', {
+        headers: { Authorization: `Bearer ${window.localStorage.getItem('token')}` },
       }, {
         withCredentials: true,
       })

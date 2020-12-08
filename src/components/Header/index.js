@@ -161,7 +161,6 @@ const Header = ({ isLogged, handleLogout, nickname, avatar }) => {
         </Navbar.Collapse>
       </Navbar>
       )}
-
       <Login modalShow={modalShow} setModalShow={setModalShow} />
     </div>
   );
