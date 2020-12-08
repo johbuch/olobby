@@ -27,12 +27,6 @@ security:
                 password_path: password
                 success_handler:          lexik_jwt_authentication.handler.authentication_success
                 failure_handler:          lexik_jwt_authentication.handler.authentication_failure
-        platforms:
-            pattern:  ^/api/v1/platforms
-            anonymous: true
-        videogames:
-            pattern:  ^/api/v1/videogames
-            anonymous: true
         api:
             pattern:   ^/api/v1
             stateless: true
@@ -67,8 +61,6 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        - { path: ^/api/v1/platforms, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/api/v1/videogames, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/api/v1/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/api/v1/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/api,       roles: IS_AUTHENTICATED_FULLY }
