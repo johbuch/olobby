@@ -23,14 +23,6 @@ class RegistrationFormType extends AbstractType
     {
         $builder
             ->add('email')
-            ->add('agreeTerms', CheckboxType::class, [
-                'mapped' => false,
-                'constraints' => [
-                    new IsTrue([
-                        'message' => 'Veuillez accepter les conditions',
-                    ]),
-                ],
-            ])
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
@@ -52,27 +44,6 @@ class RegistrationFormType extends AbstractType
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Entrer un pseudo'
-                    ])
-                ]
-            ])
-            ->add('platform', EntityType::class, [
-                'class' => Platform::class,
-                'choice_label' => 'name',
-                'expanded' => true,
-                'constraints' => [
-                    new NotBlank([
-                        'message' => 'Choisir une plateforme'
-                    ])
-                ]
-            ])
-            ->add('videogames', EntityType::class, [
-                'class' => Videogame::class,
-                'choice_label' => 'title',
-                'expanded' => true,
-                'multiple' => true,
-                'constraints' => [
-                    new NotBlank([
-                        'message' => 'Choisir une plateforme'
                     ])
                 ]
             ])
