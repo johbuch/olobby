@@ -37,10 +37,10 @@ const authMiddleware = (store) => (next) => (action) => {
       next(action);
       break;
     }
-    case LOG_OUT: {
+    case LOG_OUT:
+      localStorage.clear();
       next(action);
       break;
-    }
     case FETCH_GAMES:
       axios.get('http://ec2-52-3-54-243.compute-1.amazonaws.com/api/v1/videogames', {
         headers: { Authorization: `Bearer ${window.localStorage.getItem('token')}` },
