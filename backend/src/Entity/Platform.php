@@ -59,6 +59,8 @@ class Platform
     {
         $this->users = new ArrayCollection();
         $this->videogames = new ArrayCollection();
+        $this->createdAt = new \DateTime();
+        $this->updatedAt = new \DateTime();
     }
 
     public function __toString()

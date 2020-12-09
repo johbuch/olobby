@@ -41,11 +41,11 @@ security:
                 authenticators:
                     - App\Security\LoginFormAuthenticator
 
-            form_login:
-                login_path: login
-                check_path: login
-                username_parameter: login[_username]
-                password_parameter: login[_password]
+            # form_login:
+                # login_path: login
+                # check_path: login
+                # username_parameter: login[_username]
+                # password_parameter: login[_password]
                 
             logout:
                 path: app_logout
@@ -61,11 +61,11 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
+        - { path: ^/admin, roles: ROLE_ADMIN }
         - { path: ^/api/v1/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/api/v1/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/api,       roles: IS_AUTHENTICATED_FULLY }
         # - { path: ^/*, roles: ROLE_USER }
-        # - { path: ^/admin, roles: ROLE_ADMIN }
     
     # role_hierarchy:
     #     ROLE_ADMIN: ROLE_USER

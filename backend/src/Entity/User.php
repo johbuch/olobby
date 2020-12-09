@@ -139,6 +139,8 @@ class User implements UserInterface
         $this->videogames = new ArrayCollection();
         $this->friendSender = new ArrayCollection();
         $this->friendReceiver = new ArrayCollection();
+        $this->createdAt = new \DateTime();
+        $this->updatedAt = new \DateTime();
     }
 
     public function getId(): ?int
@@ -197,7 +199,7 @@ class User implements UserInterface
 
     public function setPassword(string $password): self
     {
-        $this->password = $password;
+        $this->password = password_hash($password, PASSWORD_ARGON2I);
 
         return $this;
     }
