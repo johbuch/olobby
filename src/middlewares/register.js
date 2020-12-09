@@ -9,7 +9,6 @@ const registerMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case ADD_USER: {
       const { emailRegister, passwordRegister, pseudo } = store.getState().user;
-      console.log(store.getState().user);
       axios.post('http://ec2-52-3-54-243.compute-1.amazonaws.com/api/v1/register', {
         email: emailRegister,
         plainPassword: passwordRegister,
@@ -19,13 +18,13 @@ const registerMiddleware = (store) => (next) => (action) => {
       })
         .then((response) => {
           window.localStorage.setItem('token', response.data.token);
+          console.log('DATA REGISTER', response);
           store.dispatch(saveUserInfo(
             true,
             response.data.token,
-            response.data.data.pseudo,
-            response.data.data.avatar,
+            response.data.pseudo,
+            response.data.avatar,
           ));
-          console.log('DATA', response);
         })
         .catch((error) => {
           console.warn(error);
