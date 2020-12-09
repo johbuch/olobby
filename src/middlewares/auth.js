@@ -9,10 +9,9 @@ import {
 const authMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case LOG_IN: {
-      const { email, password } = store.getState().user;
-
+      const { isActive, email, password } = store.getState().user;
       axios.post('http://ec2-52-3-54-243.compute-1.amazonaws.com/api/v1/login', {
-        //headers: { Authorization: `Bearer ${JWTToken}` },
+        isActive,
         email,
         password,
       }, {
@@ -46,7 +45,6 @@ const authMiddleware = (store) => (next) => (action) => {
             response.data.data.pseudo,
             response.data.data.avatar,
           ));
-          console.log('deco', response);
         })
         .catch((error) => {
           console.log(error);
