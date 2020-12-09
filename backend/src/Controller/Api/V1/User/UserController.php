@@ -36,7 +36,6 @@ class UserController extends AbstractController
         return $this->json($user, 200, [], ['groups' => ['user:dashboard', 'user:friend']]);
     }
 
-   
     /**
     * @Route("/edit/{id}", name="edit", methods={"PATCH"})
     */

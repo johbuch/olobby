@@ -42,10 +42,10 @@ security:
                     - App\Security\LoginFormAuthenticator
 
             # form_login:
-                # login_path: login
-                # check_path: login
-                # username_parameter: login[_username]
-                # password_parameter: login[_password]
+            #     login_path: login
+            #     check_path: login
+            #     username_parameter: login[_username]
+            #     password_parameter: login[_password]
                 
             logout:
                 path: app_logout
