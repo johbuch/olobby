@@ -16,6 +16,9 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 
 /**
  * @Route("/api/v1/users", name="api_v1_user_")
@@ -138,24 +141,6 @@ class UserController extends AbstractController
 
             return $this->json(['msg' => 'Relation acceptée !'], 200);
         
-    }
-
-    /**
-     * @Route("/test/{id}", name="test", methods={"GET"})
-     */
-    public function match(UserRepository $userRepository, PlatformRepository $platformRepository, VideogameRepository $videogameRepository, int $id, User $user): Response
-    {
-        //$user = [];
-        $idVideogame = '1';
-        $user = $userRepository->matchMaking($id);
-        $platform = $platformRepository->matchP($user->getPlatform()->getId());
-        $videogames = $videogameRepository->matchV($idVideogame);
-
-        
-
-       
-        //dd($videogames);
-        return $this->json($platform);
     }
 }
 

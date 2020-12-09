@@ -36,26 +36,5 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         $this->_em->flush();
     }
 
-    /**
-     * @return User[] Returns an array of User objects
-     */
-    public function matchMaking(int $id)
-    {
-        return $this->createQueryBuilder('u')
-
-
-        ->leftJoin('u.platform', 'p')
-        ->addSelect('p')
-        ->leftJoin('u.videogames', 'v')
-        ->addSelect('v')
-        ->where('u.id = :id')
-        ->setParameter('id', $id)
-
-        ->getQuery()
-        ->getOneOrNullResult()
-
-
-        ;
-    }
    
 }

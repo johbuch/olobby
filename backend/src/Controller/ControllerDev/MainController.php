@@ -66,7 +66,6 @@ class MainController extends AbstractController
     public function match(UserRepository $userRepository, PlatformRepository $platformRepository, VideogameRepository $videogameRepository, int $id, User $user): Response
     {
         $userMatchmaking = [];
-        $idVideogame = '1';
         $user = $userRepository->matchMaking($id);
         $platform = $platformRepository->matchP($user->getPlatform()->getId());
         $videogames = $videogameRepository->matchV($user->getVideogames()[0]->getId());
