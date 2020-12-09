@@ -8,11 +8,11 @@ import {
 const registerMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case ADD_USER: {
-      const { email, plainPassword, pseudo } = store.getState().user;
-      console.log('tessstttt');
+      const { emailRegister, passwordRegister, pseudo } = store.getState().user;
+      console.log(store.getState().user);
       axios.post('http://ec2-52-3-54-243.compute-1.amazonaws.com/api/v1/register', {
-        email,
-        plainPassword,
+        email: emailRegister,
+        plainPassword: passwordRegister,
         pseudo,
       }, {
         withCredentials: true,
