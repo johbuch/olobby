@@ -23,7 +23,7 @@ class PlatformRepository extends ServiceEntityRepository
       * @return Platform[] Returns an array of Platform objects
       */
     
-    public function matchP()
+    public function matchP(int $valueP)
     {
          return $this->createQueryBuilder('p')
 
@@ -31,7 +31,7 @@ class PlatformRepository extends ServiceEntityRepository
         ->leftJoin('p.users', 'u')
         ->addSelect('u')
         ->where('p.id = :id')
-        ->setParameter('id', '2')
+        ->setParameter('id', $valueP)
 
         ->getQuery()
         ->getOneOrNullResult()

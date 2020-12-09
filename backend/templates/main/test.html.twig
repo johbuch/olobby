@@ -12,6 +12,26 @@
             <tr>
                 <th>Email</th>
                 <td>
+                 {{ user.id }},
+                    {{ user.email }}, 
+                    {{ user.platform }}, 
+                    {% for videogame in user.videogames %}
+                        {{ videogame.title }},
+                    {% endfor %}
+                    
+                <td>
+                Les joueurs qui jouent à la même platform:
+                {% for user in platform.users %}
+                        {{ user.id }},
+                {% endfor %}
+                </td>
+
+                <td>
+                Les joueurs qui jouent au :
+                {% for user in videogames.users %}
+                        {{ user.id }},
+                {% endfor %}
+                </td>
             </tr>
         </tbody>
     </table> 

@@ -45,7 +45,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
 
 
         ->leftJoin('u.platform', 'p')
-        ->addSelect('p.name')
+        ->addSelect('p')
         ->leftJoin('u.videogames', 'v')
         ->addSelect('v')
         ->where('u.id = :id')

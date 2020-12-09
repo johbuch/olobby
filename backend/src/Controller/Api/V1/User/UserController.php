@@ -7,6 +7,8 @@ use App\Entity\User;
 use App\Form\UserType;
 use App\Form\FriendType;
 use App\Repository\FriendRepository;
+use App\Repository\PlatformRepository;
+use App\Repository\VideogameRepository;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -136,6 +138,24 @@ class UserController extends AbstractController
 
             return $this->json(['msg' => 'Relation acceptée !'], 200);
         
+    }
+
+    /**
+     * @Route("/test/{id}", name="test", methods={"GET"})
+     */
+    public function match(UserRepository $userRepository, PlatformRepository $platformRepository, VideogameRepository $videogameRepository, int $id, User $user): Response
+    {
+        //$user = [];
+        $idVideogame = '1';
+        $user = $userRepository->matchMaking($id);
+        $platform = $platformRepository->matchP($user->getPlatform()->getId());
+        $videogames = $videogameRepository->matchV($idVideogame);
+
+        
+
+       
+        //dd($videogames);
+        return $this->json($platform);
     }
 }
 

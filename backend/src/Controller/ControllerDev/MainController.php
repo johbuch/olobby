@@ -63,15 +63,23 @@ class MainController extends AbstractController
     /**
      * @Route("test/{id}", name="test", requirements={"id": "\d+"})
      */
-    public function match(UserRepository $userRepository, PlatformRepository $platformRepository, VideogameRepository $videogameRepository, int $id): Response
+    public function match(UserRepository $userRepository, PlatformRepository $platformRepository, VideogameRepository $videogameRepository, int $id, User $user): Response
     {
+        $userMatchmaking = [];
+        $idVideogame = '1';
+        $user = $userRepository->matchMaking($id);
+        $platform = $platformRepository->matchP($user->getPlatform()->getId());
+        $videogames = $videogameRepository->matchV($user->getVideogames()[0]->getId());
+        $videogames2 = $videogameRepository->matchV($user->getVideogames()[1]->getId());
+
         
+
+       
+        dd($user);
         return $this->render('main/test.html.twig', [
-            'user' => $user = $userRepository->matchMaking($id),
-            //'users' => $user = $userRepository->match(),
-            'platform' => $platform = $platformRepository->matchP(),
-            'videogames' => $videogame = $videogameRepository->matchV(),
+            
         ]);
     }
+
 
 }
