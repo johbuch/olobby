@@ -38,18 +38,6 @@ const authMiddleware = (store) => (next) => (action) => {
       break;
     }
     case LOG_OUT: {
-      axios.post('http://ec2-52-3-54-243.compute-1.amazonaws.com/api/v1/logout', {
-        headers: { Authorization: `Bearer ${window.localStorage.getItem('token')}` },
-      }, {
-        withCredentials: true,
-      })
-        .then((response) => {
-          console.log('deco', response);
-          store.dispatch(saveUserInfo(response.data.logged, response.data.pseudo));
-        })
-        .catch((error) => {
-          console.log(error);
-        });
       next(action);
       break;
     }
