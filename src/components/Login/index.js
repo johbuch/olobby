@@ -1,11 +1,11 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import ReactCardFlip from "react-card-flip";
+import ReactCardFlip from 'react-card-flip';
 
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { IoIosArrowBack } from "react-icons/io";
+import { IoIosArrowBack } from 'react-icons/io';
 
 import Field from './Field';
 
@@ -16,13 +16,23 @@ const Login = ({
   modalShow,
   setModalShow,
   email,
+  emailRegister,
   password,
+  passwordRegister,
+  pseudo,
   changeField,
   handleLogin,
+  handleRegister,
 }) => {
-  const handleSubmit = (evt) => {
+  const handleSubmitLogin = (evt) => {
     evt.preventDefault();
     handleLogin();
+    setModalShow(false);
+  };
+
+  const handleSubmitRegister = (evt) => {
+    evt.preventDefault();
+    handleRegister();
     setModalShow(false);
   };
 
@@ -31,7 +41,7 @@ const Login = ({
   const handleClick = () => {
     setIsFlipped(!isFlipped);
   };
-  
+
   return (
     <>
       <Modal
@@ -42,14 +52,14 @@ const Login = ({
         centered
       >
         <ReactCardFlip isFlipped={isFlipped} flipDirection="vertical">
-          <div>
+          <div className="div-flipCard">
             <Modal.Header closeButton className="modal__header">
               <Modal.Title id="contained-modal-title-vcenter">
                 O'lobby logo  -  Se connecter à O'Lobby
               </Modal.Title>
             </Modal.Header>
             <Modal.Body className="modal__body">
-              <Form onSubmit={handleSubmit}>
+              <Form onSubmit={handleSubmitLogin}>
                 <Field
                   name="email"
                   placeholder="Adresse Email"
@@ -77,58 +87,43 @@ const Login = ({
               </Button>
             </Modal.Body>
           </div>
-          <div>
-          <Modal.Header closeButton className="modal__header">
+
+          <div className="div-flipCard">
+            <Modal.Header closeButton className="modal__header">
               <Modal.Title id="contained-modal-title-vcenter">
                 O'lobby logo  -  S'inscrire à O'Lobby
               </Modal.Title>
             </Modal.Header>
             <Modal.Body className="modal__body">
-            <Button onClick={handleClick} className="btn_back" variant="primary" size="sm">
-              <IoIosArrowBack />retour login  
-            </Button>
-              <Form onSubmit={handleSubmit}>
+              <Button onClick={handleClick} className="btn_back" size="sm">
+                <IoIosArrowBack />retour login
+              </Button>
+              <Form onSubmit={handleSubmitRegister}>
                 <Field
-                  name="email"
+                  name="emailRegister"
+                  type="email"
                   placeholder="Adresse Email"
                   onChange={changeField}
-                  value={email}
+                  value={emailRegister}
                 />
                 <Field
-                  name="password"
+                  name="passwordRegister"
                   type="password"
                   placeholder="Mot de passe"
                   onChange={changeField}
-                  value={password}
+                  value={passwordRegister}
                 />
                 <Field
-                  name="password"
-                  type="password"
-                  placeholder="Confirmer le Mot de passe"
+                  name="pseudo"
+                  type="text"
+                  placeholder="Votre pseudo"
                   onChange={changeField}
-                  value={password}
+                  value={pseudo}
                 />
+                <Button className="btn_createAccount" type="submit">
+                  S'inscrire
+                </Button>
               </Form>
-              <h4>Choisir mes jeux favoris   3/3</h4>
-              <Form.Group controlId="formBasicCheckbox">
-                <Form.Check type="checkbox" label="CalofDuTea" />
-                <Form.Check type="checkbox" label="Fifou 21" />
-                <Form.Check type="checkbox" label="Munster Hunter AOP world" />
-                <Form.Check type="checkbox" label="Fournight" />
-                <Form.Check type="checkbox" label="World of Farmcraft" />
-                <Form.Check type="checkbox" label="GTAssis " />
-                <Form.Check type="checkbox" label="CyberFunk" />
-              </Form.Group>
-              <h4>Choisir ma plateforme</h4>
-              <Form.Group controlId="formBasicCheckbox">
-                <Form.Check type="checkbox" label="Playstation" />
-                <Form.Check type="checkbox" label="Xbox" />
-                <Form.Check type="checkbox" label="PC" />
-              </Form.Group>
-              <p>En cliquant sur S'inscrire, vous reconnaissez avoir lu et approuvé les Conditions d'utilisation et la Politique de confidentialité.</p>
-              <Button className="btn_createAccount" type="submit">
-                S'inscrire
-              </Button>
             </Modal.Body>
           </div>
         </ReactCardFlip>
@@ -139,11 +134,15 @@ const Login = ({
 
 Login.propTypes = {
   email: PropTypes.string.isRequired,
+  emailRegister: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
+  passwordRegister: PropTypes.string.isRequired,
   changeField: PropTypes.func.isRequired,
   modalShow: PropTypes.bool.isRequired,
   setModalShow: PropTypes.func.isRequired,
   handleLogin: PropTypes.func.isRequired,
+  handleRegister: PropTypes.func.isRequired,
+  pseudo: PropTypes.string.isRequired,
 };
 
 export default Login;
