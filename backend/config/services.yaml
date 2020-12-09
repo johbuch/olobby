@@ -33,3 +33,8 @@ services:
         class: App\EventListener\AuthenticationSuccessListener
         tags:
             - { name: kernel.event_listener, event: lexik_jwt_authentication.on_authentication_success, method: onAuthenticationSuccessResponse }
+
+    gesdinet.jwtrefreshtoken.refresh_token_manager:
+      class:  App\Doctrine\RefreshTokenManager
+      public: true
+      arguments: [ '@gesdinet.jwtrefreshtoken.object_manager', '%gesdinet.jwtrefreshtoken.refresh_token.class%' ]
