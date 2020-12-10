@@ -5,11 +5,6 @@ export const SAVE_USER_INFO = 'SAVE_USER_INFO';
 
 export const ADD_USER = 'ADD_USER';
 
-export const FETCH_GAMES = 'FETCH_GAMES';
-export const SAVE_GAMES = 'SAVE_GAMES';
-export const SAVE_PLATFORMS = 'SAVE_PLATFORMS';
-export const FETCH_PLATFORMS = 'FETCH_PLATFORMS';
-
 export const createUpdateUserFieldAction = (value, name) => ({
   type: UPDATE_USER_FIELD,
   value,
@@ -34,22 +29,4 @@ export const saveUserInfo = (isActive, nickname, avatar) => ({
 export const addProfile = (user) => ({
   type: ADD_USER,
   user,
-});
-
-export const fetchGames = () => ({
-  type: FETCH_GAMES,
-});
-
-export const saveGames = (games) => ({
-  type: SAVE_GAMES,
-  games,
-});
-
-export const fetchPlatforms = () => ({
-  type: FETCH_PLATFORMS,
-});
-
-export const savePlatforms = (platforms) => ({
-  type: SAVE_PLATFORMS,
-  platforms,
 });

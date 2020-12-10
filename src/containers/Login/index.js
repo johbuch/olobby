@@ -5,8 +5,6 @@ import Login from 'src/components/Login';
 import {
   createUpdateUserFieldAction,
   logIn,
-  fetchGames,
-  fetchPlatforms,
   addProfile,
 } from 'src/actions/user';
 
@@ -31,13 +29,6 @@ const mapDispatchToProps = (dispatch) => ({
 
   handleRegister: () => {
     dispatch(addProfile());
-  },
-
-  launchFetchGames: () => {
-    dispatch(fetchGames());
-  },
-  launchFetchPlatforms: () => {
-    dispatch(fetchPlatforms());
   },
 });
 

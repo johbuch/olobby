@@ -1,0 +1,82 @@
+@use 'src/styles/vars';
+
+.editProfile{
+  margin-top: vars.$gutter * 8;
+  margin-bottom: vars.$gutter * 2;
+  &__title{
+    color: white;
+    font-weight: vars.$ft-bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: vars.$gutter * 2;
+  }
+  &__img{
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    .rounded-circle{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  .custom-file{
+    margin-top: vars.$gutter;
+    &-label{
+      border: 1px solid vars.$main-color !important;
+      background-color: transparent;
+      color: white;
+      text-align: left;
+    }
+    &-input{
+      background-color: vars.$main-color;
+    }
+  }
+  &__form{
+    text-align: right;
+    .form-control{
+      margin-bottom: vars.$gutter;
+      background-color: transparent;
+      border: 1px solid vars.$main-color;
+      color: white;
+      &:focus{
+        box-shadow: none;
+        outline: none;
+      }
+      &::placeholder{
+        color: white;
+        opacity: 0.6;
+      }
+    }
+    &__subtitle{
+      text-align: left;
+      margin-top: vars.$gutter * 2;
+      color: white;
+      font-weight: vars.$ft-bold;
+    }
+    .form-check{
+      text-align: left;
+      color: white;
+    }
+    .form-label{
+      color: white;
+      margin-top: vars.$gutter * 2;
+      font-weight: vars.$ft-bold;
+    }
+  }
+  &__send{
+    background-color: vars.$main-color;
+    border: 1px solid transparent;
+    transition: ease-in-out 0.33s;
+    &:hover{
+      background-color: transparent;
+      border: 1px solid vars.$main-color;
+      transition: ease-in-out 0.33s;
+      color: vars.$main-color;
+    }
+    &:focus{
+      box-shadow: none;
+      outline: none;
+    }
+  }
+}

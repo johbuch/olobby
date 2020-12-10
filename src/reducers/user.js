@@ -3,8 +3,6 @@ import {
   SAVE_USER_INFO,
   LOG_IN,
   LOG_OUT,
-  SAVE_GAMES,
-  SAVE_PLATFORMS,
   ADD_USER,
 } from 'src/actions/user';
 
@@ -53,16 +51,6 @@ const user = (state = initialState, action = {}) => {
         users: {
           ...state.user,
         },
-      };
-    case SAVE_GAMES:
-      return {
-        ...state,
-        gamesList: action.games,
-      };
-    case SAVE_PLATFORMS:
-      return {
-        ...state,
-        platformsList: action.platforms,
       };
     default:
       return { ...state };

@@ -5,6 +5,7 @@ import { Route } from 'react-router-dom';
 // == Import
 import Annuaire from 'src/components/Annuaire';
 import CardProfile from 'src/containers/CardProfile';
+import EditProfile from 'src/containers/EditProfile';
 
 // == Import scss
 import './pages.scss';
@@ -52,7 +53,7 @@ const Pages = () => (
     <Route
       path="/mon-compte"
     >
-
+      <EditProfile />
     </Route>
   </div>
 );
