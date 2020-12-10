@@ -5,7 +5,12 @@ import {
   saveGames,
   FETCH_PLATFORMS,
   savePlatforms,
+  EDIT_USER,
 } from 'src/actions/edit';
+
+import {
+  saveUserInfo,
+} from 'src/actions/user';
 
 const editMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -39,6 +44,41 @@ const editMiddleware = (store) => (next) => (action) => {
         });
       next(action);
       break;
+    case EDIT_USER: {
+      console.log('edit');
+      const {
+        pseudo,
+        pseudoOlobbien,
+        email,
+        urlImage,
+        description,
+        radio,
+        checkbox,
+      } = store.getState().edit;
+      axios.patch('http://ec2-52-3-54-243.compute-1.amazonaws.com/api/v1/edit', {
+        pseudo,
+        pseudoOlobbien,
+        email,
+        urlImage,
+        description,
+        radio,
+        checkbox,
+      }, {
+        withCredentials: true,
+      })
+        .then((response) => {
+          store.dispatch(saveUserInfo(
+            response.data.pseudo,
+            response.data.avatar,
+          ));
+          console.log('EDIT PROFILE', response);
+        })
+        .catch((error) => {
+          console.warn(error);
+        });
+      next(action);
+      break;
+    }
     default:
       next(action);
   }

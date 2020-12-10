@@ -7,6 +7,9 @@ import {
   fetchGames,
   fetchPlatforms,
   editCheckbox,
+  editRadio,
+  editImage,
+  editProfile,
 } from 'src/actions/edit';
 
 const mapStateToProps = (state) => ({
@@ -17,6 +20,7 @@ const mapStateToProps = (state) => ({
   description: state.edit.description,
   games: state.edit.gamesList,
   platforms: state.edit.platformsList,
+  urlImage: state.edit.urlImage,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -26,11 +30,20 @@ const mapDispatchToProps = (dispatch) => ({
   changeCheckbox: (newValue) => {
     dispatch(editCheckbox(newValue));
   },
+  changeRadio: (newValue) => {
+    dispatch(editRadio(newValue));
+  },
+  changeImage: (newValue) => {
+    dispatch(editImage(newValue));
+  },
   launchFetchGames: () => {
     dispatch(fetchGames());
   },
   launchFetchPlatforms: () => {
     dispatch(fetchPlatforms());
+  },
+  handleEdit: () => {
+    dispatch(editProfile());
   },
 });
 

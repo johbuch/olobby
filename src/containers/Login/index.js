@@ -26,7 +26,6 @@ const mapDispatchToProps = (dispatch) => ({
   handleLogin: () => {
     dispatch(logIn());
   },
-
   handleRegister: () => {
     dispatch(addProfile());
   },

@@ -15,6 +15,7 @@ import './editProfile.scss';
 // == Import
 import FieldEdit from './FieldEdit';
 import Checkbox from './FieldEdit/Checkbox';
+import ImageEdit from './FieldEdit/ImageEdit';
 
 const EditProfile = ({
   email,
@@ -27,9 +28,14 @@ const EditProfile = ({
   games,
   platforms,
   changeCheckbox,
+  changeRadio,
+  changeImage,
+  urlImage,
+  handleEdit,
 }) => {
-  const handleSubmitLogin = (evt) => {
+  const handleSubmit = (evt) => {
     evt.preventDefault();
+    handleEdit();
   };
   useEffect(() => {
     launchFetchGames();
@@ -39,18 +45,16 @@ const EditProfile = ({
     <div className="editProfile">
       <Container>
         <h5 className="editProfile__title">Profil de Scionna</h5>
-        <Form className="editProfile__form" onSubmit={handleSubmitLogin}>
+        <Form className="editProfile__form" onSubmit={handleSubmit}>
           <Row>
             <Col sm md lg>
               <div className="editProfile__img">
                 <Image src="https://www.pdvg.it/wp-content/uploads/2020/01/Destiny-2-Australia-SN.jpg" roundedCircle />
               </div>
-              <Form.File id="formcheck-api-custom" custom>
-                <Form.File.Input isValid />
-                <Form.File.Label data-browse="Choisissez votre image">
-                  Votre image
-                </Form.File.Label>
-              </Form.File>
+              <ImageEdit
+                onChange={changeImage}
+                value={urlImage}
+              />
             </Col>
             <Col sm md lg>
               <FieldEdit
@@ -102,7 +106,7 @@ const EditProfile = ({
                   id={`platform-${platform.id}`}
                   key={platform.id}
                   value={platform.name}
-                  onChange={changeCheckbox}
+                  onChange={changeRadio}
                 />
               ))}
             </Col>
@@ -142,7 +146,7 @@ const EditProfile = ({
               />
             </Col>
           </Row>
-          <Button className="editProfile__send">Modifier</Button>
+          <Button type="submit" className="editProfile__send">Modifier</Button>
         </Form>
       </Container>
     </div>
@@ -154,10 +158,14 @@ EditProfile.propTypes = {
   pseudoOlobbien: PropTypes.string.isRequired,
   changeField: PropTypes.func.isRequired,
   changeCheckbox: PropTypes.func.isRequired,
+  changeRadio: PropTypes.func.isRequired,
   pseudo: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   launchFetchGames: PropTypes.func.isRequired,
   launchFetchPlatforms: PropTypes.func.isRequired,
+  changeImage: PropTypes.func.isRequired,
+  urlImage: PropTypes.string.isRequired,
+  handleEdit: PropTypes.func.isRequired,
   games: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
