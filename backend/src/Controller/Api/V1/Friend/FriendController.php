@@ -75,4 +75,17 @@ class FriendController extends AbstractController
             return $this->json(['msg' => 'Relation acceptée !'], 200);
         
     }
+
+    /**
+     * @Route("/delete/{id}", name="refuse", methods={"DELETE"})
+     */
+    public function deleteRequestFriend(Friend $id): Response
+    {
+
+    $doctrine = $this->getDoctrine()->getManager();
+       $doctrine->remove($id);
+       $doctrine->flush();
+
+       return $this->json(['msg' => 'Cette demande d\'amitié a bien été refusée!'], 200);
+    }
 }
