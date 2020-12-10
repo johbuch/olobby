@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import Row from 'react-bootstrap/Row';
@@ -8,14 +7,11 @@ import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
-
 // == Import icons
 import { MdGroupAdd } from 'react-icons/md';
 import { FaPlaystation } from 'react-icons/fa';
-
 // == Import scss
 import 'src/components/CardProfile/cardProfile.scss';
-
 const ModalProfile = ({ modalShow, setModalShow }) => (
     <Modal
         show={modalShow}
@@ -101,5 +97,4 @@ const ModalProfile = ({ modalShow, setModalShow }) => (
         </Modal.Footer>
       </Modal>
 );
-
 export default ModalProfile;

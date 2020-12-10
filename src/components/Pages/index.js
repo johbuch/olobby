@@ -38,7 +38,7 @@ return (
         <Annuaire />
         <h1 className="title_pages">Annuaire de joueurs</h1>
         {players.map((player) => (            
-            <CardProfile {...player}/>
+            <CardProfile key={player.id} {...player}/>
         ))}        
     </Route>  
     <Route
