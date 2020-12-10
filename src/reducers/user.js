@@ -2,6 +2,7 @@ import {
   UPDATE_USER_FIELD,
   SAVE_USER_INFO,
   LOG_IN,
+  LOG_OUT,
   SAVE_GAMES,
   SAVE_PLATFORMS,
   ADD_USER,
@@ -19,6 +20,8 @@ const initialState = {
   avatar: '',
   platformsList: [],
   gamesList: [],
+  user: {},
+  players: {},
 };
 
 const user = (state = initialState, action = {}) => {
@@ -35,6 +38,8 @@ const user = (state = initialState, action = {}) => {
           ...state.user,
         },
       };
+    case LOG_OUT:
+      return initialState;
     case SAVE_USER_INFO:
       return {
         ...state,
