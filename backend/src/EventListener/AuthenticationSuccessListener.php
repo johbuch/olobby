@@ -37,6 +37,7 @@ class AuthenticationSuccessListener
         $data['data'] = array(
         'pseudo' => $user->getPseudo(),
         'avatar' => $user->getAvatar(),
+        'isActive' => $user->getIsActive(),
         );
 
         $event->setData($data);

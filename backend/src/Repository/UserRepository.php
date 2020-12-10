@@ -36,5 +36,67 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         $this->_em->flush();
     }
 
+<<<<<<< HEAD
    
+=======
+    public function findByLevel($value, $id)
+    {
+        return $this->createQueryBuilder('u')
+            ->andWhere('u.level = :val')
+            ->andWhere('u.id != :id')
+            ->setParameter('val', $value)
+            ->setParameter('id', $id)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    public function findByPlatform($platform, $id)
+    {
+        return $this->createQueryBuilder('u')
+            ->andWhere('u.platform = :platform')
+            ->andWhere('u.id != :id')
+            ->setParameter('platform', $platform)
+            ->setParameter('id', $id)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    public function findByLevelAndPlatformAndVideogame($level, $platform, $videogameId, $id)
+    {
+        return $this->createQueryBuilder('u')
+            ->innerJoin('u.videogames', 'v')
+            ->addSelect('v')
+            ->where('u.level = :level')
+            ->andWhere('v.id = :videogameId')
+            ->andWhere('u.platform = :platform')
+            ->andWhere('u.id != :id')
+            ->setParameter('videogameId', $videogameId)
+            ->setParameter('level', $level)
+            ->setParameter('platform', $platform)
+            ->setParameter('id', $id)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    public function findByVideogame($videogameId, $platformId, $id)
+    {
+        return $this->createQueryBuilder('u')
+            ->innerJoin('u.videogames', 'v')
+            ->addSelect('v')
+            ->innerJoin('u.platform', 'p')
+            ->addSelect('p')
+            ->where('v.id = :videogameId')
+            ->andWhere('p.id = :platformId')
+            ->andWhere('u.id != :id')
+            ->setParameter('videogameId', $videogameId)
+            ->setParameter('platformId', $platformId)
+            ->setParameter('id', $id)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+>>>>>>> 0ec8d3f5d87f6d3bbd208fbdff6f1e4638686af3
 }

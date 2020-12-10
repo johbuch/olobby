@@ -20,13 +20,13 @@ class User implements UserInterface
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups({"platform:dashboard", "user:dashboard", "videogame:dashboard"})
+     * @Groups({"platform:dashboard", "user:dashboard", "videogame:dashboard", "matchmaking"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
-     * @Groups({"platform:dashboard", "user:dashboard", "videogame:dashboard"})
+     * @Groups({"platform:dashboard", "user:dashboard", "videogame:dashboard", "matchmaking"})
      */
     private $email;
 
@@ -44,94 +44,98 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=120)
-     * @Groups({"user:dashboard", "user:friend"})
+     * @Groups({"user:dashboard", "user:friend", "matchmaking"})
      */
     private $pseudo;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups("user:dashboard")
+     * @Groups({"user:dashboard", "matchmaking"})
      */
     private $level;
 
     /**
      * @ORM\Column(type="text", nullable=true)
-     * @Groups("user:dashboard")
+     * @Groups({"user:dashboard", "matchmaking"})
      */
     private $description;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups("user:dashboard")
+     * @Groups({"user:dashboard", "matchmaking"})
      */
     private $avatar;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups("user:dashboard")
+     * @Groups({"user:dashboard", "matchmaking"})
      */
     private $pseudoPlatform;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
-     * @Groups("user:dashboard")
+     * @Groups({"user:dashboard", "matchmaking"})
      */
     private $rating;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups("user:dashboard")
+     * @Groups({"user:dashboard", "matchmaking"})
      */
     private $youtube;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups("user:dashboard")
+     * @Groups({"user:dashboard", "matchmaking"})
      */
     private $twitch;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups("user:dashboard")
+     * @Groups({"user:dashboard", "matchmaking"})
      */
     private $discord;
 
     /**
      * @ORM\Column(type="datetime")
-     * @Groups("user:dashboard")
+     * @Groups({"user:dashboard", "matchmaking"})
      */
     private $createdAt;
 
     /**
      * @ORM\Column(type="datetime")
-     * @Groups("user:dashboard")
+     * @Groups({"user:dashboard", "matchmaking"})
      */
     private $updatedAt;
 
     /**
      * @ORM\ManyToOne(targetEntity=Platform::class, inversedBy="users")
-     * @Groups("user:dashboard")
+     * @Groups({"user:dashboard", "matchmaking"})
      */
     private $platform;
 
     /**
-     * 
      * @ORM\ManyToMany(targetEntity=Videogame::class, inversedBy="users")
-     * @Groups("user:dashboard")
+     * @Groups({"user:dashboard", "matchmaking"})
      */
     private $videogames;
 
     /**
      * @ORM\OneToMany(targetEntity=Friend::class, mappedBy="sender", orphanRemoval=true)
-     * @Groups("user:dashboard")
+     * @Groups({"user:dashboard", "matchmaking"})
      */
     private $friendSender;
 
     /**
      * @ORM\OneToMany(targetEntity=Friend::class, mappedBy="receiver", orphanRemoval=true)
-     * @Groups("user:dashboard")
+     * @Groups({"user:dashboard", "matchmaking"})
      */
     private $friendReceiver;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isActive;
 
     
     public function __construct()
@@ -139,6 +143,7 @@ class User implements UserInterface
         $this->videogames = new ArrayCollection();
         $this->friendSender = new ArrayCollection();
         $this->friendReceiver = new ArrayCollection();
+        $this->isActive = true;
         $this->createdAt = new \DateTime();
         $this->updatedAt = new \DateTime();
     }
@@ -199,7 +204,7 @@ class User implements UserInterface
 
     public function setPassword(string $password): self
     {
-        $this->password = password_hash($password, PASSWORD_ARGON2I);
+        $this->password = $password;
 
         return $this;
     }
@@ -445,6 +450,18 @@ class User implements UserInterface
                 $friendReceiver->setReceiver(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getIsActive(): ?bool
+    {
+        return $this->isActive;
+    }
+
+    public function setIsActive(bool $isActive): self
+    {
+        $this->isActive = $isActive;
 
         return $this;
     }

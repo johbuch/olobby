@@ -17,19 +17,19 @@ class Platform
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups({"platform:dashboard", "user:dashboard", "videogame:dashboard"})
+     * @Groups({"platform:dashboard", "user:dashboard", "videogame:dashboard", "matchmaking"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=120)
-     * @Groups({"platform:dashboard", "user:dashboard", "videogame:dashboard"})
+     * @Groups({"platform:dashboard", "user:dashboard", "videogame:dashboard", "matchmaking"})
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups({"platform:dashboard", "user:dashboard", "videogame:dashboard"})
+     * @Groups({"platform:dashboard", "user:dashboard", "videogame:dashboard", "matchmaking"})
      */
     private $image;
 
