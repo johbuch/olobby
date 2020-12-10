@@ -36,9 +36,6 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         $this->_em->flush();
     }
 
-<<<<<<< HEAD
-   
-=======
     public function findByLevel($value, $id)
     {
         return $this->createQueryBuilder('u')
@@ -98,5 +95,4 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
             ->getResult()
         ;
     }
->>>>>>> 0ec8d3f5d87f6d3bbd208fbdff6f1e4638686af3
 }
