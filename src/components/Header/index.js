@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 
 import Navbar from 'react-bootstrap/Navbar';
 import Form from 'react-bootstrap/Form';
@@ -80,7 +81,9 @@ const Header = ({
                 {nickname}
               </Dropdown.Toggle>
               <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">Mon compte</Dropdown.Item>
+                <Dropdown.Item>
+                  <NavLink className="nav-item" to="/mon-compte">Mon compte</NavLink>
+                </Dropdown.Item>
                 <Dropdown.Item onClick={handleLogout}>Se déconnecter</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>

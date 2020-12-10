@@ -12,7 +12,6 @@ import Header from 'src/containers/Header';
 import Aside from 'src/components/Aside';
 import Footer from 'src/containers/Footer';
 import MenuFooter from 'src/components/MenuFooter';
-import CardProfile from 'src/containers/CardProfile';
 import Login from 'src/containers/Login';
 import Pages from 'src/components/Pages';
 
@@ -30,7 +29,6 @@ const Olobby = ({ isActive }) => {
         <>
           <Aside />
           <Pages />
-          <CardProfile />
           <MenuFooter />
         </>
       )}
