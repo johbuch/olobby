@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Friend;
+use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -19,32 +20,47 @@ class FriendRepository extends ServiceEntityRepository
         parent::__construct($registry, Friend::class);
     }
 
-    // /**
-    //  * @return Friend[] Returns an array of Friend objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    /**
+      * @return Friend[] Returns an array of Friend objects
+      */
+    
+    public function requestFriendInWaiting($id)
     {
         return $this->createQueryBuilder('f')
-            ->andWhere('f.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('f.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
+                ->leftJoin(
+                    'App\Entity\User',
+                    'u',
+                    'WITH',
+                    'u.id = f.sender'
+                )
+                ->addSelect('u')
+                ->where('f.receiver = :id')
+                ->andWhere('f.status = 0')
+                ->setParameter('id', $id)
+                ->getQuery()
+                ->getResult()
+        
         ;
     }
-    */
+    
+    public function myRequestFriendInWaiting($id)
+    {
+        return $this->createQueryBuilder('f')
+                ->leftJoin(
+                    'App\Entity\User',
+                    'u',
+                    'WITH',
+                    'u.id = f.receiver'
+                )
+                ->addSelect('u')
+                ->where('f.sender = :id')
+                ->andWhere('f.status = 0')
+                ->setParameter('id', $id)
+                ->getQuery()
+                ->getResult()
+        
+        ;
+    }
 
-    /*
-    public function findOneBySomeField($value): ?Friend
-    {
-        return $this->createQueryBuilder('f')
-            ->andWhere('f.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
+   
 }

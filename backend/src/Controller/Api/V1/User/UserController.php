@@ -2,19 +2,14 @@
 
 namespace App\Controller\Api\V1\User;
 
-use App\Entity\Friend;
 use App\Entity\User;
 use App\Form\UserType;
-use App\Repository\FriendRepository;
-use App\Repository\PlatformRepository;
-use App\Repository\VideogameRepository;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Serializer\SerializerInterface;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
@@ -81,7 +76,6 @@ class UserController extends AbstractController
        return $this->json(['msg' => 'Cette utilisateur a été supprimé avec succés!'], 200);
     }
 
-   
 }
 
 

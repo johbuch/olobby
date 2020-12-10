@@ -3,6 +3,7 @@
 namespace App\Controller\Api\V1\Friend;
 
 use App\Entity\Friend;
+use App\Entity\User;
 use App\Form\FriendType;
 use App\Repository\FriendRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -53,19 +54,13 @@ class FriendController extends AbstractController
     /**
      * @Route("/accept/{id}", name="accept", methods={"PATCH"})
      */
-    public function acceptFriend(Request $request, int $id): Response
+    public function acceptFriend(Friend $id): Response
     {
-
-        $data = json_decode($request->getContent(), true);
-
         $friend = $this->getDoctrine()
         ->getRepository('App:Friend')
         ->find($id);
 
-        
-        $form = $this->createForm(FriendType::class, $friend);
-        $form->submit($data, false);
-
+        $friend->setStatus(true);
         $friend->setUpdatedAt(new \DateTime());
         
         $entityManager = $this->getDoctrine()->getManager();
@@ -87,5 +82,23 @@ class FriendController extends AbstractController
        $doctrine->flush();
 
        return $this->json(['msg' => 'Cette demande d\'amitié a bien été refusée!'], 200);
+    }
+
+    /**
+    * @Route("/request/{id}", name="request", methods={"GET"})
+    */
+    public function myRequestFriendInWaiting(User $user, FriendRepository $friendRepository, int $id): Response
+    {
+        $test = $friendRepository->myRequestFriendInWaiting($id);
+        return $this->json($test, 200, [], ['groups' => ['user:dashboard', 'user:friend']]);
+    }
+
+     /**
+    * @Route("/wait/{id}", name="wait", methods={"GET"})
+    */
+    public function requestFriendInWaiting(User $user, FriendRepository $friendRepository, int $id): Response
+    {
+        $test = $friendRepository->requestFriendInWaiting($id);
+        return $this->json($test, 200, [], ['groups' => ['user:dashboard', 'user:friend']]);
     }
 }
