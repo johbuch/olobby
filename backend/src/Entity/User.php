@@ -61,7 +61,7 @@ class User implements UserInterface
     private $description;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="text", nullable=true)
      * @Groups({"user:dashboard", "matchmaking"})
      */
     private $avatar;
