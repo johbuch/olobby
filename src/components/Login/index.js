@@ -16,9 +16,7 @@ const Login = ({
   modalShow,
   setModalShow,
   email,
-  emailRegister,
   password,
-  passwordRegister,
   pseudo,
   changeField,
   handleLogin,
@@ -100,18 +98,18 @@ const Login = ({
               </Button>
               <Form onSubmit={handleSubmitRegister}>
                 <Field
-                  name="emailRegister"
+                  name="email"
                   type="email"
                   placeholder="Adresse Email"
                   onChange={changeField}
-                  value={emailRegister}
+                  value={email}
                 />
                 <Field
-                  name="passwordRegister"
+                  name="password"
                   type="password"
                   placeholder="Mot de passe"
                   onChange={changeField}
-                  value={passwordRegister}
+                  value={password}
                 />
                 <Field
                   name="pseudo"
@@ -134,9 +132,7 @@ const Login = ({
 
 Login.propTypes = {
   email: PropTypes.string.isRequired,
-  emailRegister: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
-  passwordRegister: PropTypes.string.isRequired,
   changeField: PropTypes.func.isRequired,
   modalShow: PropTypes.bool.isRequired,
   setModalShow: PropTypes.func.isRequired,

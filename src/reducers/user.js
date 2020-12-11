@@ -14,6 +14,7 @@ import {
   UPDATE_EDIT_RADIO,
   UPDATE_EDIT_IMAGE,
   EDIT_USER,
+  SAVE_USER,
 } from 'src/actions/edit';
 
 const initialState = {
@@ -22,17 +23,16 @@ const initialState = {
   isActive: false,
   password: '',
   pseudo: '',
-  passwordRegister: '',
-  emailRegister: '',
   email: '',
   avatar: '',
   platformsList: [],
   gamesList: [],
+  userInfo: [],
   players: {},
-  pseudoOlobbien: '',
+  pseudoPlatform: '',
   description: '',
   checkbox: [],
-  radio: '',
+  radio: [],
 };
 
 const user = (state = initialState, action = {}) => {
@@ -56,7 +56,7 @@ const user = (state = initialState, action = {}) => {
         ...state,
         id: action.id,
         isActive: action.isActive,
-        pseudoOlobbien: action.pseudoOlobbien,
+        pseudo: action.pseudo,
         avatar: action.avatar,
       };
     case ADD_USER:
@@ -116,6 +116,11 @@ const user = (state = initialState, action = {}) => {
       return {
         ...state,
         platformsList: action.platforms,
+      };
+    case SAVE_USER:
+      return {
+        ...state,
+        userInfo: action.user,
       };
     default:
       return { ...state };

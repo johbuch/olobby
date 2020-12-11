@@ -6,7 +6,7 @@ import { logOut } from 'src/actions/user';
 
 const mapStateToProps = (state) => ({
   isActive: state.user.isActive,
-  pseudoOlobbien: state.user.pseudoOlobbien,
+  pseudo: state.user.pseudo,
   avatar: state.user.avatar,
 });
 

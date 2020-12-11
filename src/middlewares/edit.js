@@ -6,6 +6,8 @@ import {
   FETCH_PLATFORMS,
   savePlatforms,
   EDIT_USER,
+  FETCH_USER,
+  saveUser,
 } from 'src/actions/edit';
 
 import {
@@ -22,7 +24,7 @@ const editMiddleware = (store) => (next) => (action) => {
       })
         .then((response) => {
           store.dispatch(saveGames(response.data));
-          console.log('YOLO', response);
+          console.log('GAMES', response);
         })
         .catch((error) => {
           console.log(error);
@@ -37,17 +39,36 @@ const editMiddleware = (store) => (next) => (action) => {
       })
         .then((response) => {
           store.dispatch(savePlatforms(response.data));
-          console.log('SWAG', response);
+          console.log('PLATFORMS', response);
         })
         .catch((error) => {
           console.log(error);
         });
       next(action);
       break;
+    case FETCH_USER: {
+      const {
+        id,
+      } = store.getState().user;
+      axios.get(`http://ec2-52-3-54-243.compute-1.amazonaws.com/api/v1/users/${id}`, {
+        headers: { Authorization: `Bearer ${window.localStorage.getItem('token')}` },
+      }, {
+        withCredentials: true,
+      })
+        .then((response) => {
+          store.dispatch(saveUser(response.data));
+          console.log('USER', response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      next(action);
+      break;
+    }
     case EDIT_USER: {
       const {
         pseudo,
-        pseudoOlobbien,
+        pseudoPlatform,
         email,
         avatar,
         description,
@@ -55,23 +76,32 @@ const editMiddleware = (store) => (next) => (action) => {
         checkbox,
         id,
       } = store.getState().user;
-      console.log('edit', id);
+      console.log(avatar);
       axios.patch(`http://ec2-52-3-54-243.compute-1.amazonaws.com/api/v1/users/edit/${id}`, {
-        headers: { Authorization: `Bearer ${window.localStorage.getItem('token')}` },
         pseudo,
-        pseudoOlobbien,
+        pseudoPlatform,
         email,
         avatar,
         description,
-        radio,
-        checkbox,
+        platform: radio,
+        videogames: checkbox,
+      }, {
+        headers: { Authorization: `Bearer ${window.localStorage.getItem('token')}` },
       }, {
         withCredentials: true,
       })
         .then((response) => {
           store.dispatch(saveUserInfo(
+            response.data.id,
+            true,
             response.data.pseudo,
             response.data.avatar,
+            response.data.email,
+            response.data.level,
+            response.data.description,
+            response.data.pseudoPlatform,
+            response.data.platform,
+            response.data.videogames,
           ));
           console.log('EDIT PROFILE', response);
         })

@@ -6,6 +6,7 @@ import {
   editField,
   fetchGames,
   fetchPlatforms,
+  fetchUser,
   editCheckbox,
   editRadio,
   editImage,
@@ -15,10 +16,11 @@ import {
 const mapStateToProps = (state) => ({
   email: state.user.email,
   password: state.user.password,
+  pseudoPlatform: state.user.pseudoPlatform,
   pseudo: state.user.pseudo,
-  pseudoOlobbien: state.user.pseudoOlobbien,
   description: state.user.description,
   games: state.user.gamesList,
+  user: state.user.userInfo,
   platforms: state.user.platformsList,
   avatar: state.user.avatar,
 });
@@ -41,6 +43,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   launchFetchPlatforms: () => {
     dispatch(fetchPlatforms());
+  },
+  launchFetchUser: () => {
+    dispatch(fetchUser());
   },
   handleEdit: () => {
     dispatch(editProfile());

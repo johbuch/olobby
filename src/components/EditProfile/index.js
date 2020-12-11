@@ -19,19 +19,21 @@ import ImageEdit from './FieldEdit/ImageEdit';
 
 const EditProfile = ({
   email,
-  pseudoOlobbien,
   pseudo,
+  pseudoPlatform,
   avatar,
   changeField,
   description,
   launchFetchGames,
   launchFetchPlatforms,
+  launchFetchUser,
   games,
   platforms,
   changeCheckbox,
   changeRadio,
   changeImage,
   handleEdit,
+  user,
 }) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -40,11 +42,12 @@ const EditProfile = ({
   useEffect(() => {
     launchFetchGames();
     launchFetchPlatforms();
+    launchFetchUser();
   }, []);
   return (
     <div className="editProfile">
       <Container>
-        <h5 className="editProfile__title">Profil de Scionna</h5>
+        <h5 className="editProfile__title">Profil de {user.pseudoPlatform}</h5>
         <Form className="editProfile__form" onSubmit={handleSubmit}>
           <Row>
             <Col sm md lg>
@@ -58,11 +61,11 @@ const EditProfile = ({
             </Col>
             <Col sm md lg>
               <FieldEdit
-                name="pseudoOlobbien"
+                name="pseudo"
                 type="text"
                 placeholder="Pseudo O'Lobbien"
                 onChange={changeField}
-                value={pseudoOlobbien}
+                value={pseudo}
               />
               <FieldEdit
                 name="email"
@@ -72,11 +75,11 @@ const EditProfile = ({
                 value={email}
               />
               <FieldEdit
-                name="pseudo"
+                name="pseudoPlatform"
                 type="text"
                 placeholder="Pseudo de ma plateforme"
                 onChange={changeField}
-                value={pseudo}
+                value={user.pseudoPlatform}
               />
             </Col>
           </Row>
@@ -90,7 +93,7 @@ const EditProfile = ({
                   name={game.title}
                   id={`game-${game.id}`}
                   key={game.id}
-                  value={game.title}
+                  value={game.id}
                   onChange={changeCheckbox}
                 />
               ))}
@@ -105,7 +108,7 @@ const EditProfile = ({
                   name="plateformes"
                   id={`platform-${platform.id}`}
                   key={platform.id}
-                  value={platform.name}
+                  value={platform.id}
                   onChange={changeRadio}
                 />
               ))}
@@ -140,7 +143,7 @@ const EditProfile = ({
                 name="description"
                 placeholder="Votre description"
                 onChange={changeField}
-                value={description}
+                value={user.description}
                 as="textarea"
                 rows="10"
               />
@@ -155,14 +158,15 @@ const EditProfile = ({
 
 EditProfile.propTypes = {
   email: PropTypes.string.isRequired,
-  pseudoOlobbien: PropTypes.string.isRequired,
+  pseudo: PropTypes.string.isRequired,
   changeField: PropTypes.func.isRequired,
   changeCheckbox: PropTypes.func.isRequired,
   changeRadio: PropTypes.func.isRequired,
-  pseudo: PropTypes.string.isRequired,
+  pseudoPlatform: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   launchFetchGames: PropTypes.func.isRequired,
   launchFetchPlatforms: PropTypes.func.isRequired,
+  launchFetchUser: PropTypes.func.isRequired,
   changeImage: PropTypes.func.isRequired,
   avatar: PropTypes.string.isRequired,
   handleEdit: PropTypes.func.isRequired,
@@ -176,6 +180,12 @@ EditProfile.propTypes = {
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       name: PropTypes.string.isRequired,
+    }).isRequired,
+  ).isRequired,
+  user: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      pseudoPlatform: PropTypes.string.isRequired,
     }).isRequired,
   ).isRequired,
 };

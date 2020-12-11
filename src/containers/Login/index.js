@@ -11,8 +11,6 @@ import {
 const mapStateToProps = (state) => ({
   email: state.user.email,
   password: state.user.password,
-  emailRegister: state.user.emailRegister,
-  passwordRegister: state.user.passwordRegister,
   isLogged: state.user.isLogged,
   pseudo: state.user.pseudo,
   games: state.user.gamesList,

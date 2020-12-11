@@ -33,7 +33,7 @@ const FieldEdit = ({
 };
 
 FieldEdit.propTypes = {
-  value: PropTypes.string,
+  value: PropTypes.number,
   type: PropTypes.string,
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
