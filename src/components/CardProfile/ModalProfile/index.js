@@ -12,7 +12,9 @@ import { MdGroupAdd } from 'react-icons/md';
 import { FaPlaystation } from 'react-icons/fa';
 // == Import scss
 import 'src/components/CardProfile/cardProfile.scss';
-const ModalProfile = ({ modalShow, setModalShow }) => (
+const ModalProfile = ({ modalShow, setModalShow, player }) => {
+  const {pseudo, platform, pseudoPlatform, videogames} = player;
+  return (
     <Modal
         show={modalShow}
         onHide={() => setModalShow(false)}
@@ -25,9 +27,9 @@ const ModalProfile = ({ modalShow, setModalShow }) => (
             <Image src="https://www.pdvg.it/wp-content/uploads/2020/01/Destiny-2-Australia-SN.jpg" roundedCircle />
           </div>
           <Modal.Title>
-            Scionna
+            {pseudoPlatform}
             <span className="level">Joueuse occasionnelle</span>
-            <p className="nickname_olobby">Scionna 56</p>
+            <p className="nickname_olobby">{pseudo}</p>
           </Modal.Title>
           <Button className="btn__addFriend"><MdGroupAdd />Ajouter un amis</Button>
         </Modal.Header>
@@ -38,18 +40,13 @@ const ModalProfile = ({ modalShow, setModalShow }) => (
                 <article className="gamePlayer">
                   <p>Liste des jeux</p>
                   <div>
+                  {videogames.map((videogame) => {
+                    console.log(videogame.image)
+                    return (
                     <div className="img">
-                        <Image src="https://www.journaldugeek.com/content/uploads/2019/10/cod-640x360.jpg" rounded />
-                      </div>
-                    <div className="img">
-                      <Image src="https://www.journaldugeek.com/content/uploads/2019/10/cod-640x360.jpg" rounded />
+                      <Image key={videogame.id} src={videogame.image} rounded/>
                     </div>
-                    <div className="img">
-                      <Image src="https://www.journaldugeek.com/content/uploads/2019/10/cod-640x360.jpg" rounded />
-                    </div>
-                    <div className="img">
-                      <Image src="https://www.journaldugeek.com/content/uploads/2019/10/cod-640x360.jpg" rounded />
-                    </div>
+                  )})}
                   </div>
                 </article>
               </Col>
@@ -76,7 +73,7 @@ const ModalProfile = ({ modalShow, setModalShow }) => (
                 <article className="consolePlayer">
                   <p>Liste des plateformes</p>
                   <div>
-                    <FaPlaystation />
+                  {/* image ici */}
                   </div>
                 </article>
               </Col>
@@ -96,5 +93,7 @@ const ModalProfile = ({ modalShow, setModalShow }) => (
           </p>
         </Modal.Footer>
       </Modal>
-);
+)};
+
+
 export default ModalProfile;

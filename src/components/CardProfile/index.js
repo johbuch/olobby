@@ -10,8 +10,9 @@ import { MdGroupAdd } from 'react-icons/md';
 import { FaPlaystation } from 'react-icons/fa';
 // == Import scss
 import './cardProfile.scss';
-const CardProfile = ({ pseudo, platform }) => {
+const CardProfile = (props) => {
   const [modalShow, setModalShow] = React.useState(false);
+  const { pseudo, platform, videogames } = props;
   return (
     <div className="cardProfile">
       <Card style={{ width: '18rem' }}>
@@ -24,19 +25,17 @@ const CardProfile = ({ pseudo, platform }) => {
           <Card.Subtitle className="mb-2 text-muted">Joueuse occasionnelle</Card.Subtitle>
           <p>Ces 3 jeux Favoris</p>
           <div className="profileGame">
+          {videogames.map((videogame) => {
+            console.log(videogame.image)
+            return (
             <div className="img">
-              <Image src="https://www.journaldugeek.com/content/uploads/2019/10/cod-640x360.jpg" rounded />
+              <Image key={videogame.id} src={videogame.image} rounded/>
             </div>
-            <div className="img">
-              <Image src="https://www.journaldugeek.com/content/uploads/2019/10/cod-640x360.jpg" rounded />
-            </div>
-            <div className="img">
-              <Image src="https://www.journaldugeek.com/content/uploads/2019/10/cod-640x360.jpg" rounded />
-            </div>
+          )})}
           </div>
         </Card.Body>
       </Card>
-      <ModalProfile modalShow={modalShow} setModalShow={setModalShow}/>
+      <ModalProfile modalShow={modalShow} setModalShow={setModalShow} player={props} />
     </div>
   );
 };
