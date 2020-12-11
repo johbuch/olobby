@@ -93,12 +93,24 @@ class FriendController extends AbstractController
         return $this->json($test, 200, [], ['groups' => ['user:dashboard', 'user:friend']]);
     }
 
-     /**
+    /**
     * @Route("/wait/{id}", name="wait", methods={"GET"})
     */
     public function requestFriendInWaiting(User $user, FriendRepository $friendRepository, int $id): Response
     {
         $test = $friendRepository->requestFriendInWaiting($id);
         return $this->json($test, 200, [], ['groups' => ['user:dashboard', 'user:friend']]);
+    }
+
+     /**
+    * @Route("/list/{id}", name="list", methods={"GET"})
+    */
+    public function myFriends(User $user, FriendRepository $friendRepository, int $id): Response
+    {
+        $friends = [
+          'friend1' => $friendRepository->myFriend($id),
+          'friend2' => $friendRepository->myFriends($id),
+        ];
+        return $this->json($friends, 200, [], ['groups' => ['user:dashboard', 'user:friend']]);
     }
 }

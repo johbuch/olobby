@@ -62,5 +62,43 @@ class FriendRepository extends ServiceEntityRepository
         ;
     }
 
+    public function myFriend($id)
+    {
+        return $this->createQueryBuilder('f')
+                ->leftJoin(
+                    'App\Entity\User',
+                    'u',
+                    'WITH',
+                    'u.id = f.receiver'
+                )
+                ->addSelect('u')
+                ->where('f.sender = :id')
+                ->andWhere('f.status = 1')
+                ->setParameter('id', $id)
+                ->getQuery()
+                ->getResult()
+        
+        ;
+    }
+    public function myFriends($id)
+    {
+        return $this->createQueryBuilder('f')
+                ->leftJoin(
+                    'App\Entity\User',
+                    'u',
+                    'WITH',
+                    'u.id = f.sender'
+                )
+                ->addSelect('u')
+                ->where('f.receiver = :id')
+                ->andWhere('f.status = 1')
+                ->setParameter('id', $id)
+                ->getQuery()
+                ->getResult()
+        
+        ;
+    }
+
+
    
 }
