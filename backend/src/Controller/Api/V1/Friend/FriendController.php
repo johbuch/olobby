@@ -29,11 +29,13 @@ class FriendController extends AbstractController
 
         $friend = new Friend();
 
+        
+
         $form = $this->createForm(FriendType::class, $friend, ['csrf_protection' => false]);
         $form->submit($friendArray);
         
         if ($form->isSubmitted() && $form->isValid()) {
-
+            $friend->setSender($user->getId());
             $friend->setCreatedAt(new \DateTime());
             $friend->setUpdatedAt(new \DateTime());
             $entityManager = $this->getDoctrine()->getManager();
