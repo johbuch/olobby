@@ -26,19 +26,18 @@ class FriendController extends AbstractController
     {
         
         $json = $request->getContent();
-
         $friendArray = json_decode($json, true);
         
+        // obtenir les infos du user connecté
         $user = $this->getUser();
         
-
         $friend = new Friend();
        
         $form = $this->createForm(FriendType::class, $friend, ['csrf_protection' => false]);
         $form->submit($friendArray);
         
         if ($form->isSubmitted() && $form->isValid()) {
-            // $friend->setSender($user->getId());
+            $friend->setSender($user);
             $friend->setStatus(false);
             $friend->setCreatedAt(new \DateTime());
             $friend->setUpdatedAt(new \DateTime());
@@ -80,8 +79,6 @@ class FriendController extends AbstractController
         $friend = $this->getDoctrine()
         ->getRepository('App:Friend')
         ->find($id);
-
-        // dd($friend->getSender()->getPseudo());
 
         $friend->setStatus(true);
         $friend->setUpdatedAt(new \DateTime());

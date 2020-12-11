@@ -15,7 +15,7 @@ class FriendType extends AbstractType
             //->add('createdAt')
             //->add('updatedAt')
             //->add('status')
-            ->add('sender')
+            // ->add('sender')
             ->add('receiver')
         ;
     }
