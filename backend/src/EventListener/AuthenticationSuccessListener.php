@@ -38,7 +38,6 @@ class AuthenticationSuccessListener
         'id' => $user->getId(),
         'pseudo' => $user->getPseudo(),
         'avatar' => $user->getAvatar(),
-        'platform' => $user->getPlatform()->getName(),
         'isActive' => $user->getIsActive(),
         );
 
