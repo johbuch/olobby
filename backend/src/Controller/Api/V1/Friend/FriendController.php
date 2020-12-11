@@ -22,20 +22,19 @@ class FriendController extends AbstractController
      */
     public function addFriend(Request $request): Response
     {
-        $user = $this->getUser();
+        
         $json = $request->getContent();
 
         $friendArray = json_decode($json, true);
-
+        $user = $this->getUser();
+        $userId = $user->getFriendSender();
         $friend = new Friend();
-
-        
-
+       
         $form = $this->createForm(FriendType::class, $friend, ['csrf_protection' => false]);
         $form->submit($friendArray);
         
         if ($form->isSubmitted() && $form->isValid()) {
-            $friend->setSender($user->getId());
+            $friend->setSender($userId);
             $friend->setCreatedAt(new \DateTime());
             $friend->setUpdatedAt(new \DateTime());
             $entityManager = $this->getDoctrine()->getManager();
