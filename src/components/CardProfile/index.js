@@ -10,7 +10,7 @@ import { MdGroupAdd } from 'react-icons/md';
 import { FaPlaystation } from 'react-icons/fa';
 // == Import scss
 import './cardProfile.scss';
-const CardProfile = ({ pseudo }) => {
+const CardProfile = ({ pseudo, platform }) => {
   const [modalShow, setModalShow] = React.useState(false);
   return (
     <div className="cardProfile">
