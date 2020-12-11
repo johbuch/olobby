@@ -62,7 +62,7 @@ class UserController extends AbstractController
 
             $this->addFlash('success', 'Profil modifié.');
             
-        return $this->json(['msg' => 'Cette utilisateur a été actualisé avec succés!'], 200);
+        return $this->json($user, 200, [], ['groups' => ['user:dashboard', 'user:friend']]);
     }
     
     /**
