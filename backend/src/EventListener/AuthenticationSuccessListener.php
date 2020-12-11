@@ -35,6 +35,7 @@ class AuthenticationSuccessListener
         }
 
         $data['data'] = array(
+            'id' => $user->getId(),
         'pseudo' => $user->getPseudo(),
         'avatar' => $user->getAvatar(),
         'isActive' => $user->getIsActive(),
