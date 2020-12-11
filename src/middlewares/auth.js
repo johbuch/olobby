@@ -21,6 +21,7 @@ const authMiddleware = (store) => (next) => (action) => {
           window.localStorage.setItem('token', response.data.token);
           window.localStorage.setItem('refresh_token', response.data.refresh_token);
           store.dispatch(saveUserInfo(
+            response.data.data.id,
             response.data.data.isActive,
             response.data.data.pseudo,
             response.data.data.avatar,

@@ -13,14 +13,14 @@ import {
 } from 'src/actions/edit';
 
 const mapStateToProps = (state) => ({
-  email: state.edit.email,
-  password: state.edit.password,
-  pseudo: state.edit.pseudo,
-  pseudoOlobbien: state.edit.pseudoOlobbien,
-  description: state.edit.description,
-  games: state.edit.gamesList,
-  platforms: state.edit.platformsList,
-  urlImage: state.edit.urlImage,
+  email: state.user.email,
+  password: state.user.password,
+  pseudo: state.user.pseudo,
+  pseudoOlobbien: state.user.pseudoOlobbien,
+  description: state.user.description,
+  games: state.user.gamesList,
+  platforms: state.user.platformsList,
+  avatar: state.user.avatar,
 });
 
 const mapDispatchToProps = (dispatch) => ({

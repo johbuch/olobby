@@ -26,7 +26,7 @@ import './header.scss';
 const Header = ({
   isActive,
   handleLogout,
-  nickname,
+  pseudoOlobbien,
   avatar,
 }) => {
   const [modalShow, setModalShow] = React.useState(false);
@@ -78,7 +78,7 @@ const Header = ({
             </div>
             <Dropdown>
               <Dropdown.Toggle id="dropdown-basic">
-                {nickname}
+                {pseudoOlobbien}
               </Dropdown.Toggle>
               <Dropdown.Menu>
                 <Dropdown.Item>
@@ -177,7 +177,7 @@ const Header = ({
 Header.propTypes = {
   isActive: PropTypes.bool,
   handleLogout: PropTypes.func.isRequired,
-  nickname: PropTypes.string.isRequired,
+  pseudoOlobbien: PropTypes.string.isRequired,
   avatar: PropTypes.string.isRequired,
 };
 

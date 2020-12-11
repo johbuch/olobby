@@ -45,21 +45,23 @@ const editMiddleware = (store) => (next) => (action) => {
       next(action);
       break;
     case EDIT_USER: {
-      console.log('edit');
       const {
         pseudo,
         pseudoOlobbien,
         email,
-        urlImage,
+        avatar,
         description,
         radio,
         checkbox,
-      } = store.getState().edit;
-      axios.patch('http://ec2-52-3-54-243.compute-1.amazonaws.com/api/v1/edit', {
+        id,
+      } = store.getState().user;
+      console.log('edit', id);
+      axios.patch(`http://ec2-52-3-54-243.compute-1.amazonaws.com/api/v1/users/edit/${id}`, {
+        headers: { Authorization: `Bearer ${window.localStorage.getItem('token')}` },
         pseudo,
         pseudoOlobbien,
         email,
-        urlImage,
+        avatar,
         description,
         radio,
         checkbox,

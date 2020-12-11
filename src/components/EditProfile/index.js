@@ -21,6 +21,7 @@ const EditProfile = ({
   email,
   pseudoOlobbien,
   pseudo,
+  avatar,
   changeField,
   description,
   launchFetchGames,
@@ -30,7 +31,6 @@ const EditProfile = ({
   changeCheckbox,
   changeRadio,
   changeImage,
-  urlImage,
   handleEdit,
 }) => {
   const handleSubmit = (evt) => {
@@ -53,7 +53,7 @@ const EditProfile = ({
               </div>
               <ImageEdit
                 onChange={changeImage}
-                value={urlImage}
+                value={avatar}
               />
             </Col>
             <Col sm md lg>
@@ -164,7 +164,7 @@ EditProfile.propTypes = {
   launchFetchGames: PropTypes.func.isRequired,
   launchFetchPlatforms: PropTypes.func.isRequired,
   changeImage: PropTypes.func.isRequired,
-  urlImage: PropTypes.string.isRequired,
+  avatar: PropTypes.string.isRequired,
   handleEdit: PropTypes.func.isRequired,
   games: PropTypes.arrayOf(
     PropTypes.shape({
