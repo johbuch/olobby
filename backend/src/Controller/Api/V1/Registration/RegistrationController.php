@@ -14,6 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Guard\GuardAuthenticatorHandler;
 use Symfony\Component\Serializer\SerializerInterface;
+use Lexik\Bundle\JWTAuthenticationBundle\Services\JWTTokenManagerInterface;
 
  /**
  * @Route("/api/v1", name="api_v1_")
@@ -23,7 +24,7 @@ class RegistrationController extends AbstractController
     /**
      * @Route("/register", name="register", methods={"POST"})
      */
-    public function register(Request $request, SerializerInterface $serializer, UserPasswordEncoderInterface $passwordEncoder, GuardAuthenticatorHandler $guardHandler, LoginFormAuthenticator $authenticator, MailerInterface $mailer): Response
+    public function register(JWTTokenManagerInterface $JWTManager, Request $request, SerializerInterface $serializer, UserPasswordEncoderInterface $passwordEncoder, GuardAuthenticatorHandler $guardHandler, LoginFormAuthenticator $authenticator, MailerInterface $mailer): Response
     {
         $json = $request->getContent();
 
@@ -60,13 +61,13 @@ class RegistrationController extends AbstractController
                  'e_mail' => $user->getEmail(),
              ])
          ;
-
          $mailer->send($email);
-         return $this->json($user, 201, [], ['groups' => 'user:dashboard']);
+         return $this->json(['token' => $JWTManager->create($user)], 201, [], ['groups' => 'user:dashboard']);
         } else {
             return $this->json([
                 'errors' => (string) $form->getErrors(true, false),
             ], 400);
         }
     }
+
 }
