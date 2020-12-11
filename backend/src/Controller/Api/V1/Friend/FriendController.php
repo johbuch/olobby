@@ -22,7 +22,7 @@ class FriendController extends AbstractController
      */
     public function addFriend(Request $request): Response
     {
-
+        $user = $this->getUser();
         $json = $request->getContent();
 
         $friendArray = json_decode($json, true);
