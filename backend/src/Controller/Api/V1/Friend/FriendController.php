@@ -75,11 +75,13 @@ class FriendController extends AbstractController
     /**
      * @Route("/accept/{id}", name="accept", methods={"PATCH"})
      */
-    public function acceptFriend(Friend $id): Response
+    public function acceptFriend(Friend $id, MailerInterface $mailer): Response
     {
         $friend = $this->getDoctrine()
         ->getRepository('App:Friend')
         ->find($id);
+
+        // dd($friend->getSender()->getPseudo());
 
         $friend->setStatus(true);
         $friend->setUpdatedAt(new \DateTime());
@@ -88,7 +90,22 @@ class FriendController extends AbstractController
         $entityManager->persist($friend);
         $entityManager->flush();
 
-            return $this->json(['msg' => 'Relation acceptée !'], 200);
+        // création de l'email de confirmation d'ajout à envoyer à l'utilisateur qui a fait la demande
+        $email = (new TemplatedEmail())
+            ->from('contact@olobby.com')
+            ->to($friend->getSender()->getEmail())
+            ->subject('Acceptation de votre demande en ami')
+            ->htmlTemplate('emails/friend-accept.html.twig')
+            ->context([
+                'pseudoSender' => $friend->getSender()->getPseudo(),
+                'pseudoReceiver' => $friend->getReceiver()->getPseudo()
+            ])
+        ;
+    
+        // envoi de l'email
+        $mailer->send($email);
+
+        return $this->json(['msg' => 'Relation acceptée !'], 200);
         
     }
 
