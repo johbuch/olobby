@@ -111,35 +111,37 @@ class FriendController extends AbstractController
      */
     public function deleteRequestFriend(Friend $id): Response
     {
-
-    $doctrine = $this->getDoctrine()->getManager();
-       $doctrine->remove($id);
-       $doctrine->flush();
+        $doctrine = $this->getDoctrine()->getManager();
+        $doctrine->remove($id);
+        $doctrine->flush();
 
        return $this->json(['msg' => 'Cette demande d\'amitié a bien été refusée!'], 200);
     }
 
     /**
-    * @Route("/request/{id}", name="request", methods={"GET"})
-    */
-    public function myRequestFriendInWaiting(User $user, FriendRepository $friendRepository, int $id): Response
+     * @Route("/pending-sent-request/{id}", name="pending_sent_request", methods={"GET"})
+     * methode qui liste les demandes d'amis en attente faites par le user connecté
+     */
+    public function pendingFriendRequestsSentByUser(FriendRepository $friendRepository, int $id): Response
     {
-        $test = $friendRepository->myRequestFriendInWaiting($id);
-        return $this->json($test, 200, [], ['groups' => ['user:dashboard', 'user:friend']]);
+        $pendingUsers = $friendRepository->pendingFriendRequestsSentByUser($id);
+        return $this->json($pendingUsers, 200, [], ['groups' => ['user:dashboard', 'user:friend']]);
     }
 
     /**
-    * @Route("/wait/{id}", name="wait", methods={"GET"})
-    */
-    public function requestFriendInWaiting(User $user, FriendRepository $friendRepository, int $id): Response
+     * @Route("/pending-for-confirmation/{id}", name="pending_for_confirmation", methods={"GET"})
+     * méthode qui liste les demandes d'amis en attente d'acceptation par le user connecté
+     */
+    public function pendingFriendRequestsForConfirmation(FriendRepository $friendRepository, int $id): Response
     {
-        $test = $friendRepository->requestFriendInWaiting($id);
-        return $this->json($test, 200, [], ['groups' => ['user:dashboard', 'user:friend']]);
+        $pendingUsers = $friendRepository->pendingFriendRequestsForConfirmation($id);
+        return $this->json($pendingUsers, 200, [], ['groups' => ['user:dashboard', 'user:friend']]);
     }
 
-     /**
-    * @Route("/list/{id}", name="list", methods={"GET"})
-    */
+    /**
+     * @Route("/list/{id}", name="list", methods={"GET"})
+     * méthode qui envoi la liste des amis du user
+     */
     public function myFriends(User $user, FriendRepository $friendRepository, int $id): Response
     {
         $friends = [
