@@ -39,9 +39,6 @@ class AuthenticationSuccessListener
         'pseudo' => $user->getPseudo(),
         'avatar' => $user->getAvatar(),
         'platform' => $user->getPlatform()->getName(),
-        'videogame' => $userGames['userGame'] = array(
-                                                'jeux1' => $user->getVideogames()[0]->getTitle(),
-        ),
         'isActive' => $user->getIsActive(),
         );
 
