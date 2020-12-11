@@ -6,9 +6,11 @@ use App\Entity\Friend;
 use App\Entity\User;
 use App\Form\FriendType;
 use App\Repository\FriendRepository;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 
@@ -20,26 +22,44 @@ class FriendController extends AbstractController
      /**
      * @Route("/add", name="add", methods={"POST"})
      */
-    public function addFriend(Request $request): Response
+    public function addFriend(Request $request, MailerInterface $mailer): Response
     {
         
         $json = $request->getContent();
 
         $friendArray = json_decode($json, true);
+        
         $user = $this->getUser();
-        $userId = $user->getFriendSender();
+        
+
         $friend = new Friend();
        
         $form = $this->createForm(FriendType::class, $friend, ['csrf_protection' => false]);
         $form->submit($friendArray);
         
         if ($form->isSubmitted() && $form->isValid()) {
-            $friend->setSender($userId);
+            // $friend->setSender($user->getId());
+            $friend->setStatus(false);
             $friend->setCreatedAt(new \DateTime());
             $friend->setUpdatedAt(new \DateTime());
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($friend);
             $entityManager->flush();
+
+            // création de l'email à envoyer à l'utilisateur qui reçoit une demande d'ami
+            $email = (new TemplatedEmail())
+                ->from('contact@olobby.com')
+                ->to($form->getData()->getReceiver()->getEmail())
+                ->subject('Nouvelle demande d\'ami')
+                ->htmlTemplate('emails/friend-invitation.html.twig')
+                ->context([
+                    'pseudoSender' => $user->getPseudo(),
+                    'pseudoReceiver' => $form->getData()->getReceiver()->getPseudo()
+                ])
+            ;
+            
+            // envoi de l'email
+            $mailer->send($email);
 
             return $this->json(['msg' => 'Cette utilisateur a bien été ajouté, votre relation est en attente de sa confirmation!'], 200);
         } else {
