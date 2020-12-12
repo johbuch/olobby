@@ -293,7 +293,7 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getSlug(): ?simplexml_load_string
+    public function getSlug(): ?string
     {
         return $this->slug;
     }
