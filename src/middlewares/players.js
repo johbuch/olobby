@@ -26,6 +26,7 @@ const playersMiddleware = (store) => (next) => (action) => {
       })
         .then((response) => {
           store.dispatch(savePlayers(response.data));
+          console.log('MATCHMAKING', response);
         })
         .catch((error) => {
         });

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { fetchPlayers, fetchMatchmaking } from 'src/actions/players';
+import { fetchPlayers } from 'src/actions/players';
 
 import CardProfile from 'src/components/CardProfile';
 
@@ -11,10 +11,6 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   launchFetchPlayers: () => {
     dispatch(fetchPlayers());
-  },
-
-  launchFetchMatchmaking: () => {
-    dispatch(fetchMatchmaking());
   },
 });
 
