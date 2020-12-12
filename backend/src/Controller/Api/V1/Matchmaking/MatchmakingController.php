@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class MatchmakingController extends AbstractController
 {
     /**
-     * @Route("/levelandplatformandvideogame", name="api_v1_matchmaking_levelAndPlatformAndVideogame", methods={"GET"})
+     * @Route("/levelandplatformandvideogame", name="levelAndPlatformAndVideogame", methods={"GET"})
      * méthode qui recommande des users en filtrant en fonction du niveau du user connecté,
      * de sa plateforme et de son 1er jeux vidéo qu'il a choisi
      */
@@ -35,7 +35,7 @@ class MatchmakingController extends AbstractController
     }
 
     /**
-     * @Route("/platformandvideogame", name="api_v1_matchmaking_platformAndVideogame", methods={"GET"})
+     * @Route("/platformandvideogame", name="platformAndVideogame", methods={"GET"})
      * méthode qui recommande des users en filtrant en fonction de la plateforme du user connecté
      * et du 2ème jeux vidéo qu'il a ajouté à son profil
      */
