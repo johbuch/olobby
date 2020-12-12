@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
@@ -71,6 +72,12 @@ class User implements UserInterface
      * @Groups({"user:dashboard", "matchmaking"})
      */
     private $pseudoPlatform;
+
+    /**
+     * @Gedmo\Slug(fields={"pseudoPlatform"})
+     * @ORM\Column(type="string", length=255)
+     */
+    private $slug;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
@@ -284,6 +291,11 @@ class User implements UserInterface
         $this->pseudoPlatform = $pseudoPlatform;
 
         return $this;
+    }
+
+    public function getSlug(): ?simplexml_load_string
+    {
+        return $this->slug;
     }
 
     public function getRating(): ?int

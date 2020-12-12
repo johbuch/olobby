@@ -37,6 +37,14 @@ class UserController extends AbstractController
     }
 
     /**
+    * @Route("/{slug}", name="read", methods={"GET"})
+    */
+    public function slug(User $user): Response
+    {
+        return $this->json($user, 200, [], ['groups' => ['user:dashboard', 'user:friend']]);
+    }
+
+    /**
     * @Route("/edit/{id}", name="edit", methods={"PATCH"})
     */
     public function edit(Request $request, int $id): Response
