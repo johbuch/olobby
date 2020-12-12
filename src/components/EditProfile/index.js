@@ -52,7 +52,7 @@ const EditProfile = ({
           <Row>
             <Col sm md lg>
               <div className="editProfile__img">
-                <Image src="https://www.pdvg.it/wp-content/uploads/2020/01/Destiny-2-Australia-SN.jpg" roundedCircle />
+                <Image src={user.avatar} roundedCircle />
               </div>
               <ImageEdit
                 onChange={changeImage}

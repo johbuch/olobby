@@ -76,13 +76,11 @@ const editMiddleware = (store) => (next) => (action) => {
         checkbox,
         id,
       } = store.getState().user;
-      const imgBase64 = btoa(avatar);
-      console.log(imgBase64);
       axios.patch(`http://ec2-52-3-54-243.compute-1.amazonaws.com/api/v1/users/edit/${id}`, {
         pseudo,
         pseudoPlatform,
         email,
-        avatar: imgBase64,
+        avatar,
         description,
         platform: radio,
         videogames: checkbox,

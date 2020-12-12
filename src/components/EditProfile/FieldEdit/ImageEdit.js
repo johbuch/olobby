@@ -13,30 +13,16 @@ const ImageEdit = ({
   onChange,
 }) => {
   const handleChange = (evt) => {
-    onChange(evt.target.value);
-    // URL.createObjectURL(evt.target.files[0]);
-    // console.log('IMAGE URL', URL.createObjectURL(evt.target.files[0]));
-    console.log(evt.target.value);
+    onChange(URL.createObjectURL(evt.target.files[0]));
   };
   return (
     <>
       <Form.File id="formcheck-api-custom" custom>
         <Form.File.Input isValid onChange={handleChange} />
         <Form.File.Label data-browse="Choisissez votre image">
-          {value}
+          Votre image
         </Form.File.Label>
       </Form.File>
-
-      {/*
-      <FileInputComponent
-        // onChange={handleChange}
-        labelText={value}
-        labelStyle={{fontSize:14,color:'rgba(255,255,255,1)'}}
-        multiple={false}
-        callbackFunction={(evt)=>{onChange(evt.target.value)}}
-        accept="image/*"
-      />
-      */}
     </>
   );
 };
