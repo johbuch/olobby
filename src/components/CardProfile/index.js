@@ -35,7 +35,7 @@ const CardProfile = ({ launchFetchPlayers }) => {
             <Image src="https://www.pdvg.it/wp-content/uploads/2020/01/Destiny-2-Australia-SN.jpg" roundedCircle />
           </div>
           <Modal.Title>
-            Scionna
+            Scionn
             <span className="level">Joueuse occasionnelle</span>
             <p className="nickname_olobby">Scionna 56</p>
           </Modal.Title>
