@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import FileInputComponent from 'react-file-input-previews-base64';
+
 import Form from 'react-bootstrap/Form';
 
 // == Import scss
@@ -12,8 +14,10 @@ const ImageEdit = ({
 }) => {
   const handleChange = (evt) => {
     onChange(evt.target.value);
+    // URL.createObjectURL(evt.target.files[0]);
+    // console.log('IMAGE URL', URL.createObjectURL(evt.target.files[0]));
+    console.log(evt.target.value);
   };
-
   return (
     <>
       <Form.File id="formcheck-api-custom" custom>
@@ -22,6 +26,17 @@ const ImageEdit = ({
           {value}
         </Form.File.Label>
       </Form.File>
+
+      {/*
+      <FileInputComponent
+        // onChange={handleChange}
+        labelText={value}
+        labelStyle={{fontSize:14,color:'rgba(255,255,255,1)'}}
+        multiple={false}
+        callbackFunction={(evt)=>{onChange(evt.target.value)}}
+        accept="image/*"
+      />
+      */}
     </>
   );
 };
