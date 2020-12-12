@@ -30,7 +30,6 @@ const Olobby = ({ isActive }) => {
         <>
           <Aside />
           <Pages />
-          <CardProfile />
           <MenuFooter />
         </>
       )}
