@@ -2,10 +2,14 @@
 
 namespace App\Controller\ControllerDev;
 
+use App\Entity\Videogame;
 use App\Entity\Friend;
 use App\Entity\User;
+use App\Entity\Platform;
 use App\Form\FriendType;
 use App\Repository\UserRepository;
+use App\Repository\VideogameRepository;
+use App\Repository\PlatformRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
@@ -55,4 +59,26 @@ class MainController extends AbstractController
         } 
         return $this->redirectToRoute('main_browse');
     }
+
+    /**
+     * @Route("test/{id}", name="test", requirements={"id": "\d+"})
+     */
+    public function match(UserRepository $userRepository, PlatformRepository $platformRepository, VideogameRepository $videogameRepository, int $id, User $user): Response
+    {
+        $userMatchmaking = [];
+        $user = $userRepository->matchMaking($id);
+        $platform = $platformRepository->matchP($user->getPlatform()->getId());
+        $videogames = $videogameRepository->matchV($user->getVideogames()[0]->getId());
+        $videogames2 = $videogameRepository->matchV($user->getVideogames()[1]->getId());
+
+        
+
+       
+        dd($user);
+        return $this->render('main/test.html.twig', [
+            
+        ]);
+    }
+
+
 }
