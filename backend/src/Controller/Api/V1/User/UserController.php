@@ -37,7 +37,7 @@ class UserController extends AbstractController
     }
 
     /**
-    * @Route("/{slug}", name="read", methods={"GET"})
+    * @Route("/pseudo/{slug}", name="slug", methods={"GET"})
     */
     public function slug(User $user): Response
     {
