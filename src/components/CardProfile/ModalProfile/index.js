@@ -13,7 +13,7 @@ import { FaPlaystation } from 'react-icons/fa';
 // == Import scss
 import 'src/components/CardProfile/cardProfile.scss';
 const ModalProfile = ({ modalShow, setModalShow, player }) => {
-  const {pseudo, platform, pseudoPlatform, videogames} = player;
+  const {pseudo, platform, pseudoPlatform, videogames, description} = player;
   return (
     <Modal
         show={modalShow}
@@ -27,9 +27,9 @@ const ModalProfile = ({ modalShow, setModalShow, player }) => {
             <Image src="https://www.pdvg.it/wp-content/uploads/2020/01/Destiny-2-Australia-SN.jpg" roundedCircle />
           </div>
           <Modal.Title>
-            {pseudoPlatform}
+            {pseudo}
             <span className="level">Joueuse occasionnelle</span>
-            <p className="nickname_olobby">{pseudo}</p>
+            <p className="nickname_olobby">Id plate-forme:{pseudoPlatform}</p>
           </Modal.Title>
           <Button className="btn__addFriend"><MdGroupAdd />Ajouter un amis</Button>
         </Modal.Header>
@@ -82,14 +82,7 @@ const ModalProfile = ({ modalShow, setModalShow, player }) => {
         </Modal.Body>
         <Modal.Footer>
           <p className="description">
-            Ex turba vero imae sortis et paupertinae in tabernis aliqui pernoctant vinariis,
-            non nulli velariis umbraculorum theatralium latent, quae Campanam
-            imitatus lasciviam Catulus
-            in aedilitate sua suspendit omnium primus; aut pugnaciter aleis
-            certant turpi sono fragosis naribus introrsum
-            reducto spiritu concrepantes; aut quod est studiorum omnium maximum
-            ab ortu lucis ad vesperam sole fatiscunt vel pluviis, 
-            per minutias aurigarum equorumque praecipua vel delicta scrutantes.
+          Description :{description}
           </p>
         </Modal.Footer>
       </Modal>

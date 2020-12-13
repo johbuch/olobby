@@ -41,5 +41,6 @@ const CardProfile = (props) => {
 };
 CardProfile.propTypes = {
   launchFetchPlayers: PropTypes.func.isRequired,
+  
 };
 export default CardProfile;
