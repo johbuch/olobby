@@ -115,9 +115,16 @@
           top:50px;
           left: -70px;
           .dropdown-item{
+            .nav-item{
+              color: vars.$bg-color;
+              text-decoration: none;
+            }
             &:hover{
               background-color: vars.$main-color;
               color: white;
+              .nav-item{
+                color: white;
+              }
             }
           }
         }

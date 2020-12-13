@@ -16,7 +16,7 @@ import {
   MdMessage,
 } from 'react-icons/md';
 import { GiGameConsole } from 'react-icons/gi';
-import { FaPlaystation } from "react-icons/fa";
+import { FaPlaystation } from 'react-icons/fa';
 
 // == Import scss
 import './aside.scss';
