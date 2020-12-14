@@ -5,6 +5,7 @@ import authMiddleware from 'src/middlewares/auth';
 import playersMiddleware from 'src/middlewares/players';
 import registerMiddleware from 'src/middlewares/register';
 import editMiddleware from 'src/middlewares/edit';
+import gamesMiddleware from 'src/middlewares/games';
 
 import reducer from 'src/reducers';
 
@@ -40,6 +41,7 @@ const enhancers = composeWithDevTools(
     playersMiddleware,
     registerMiddleware,
     editMiddleware,
+    gamesMiddleware,
     // ... d'autres middlewares
   ),
 );
