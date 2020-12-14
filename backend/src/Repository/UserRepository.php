@@ -60,17 +60,17 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         ;
     }
 
-    public function findByLevelAndPlatformAndVideogame($level, $platform, $videogameId, $id)
+    public function findByFrequencyAndPlatformAndVideogame($frequency, $platform, $videogameId, $id)
     {
         return $this->createQueryBuilder('u')
             ->innerJoin('u.videogames', 'v')
             ->addSelect('v')
-            ->where('u.level = :level')
+            ->where('u.frequency = :frequency')
             ->andWhere('v.id = :videogameId')
             ->andWhere('u.platform = :platform')
             ->andWhere('u.id != :id')
             ->setParameter('videogameId', $videogameId)
-            ->setParameter('level', $level)
+            ->setParameter('frequency', $frequency)
             ->setParameter('platform', $platform)
             ->setParameter('id', $id)
             ->getQuery()

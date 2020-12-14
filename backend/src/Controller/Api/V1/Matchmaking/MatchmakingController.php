@@ -14,17 +14,14 @@ use Symfony\Component\Routing\Annotation\Route;
 class MatchmakingController extends AbstractController
 {
     /**
-     * @Route("/levelandplatformandvideogame/{id}", name="api_v1_matchmaking_levelAndPlatformAndVideogame", methods={"GET"})
+     * @Route("/frequencyandplatformandvideogame/{id}", name="api_v1_matchmaking_frequencyAndPlatformAndVideogame", methods={"GET"})
      * méthode qui recommande des users en filtrant en fonction du niveau du user connecté,
      * de sa plateforme et de son 1er jeux vidéo qu'il a choisi
      */
-    public function levelAndPlatformAndVideogame(User $user, UserRepository $userRepository): Response
+    public function frequencyAndPlatformAndVideogame(User $user, UserRepository $userRepository): Response
     {
-        // récupération du user connecté
-        $user = $this->getUser();
-        
         // récupération de la liste des users correspondant aux critères du user connecté
-        $userList = $userRepository->findByLevelAndPlatformAndVideogame($user->getLevel(), $user->getPlatform(), $user->getVideogames()[0], $user->getId());
+        $userList = $userRepository->findByFrequencyAndPlatformAndVideogame($user->getFrequency(), $user->getPlatform(), $user->getVideogames()[0], $user->getId());
 
         // mélange du tableau pour avoir des données aléatoires
         shuffle($userList);
@@ -42,9 +39,6 @@ class MatchmakingController extends AbstractController
      */
     public function platformAndVideogame(User $user, UserRepository $userRepository): Response
     {
-        // récupération du user connecté
-        // $user = $this->getUser();
-
         // récupération de la liste des users correspondant aux critères du user connecté
         $userList = $userRepository->findByVideogame($user->getVideogames()[1], $user->getPlatform()->getId(), $user->getId());
 
