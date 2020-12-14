@@ -140,6 +140,7 @@ class User implements UserInterface
 
     /**
      * @ORM\ManyToOne(targetEntity=Frequency::class, inversedBy="users")
+     * @Groups({"user:dashboard", "matchmaking"})
      */
     private $frequency;
 
