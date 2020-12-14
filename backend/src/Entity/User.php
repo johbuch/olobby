@@ -50,12 +50,6 @@ class User implements UserInterface
     private $pseudo;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups({"user:dashboard", "matchmaking"})
-     */
-    private $level;
-
-    /**
      * @ORM\Column(type="text", nullable=true)
      * @Groups({"user:dashboard", "matchmaking"})
      */
@@ -143,6 +137,11 @@ class User implements UserInterface
      * @ORM\Column(type="boolean")
      */
     private $isActive;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Frequency::class, inversedBy="users")
+     */
+    private $frequency;
 
     
     public function __construct()
@@ -241,18 +240,6 @@ class User implements UserInterface
     public function setPseudo(string $pseudo): self
     {
         $this->pseudo = $pseudo;
-
-        return $this;
-    }
-
-    public function getLevel(): ?string
-    {
-        return $this->level;
-    }
-
-    public function setLevel(?string $level): self
-    {
-        $this->level = $level;
 
         return $this;
     }
@@ -474,6 +461,18 @@ class User implements UserInterface
     public function setIsActive(bool $isActive): self
     {
         $this->isActive = $isActive;
+
+        return $this;
+    }
+
+    public function getFrequency(): ?Frequency
+    {
+        return $this->frequency;
+    }
+
+    public function setFrequency(?Frequency $frequency): self
+    {
+        $this->frequency = $frequency;
 
         return $this;
     }
