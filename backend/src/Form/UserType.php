@@ -16,7 +16,6 @@ class UserType extends AbstractType
             ->add('roles')
             ->add('password')
             ->add('pseudo')
-            ->add('level')
             ->add('description')
             ->add('avatar')
             ->add('pseudoPlatform')
