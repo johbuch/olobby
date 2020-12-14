@@ -64,7 +64,6 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     {
         return $this->createQueryBuilder('u')
             ->innerJoin('u.videogames', 'v')
-            ->addSelect('v')
             ->where('u.frequency = :frequency')
             ->andWhere('v.id = :videogameId')
             ->andWhere('u.platform = :platform')
@@ -82,9 +81,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     {
         return $this->createQueryBuilder('u')
             ->innerJoin('u.videogames', 'v')
-            ->addSelect('v')
             ->innerJoin('u.platform', 'p')
-            ->addSelect('p')
             ->where('v.id = :videogameId')
             ->andWhere('p.id = :platformId')
             ->andWhere('u.id != :id')
