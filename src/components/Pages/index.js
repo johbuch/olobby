@@ -5,6 +5,7 @@ import { Route } from 'react-router-dom';
 // == Import
 import Annuaire from 'src/components/Annuaire';
 import CardProfile from 'src/containers/CardProfile';
+import CardGames from 'src/containers/CardGames';
 
 
 
@@ -36,6 +37,7 @@ return (
         path="/annuaire-de-jeux">
         <Annuaire />
         <h1 className="title_pages">Annuaire de jeux</h1>
+        <CardGames />
     </Route>  
     <Route
         path="/annuaire-de-plateformes">
