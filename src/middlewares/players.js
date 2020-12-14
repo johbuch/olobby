@@ -19,7 +19,7 @@ const playersMiddleware = (store) => (next) => (action) => {
       next(action);
       break;
     case FETCH_PLAYERS_MATCHMAKING:
-      axios.get('http://ec2-52-3-54-243.compute-1.amazonaws.com/api/v1/matchmaking', {
+      axios.get('http://ec2-52-3-54-243.compute-1.amazonaws.com/api/v1/matchmaking/platformandvideogame', {
         headers: { Authorization: `Bearer ${window.localStorage.getItem('token')}` },
       }, {
         withCredentials: true,
