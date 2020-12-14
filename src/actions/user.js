@@ -24,10 +24,11 @@ export const logOut = () => ({
   type: LOG_OUT,
 });
 
-export const saveUserInfo = (isActive, nickname, avatar) => ({
+export const saveUserInfo = (id, isActive, pseudo, avatar) => ({
   type: SAVE_USER_INFO,
+  id,
   isActive,
-  nickname,
+  pseudo,
   avatar,
 });
 

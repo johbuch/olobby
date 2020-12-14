@@ -15,9 +15,16 @@ import '@brainhubeu/react-carousel/lib/style.css';
 import './pages.scss';
 
 // == Composant
-const Pages = ({ launchFetchMatchmaking, Dots, players }) => {
+const Pages = ({
+  launchFetchMatchmaking,
+  players,
+  matchmaking,
+  matchmakingLevel,
+  launchFetchMatchmakingLevel,
+}) => {
   useEffect(() => {
     launchFetchMatchmaking();
+    launchFetchMatchmakingLevel();
   }, []);
 
   return (
@@ -26,6 +33,7 @@ const Pages = ({ launchFetchMatchmaking, Dots, players }) => {
         path="/"
         exact
       >
+        <h4 className="pages__title--top">Ces personnes jouent au même jeux que vous</h4>
         <Carousel
           plugins={[
             'arrows',
@@ -59,10 +67,51 @@ const Pages = ({ launchFetchMatchmaking, Dots, players }) => {
             },
           }}
         >
-          {players.map((player) => (
+          {matchmaking.map((matchmakings) => (
             <CardProfile
-              {...player}
-              key={player.id}
+              {...matchmakings}
+              key={matchmakings.id}
+            />
+          ))}
+        </Carousel>
+        <h4 className="pages__title">Ces personnes ont le même niveau que vous</h4>
+        <Carousel
+          plugins={[
+            'arrows',
+            {
+              // resolve: slidesToShowPlugin,
+              options: {
+                numberOfSlides: 3,
+              },
+            },
+          ]}
+          breakpoints={{
+            640: {
+              plugins: [
+                {
+                  resolve: slidesToShowPlugin,
+                  options: {
+                    numberOfSlides: 1,
+                  },
+                },
+              ],
+            },
+            900: {
+              plugins: [
+                {
+                  resolve: slidesToShowPlugin,
+                  options: {
+                    numberOfSlides: 2,
+                  },
+                },
+              ],
+            },
+          }}
+        >
+          {matchmakingLevel.map((matchmakingLevels) => (
+            <CardProfile
+              {...matchmakingLevels}
+              key={matchmakingLevels.id}
             />
           ))}
         </Carousel>
@@ -71,19 +120,19 @@ const Pages = ({ launchFetchMatchmaking, Dots, players }) => {
         path="/annuaire-de-joueur"
       >
         <Annuaire />
-        <h1 className="title_pages">Annuaire de joueurs</h1>
+        <h1 className="pages__title">Annuaire de joueurs</h1>
       </Route>
       <Route
         path="/annuaire-de-jeux"
       >
         <Annuaire />
-        <h1 className="title_pages">Annuaire de jeux</h1>
+        <h1 className="pages__title">Annuaire de jeux</h1>
       </Route>
       <Route
         path="/annuaire-de-plateformes"
       >
         <Annuaire />
-        <h1 className="title_pages">Annuaire de plateformes</h1>
+        <h1 className="pages__title">Annuaire de plateformes</h1>
       </Route>
       <Route
         path="/mes-jeux"
@@ -105,7 +154,18 @@ Pages.propTypes = {
       id: PropTypes.number.isRequired,
     }).isRequired,
   ).isRequired,
+  matchmaking: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+    }).isRequired,
+  ).isRequired,
+  matchmakingLevel: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+    }).isRequired,
+  ).isRequired,
   launchFetchMatchmaking: PropTypes.func.isRequired,
+  launchFetchMatchmakingLevel: PropTypes.func.isRequired,
 };
 
 // == Export

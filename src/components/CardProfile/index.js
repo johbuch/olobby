@@ -29,7 +29,9 @@ const CardProfile = (props) => {
       <Card style={{ width: '18rem' }}>
         <Button className="btn-add-friend"><MdGroupAdd /></Button>
         <Button className="btn-modal" onClick={() => setModalShow(true)}>
-          <Card.Img variant="top" src={avatar} />
+          <div className="img-card">
+            <Card.Img variant="top" src={avatar} />
+          </div>
         </Button>
         <Card.Body>
           <Card.Title>{pseudo}</Card.Title>

@@ -10,6 +10,7 @@ import {
 
 const initialState = {
   // ici l'état initial
+  id: '',
   isActive: false,
   password: '',
   pseudo: '',
@@ -43,8 +44,9 @@ const user = (state = initialState, action = {}) => {
     case SAVE_USER_INFO:
       return {
         ...state,
+        id: action.id,
         isActive: action.isActive,
-        nickname: action.nickname,
+        pseudo: action.pseudo,
         avatar: action.avatar,
       };
     case ADD_USER:

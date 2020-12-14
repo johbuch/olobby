@@ -16,11 +16,17 @@
       }
     }
   }
-}
-.title_pages{
+  &__title{
     margin-left: 350px;
     color: white;
+    &--top{
+      margin-top: 150px;
+      margin-left: 350px;
+      color: white;
+    }
+  }
 }
+
 
 .title_pages2{
     margin-top: 80px;
