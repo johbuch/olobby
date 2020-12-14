@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import { fetchPlayers } from 'src/actions/players';
 
-import CardProfile from 'src/components/CardProfile';
+import pages from 'src/components/Pages';
 
 const mapStateToProps = (state) => ({
   players: state.players.playersList,
@@ -22,4 +22,4 @@ const mapDispatchToProps = (dispatch) => ({
   },
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(CardProfile);
+export default connect(mapStateToProps, mapDispatchToProps)(pages);
