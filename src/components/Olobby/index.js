@@ -7,7 +7,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.scss';
 
 // == Import
-
 import Header from 'src/containers/Header';
 import Aside from 'src/components/Aside';
 import Footer from 'src/containers/Footer';
