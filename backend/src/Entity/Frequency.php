@@ -22,13 +22,13 @@ class Frequency
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"user:dashboard", "matchmaking"})
+     * @Groups({"user:dashboard", "user:frequency"})
      */
     private $name;
 
     /**
      * @ORM\OneToMany(targetEntity=User::class, mappedBy="frequency")
-     * @Groups({"user:dashboard", "matchmaking"})
+     * @Groups("user:frequency")
      */
     private $users;
 
