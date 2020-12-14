@@ -34,7 +34,7 @@ class UserCrudController extends AbstractCrudController
                     'Utilisateur' => 'ROLE_USER',
                 ])
                 ->allowMultipleChoices(),
-            TextField::new('level'),
+            AssociationField::new('frequency'),
             TextareaField::new('description'),
             TextField::new('avatar'),
             IntegerField::new('rating'),

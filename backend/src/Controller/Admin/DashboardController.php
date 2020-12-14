@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Frequency;
 use App\Entity\Platform;
 use App\Entity\User;
 use App\Entity\Videogame;
@@ -40,6 +41,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-user', User::class);
         yield MenuItem::linkToCrud('Plateforme', 'fas fa-gamepad', Platform::class);
         yield MenuItem::linkToCrud('Jeux vidéos', 'fas fa-futbol', Videogame::class);
+        yield MenuItem::linkToCrud('Fréquence', 'fas fa-wave-square', Frequency::class);
 
         yield MenuItem::section('Déconnexion');
         yield MenuItem::linkToLogout('Se déconnecter', 'fas fa-sign-out-alt');
