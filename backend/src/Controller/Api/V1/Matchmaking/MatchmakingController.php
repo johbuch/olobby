@@ -43,7 +43,7 @@ class MatchmakingController extends AbstractController
     public function platformAndVideogame(User $user, UserRepository $userRepository): Response
     {
         // récupération du user connecté
-        $user = $this->getUser();
+        // $user = $this->getUser();
 
         // récupération de la liste des users correspondant aux critères du user connecté
         $userList = $userRepository->findByVideogame($user->getVideogames()[1], $user->getPlatform()->getId(), $user->getId());
