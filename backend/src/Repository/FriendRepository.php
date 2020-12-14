@@ -76,6 +76,7 @@ class FriendRepository extends ServiceEntityRepository
             ->where('f.sender = :id')
             ->andWhere('f.status = 1')
             ->setParameter('id', $id)
+            ->orderBy('u.id', 'DESC')
             ->getQuery()
             ->getResult()
         ;
@@ -96,6 +97,27 @@ class FriendRepository extends ServiceEntityRepository
             )
             ->addSelect('u')
             ->where('f.receiver = :id')
+            ->andWhere('f.status = 1')
+            ->setParameter('id', $id)
+            ->orderBy('u.id', 'DESC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    /**
+     * methode qui récupère les 3 derniers amis ajoutés
+     */
+    public function last3Friends($id)
+    {
+        return $this->createQueryBuilder('f')
+        ->leftJoin(
+            'App\Entity\User',
+            'u',
+            'WITH',
+            'u.id = f.sender'
+        )
+            ->addSelect('u')
             ->andWhere('f.status = 1')
             ->setParameter('id', $id)
             ->getQuery()

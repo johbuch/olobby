@@ -103,7 +103,6 @@ class FriendController extends AbstractController
         $mailer->send($email);
 
         return $this->json(['msg' => 'Relation acceptée !'], 200);
-        
     }
 
     /**
@@ -148,6 +147,45 @@ class FriendController extends AbstractController
           'friend1' => $friendRepository->myFriend($id),
           'friend2' => $friendRepository->myFriends($id),
         ];
+
+        // modification du tableau $friends pour supprimer les index 'friend1' et 'friend2'
+        // pour avoir un tableau simple avec les valeurs directement
+        $friends = array_merge($friends['friend1'], $friends['friend2']);
+
+        // on ne veut obtenir que les valeurs qui ont un index impair
+        foreach ($friends as $key => $value) {
+            if (!($key&1)) {
+                unset($friends[$key]);
+            }
+        }
+        
+        return $this->json($friends, 200, [], ['groups' => ['user:dashboard', 'user:friend']]);
+    }
+
+    /**
+     * @Route("/lastaddedfriends/{id}", name="last_added_friends", methods={"GET"})
+     */
+    public function lastAddedFriends(FriendRepository $friendRepository, int $id)
+    {
+        $friends = [
+            'friend1' => $friendRepository->myFriend($id),
+            'friend2' => $friendRepository->myFriends($id),
+          ];
+        
+        // modification du tableau $friends pour supprimer les index 'friend1' et 'friend2'
+        // pour avoir un tableau simple avec les valeurs directement
+        $friends = array_merge($friends['friend1'], $friends['friend2']);
+        
+        // on ne veut obtenir que les valeurs qui ont un index impair
+        foreach ($friends as $key => $value) {
+            if (!($key&1)) {
+                unset($friends[$key]);
+            }
+        }
+
+        // on ne veut obtenir que 3 résultats
+        $friends = array_slice($friends, 0, 3);
+        
         return $this->json($friends, 200, [], ['groups' => ['user:dashboard', 'user:friend']]);
     }
 }
