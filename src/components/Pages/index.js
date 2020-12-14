@@ -6,52 +6,64 @@ import { Route } from 'react-router-dom';
 import Annuaire from 'src/components/Annuaire';
 import CardProfile from 'src/containers/CardProfile';
 
-
+// == Import Bootstrap
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
 
 // == Import scss
 import './pages.scss';
 
 // == Composant
 const Pages = ({ launchFetchPlayers, players }) => {
-    useEffect(() => {
-        launchFetchPlayers();
-      }, []);
+  useEffect(() => {
+    launchFetchPlayers();
+  }, []);
 
-      
-    
-return (    
-  <div className="pages">
-    <Route
-        path="/">
-    </Route>
-        <Route
-        path="/annuaire-de-joueur">
+  return (
+    <div className="pages">
+      <Route 
+        path="/"
+        exact
+      >
+      </Route>
+      <Route
+        path="/annuaire-de-joueur"
+      >
         <Annuaire />
         <h1 className="title_pages">Annuaire de joueurs</h1>
-        {players.map((player) => (            
-            <CardProfile key={player.id} {...player}/>
-        ))}
-    </Route>
-        <Route
-        path="/annuaire-de-jeux">
+        <Container>
+          <Row>
+            {players.map((player) => (
+              <CardProfile key={player.id} {...player} />
+            ))}
+          </Row>
+        </Container>
+      </Route>
+      <Route
+        path="/annuaire-de-jeux"
+      >
         <Annuaire />
         <h1 className="title_pages">Annuaire de jeux</h1>
-    </Route>  
-    <Route
-        path="/annuaire-de-plateformes">
+      </Route>
+      <Route
+        path="/annuaire-de-plateformes"
+      >
         <Annuaire />
         <h1 className="title_pages">Annuaire de plateformes</h1>
-    </Route>
-    <Route
-        path="/mes-jeux">
+      </Route>
+      <Route
+        path="/mes-jeux"
+      >
         <h1 className="title_pages2">Mes jeux</h1>
-    </Route>
-    <Route
-        path="/mes-amis">
+      </Route>
+      <Route
+        path="/mes-amis"
+      >
         <h1 className="title_pages2">Mes amis</h1>
-    </Route>
+      </Route>
     </div>
-)};
+  );
+};
 
 // == Export
 export default Pages;
