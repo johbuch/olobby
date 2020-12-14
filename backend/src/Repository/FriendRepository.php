@@ -76,7 +76,7 @@ class FriendRepository extends ServiceEntityRepository
             ->where('f.sender = :id')
             ->andWhere('f.status = 1')
             ->setParameter('id', $id)
-            ->orderBy('u.id', 'DESC')
+            ->orderBy('f.updatedAt', 'DESC')
             ->getQuery()
             ->getResult()
         ;
@@ -99,7 +99,7 @@ class FriendRepository extends ServiceEntityRepository
             ->where('f.receiver = :id')
             ->andWhere('f.status = 1')
             ->setParameter('id', $id)
-            ->orderBy('u.id', 'DESC')
+            ->orderBy('f.updatedAt', 'DESC')
             ->getQuery()
             ->getResult()
         ;

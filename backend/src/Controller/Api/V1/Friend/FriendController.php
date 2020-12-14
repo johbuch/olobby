@@ -164,18 +164,12 @@ class FriendController extends AbstractController
 
     /**
      * @Route("/lastaddedfriends/{id}", name="last_added_friends", methods={"GET"})
+     * méthode qui liste les 3 derniers amis ajoutés qui ont envoyé 
      */
     public function lastAddedFriends(FriendRepository $friendRepository, int $id)
     {
-        $friends = [
-            'friend1' => $friendRepository->myFriend($id),
-            'friend2' => $friendRepository->myFriends($id),
-          ];
-        
-        // modification du tableau $friends pour supprimer les index 'friend1' et 'friend2'
-        // pour avoir un tableau simple avec les valeurs directement
-        $friends = array_merge($friends['friend1'], $friends['friend2']);
-        
+        $friends = $friendRepository->myFriends($id);
+
         // on ne veut obtenir que les valeurs qui ont un index impair
         foreach ($friends as $key => $value) {
             if (!($key&1)) {
