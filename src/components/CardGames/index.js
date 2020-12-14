@@ -5,39 +5,26 @@ import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
 import Image from 'react-bootstrap/Image';
 import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
-import Row from 'react-bootstrap/Row';
-import Container from 'react-bootstrap/Container';
-import Col from 'react-bootstrap/Col';
 
 // == Import icons
 import { MdGroupAdd } from 'react-icons/md';
-import { FaPlaystation } from 'react-icons/fa';
 
 // == Import scss
 import './cardGames.scss';
 
-const CardGames = ({ launchFetchGames }) => {
-  useEffect(() => {
-    launchFetchGames();
-  }, []);
+const CardGames = (props) => {
 
   const [modalShow, setModalShow] = React.useState(false);
+  const { title, id, image } = props;
 
   return (
     <div className="cardProfile">
       <Card style={{ width: '18rem' }}>
         <Button className="btn-add-friend"><MdGroupAdd /></Button>
-        <Button className="btn-modal">
-          <Card.Img variant="top" src="https://www.pdvg.it/wp-content/uploads/2020/01/Destiny-2-Australia-SN.jpg" />
-        </Button>
-        <MyVerticallyCenteredModal
-          show={modalShow}
-          onHide={() => setModalShow(false)}
-        />
+          <Card.Img variant="top" src={image} />
         <Card.Body>
-          <Card.Title>Scionna</Card.Title>
-          <Card.Subtitle className="mb-2 text-muted">Joueuse occasionnelle</Card.Subtitle>
+          <Card.Title>{title}</Card.Title>
+          <Card.Subtitle className="mb-2 text-muted">{title}</Card.Subtitle>
           <p>Ces 3 jeux Favoris</p>
           <div className="profileGame">
             <div className="img">

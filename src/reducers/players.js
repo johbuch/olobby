@@ -2,8 +2,6 @@ import { SAVE_PLAYERS } from 'src/actions/players';
 
 const initialState = {
   playersList: [],
-  platformsList: [],
-  gamesList: [],
 };
 
 const players = (state = initialState, action = {}) => {

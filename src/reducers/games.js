@@ -1,4 +1,4 @@
-import { SAVE_GAMES } from 'src/actions/games';
+import { SAVE_GAMES } from 'src/actions/players';
 
 const initialState = {
   gamesList: [],
@@ -9,7 +9,7 @@ const games = (state = initialState, action = {}) => {
     case SAVE_GAMES:
       return {
         ...state,
-        gamesList: action.players,
+        gamesList: action.games,
       };
 
     default: return { ...state };

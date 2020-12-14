@@ -4,8 +4,8 @@ import { Route } from 'react-router-dom';
 
 // == Import
 import Annuaire from 'src/components/Annuaire';
-import CardProfile from 'src/containers/CardProfile';
-import CardGames from 'src/containers/CardProfile';
+import CardProfile from 'src/components/CardProfile';
+import CardGames from 'src/components/CardGames';
 
 
 
@@ -13,7 +13,7 @@ import CardGames from 'src/containers/CardProfile';
 import './pages.scss';
 
 // == Composant
-const Pages = ({ launchFetchPlayers, players, games }) => {
+const Pages = ({ launchFetchPlayers, launchFetchGames, players, games }) => {
     useEffect(() => {
         launchFetchPlayers();
         launchFetchGames();

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { fetchPlayers } from 'src/actions/players';
+import { fetchPlayers, fetchGames } from 'src/actions/players';
 
 import pages from 'src/components/Pages';
 

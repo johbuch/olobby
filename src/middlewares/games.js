@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { FETCH_GAMES, saveGames } from 'src/actions/games';
+import { FETCH_GAMES, saveGames } from 'src/actions/players';
 
 const gamesMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
