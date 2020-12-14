@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\FrequencyRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -27,6 +28,7 @@ class Frequency
 
     /**
      * @ORM\OneToMany(targetEntity=User::class, mappedBy="frequency")
+     * @Groups({"user:dashboard", "matchmaking"})
      */
     private $users;
 
