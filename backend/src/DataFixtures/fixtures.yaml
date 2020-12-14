@@ -1,9 +1,10 @@
 App\Entity\User:
-    user_{1..1200}:
+    user_{1..200}:
         email: '<email()>'
         password: '<password()>'
         pseudo: '<firstName()>'
-        platform: '<numberBetween(1, 3)>x @platform*'
-        videogames: '<numberBetween(1, 5)>x @videogame*'
-        frequency: '<numberBetween(1, 3)>x @frequency*'
+        pseudoPlatform: '<firstname()>'
+        platform: '@platform_*'
+        videogames: '@videogame_*'
+        frequency: '@frequency_*'
 

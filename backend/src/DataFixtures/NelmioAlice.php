@@ -2,11 +2,15 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Frequency;
+use App\Entity\Platform;
+use App\Entity\User;
+use App\Entity\Videogame;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Nelmio\Alice\Loader\NativeLoader;
 
-class NelmioAliceFixtures extends Fixture
+class NelmioAlice extends Fixture
 {
     public function load(ObjectManager $em)
     {
