@@ -6,11 +6,19 @@ import CardProfile from 'src/components/CardProfile';
 
 const mapStateToProps = (state) => ({
   players: state.players.playersList,
+  games: state.user.gamesList,
+  platforms: state.user.platformsList,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   launchFetchPlayers: () => {
     dispatch(fetchPlayers());
+  },
+  launchFetchGames: () => {
+    dispatch(fetchGames());
+  },
+  launchFetchPlatforms: () => {
+    dispatch(fetchPlatforms());
   },
 });
 

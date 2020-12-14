@@ -3,7 +3,8 @@ import { SAVE_PLAYERS, SAVE_MATCHMAKING, SAVE_MATCHMAKING_LEVEL } from 'src/acti
 const initialState = {
   playersList: [],
   matchList: [],
-  matchLevelList: [],
+  platformsList: [],
+  gamesList: [],
 };
 
 const players = (state = initialState, action = {}) => {

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 
 import Navbar from 'react-bootstrap/Navbar';
 import Form from 'react-bootstrap/Form';
@@ -25,7 +26,7 @@ import './header.scss';
 const Header = ({
   isActive,
   handleLogout,
-  nickname,
+  pseudo,
   avatar,
 }) => {
   const [modalShow, setModalShow] = React.useState(false);
@@ -77,10 +78,12 @@ const Header = ({
             </div>
             <Dropdown>
               <Dropdown.Toggle id="dropdown-basic">
-                {nickname}
+                {pseudo}
               </Dropdown.Toggle>
               <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">Mon compte</Dropdown.Item>
+                <Dropdown.Item>
+                  <NavLink className="nav-item" to="/mon-compte">Mon compte</NavLink>
+                </Dropdown.Item>
                 <Dropdown.Item onClick={handleLogout}>Se déconnecter</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
@@ -174,7 +177,7 @@ const Header = ({
 Header.propTypes = {
   isActive: PropTypes.bool,
   handleLogout: PropTypes.func.isRequired,
-  nickname: PropTypes.string.isRequired,
+  pseudo: PropTypes.string.isRequired,
   avatar: PropTypes.string.isRequired,
 };
 

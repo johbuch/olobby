@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// == Import Bootstrap
+import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
@@ -11,18 +11,12 @@ import Button from 'react-bootstrap/Button';
 
 // == Import icons
 import { MdGroupAdd } from 'react-icons/md';
-
+import { FaPlaystation } from 'react-icons/fa';
 // == Import scss
 import 'src/components/CardProfile/cardProfile.scss';
 
 const ModalProfile = ({ modalShow, setModalShow, player }) => {
-  const {
-    pseudo,
-    platform,
-    pseudoPlatform,
-    videogames,
-    description,
-  } = player;
+  const {pseudo, platform, pseudoPlatform, videogames, description, frequency} = player;
   return (
     <Modal
       show={modalShow}
@@ -37,7 +31,7 @@ const ModalProfile = ({ modalShow, setModalShow, player }) => {
         </div>
         <Modal.Title>
           {pseudo}
-          <span className="level">test</span>
+          <span className="level">{ frequency !== null ? frequency.name : "aucun" }</span>
           <p className="nickname_olobby">Id plate-forme:{pseudoPlatform}</p>
         </Modal.Title>
         <Button className="btn__addFriend"><MdGroupAdd />Ajouter un amis</Button>
@@ -50,14 +44,10 @@ const ModalProfile = ({ modalShow, setModalShow, player }) => {
                 <p>Liste des jeux</p>
                 <div>
                   {videogames.map((videogame) => {
-                    console.log(videogame.image);
+                    console.log(videogame.image)
                     return (
                       <div className="img">
-                        <Image
-                          key={videogame.id}
-                          src={videogame.image}
-                          rounded
-                        />
+                        Image key={videogame.id} src={videogame.image} rounded/>
                       </div>
                     );
                   })}
@@ -87,7 +77,7 @@ const ModalProfile = ({ modalShow, setModalShow, player }) => {
               <article className="consolePlayer">
                 <p>Liste des plateformes</p>
                 <div>
-                  {/* image ici */}
+                  { platform !== null ? platform.name : "aucun" }
                 </div>
               </article>
             </Col>

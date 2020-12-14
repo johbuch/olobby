@@ -5,16 +5,12 @@ import Login from 'src/components/Login';
 import {
   createUpdateUserFieldAction,
   logIn,
-  fetchGames,
-  fetchPlatforms,
   addProfile,
 } from 'src/actions/user';
 
 const mapStateToProps = (state) => ({
   email: state.user.email,
   password: state.user.password,
-  emailRegister: state.user.emailRegister,
-  passwordRegister: state.user.passwordRegister,
   isLogged: state.user.isLogged,
   pseudo: state.user.pseudo,
   games: state.user.gamesList,
@@ -28,16 +24,8 @@ const mapDispatchToProps = (dispatch) => ({
   handleLogin: () => {
     dispatch(logIn());
   },
-
   handleRegister: () => {
     dispatch(addProfile());
-  },
-
-  launchFetchGames: () => {
-    dispatch(fetchGames());
-  },
-  launchFetchPlatforms: () => {
-    dispatch(fetchPlatforms());
   },
 });
 

@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-
 // == Import Bootstrap
 import Card from 'react-bootstrap/Card';
 import Image from 'react-bootstrap/Image';
@@ -23,7 +22,6 @@ const CardProfile = (props) => {
   const { pseudo, videogames, frequency, avatar } = props;
 
   const [modalShow, setModalShow] = React.useState(false);
-
   return (
     <div className="cardProfile">
       <Card style={{ width: '18rem' }}>
@@ -57,7 +55,6 @@ const CardProfile = (props) => {
     </div>
   );
 };
-
 CardProfile.propTypes = {
   pseudo: PropTypes.string.isRequired,
   videogames: PropTypes.arrayOf(
@@ -67,5 +64,4 @@ CardProfile.propTypes = {
     }).isRequired,
   ).isRequired,
 };
-
 export default CardProfile;

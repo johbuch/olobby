@@ -117,10 +117,15 @@ const Pages = ({
         </Carousel>
       </Route>
       <Route
-        path="/annuaire-de-joueur"
-      >
+        path="/annuaire-de-joueur">
         <Annuaire />
-        <h1 className="pages__title">Annuaire de joueurs</h1>
+        <h1 className="title_pages">Annuaire de joueurs</h1>
+        {players.map((player) => (
+          <CardProfile
+            key={player.id}
+            {...player}
+          />
+        ))}
       </Route>
       <Route
         path="/annuaire-de-jeux"
@@ -128,6 +133,7 @@ const Pages = ({
         <Annuaire />
         <h1 className="pages__title">Annuaire de jeux</h1>
       </Route>
+
       <Route
         path="/annuaire-de-plateformes"
       >
@@ -138,6 +144,7 @@ const Pages = ({
         path="/mes-jeux"
       >
         <h1 className="title_pages2">Mes jeux</h1>
+
       </Route>
       <Route
         path="/mes-amis"
