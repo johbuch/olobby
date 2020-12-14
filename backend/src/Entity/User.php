@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
@@ -49,12 +50,6 @@ class User implements UserInterface
     private $pseudo;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups({"user:dashboard", "matchmaking"})
-     */
-    private $level;
-
-    /**
      * @ORM\Column(type="text", nullable=true)
      * @Groups({"user:dashboard", "matchmaking"})
      */
@@ -71,6 +66,12 @@ class User implements UserInterface
      * @Groups({"user:dashboard", "matchmaking"})
      */
     private $pseudoPlatform;
+
+    /**
+     * @Gedmo\Slug(fields={"pseudoPlatform"})
+     * @ORM\Column(type="string", length=255)
+     */
+    private $slug;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
@@ -136,6 +137,12 @@ class User implements UserInterface
      * @ORM\Column(type="boolean")
      */
     private $isActive;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Frequency::class, inversedBy="users")
+     * @Groups({"user:dashboard", "matchmaking"})
+     */
+    private $frequency;
 
     
     public function __construct()
@@ -238,18 +245,6 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getLevel(): ?string
-    {
-        return $this->level;
-    }
-
-    public function setLevel(?string $level): self
-    {
-        $this->level = $level;
-
-        return $this;
-    }
-
     public function getDescription(): ?string
     {
         return $this->description;
@@ -284,6 +279,11 @@ class User implements UserInterface
         $this->pseudoPlatform = $pseudoPlatform;
 
         return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
     }
 
     public function getRating(): ?int
@@ -462,6 +462,18 @@ class User implements UserInterface
     public function setIsActive(bool $isActive): self
     {
         $this->isActive = $isActive;
+
+        return $this;
+    }
+
+    public function getFrequency(): ?Frequency
+    {
+        return $this->frequency;
+    }
+
+    public function setFrequency(?Frequency $frequency): self
+    {
+        $this->frequency = $frequency;
 
         return $this;
     }
