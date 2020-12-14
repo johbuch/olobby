@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 // == Import
 import Annuaire from 'src/components/Annuaire';
 import CardProfile from 'src/containers/CardProfile';
+import EditProfile from 'src/containers/EditProfile';
 
 // == Import Carousel
 import Carousel, { slidesToShowPlugin } from '@brainhubeu/react-carousel';
@@ -150,6 +151,11 @@ const Pages = ({
         path="/mes-amis"
       >
         <h1 className="title_pages2">Mes amis</h1>
+      </Route>
+      <Route
+        path="/mon-compte"
+      >
+        <EditProfile />
       </Route>
     </div>
   );
