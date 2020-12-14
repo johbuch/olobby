@@ -1,5 +1,22 @@
 @use 'src/styles/vars';
-
+.pages{
+  .BrainhubCarousel__container{
+    margin-left: 350px;
+    width: auto;
+    .BrainhubCarousel{
+      .BrainhubCarousel__trackContainer{
+        ul{
+          width: 1080px;
+          .BrainhubCarouselItem{
+            width: 500px !important;
+            max-width: 500px !important;
+            min-width: 500px !important;
+          }
+        }
+      }
+    }
+  }
+}
 .title_pages{
     margin-left: 350px;
     color: white;
