@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
@@ -47,7 +48,7 @@ class UserController extends AbstractController
     /**
     * @Route("/edit/{id}", name="edit", methods={"PATCH"})
     */
-    public function edit(Request $request, int $id): Response
+    public function edit(Request $request, int $id, UserPasswordEncoderInterface $passwordEncoder): Response
     {
         $data = json_decode($request->getContent(), true);
 
@@ -58,17 +59,24 @@ class UserController extends AbstractController
         if(!$user) {
             return new JsonResponse(['msg' => 'Cette Id d\'utilisateur n\'existe pas !'.$id], 404);
         }
-        
 
         $form = $this->createForm(UserType::class, $user);
         $form->submit($data, false);
+        
+        // encodage du mot de passe
+        $user->setPassword(
+            $passwordEncoder->encodePassword(
+                $user,
+                $form->getData()->getPassword()
+            )
+        );
 
-            $user->setUpdatedAt(new \DateTime());
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($user);
-            $entityManager->flush();
+        $user->setUpdatedAt(new \DateTime());
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($user);
+        $entityManager->flush();
 
-            $this->addFlash('success', 'Profil modifié.');
+        $this->addFlash('success', 'Profil modifié.');
             
         return $this->json($user, 200, [], ['groups' => ['user:dashboard', 'user:friend']]);
     }
