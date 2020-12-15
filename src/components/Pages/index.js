@@ -4,7 +4,7 @@ import { Route } from 'react-router-dom';
 
 // == Import
 import Annuaire from 'src/components/Annuaire';
-import CardProfile from 'src/containers/CardProfile';
+import CardProfile from 'src/components/CardProfile';
 
 // == Import Bootstrap
 import Container from 'react-bootstrap/Container';

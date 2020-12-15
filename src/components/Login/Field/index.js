@@ -18,7 +18,7 @@ const Field = ({
   };
 
   return (
-    <Form.Group controlId="formBasicEmail">
+    <Form.Group>
       <Form.Label>{placeholder}</Form.Label>
       <Form.Control className="input_color" type={type} placeholder={placeholder} onChange={handleChange} value={value} name={name} />
       <Form.Text className="text-muted">

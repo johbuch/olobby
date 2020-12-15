@@ -3,7 +3,8 @@ import {
 
 const initialState = {
   // ici l'état initial
-  addFriend: [],
+  friendReceiver: [],
+  status: 'false',
 };
 
 const addFriend = (state = initialState, action = {}) => {
