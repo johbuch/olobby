@@ -6,7 +6,6 @@ App\Entity\User:
         avatar: '<imageUrl()>'
         description: '<text()>'
         pseudoPlatform: '<firstname()>'
-        platform: '@platform_*'
-        videogames: '@videogame_*'
-        frequency: '@frequency_*'
+
+
 
