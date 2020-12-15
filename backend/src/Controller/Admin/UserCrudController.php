@@ -71,10 +71,6 @@ class UserCrudController extends AbstractCrudController
         ];
     }
 
-   
-   
-   
-
     public function persistEntity(EntityManagerInterface $entityManager, $entityInstance): void
     {
         $encodedPassword = $this->passwordEncoder->encodePassword($entityInstance, $entityInstance->getPlainPassword());
