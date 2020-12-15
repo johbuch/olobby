@@ -1,0 +1,11 @@
+App\Entity\User:
+    user_{1..200}:
+        email: '<email()>'
+        password: '<password()>'
+        pseudo: '<firstName()>'
+        avatar: '<imageUrl()>'
+        description: '<text()>'
+        pseudoPlatform: '<firstname()>'
+
+
+
