@@ -8,6 +8,7 @@ use App\Entity\Platform;
 use App\Entity\TypeGame;
 use App\Entity\User;
 use App\Entity\Videogame;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;

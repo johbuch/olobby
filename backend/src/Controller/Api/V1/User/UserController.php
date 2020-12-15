@@ -62,14 +62,16 @@ class UserController extends AbstractController
 
         $form = $this->createForm(UserType::class, $user);
         $form->submit($data, false);
-        
+
         // encodage du mot de passe
-        $user->setPassword(
-            $passwordEncoder->encodePassword(
-                $user,
-                $form->getData()->getPassword()
-            )
-        );
+        if (!empty($data['password'])) {
+            $user->setPassword(
+                $passwordEncoder->encodePassword(
+                    $user,
+                    $form->getData()->getPassword()
+                )
+            );
+        }
 
         $user->setUpdatedAt(new \DateTime());
         $entityManager = $this->getDoctrine()->getManager();
