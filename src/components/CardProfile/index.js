@@ -18,16 +18,15 @@ const CardProfile = (props) => {
     <Col xs={12} md={8} lg={4}>
       <div className="cardProfile">
         <Card style={{ width: '18rem' }}>
-          <Button
+          <input
+            type="button"
             className="btn-add-friend"
             value={id}
             onClick={(evt) => {
-              // changeAddFriend(evt.target.value);
+              changeAddFriend(evt.target.value);
               console.log(evt.target.value);
             }}
-          >
-            <MdGroupAdd />
-          </Button>
+          />
           <Button className="btn-modal" onClick={() => setModalShow(true)}>
             <Card.Img variant="top" src={avatar} />
           </Button>
