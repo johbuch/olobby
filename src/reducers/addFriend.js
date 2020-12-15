@@ -1,5 +1,6 @@
 import {
-} from 'src/actions/edit';
+  ADD_FRIEND,
+} from 'src/actions/addFriend';
 
 const initialState = {
   // ici l'état initial
@@ -9,6 +10,11 @@ const initialState = {
 
 const addFriend = (state = initialState, action = {}) => {
   switch (action.type) {
+    case ADD_FRIEND:
+      return {
+        ...state,
+        friendReceiver: action.value,
+      };
     default:
       return { ...state };
   }

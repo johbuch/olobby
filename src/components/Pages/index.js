@@ -3,8 +3,7 @@ import React, { useEffect } from 'react';
 import { Route } from 'react-router-dom';
 
 // == Import
-import Annuaire from 'src/components/Annuaire';
-import CardProfile from 'src/components/CardProfile';
+import CardProfile from 'src/containers/CardProfile';
 
 // == Import Bootstrap
 import Container from 'react-bootstrap/Container';
@@ -29,7 +28,6 @@ const Pages = ({ launchFetchPlayers, players }) => {
       <Route
         path="/annuaire-de-joueur"
       >
-        <Annuaire />
         <h1 className="title_pages">Annuaire de joueurs</h1>
         <Container>
           <Row>
@@ -42,13 +40,11 @@ const Pages = ({ launchFetchPlayers, players }) => {
       <Route
         path="/annuaire-de-jeux"
       >
-        <Annuaire />
         <h1 className="title_pages">Annuaire de jeux</h1>
       </Route>
       <Route
         path="/annuaire-de-plateformes"
       >
-        <Annuaire />
         <h1 className="title_pages">Annuaire de plateformes</h1>
       </Route>
       <Route

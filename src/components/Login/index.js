@@ -131,14 +131,20 @@ const Login = ({
 };
 
 Login.propTypes = {
-  email: PropTypes.string.isRequired,
-  password: PropTypes.string.isRequired,
-  changeField: PropTypes.func.isRequired,
-  modalShow: PropTypes.bool.isRequired,
-  setModalShow: PropTypes.func.isRequired,
-  handleLogin: PropTypes.func.isRequired,
-  handleRegister: PropTypes.func.isRequired,
-  pseudo: PropTypes.string.isRequired,
+  email: PropTypes.string,
+  password: PropTypes.string,
+  changeField: PropTypes.func,
+  modalShow: PropTypes.bool,
+  setModalShow: PropTypes.func,
+  handleLogin: PropTypes.func,
+  handleRegister: PropTypes.func,
+  pseudo: PropTypes.string,
+};
+
+Login.defaultProps = {
+  email: '',
+  password: '',
+  pseudo: '',
 };
 
 export default Login;
