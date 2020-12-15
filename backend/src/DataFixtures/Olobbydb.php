@@ -2,6 +2,8 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\TypeGame;
+use App\Entity\GenreGame;
 use App\Entity\Frequency;
 use App\Entity\Platform;
 use App\Entity\User;
@@ -37,15 +39,30 @@ class Olobbydb extends Fixture
         ];
 
         $frequencyNames = [
-          'Occasionnel',
-          'Quotidien',
-          'No Life',
-      ];
+            'Occasionnel',
+            'Quotidien',
+            'No Life',
+        ];
+
+        $typeGameNames = [
+            'Tir',
+            'Course',
+        ];
+
+        $genreGameNames = [
+            'BattleRoyale',
+            'Foot',
+            'Moba',
+        ];
+
+        
 
         // On initialise des tableaux dans lesquels ont va conserver les données créées
         $platforms = [];
         $videogames = [];
         $frequencies = [];
+        $types = [];
+        $genres = [];
 
         // On boucle sur les listes pour créer des objets et les persiter au fur et à mesure dans $manager
         foreach ($platformNames as $platformName) {
@@ -63,11 +80,25 @@ class Olobbydb extends Fixture
         }
 
         foreach ($frequencyNames as $frequencyName) {
-          $frequency = new Frequency();
-          $frequency->setName($frequencyName);
-          $manager->persist($frequency);
-          $frequencies[] = $frequency;
-      }
+            $frequency = new Frequency();
+            $frequency->setName($frequencyName);
+            $manager->persist($frequency);
+            $frequencies[] = $frequency;
+        }
+
+        foreach ($typeGameNames as $typeGameName) {
+            $typeGame = new typeGame();
+            $typeGame->setName($typeGameName);
+            $manager->persist($typeGame);
+            $types[] = $typeGame;
+        }
+
+        foreach ($genreGameNames as $genreGameName) {
+            $genreGame = new genreGame();
+            $genreGame->setName($genreGameName);
+            $manager->persist($genreGame);
+            $genres[] = $genreGame;
+        }
         // Comme dans un contrôleur, tout le SQL se génère et s'exécute tout seul ici
         $manager->flush();
     }

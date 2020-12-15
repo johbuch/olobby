@@ -55,6 +55,18 @@ class Videogame
      */
     private $platforms;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=TypeGame::class, inversedBy="videogames")
+     * @Groups({"platform:dashboard", "user:dashboard", "videogame:dashboard", "matchmaking"})
+     */
+    private $typeGame;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=GenreGame::class, inversedBy="videogames")
+     * @Groups({"platform:dashboard", "user:dashboard", "videogame:dashboard", "matchmaking"})
+     */
+    private $genreGame;
+
     public function __construct()
     {
         $this->users = new ArrayCollection();
@@ -171,6 +183,30 @@ class Videogame
         if ($this->platforms->removeElement($platform)) {
             $platform->removeVideogame($this);
         }
+
+        return $this;
+    }
+
+    public function getTypeGame(): ?TypeGame
+    {
+        return $this->typeGame;
+    }
+
+    public function setTypeGame(?TypeGame $typeGame): self
+    {
+        $this->typeGame = $typeGame;
+
+        return $this;
+    }
+
+    public function getGenreGame(): ?GenreGame
+    {
+        return $this->genreGame;
+    }
+
+    public function setGenreGame(?GenreGame $genreGame): self
+    {
+        $this->genreGame = $genreGame;
 
         return $this;
     }
