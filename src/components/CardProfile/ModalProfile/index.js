@@ -40,14 +40,11 @@ const ModalProfile = ({ modalShow, setModalShow, player }) => {
                 <article className="gamePlayer">
                   <p>Liste des jeux</p>
                   <div>
-                    {videogames.map((videogame) => {
-                      console.log(videogame.image)
-                      return (
-                        <div className="img">
-                          <Image key={videogame.id} src={videogame.image} rounded/>
-                        </div>
-                      );
-                    })}
+                    {videogames.map((videogame) => (
+                      <div className="img">
+                        <Image key={videogame.id} src={videogame.image} rounded />
+                      </div>
+                    ))}
                   </div>
                 </article>
               </Col>

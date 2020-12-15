@@ -18,15 +18,18 @@ const CardProfile = (props) => {
     <Col xs={12} md={8} lg={4}>
       <div className="cardProfile">
         <Card style={{ width: '18rem' }}>
-          <input
+          <Button
             type="button"
             className="btn-add-friend"
-            value={id}
+            // value={id}
+            data-val={id}
             onClick={(evt) => {
-              changeAddFriend(evt.target.value);
-              console.log(evt.target.value);
+              changeAddFriend(evt.currentTarget.dataset.val);
+              // console.log(evt.currentTarget.dataset.val);
             }}
-          />
+          >
+            <MdGroupAdd />
+          </Button>
           <Button className="btn-modal" onClick={() => setModalShow(true)}>
             <Card.Img variant="top" src={avatar} />
           </Button>
@@ -35,14 +38,11 @@ const CardProfile = (props) => {
             <Card.Subtitle className="mb-2 text-muted">Joueuse occasionnelle</Card.Subtitle>
             <p>Ces 3 jeux Favoris</p>
             <div className="profileGame">
-              {videogames.map((videogame) => {
-                console.log(videogame.image);
-                return (
-                  <div className="img">
-                    <Image key={videogame.id} src={videogame.image} rounded />
-                  </div>
-                );
-              })}
+              {videogames.map((videogame) => (
+                <div className="img">
+                  <Image key={videogame.id} src={videogame.image} rounded />
+                </div>
+              ))}
             </div>
           </Card.Body>
         </Card>
