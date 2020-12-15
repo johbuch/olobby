@@ -163,6 +163,7 @@ class Platform
     {
         if (!$this->videogames->contains($videogame)) {
             $this->videogames[] = $videogame;
+            $videogame->addPlatform($this);
         }
 
         return $this;

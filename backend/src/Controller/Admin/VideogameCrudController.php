@@ -22,7 +22,7 @@ class VideogameCrudController extends AbstractCrudController
         return [
             IdField::new('id')->onlyOnIndex(),
             TextField::new('title'),
-            AssociationField::new('platforms'),
+            AssociationField::new('platforms', 'Plateforme')->setFormTypeOption('by_reference', false),
             DateTimeField::new('createdAt')->onlyOnIndex(),
             DateTimeField::new('updatedAt')->onlyOnIndex(),
         ];
