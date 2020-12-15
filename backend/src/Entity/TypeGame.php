@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\TypeGameRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -21,11 +22,13 @@ class TypeGame
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"videogame:type", "videogame:dashboard"})
      */
     private $name;
 
     /**
      * @ORM\OneToMany(targetEntity=Videogame::class, mappedBy="typeGame")
+     * @Groups("videogame:type")
      */
     private $videogames;
 
