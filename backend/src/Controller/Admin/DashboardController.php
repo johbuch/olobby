@@ -3,7 +3,9 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Frequency;
+use App\Entity\GenreGame;
 use App\Entity\Platform;
+use App\Entity\TypeGame;
 use App\Entity\User;
 use App\Entity\Videogame;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -38,10 +40,17 @@ class DashboardController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
-        yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-user', User::class);
-        yield MenuItem::linkToCrud('Plateforme', 'fas fa-gamepad', Platform::class);
-        yield MenuItem::linkToCrud('Jeux vidéos', 'fas fa-futbol', Videogame::class);
+        yield MenuItem::section('Utilisateurs');
+        yield MenuItem::linkToCrud('Liste', 'fas fa-users', User::class);
         yield MenuItem::linkToCrud('Fréquence', 'fas fa-wave-square', Frequency::class);
+
+        yield MenuItem::section('Jeux vidéos');
+        yield MenuItem::linkToCrud('Liste', 'fas fa-futbol', Videogame::class);
+        yield MenuItem::linkToCrud('Genre', 'fas fa-tag', GenreGame::class);
+        yield MenuItem::linkToCrud('Type', 'fas fa-hand-scissors', TypeGame::class);
+
+        yield MenuItem::section('Plateformes');
+        yield MenuItem::linkToCrud('Liste', 'fas fa-gamepad', Platform::class);
 
         yield MenuItem::section('Déconnexion');
         yield MenuItem::linkToLogout('Se déconnecter', 'fas fa-sign-out-alt');

@@ -19,6 +19,17 @@ class PlatformCrudController extends AbstractCrudController
         return Platform::class;
     }
 
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+            ->setEntityLabelInSingular('plateforme')    
+            ->setEntityLabelInPlural('plateformes')
+            ->setPageTitle('index', 'Liste des %entity_label_plural%')
+            ->setPageTitle('new', 'Ajouter une %entity_label_singular%')
+            ->setPageTitle('edit', 'Modifier une %entity_label_singular%')
+        ;
+    }
+
     public function configureFields(string $pageName): iterable
     {
         return [
