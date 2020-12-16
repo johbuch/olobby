@@ -5,6 +5,10 @@ import {
   addFriendSuccess,
   FETCH_FRIENDS,
   saveFriends,
+  ACCEPT_FRIEND,
+  acceptFriendSuccess,
+  REFUSE_FRIEND,
+  refuseFriendSuccess,
 } from 'src/actions/addFriend';
 
 const addFriendMiddleware = (store) => (next) => (action) => {
@@ -19,7 +23,6 @@ const addFriendMiddleware = (store) => (next) => (action) => {
       })
         .then((response) => {
           store.dispatch(addFriendSuccess(response.data));
-          console.log('ADD_FRIEND', response);
         })
         .catch((error) => {
           console.log(error);
@@ -39,6 +42,46 @@ const addFriendMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           store.dispatch(saveFriends(response.data));
           console.log('FETCH_FRIEND', response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      next(action);
+      break;
+    }
+    case ACCEPT_FRIEND: {
+      const {
+        idSender,
+      } = store.getState().addFriend;
+      axios.patch(`http://ec2-52-3-54-243.compute-1.amazonaws.com/api/v1/friends/accept/${idSender}`, {
+        id: idSender,
+      }, {
+        headers: { Authorization: `Bearer ${window.localStorage.getItem('token')}` },
+      }, {
+        withCredentials: true,
+      })
+        .then((response) => {
+          store.dispatch(acceptFriendSuccess(response.data));
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      next(action);
+      break;
+    }
+    case REFUSE_FRIEND: {
+      const {
+        idSender,
+      } = store.getState().addFriend;
+      axios.delete(`http://ec2-52-3-54-243.compute-1.amazonaws.com/api/v1/friends/delete/${idSender}`, {
+        id: idSender,
+        headers: { Authorization: `Bearer ${window.localStorage.getItem('token')}` },
+      }, {
+        withCredentials: true,
+      })
+        .then((response) => {
+          store.dispatch(refuseFriendSuccess(response.data));
+          console.log('ACCEPT_FRIEND', response);
         })
         .catch((error) => {
           console.log(error);

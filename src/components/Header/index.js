@@ -34,6 +34,8 @@ const Header = ({
   avatar,
   launchFetchFriends,
   friends,
+  acceptFriend,
+  refuseFriend,
 }) => {
   const [show, setShow] = React.useState(false);
   const [target, setTarget] = React.useState(null);
@@ -98,16 +100,32 @@ const Header = ({
                 <Popover id="popover-contained">
                   <Popover.Title as="h3">Mes demandes d'amis</Popover.Title>
                   <Popover.Content>
-                    {Object.keys(friends).map((friend) => (
-                      <div>
+                    {friends.map((friend) => (
+                      <div className="friend">
                         <div className="profile__friend">
                           <div className="profile__friend__img">
-                            <Image src={friends[friend].avatar} roundedCircle />
+                            <Image src={friend.avatar} roundedCircle />
                           </div>
-                          <p className="profile__friend__nickname">{friends[friend].pseudoPlatform}</p>
+                          <p className="profile__friend__nickname">{friend.pseudoPlatform}</p>
                         </div>
-                        <Button className="accept"><GiOctopus /></Button>
-                        <Button className="refuse"><MdClose /></Button>
+                        <Button
+                          className="accept"
+                          data-val={friend.id}
+                          onClick={(evt) => {
+                            acceptFriend(evt.currentTarget.dataset.val);
+                          }}
+                        >
+                          <GiOctopus />
+                        </Button>
+                        <Button
+                          className="refuse"
+                          data-val={friend.id}
+                          onClick={(evt) => {
+                            refuseFriend(evt.currentTarget.dataset.val);
+                          }}
+                        >
+                          <MdClose />
+                        </Button>
                       </div>
                     ))}
                   </Popover.Content>
@@ -221,6 +239,8 @@ Header.propTypes = {
   pseudo: PropTypes.string.isRequired,
   avatar: PropTypes.string.isRequired,
   launchFetchFriends: PropTypes.func.isRequired,
+  acceptFriend: PropTypes.func.isRequired,
+  refuseFriend: PropTypes.func.isRequired,
   friends: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,

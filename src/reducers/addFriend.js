@@ -1,12 +1,15 @@
 import {
   ADD_FRIEND,
   SAVE_FRIENDS,
+  ACCEPT_FRIEND,
+  REFUSE_FRIEND,
 } from 'src/actions/addFriend';
 
 const initialState = {
   // ici l'état initial
   friendReceiver: '',
   friendsList: [],
+  idSender: '',
 };
 
 const addFriend = (state = initialState, action = {}) => {
@@ -14,9 +17,17 @@ const addFriend = (state = initialState, action = {}) => {
     case ADD_FRIEND:
       return {
         ...state,
-        // checkbox: action.value,
         friendReceiver: action.value,
-      // state.checkbox.push(action.value),
+      };
+    case ACCEPT_FRIEND:
+      return {
+        ...state,
+        idSender: action.value,
+      };
+    case REFUSE_FRIEND:
+      return {
+        ...state,
+        idSender: action.value,
       };
     case SAVE_FRIENDS:
       return {
