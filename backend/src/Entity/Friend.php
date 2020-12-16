@@ -38,6 +38,7 @@ class Friend
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="friendSender")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups("user:friend")
      */
     private $sender;
 

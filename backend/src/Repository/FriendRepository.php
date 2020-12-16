@@ -32,7 +32,6 @@ class FriendRepository extends ServiceEntityRepository
                 'WITH',
                 'u.id = f.sender'
             )
-            ->addSelect('u')
             ->where('f.receiver = :id')
             ->andWhere('f.status = 0')
             ->setParameter('id', $id)

@@ -21,7 +21,7 @@ class User implements UserInterface
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups({"platform:dashboard", "user:dashboard", "videogame:dashboard", "matchmaking"})
+     * @Groups({"platform:dashboard", "user:dashboard", "videogame:dashboard", "matchmaking", "user:friend"})
      */
     private $id;
 
@@ -125,13 +125,11 @@ class User implements UserInterface
 
     /**
      * @ORM\OneToMany(targetEntity=Friend::class, mappedBy="sender", orphanRemoval=true)
-     * @Groups({"user:dashboard", "matchmaking"})
      */
     private $friendSender;
 
     /**
      * @ORM\OneToMany(targetEntity=Friend::class, mappedBy="receiver", orphanRemoval=true)
-     * @Groups({"user:dashboard", "matchmaking"})
      */
     private $friendReceiver;
 
