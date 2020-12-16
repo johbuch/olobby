@@ -15,6 +15,7 @@ class Friend
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups("user:friend")
      */
     private $id;
 
@@ -30,6 +31,7 @@ class Friend
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
+     * @Groups("user:friend")
      */
     private $status;
 

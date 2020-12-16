@@ -135,13 +135,6 @@ class FriendController extends AbstractController
     {
         $pendingUsers = $friendRepository->pendingFriendRequestsForConfirmation($id);
 
-        // on ne veut obtenir que les valeurs qui ont un index impair pour n'avoir que les users
-        foreach ($pendingUsers as $key => $value) {
-            if (!($key&1)) {
-                unset($pendingUsers[$key]);
-            }
-        }
-
         return $this->json($pendingUsers, 200, [], ['groups' => ['user:dashboard', 'user:friend']]);
     }
 
