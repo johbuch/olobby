@@ -13,7 +13,7 @@ import { FaPlaystation } from 'react-icons/fa';
 // == Import scss
 import 'src/components/CardProfile/cardProfile.scss';
 const ModalProfile = ({ modalShow, setModalShow, player }) => {
-  const {pseudo, platform, pseudoPlatform, videogames, description, frequency} = player;
+  const {pseudo, platform, pseudoPlatform, videogames, description, frequency, avatar} = player;
   return (
     <Modal
         show={modalShow}
@@ -24,12 +24,12 @@ const ModalProfile = ({ modalShow, setModalShow, player }) => {
       >
         <Modal.Header closeButton>
           <div className="img">
-            <Image src="https://www.pdvg.it/wp-content/uploads/2020/01/Destiny-2-Australia-SN.jpg" roundedCircle />
+            <Image src={avatar} roundedCircle />
           </div>
           <Modal.Title>
-            {pseudo}
+            {pseudoPlatform}
             <span className="level">{ frequency !== null ? frequency.name : "aucun" }</span>
-            <p className="nickname_olobby">Id plate-forme:{pseudoPlatform}</p>
+            <p className="nickname_olobby">{pseudo}</p>
           </Modal.Title>
           <Button className="btn__addFriend"><MdGroupAdd />Ajouter un amis</Button>
         </Modal.Header>
@@ -73,8 +73,10 @@ const ModalProfile = ({ modalShow, setModalShow, player }) => {
               <Col sm md lg>
                 <article className="consolePlayer">
                   <p>Liste des plateformes</p>
-                  <div>
-                  { platform !== null ? platform.name : "aucun" }
+                  <div >
+                    <Image className="img_plat_modal"
+                    src={platform !== null ? platform.image : "https://www.pdvg.it/wp-content/uploads/2020/01/Destiny-2-Australia-SN.jpg" }
+                    />
                   </div>
                 </article>
               </Col>

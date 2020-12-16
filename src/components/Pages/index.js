@@ -29,7 +29,6 @@ return (
     </Route>
     <Route
         path="/annuaire-de-joueur">
-        <Annuaire />
         <h1 className="title_pages">Annuaire de joueurs</h1>
         <Container className="cards_container">
             <Row>
@@ -41,7 +40,6 @@ return (
     </Route>
     <Route
         path="/annuaire-de-jeux">
-        <Annuaire />
         <h1 className="title_pages">Annuaire de jeux</h1>
         <Container>
             <Row>
@@ -53,7 +51,6 @@ return (
     </Route>  
     <Route
         path="/annuaire-de-plateformes">
-        <Annuaire />
         <h1 className="title_pages">Annuaire de plateformes</h1>
     </Route>
     <Route

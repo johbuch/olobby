@@ -5,6 +5,9 @@ import { fetchPlayers, fetchGames } from 'src/actions/players';
 import pages from 'src/components/Pages';
 
 const mapStateToProps = (state) => ({
+  // players: state.players.playersList.filter((player) => {
+  //   return player.name === state.players.search
+  // }),
   players: state.players.playersList,
   games: state.user.gamesList,
   platforms: state.user.platformsList,

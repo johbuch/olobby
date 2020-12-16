@@ -15,18 +15,25 @@ import './cardProfile.scss';
 
 const CardProfile = (props) => {
   const [modalShow, setModalShow] = React.useState(false);
-  const { pseudo, platform, videogames, avatar } = props;
+  const { pseudoPlatform, platform, videogames, avatar, frequency } = props;
   return (
-    <Col xs={12} md={8} lg={4}>
+    <Col xs={12} md={6} lg={3}>
       <div className="cardProfile">
-        <Card style={{ width: '18rem' }}>
+        <Card>
           <Button className="btn-add-friend"><MdGroupAdd /></Button>
           <Button className="btn-modal" onClick={() => setModalShow(true)}>
             <Card.Img variant="top" src={avatar} />
           </Button>
           <Card.Body>
-            <Card.Title>{pseudo}</Card.Title>
-            <Card.Subtitle className="mb-2 text-muted">Joueuse occasionnelle</Card.Subtitle>
+            <Card.Title>
+              <div >
+                <Image className="img_plat"
+                src={platform !== null ? platform.image : "https://www.pdvg.it/wp-content/uploads/2020/01/Destiny-2-Australia-SN.jpg" } rounded
+                />{pseudoPlatform}
+              </div>
+            
+            </Card.Title>
+            <Card.Subtitle className="mb-2 text-muted">{ frequency !== null ? frequency.name : "aucun" }</Card.Subtitle>
             <p>Ces 3 jeux Favoris</p>
             <div className="profileGame">
               {videogames.map((videogame) => {
