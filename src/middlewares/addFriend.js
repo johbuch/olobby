@@ -3,7 +3,8 @@ import axios from 'axios';
 import {
   ADD_FRIEND,
   addFriendSuccess,
-  editAddFriend,
+  FETCH_FRIENDS,
+  saveFriends,
 } from 'src/actions/addFriend';
 
 const addFriendMiddleware = (store) => (next) => (action) => {
@@ -19,6 +20,25 @@ const addFriendMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           store.dispatch(addFriendSuccess(response.data));
           console.log('ADD_FRIEND', response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      next(action);
+      break;
+    }
+    case FETCH_FRIENDS: {
+      const {
+        id,
+      } = store.getState().user;
+      axios.get(`http://ec2-52-3-54-243.compute-1.amazonaws.com/api/v1/friends/pending-for-confirmation/${id}`, {
+        headers: { Authorization: `Bearer ${window.localStorage.getItem('token')}` },
+      }, {
+        withCredentials: true,
+      })
+        .then((response) => {
+          store.dispatch(saveFriends(response.data));
+          console.log('FETCH_FRIEND', response);
         })
         .catch((error) => {
           console.log(error);

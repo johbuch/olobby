@@ -1,11 +1,12 @@
 import {
   ADD_FRIEND,
+  SAVE_FRIENDS,
 } from 'src/actions/addFriend';
 
 const initialState = {
   // ici l'état initial
   friendReceiver: '',
-  status: 'false',
+  friendsList: [],
 };
 
 const addFriend = (state = initialState, action = {}) => {
@@ -16,6 +17,11 @@ const addFriend = (state = initialState, action = {}) => {
         // checkbox: action.value,
         friendReceiver: action.value,
       // state.checkbox.push(action.value),
+      };
+    case SAVE_FRIENDS:
+      return {
+        ...state,
+        friendsList: action.friends,
       };
     default:
       return { ...state };
