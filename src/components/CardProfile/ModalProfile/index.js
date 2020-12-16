@@ -7,9 +7,10 @@ import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
+
 // == Import icons
 import { MdGroupAdd } from 'react-icons/md';
-import { FaPlaystation } from 'react-icons/fa';
+
 // == Import scss
 import 'src/components/CardProfile/cardProfile.scss';
 const ModalProfile = ({ modalShow, setModalShow, player }) => {

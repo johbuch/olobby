@@ -54,7 +54,7 @@ const addFriendMiddleware = (store) => (next) => (action) => {
         idSender,
       } = store.getState().addFriend;
       axios.patch(`http://ec2-52-3-54-243.compute-1.amazonaws.com/api/v1/friends/accept/${idSender}`, {
-        id: idSender,
+        id: action.value,
       }, {
         headers: { Authorization: `Bearer ${window.localStorage.getItem('token')}` },
       }, {
@@ -74,14 +74,14 @@ const addFriendMiddleware = (store) => (next) => (action) => {
         idSender,
       } = store.getState().addFriend;
       axios.delete(`http://ec2-52-3-54-243.compute-1.amazonaws.com/api/v1/friends/delete/${idSender}`, {
-        id: idSender,
+        id: action.value,
         headers: { Authorization: `Bearer ${window.localStorage.getItem('token')}` },
       }, {
         withCredentials: true,
       })
         .then((response) => {
           store.dispatch(refuseFriendSuccess(response.data));
-          console.log('ACCEPT_FRIEND', response);
+          console.log('REFUSE_FRIEND', response);
         })
         .catch((error) => {
           console.log(error);
