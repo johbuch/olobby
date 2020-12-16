@@ -3,17 +3,14 @@ import axios from 'axios';
 import {
   ADD_FRIEND,
   addFriendSuccess,
+  editAddFriend,
 } from 'src/actions/addFriend';
 
 const addFriendMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case ADD_FRIEND: {
-      const {
-        friendReceiver,
-      } = store.getState().addFriend;
-      console.log('ADD_FRIEND', friendReceiver);
       axios.post('http://ec2-52-3-54-243.compute-1.amazonaws.com/api/v1/friends/add', {
-        friendReceiver,
+        receiver: action.value,
       }, {
         headers: { Authorization: `Bearer ${window.localStorage.getItem('token')}` },
       }, {

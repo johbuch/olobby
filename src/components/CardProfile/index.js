@@ -19,13 +19,11 @@ const CardProfile = (props) => {
       <div className="cardProfile">
         <Card style={{ width: '18rem' }}>
           <Button
-            type="button"
             className="btn-add-friend"
-            // value={id}
             data-val={id}
             onClick={(evt) => {
               changeAddFriend(evt.currentTarget.dataset.val);
-              // console.log(evt.currentTarget.dataset.val);
+              console.log('ADD_FRIEND_LOG', evt.currentTarget.dataset.val);
             }}
           >
             <MdGroupAdd />

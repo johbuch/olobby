@@ -7,7 +7,7 @@ import {
 } from 'src/actions/addFriend';
 
 const mapStateToProps = (state) => ({
-  addFriend: state.addFriend.friendReceiver,
+  friendReceiver: state.addFriend.friendReceiver,
 });
 
 const mapDispatchToProps = (dispatch) => ({

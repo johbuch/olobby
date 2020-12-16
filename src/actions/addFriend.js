@@ -7,7 +7,7 @@ export const editAddFriend = (value) => ({
   value,
 });
 
-export const addFriendSuccess = (addFriend) => ({
+export const addFriendSuccess = (friendReceiver) => ({
   type: ADD_FRIEND_SUCCESS,
-  addFriend,
+  friendReceiver,
 });
