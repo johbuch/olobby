@@ -92,4 +92,14 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
             ->getResult()
         ;
     }
+
+    public function findAllByPseudo()
+    {
+        return $this->createQueryBuilder('u')
+        ->orderBy('u.pseudo', 'DESC')
+        ->getQuery()
+        ->getResult()
+        
+        ;
+    }
 }
