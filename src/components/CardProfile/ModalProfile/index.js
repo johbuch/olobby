@@ -21,7 +21,7 @@ const ModalProfile = ({ modalShow, setModalShow, player }) => {
     <Modal
       show={modalShow}
       onHide={() => setModalShow(false)}
-      size="xl"
+      size="lg"
       aria-labelledby="contained-modal-title-vcenter"
       centered
       >
@@ -48,25 +48,6 @@ const ModalProfile = ({ modalShow, setModalShow, player }) => {
                       <Image key={videogame.id} src={videogame.image} rounded />
                     </div>
                   ))}
-                </div>
-              </article>
-            </Col>
-            <Col sm md lg>
-              <article className="friendPlayer">
-                <p>Liste des amis</p>
-                <div>
-                  <div className="img">
-                    <Image src="https://www.journaldugeek.com/content/uploads/2019/10/cod-640x360.jpg" roundedCircle />
-                  </div>
-                  <div className="img">
-                    <Image src="https://www.journaldugeek.com/content/uploads/2019/10/cod-640x360.jpg" roundedCircle />
-                  </div>
-                  <div className="img">
-                    <Image src="https://www.journaldugeek.com/content/uploads/2019/10/cod-640x360.jpg" roundedCircle />
-                  </div>
-                  <div className="img">
-                    <Image src="https://www.journaldugeek.com/content/uploads/2019/10/cod-640x360.jpg" roundedCircle />
-                  </div>
                 </div>
               </article>
             </Col>
