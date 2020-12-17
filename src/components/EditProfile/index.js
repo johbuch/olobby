@@ -20,10 +20,8 @@ import ImageEdit from './FieldEdit/ImageEdit';
 const EditProfile = ({
   email,
   pseudo,
-  pseudoPlatform,
   avatar,
   changeField,
-  description,
   launchFetchGames,
   launchFetchPlatforms,
   launchFetchUser,
@@ -162,8 +160,6 @@ EditProfile.propTypes = {
   changeField: PropTypes.func.isRequired,
   changeCheckbox: PropTypes.func.isRequired,
   changeRadio: PropTypes.func.isRequired,
-  pseudoPlatform: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
   launchFetchGames: PropTypes.func.isRequired,
   launchFetchPlatforms: PropTypes.func.isRequired,
   launchFetchUser: PropTypes.func.isRequired,
@@ -186,6 +182,7 @@ EditProfile.propTypes = {
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       pseudoPlatform: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
     }).isRequired,
   ).isRequired,
 };
