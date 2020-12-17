@@ -4,13 +4,18 @@ import { Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 // == Import
-import Annuaire from 'src/components/Annuaire';
 import CardProfile from 'src/containers/CardProfile';
 import EditProfile from 'src/containers/EditProfile';
+
 
 // == Import Carousel
 import Carousel, { slidesToShowPlugin } from '@brainhubeu/react-carousel';
 import '@brainhubeu/react-carousel/lib/style.css';
+
+// == Import Bootstrap
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+
 
 // == Import scss
 import './pages.scss';
@@ -119,7 +124,6 @@ const Pages = ({
       </Route>
       <Route
         path="/annuaire-de-joueur">
-        <Annuaire />
         <h1 className="title_pages">Annuaire de joueurs</h1>
         {players.map((player) => (
           <CardProfile
@@ -131,21 +135,19 @@ const Pages = ({
       <Route
         path="/annuaire-de-jeux"
       >
-        <Annuaire />
         <h1 className="pages__title">Annuaire de jeux</h1>
       </Route>
 
       <Route
         path="/annuaire-de-plateformes"
       >
-        <Annuaire />
         <h1 className="pages__title">Annuaire de plateformes</h1>
+
       </Route>
       <Route
         path="/mes-jeux"
       >
         <h1 className="title_pages2">Mes jeux</h1>
-
       </Route>
       <Route
         path="/mes-amis"
@@ -180,6 +182,5 @@ Pages.propTypes = {
   launchFetchMatchmaking: PropTypes.func.isRequired,
   launchFetchMatchmakingLevel: PropTypes.func.isRequired,
 };
-
 // == Export
 export default Pages;

@@ -1,24 +1,18 @@
 import { connect } from 'react-redux';
 
-import { fetchPlayers } from 'src/actions/players';
-
 import CardProfile from 'src/components/CardProfile';
 
+import {
+  editAddFriend,
+} from 'src/actions/addFriend';
+
 const mapStateToProps = (state) => ({
-  players: state.players.playersList,
-  games: state.user.gamesList,
-  platforms: state.user.platformsList,
+  friendReceiver: state.addFriend.friendReceiver,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  launchFetchPlayers: () => {
-    dispatch(fetchPlayers());
-  },
-  launchFetchGames: () => {
-    dispatch(fetchGames());
-  },
-  launchFetchPlatforms: () => {
-    dispatch(fetchPlatforms());
+  changeAddFriend: (newValue) => {
+    dispatch(editAddFriend(newValue));
   },
 });
 

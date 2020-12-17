@@ -24,7 +24,7 @@ const ModalProfile = ({ modalShow, setModalShow, player }) => {
       size="xl"
       aria-labelledby="contained-modal-title-vcenter"
       centered
-    >
+      >
       <Modal.Header closeButton>
         <div className="img">
           <Image src="https://www.pdvg.it/wp-content/uploads/2020/01/Destiny-2-Australia-SN.jpg" roundedCircle />
@@ -43,14 +43,11 @@ const ModalProfile = ({ modalShow, setModalShow, player }) => {
               <article className="gamePlayer">
                 <p>Liste des jeux</p>
                 <div>
-                  {videogames.map((videogame) => {
-                    console.log(videogame.image);
-                    return (
-                      <div className="img">
-                        <Image key={videogame.id} src={videogame.image} rounded />
-                      </div>
-                    );
-                  })}
+                  {videogames.map((videogame) => (
+                    <div className="img">
+                      <Image key={videogame.id} src={videogame.image} rounded />
+                    </div>
+                  ))}
                 </div>
               </article>
             </Col>
