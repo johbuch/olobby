@@ -27,10 +27,15 @@ const Pages = ({
   matchmaking,
   matchmakingLevel,
   launchFetchMatchmakingLevel,
+  launchFetchPlayers,
 }) => {
+  useEffect(() => {
+
+  });
   useEffect(() => {
     launchFetchMatchmaking();
     launchFetchMatchmakingLevel();
+    launchFetchPlayers();
   }, []);
 
   return (
@@ -80,7 +85,7 @@ const Pages = ({
             />
           ))}
         </Carousel>
-        <h4 className="pages__title">Ces personnes ont le même niveau que vous</h4>
+        <h4 className="title">Ces personnes ont le même niveau que vous</h4>
         <Carousel
           plugins={[
             'arrows',
@@ -124,13 +129,17 @@ const Pages = ({
       </Route>
       <Route
         path="/annuaire-de-joueur">
-        <h1 className="title_pages">Annuaire de joueurs</h1>
-        {players.map((player) => (
-          <CardProfile
-            key={player.id}
-            {...player}
-          />
-        ))}
+        <Container>
+          <h1 className="pages__title">Annuaire de joueurs</h1>
+          <Row>
+            {players.map((player) => (
+              <CardProfile
+                key={player.id}
+                {...player}
+              />
+            ))}
+          </Row>
+        </Container>
       </Route>
       <Route
         path="/annuaire-de-jeux"
@@ -181,6 +190,7 @@ Pages.propTypes = {
   ).isRequired,
   launchFetchMatchmaking: PropTypes.func.isRequired,
   launchFetchMatchmakingLevel: PropTypes.func.isRequired,
+  launchFetchPlayers: PropTypes.func.isRequired,
 };
 // == Export
 export default Pages;
