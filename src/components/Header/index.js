@@ -106,7 +106,7 @@ const Header = ({
                           <div className="profile__friend__img">
                             <Image src={friend.sender.avatar} roundedCircle />
                           </div>
-                          <p className="profile__friend__nickname">{friend.sender.pseudoPlatform}</p>
+                          <p className="profile__friend__nickname">{friend.sender.pseudoPlatform}{friend.id}</p>
                         </div>
                         <Button
                           className="accept"

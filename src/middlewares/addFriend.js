@@ -50,10 +50,7 @@ const addFriendMiddleware = (store) => (next) => (action) => {
       break;
     }
     case ACCEPT_FRIEND: {
-      const {
-        idSender,
-      } = store.getState().addFriend;
-      axios.patch(`http://ec2-52-3-54-243.compute-1.amazonaws.com/api/v1/friends/accept/${idSender}`, {
+      axios.patch(`http://ec2-52-3-54-243.compute-1.amazonaws.com/api/v1/friends/accept/${action.value}`, {
         id: action.value,
       }, {
         headers: { Authorization: `Bearer ${window.localStorage.getItem('token')}` },
@@ -62,6 +59,7 @@ const addFriendMiddleware = (store) => (next) => (action) => {
       })
         .then((response) => {
           store.dispatch(acceptFriendSuccess(response.data));
+          console.log('ACCEPT_FRIEND', response);
         })
         .catch((error) => {
           console.log(error);
@@ -70,10 +68,7 @@ const addFriendMiddleware = (store) => (next) => (action) => {
       break;
     }
     case REFUSE_FRIEND: {
-      const {
-        idSender,
-      } = store.getState().addFriend;
-      axios.delete(`http://ec2-52-3-54-243.compute-1.amazonaws.com/api/v1/friends/delete/${idSender}`, {
+      axios.delete(`http://ec2-52-3-54-243.compute-1.amazonaws.com/api/v1/friends/delete/${action.value}`, {
         id: action.value,
         headers: { Authorization: `Bearer ${window.localStorage.getItem('token')}` },
       }, {
