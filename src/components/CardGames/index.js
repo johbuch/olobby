@@ -16,9 +16,11 @@ const CardGames = (props) => {
 
   return (
     <Col xs={12} md={8} lg={4}>
-      <div className="cardProfile">
+      <div className="cardGames">
         <Card style={{ width: '18rem' }}>
+          <div className="img-card">
             <Card.Img variant="top" src={image} />
+          </div>
           <Card.Body>
             <Card.Title>{title}</Card.Title>
             <Card.Subtitle className="mb-2 text-muted">{ typeGame !== null ? typeGame.name : "non défini" }</Card.Subtitle>

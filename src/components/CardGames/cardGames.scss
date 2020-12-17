@@ -7,7 +7,13 @@
     box-shadow: 3px 3px 8px white;
     border: none;
     position: relative;
-    
+    .img-card{
+      height: 200px;
+      .card-img-top{
+        height: 100%;
+        object-fit: cover;
+      }
+    }
     &-body{
       .card-subtitle{
         font-style: italic;
@@ -18,14 +24,15 @@
         margin-top: vars.$gutter;
       }
       .profileGame{
-        display: flex;
+        // display: flex;
         .img_plat{
-          height: 20px;
-          width: 20px;
+          display: flex;
+          height: 30px;
+          width: 30px;
           margin-right: vars.$gutter;
           .rounded{
-            width: 20%;
-            height: 20%;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
           }
         }

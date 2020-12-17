@@ -32,7 +32,9 @@ const CardProfile = (props) => {
         <Card>
           <Button className="btn-add-friend"><MdGroupAdd /></Button>
           <Button className="btn-modal" onClick={() => setModalShow(true)}>
-            <Card.Img variant="top" src={avatar} />
+            <div className="img-card">
+              <Card.Img variant="top" src={avatar} />
+            </div>
           </Button>
           <Card.Body>
             <Card.Title>
