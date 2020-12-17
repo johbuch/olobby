@@ -20,9 +20,10 @@ import { FaPlaystation } from 'react-icons/fa';
 // == Import scss
 import './aside.scss';
 
-const Aside = ({ launchFetchUser, user }) => {
+const Aside = ({ launchFetchUser, user, launchListFriends, friends }) => {
   useEffect(() => {
     launchFetchUser();
+    launchListFriends();
   }, []);
   return (
     <div className="aside">
@@ -34,37 +35,21 @@ const Aside = ({ launchFetchUser, user }) => {
       </Nav>
 
       <div className="aside__friend">
-        <h5 className="aside__friend__title">Mes 3 premiers Amis ajoutés</h5>
-        <article className="aside__friend__profil">
-          <div className="img">
-            <Image src="https://geeko.lesoir.be/wp-content/uploads/sites/58/2019/10/fifa20-afp.png" roundedCircle />
-          </div>
-          <div>
-            <p className="aside__friend__profil__nickname">Dhôko</p>
-            <a href="#!" className="aside__friend__profil__gamer"><MdPerson /></a>
-            <a href="#!" className="aside__friend__profil__message"><MdMessage /></a>
-          </div>
-        </article>
-        <article className="aside__friend__profil">
-          <div className="img">
-            <Image src="https://geeko.lesoir.be/wp-content/uploads/sites/58/2019/10/fifa20-afp.png" roundedCircle />
-          </div>
-          <div>
-            <p className="aside__friend__profil__nickname">Dhôko</p>
-            <a href="#!" className="aside__friend__profil__gamer"><MdPerson /></a>
-            <a href="#!" className="aside__friend__profil__message"><MdMessage /></a>
-          </div>
-        </article>
-        <article className="aside__friend__profil">
-          <div className="img">
-            <Image src="https://geeko.lesoir.be/wp-content/uploads/sites/58/2019/10/fifa20-afp.png" roundedCircle />
-          </div>
-          <div>
-            <p className="aside__friend__profil__nickname">Dhôko</p>
-            <a href="#!" className="aside__friend__profil__gamer"><MdPerson /></a>
-            <a href="#!" className="aside__friend__profil__message"><MdMessage /></a>
-          </div>
-        </article>
+        <h5 className="aside__friend__title">Mes Amis</h5>
+        {Object.keys(friends).map((friend) => (
+          <article className="aside__friend__profil" key={friends[friend].id}>
+            <div className="img">
+              <Image src={friends[friend].avatar} roundedCircle />
+            </div>
+            <div>
+              <p className="aside__friend__profil__nickname">{friends[friend].pseudoPlatform}</p>
+              {/*
+                <a href="#!" className="aside__friend__profil__gamer"><MdPerson /></a>
+                <a href="#!" className="aside__friend__profil__message"><MdMessage /></a>
+              */}
+            </div>
+          </article>
+        ))}
       </div>
 
       <div className="aside__game">
@@ -94,6 +79,13 @@ const Aside = ({ launchFetchUser, user }) => {
 
 Aside.propTypes = {
   launchFetchUser: PropTypes.func.isRequired,
+  launchListFriends: PropTypes.func.isRequired,
+  friends: PropTypes.arrayOf(
+    PropTypes.shape({
+      image: PropTypes.string.isRequired,
+      pseudoPlatform: PropTypes.string.isRequired,
+    }).isRequired,
+  ).isRequired,
   user: PropTypes.objectOf(
     PropTypes.shape({
       platform: PropTypes.arrayOf(

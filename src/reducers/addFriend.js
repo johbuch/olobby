@@ -3,6 +3,7 @@ import {
   SAVE_FRIENDS,
   ACCEPT_FRIEND,
   REFUSE_FRIEND,
+  DISPLAY_FRIENDS,
 } from 'src/actions/addFriend';
 
 const initialState = {
@@ -10,6 +11,7 @@ const initialState = {
   friendReceiver: '',
   friendsList: [],
   idSender: '',
+  friends: [],
 };
 
 const addFriend = (state = initialState, action = {}) => {
@@ -33,6 +35,11 @@ const addFriend = (state = initialState, action = {}) => {
       return {
         ...state,
         friendsList: action.friends,
+      };
+    case DISPLAY_FRIENDS:
+      return {
+        ...state,
+        friends: action.friends,
       };
     default:
       return { ...state };

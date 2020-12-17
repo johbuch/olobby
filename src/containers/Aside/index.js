@@ -6,13 +6,21 @@ import {
   fetchUser,
 } from 'src/actions/edit';
 
+import {
+  listFriends,
+} from 'src/actions/addFriend';
+
 const mapStateToProps = (state) => ({
   user: state.user.userInfo,
+  friends: state.addFriend.friends,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   launchFetchUser: () => {
     dispatch(fetchUser());
+  },
+  launchListFriends: () => {
+    dispatch(listFriends());
   },
 });
 

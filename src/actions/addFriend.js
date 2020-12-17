@@ -9,6 +9,9 @@ export const REFUSE_FRIEND_SUCCES = 'REFUSE_FRIEND_SUCCES';
 export const SAVE_FRIENDS = 'SAVE_FRIENDS';
 export const FETCH_FRIENDS = 'FETCH_FRIENDS';
 
+export const DISPLAY_FRIENDS = 'DISPLAY_FRIENDS';
+export const LIST_FRIENDS = 'LIST_FRIENDS';
+
 export const editAddFriend = (value) => ({
   type: ADD_FRIEND,
   value,
@@ -43,7 +46,16 @@ export const fetchFriends = () => ({
   type: FETCH_FRIENDS,
 });
 
+export const listFriends = () => ({
+  type: LIST_FRIENDS,
+});
+
 export const saveFriends = (friends) => ({
   type: SAVE_FRIENDS,
+  friends,
+});
+
+export const displayFriends = (friends) => ({
+  type: DISPLAY_FRIENDS,
   friends,
 });

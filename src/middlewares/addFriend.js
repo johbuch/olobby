@@ -9,6 +9,8 @@ import {
   acceptFriendSuccess,
   REFUSE_FRIEND,
   refuseFriendSuccess,
+  LIST_FRIENDS,
+  displayFriends,
 } from 'src/actions/addFriend';
 
 const addFriendMiddleware = (store) => (next) => (action) => {
@@ -23,6 +25,24 @@ const addFriendMiddleware = (store) => (next) => (action) => {
       })
         .then((response) => {
           store.dispatch(addFriendSuccess(response.data));
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      next(action);
+      break;
+    }
+    case LIST_FRIENDS: {
+      const {
+        id,
+      } = store.getState().user;
+      axios.get(`http://ec2-52-3-54-243.compute-1.amazonaws.com/api/v1/friends/list/${id}`, {
+        headers: { Authorization: `Bearer ${window.localStorage.getItem('token')}` },
+      }, {
+        withCredentials: true,
+      })
+        .then((response) => {
+          store.dispatch(displayFriends(response.data));
         })
         .catch((error) => {
           console.log(error);

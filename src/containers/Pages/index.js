@@ -17,12 +17,6 @@ const mapDispatchToProps = (dispatch) => ({
   launchFetchPlayers: () => {
     dispatch(fetchPlayers());
   },
-  launchFetchGames: () => {
-    dispatch(fetchGames());
-  },
-  launchFetchPlatforms: () => {
-    dispatch(fetchPlatforms());
-  },
   launchFetchMatchmaking: () => {
     dispatch(fetchMatchmaking());
   },
