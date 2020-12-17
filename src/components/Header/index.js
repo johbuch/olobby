@@ -108,7 +108,7 @@ const Header = ({
                               roundedCircle
                             />
                           </div>
-                          <p className="profile__friend__nickname">{friend.sender.pseudoPlatform}{friend.id}</p>
+                          <p className="profile__friend__nickname">{friend.sender.pseudoPlatform}</p>
                         </div>
                         <Button
                           className="accept"
