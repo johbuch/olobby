@@ -130,7 +130,7 @@ const Pages = ({
       <Route
         path="/annuaire-de-joueur">
         <Container>
-          <h1 className="pages__title">Annuaire de joueurs</h1>
+          <h4 className="pages__title">Annuaire de joueurs</h4>
           <Row>
             {players.map((player) => (
               <CardProfile
@@ -144,24 +144,24 @@ const Pages = ({
       <Route
         path="/annuaire-de-jeux"
       >
-        <h1 className="pages__title">Annuaire de jeux</h1>
+        <h4 className="pages__title">Annuaire de jeux</h4>
       </Route>
 
       <Route
         path="/annuaire-de-plateformes"
       >
-        <h1 className="pages__title">Annuaire de plateformes</h1>
+        <h4 className="pages__title">Annuaire de plateformes</h4>
 
       </Route>
       <Route
         path="/mes-jeux"
       >
-        <h1 className="title_pages2">Mes jeux</h1>
+        <h4 className="title_pages2">Mes jeux</h4>
       </Route>
       <Route
         path="/mes-amis"
       >
-        <h1 className="title_pages2">Mes amis</h1>
+        <h4 className="title_pages2">Mes amis</h4>
       </Route>
       <Route
         path="/mon-compte"

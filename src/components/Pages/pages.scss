@@ -18,18 +18,24 @@
     }
   }
   .title{
-    margin-top: vars.$gutter;
+    margin-top: vars.$gutter * 2;
     margin-left: 350px;
     color: white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
   }
   &__title{
     margin-top: 150px;
     // margin-left: 350px;
     color: white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
     &--top{
       margin-top: 150px;
       margin-left: 350px;
       color: white;
+      text-transform: uppercase;
+      letter-spacing: 2px;
     }
   }
 }
