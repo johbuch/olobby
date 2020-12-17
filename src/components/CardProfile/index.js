@@ -18,7 +18,13 @@ import './cardProfile.scss';
 const CardProfile = (props) => {
   const [modalShow, setModalShow] = React.useState(false);
 
-  const { pseudo, videogames, avatar, id, changeAddFriend, frequency } = props;
+  const {
+    pseudo,
+    videogames,
+    avatar,
+    id,
+    changeAddFriend,
+  } = props;
   return (
     <Col xs={12} md={8} lg={4}>
       <div className="cardProfile">
@@ -28,7 +34,6 @@ const CardProfile = (props) => {
             data-val={id}
             onClick={(evt) => {
               changeAddFriend(evt.currentTarget.dataset.val);
-              console.log('ADD_FRIEND_LOG', evt.currentTarget.dataset.val);
             }}
           >
             <MdGroupAdd />
@@ -44,7 +49,7 @@ const CardProfile = (props) => {
             <p>Ces 3 jeux Favoris</p>
             <div className="profileGame">
               {videogames.map((videogame) => (
-                <div className="img">
+                <div key={videogame.id} className="img">
                   <Image key={videogame.id} src={videogame.image} rounded />
                 </div>
               ))}

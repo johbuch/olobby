@@ -41,7 +41,6 @@ const addFriendMiddleware = (store) => (next) => (action) => {
       })
         .then((response) => {
           store.dispatch(saveFriends(response.data));
-          console.log('FETCH_FRIEND', response);
         })
         .catch((error) => {
           console.log(error);
@@ -59,7 +58,6 @@ const addFriendMiddleware = (store) => (next) => (action) => {
       })
         .then((response) => {
           store.dispatch(acceptFriendSuccess(response.data));
-          console.log('ACCEPT_FRIEND', response);
         })
         .catch((error) => {
           console.log(error);
@@ -76,7 +74,6 @@ const addFriendMiddleware = (store) => (next) => (action) => {
       })
         .then((response) => {
           store.dispatch(refuseFriendSuccess(response.data));
-          console.log('REFUSE_FRIEND', response);
         })
         .catch((error) => {
           console.log(error);

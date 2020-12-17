@@ -1,5 +1,5 @@
 // == Import npm
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 // == Import css
@@ -22,33 +22,31 @@ import Devs from 'src/components/Devs';
 import MainTitle from '../MainTitle';
 
 // == Composant
-const Olobby = ({ isActive }) => {
-  console.log('test');
-  return (
-    <div className="olobby">
-      <Header />
-      {isActive && (
-        <>
-          <Pages />
-          <Aside />
-          <MenuFooter />
-        </>
-      )}
-      {!isActive && (
-        <>
-          <HeaderHomeDisconnected />
-          <SectionHomeDisconnected />
-        </>
-      )}
-      <Footer />
-      <Login />
-
-      {/*<MainTitle />
-      <Project />
-      <Devs />*/}
-    </div>
-  );
-};
+const Olobby = ({ isActive }) => (
+  <div className="olobby">
+    <Header />
+    {isActive && (
+      <>
+        <Pages />
+        <Aside />
+        <MenuFooter />
+      </>
+    )}
+    {!isActive && (
+      <>
+        <HeaderHomeDisconnected />
+        <SectionHomeDisconnected />
+      </>
+    )}
+    <Footer />
+    <Login />
+    {/*
+    <MainTitle />
+    <Project />
+    <Devs />
+    */}
+  </div>
+);
 
 Olobby.propTypes = {
   isActive: PropTypes.bool,

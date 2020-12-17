@@ -70,8 +70,6 @@ const Header = ({
               </div>
             </Dropdown.Toggle>
             <Dropdown.Menu>
-              <Dropdown.Item href="#/action-1">Mes amis</Dropdown.Item>
-              <Dropdown.Item href="#/action-1">Mes jeux</Dropdown.Item>
               <Dropdown.Item href="#/action-1">Mon compte</Dropdown.Item>
               <Dropdown.Item href="#/action-2">Se déconnecter</Dropdown.Item>
             </Dropdown.Menu>
@@ -101,10 +99,14 @@ const Header = ({
                   <Popover.Title as="h3">Mes demandes d'amis</Popover.Title>
                   <Popover.Content>
                     {friends.map((friend) => (
-                      <div className="friend">
-                        <div className="profile__friend">
-                          <div className="profile__friend__img">
-                            <Image src={friend.sender.avatar} roundedCircle />
+                      <div key={friend.sender.id} className="friend">
+                        <div key={friend.sender.id} className="profile__friend">
+                          <div key={friend.sender.id} className="profile__friend__img">
+                            <Image
+                              src={friend.sender.avatar}
+                              key={friend.sender.id}
+                              roundedCircle
+                            />
                           </div>
                           <p className="profile__friend__nickname">{friend.sender.pseudoPlatform}{friend.id}</p>
                         </div>
@@ -140,9 +142,7 @@ const Header = ({
                 {pseudo}
               </Dropdown.Toggle>
               <Dropdown.Menu>
-                <Dropdown.Item>
-                  <NavLink className="nav-item" to="/mon-compte">Mon compte</NavLink>
-                </Dropdown.Item>
+                <NavLink className="dropdown-item" to="/mon-compte">Mon compte</NavLink>
                 <Dropdown.Item onClick={handleLogout}>Se déconnecter</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
@@ -244,14 +244,20 @@ Header.propTypes = {
   friends: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
-      pseudoPlatform: PropTypes.string.isRequired,
-      avatar: PropTypes.string.isRequired,
+      pseudoPlatform: PropTypes.string,
+      avatar: PropTypes.string,
     }).isRequired,
-  ).isRequired,
+  ),
 };
 
 Header.defaultProps = {
   isActive: false,
+  friends: PropTypes.arrayOf(
+    PropTypes.shape({
+      pseudoPlatform: '',
+      avatar: '',
+    }).isRequired,
+  ).isRequired,
 };
 
 export default Header;

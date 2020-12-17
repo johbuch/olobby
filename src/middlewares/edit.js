@@ -24,7 +24,6 @@ const editMiddleware = (store) => (next) => (action) => {
       })
         .then((response) => {
           store.dispatch(saveGames(response.data));
-          console.log('GAMES', response);
         })
         .catch((error) => {
           console.log(error);
@@ -39,7 +38,6 @@ const editMiddleware = (store) => (next) => (action) => {
       })
         .then((response) => {
           store.dispatch(savePlatforms(response.data));
-          console.log('PLATFORMS', response);
         })
         .catch((error) => {
           console.log(error);
@@ -57,7 +55,6 @@ const editMiddleware = (store) => (next) => (action) => {
       })
         .then((response) => {
           store.dispatch(saveUser(response.data));
-          console.log('USER', response);
         })
         .catch((error) => {
           console.log(error);
@@ -102,7 +99,6 @@ const editMiddleware = (store) => (next) => (action) => {
             response.data.platform,
             response.data.videogames,
           ));
-          console.log('EDIT PROFILE', response);
         })
         .catch((error) => {
           console.warn(error);

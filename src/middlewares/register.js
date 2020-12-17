@@ -18,7 +18,6 @@ const registerMiddleware = (store) => (next) => (action) => {
       })
         .then((response) => {
           window.localStorage.setItem('token', response.data.token);
-          console.log('DATA REGISTER', response);
           store.dispatch(saveUserInfo(
             response.data.id,
             true,

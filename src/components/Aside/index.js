@@ -71,9 +71,9 @@ const Aside = ({ launchFetchUser, user }) => {
         <h5 className="aside__game__title">Mes jeux </h5>
         <div>
           {user.videogames.map((videogame) => (
-            <article className="aside__game__img">
-              <a href="#!">
-                <Image src={videogame.image} rounded />
+            <article key={videogame.id} className="aside__game__img">
+              <a key={videogame.id} href="#!">
+                <Image src={videogame.image} key={videogame.id} rounded />
               </a>
             </article>
           ))}
@@ -94,9 +94,8 @@ const Aside = ({ launchFetchUser, user }) => {
 
 Aside.propTypes = {
   launchFetchUser: PropTypes.func.isRequired,
-  user: PropTypes.arrayOf(
+  user: PropTypes.objectOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
       platform: PropTypes.arrayOf(
         PropTypes.shape({
           image: PropTypes.string.isRequired,

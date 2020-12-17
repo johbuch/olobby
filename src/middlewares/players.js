@@ -11,7 +11,6 @@ const playersMiddleware = (store) => (next) => (action) => {
         withCredentials: true,
       })
         .then((response) => {
-          console.log('USER', response);
           store.dispatch(savePlayers(response.data));
         })
         .catch((error) => {

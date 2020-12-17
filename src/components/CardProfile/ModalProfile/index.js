@@ -44,7 +44,7 @@ const ModalProfile = ({ modalShow, setModalShow, player }) => {
                 <p>Liste des jeux</p>
                 <div>
                   {videogames.map((videogame) => (
-                    <div className="img">
+                    <div key={videogame.id} className="img">
                       <Image key={videogame.id} src={videogame.image} rounded />
                     </div>
                   ))}
@@ -93,11 +93,12 @@ const ModalProfile = ({ modalShow, setModalShow, player }) => {
 ModalProfile.propTypes = {
   modalShow: PropTypes.bool.isRequired,
   setModalShow: PropTypes.func.isRequired,
+  pseudo: PropTypes.string,
+  pseudoPlatform: PropTypes.string,
+  description: PropTypes.string,
   player: PropTypes.objectOf(
     PropTypes.shape({
-      pseudo: PropTypes.string.isRequired,
-      pseudoPlatform: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired,
+      id: PropTypes.number.isRequired,
       videogames: PropTypes.arrayOf(
         PropTypes.shape({
           image: PropTypes.string.isRequired,
@@ -106,6 +107,12 @@ ModalProfile.propTypes = {
       ).isRequired,
     }).isRequired,
   ).isRequired,
+};
+
+ModalProfile.defaultProps = {
+  pseudo: '',
+  pseudoPlatform: '',
+  description: '',
 };
 
 export default ModalProfile;
