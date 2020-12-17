@@ -24,3 +24,14 @@
 
 {% endblock %}
 
+{% for user in users %}
+    <h2>{{ user.email }}, 
+                    {{ user.platform }}, 
+                    {% for videogame in user.videogames %}
+                        {{ videogame.title }},
+                    {% endfor %}</h2>
+{% endfor %}
+
+                <td>
+                
+                </td>

@@ -36,32 +36,69 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         $this->_em->flush();
     }
 
-    // /**
-    //  * @return User[] Returns an array of User objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    public function findByLevel($value, $id)
     {
         return $this->createQueryBuilder('u')
-            ->andWhere('u.exampleField = :val')
+            ->andWhere('u.level = :val')
+            ->andWhere('u.id != :id')
             ->setParameter('val', $value)
-            ->orderBy('u.id', 'ASC')
-            ->setMaxResults(10)
+            ->setParameter('id', $id)
             ->getQuery()
             ->getResult()
         ;
     }
-    */
 
-    /*
-    public function findOneBySomeField($value): ?User
+    public function findByPlatform($platform, $id)
     {
         return $this->createQueryBuilder('u')
-            ->andWhere('u.exampleField = :val')
-            ->setParameter('val', $value)
+            ->andWhere('u.platform = :platform')
+            ->andWhere('u.id != :id')
+            ->setParameter('platform', $platform)
+            ->setParameter('id', $id)
             ->getQuery()
-            ->getOneOrNullResult()
+            ->getResult()
         ;
     }
-    */
+
+    public function findByFrequencyAndPlatformAndVideogame($frequency, $platform, $videogameId, $id)
+    {
+        return $this->createQueryBuilder('u')
+            ->innerJoin('u.videogames', 'v')
+            ->where('u.frequency = :frequency')
+            ->andWhere('v.id = :videogameId')
+            ->andWhere('u.platform = :platform')
+            ->andWhere('u.id != :id')
+            ->setParameter('videogameId', $videogameId)
+            ->setParameter('frequency', $frequency)
+            ->setParameter('platform', $platform)
+            ->setParameter('id', $id)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    public function findByVideogame($videogameId, $platformId, $id)
+    {
+        return $this->createQueryBuilder('u')
+            ->innerJoin('u.videogames', 'v')
+            ->innerJoin('u.platform', 'p')
+            ->where('v.id = :videogameId')
+            ->andWhere('p.id = :platformId')
+            ->andWhere('u.id != :id')
+            ->setParameter('videogameId', $videogameId)
+            ->setParameter('platformId', $platformId)
+            ->setParameter('id', $id)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    public function findAllByPseudo()
+    {
+        return $this->createQueryBuilder('u')
+            ->orderBy('u.pseudo', 'DESC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 }

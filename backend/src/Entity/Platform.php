@@ -6,6 +6,7 @@ use App\Repository\PlatformRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=PlatformRepository::class)
@@ -16,16 +17,19 @@ class Platform
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"platform:dashboard", "user:dashboard", "videogame:dashboard", "matchmaking"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=120)
+     * @Groups({"platform:dashboard", "user:dashboard", "videogame:dashboard", "matchmaking"})
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"platform:dashboard", "user:dashboard", "videogame:dashboard", "matchmaking"})
      */
     private $image;
 
@@ -41,11 +45,13 @@ class Platform
 
     /**
      * @ORM\OneToMany(targetEntity=User::class, mappedBy="platform")
+     * @Groups("platform:dashboard")
      */
     private $users;
 
     /**
      * @ORM\ManyToMany(targetEntity=Videogame::class, inversedBy="platforms")
+     * @Groups("platform:dashboard")
      */
     private $videogames;
 
@@ -53,6 +59,13 @@ class Platform
     {
         $this->users = new ArrayCollection();
         $this->videogames = new ArrayCollection();
+        $this->createdAt = new \DateTime();
+        $this->updatedAt = new \DateTime();
+    }
+
+    public function __toString()
+    {
+        return $this->name;
     }
 
     public function getId(): ?int
@@ -150,6 +163,7 @@ class Platform
     {
         if (!$this->videogames->contains($videogame)) {
             $this->videogames[] = $videogame;
+            $videogame->addPlatform($this);
         }
 
         return $this;
