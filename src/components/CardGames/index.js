@@ -56,7 +56,6 @@ CardGames.propTypes = {
   typeGame: PropTypes.object,
   image: PropTypes.string,
   title: PropTypes.string,
-  changeAddFriend: PropTypes.func.isRequired,
   platforms: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,

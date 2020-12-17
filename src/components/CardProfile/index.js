@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 // == Import Bootstrap
 import Card from 'react-bootstrap/Card';
@@ -57,7 +57,7 @@ const CardProfile = (props) => {
                 {pseudoPlatform}
               </div>
             </Card.Title>
-            <Card.Subtitle className="mb-2 text-muted">{ frequency !== null ? frequency.name : "aucun" }</Card.Subtitle>
+            <Card.Subtitle className="mb-2 text-muted">{ frequency !== null ? frequency.name : 'aucun'}</Card.Subtitle>
             <p>Ces 3 jeux Favoris</p>
             <div className="profileGame">
               {videogames.map((videogame) => (
