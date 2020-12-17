@@ -27,7 +27,7 @@ const CardProfile = (props) => {
   } = props;
 
   return (
-    <Col xs={12} md={6} lg={3}>
+    <Col xs={12} md={6} lg={4}>
       <div className="cardProfile">
         <Card>
           <Button className="btn-add-friend"><MdGroupAdd /></Button>
@@ -47,14 +47,11 @@ const CardProfile = (props) => {
             <Card.Subtitle className="mb-2 text-muted">{ frequency !== null ? frequency.name : "aucun" }</Card.Subtitle>
             <p>Ces 3 jeux Favoris</p>
             <div className="profileGame">
-              {videogames.map((videogame) => {
-                console.log(videogame.image);
-                return (
-                  <div className="img">
-                    <Image key={videogame.id} src={videogame.image} rounded/>
-                  </div>
-                );
-              })}
+              {videogames.map((videogame) => (
+                <div className="img">
+                  <Image key={videogame.id} src={videogame.image} rounded />
+                </div>
+              ))}
             </div>
           </Card.Body>
         </Card>
