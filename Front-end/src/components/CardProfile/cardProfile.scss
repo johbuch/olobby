@@ -1,0 +1,195 @@
+@use 'src/styles/vars';
+
+.cardProfile{
+  margin-top: vars.$gutter * 2;
+  // margin-left: 350px;
+  margin-bottom: vars.$gutter * 2;
+  .card{
+    box-shadow: 3px 3px 8px white;
+    border: none;
+    position: relative;
+    .btn-modal{
+      background-color: transparent;
+      padding: 0;
+      border: none;
+      .img-card{
+        height: 200px;
+        .card-img-top{
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      &:focus{
+        box-shadow: none;
+        outline: none;
+      }
+    }
+    .btn-add-friend{
+      position: absolute;
+      width: 35px;
+      height: 35px;
+      border-radius: 100%;
+      top: -20px;
+      right: -15px;
+      padding: 0;
+      background-color: vars.$main-color;
+      border: none;
+      &:focus{
+        box-shadow: none;
+        outline: none;
+        background-color: vars.$main-color;
+      }
+    }
+    &-body{
+      .img_plat{
+        height: 30px;
+        width: 30px;
+        margin-right: vars.$gutter;
+      }
+      .card-subtitle{
+        font-style: italic;
+        font-size: 14px;
+        font-weight: vars.$ft-light;
+      }
+      p{
+        margin-top: vars.$gutter;
+      }
+      .profileGame{
+        display: flex;
+        .img{
+          height: 80px;
+          width: 60px;
+          margin-right: vars.$gutter;
+          .rounded{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+  }
+}
+
+.modal-content{
+  .modal-header{
+    //position: relative;
+    .close{
+      background-color: vars.$main-color;
+      opacity: initial;
+      color: white;
+      width: 30px;
+      height: 30px;
+      padding: 0;
+      border-radius: 100%;
+      box-shadow: 0px 3px 6px vars.$main-color;
+      //position: absolute;
+      //top: 0;
+      //right: 0;
+      &:focus{
+        outline: none;
+        box-shadow: none;
+        background-color: vars.$main-color;
+      }
+    }
+    .img{
+      width: 100px;
+      height: 100px;
+      .rounded-circle{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    .modal-title{
+      margin-left: vars.$gutter;
+      font-weight: vars.$ft-bold;
+      text-transform: uppercase;
+      display: inline-grid;
+      .level{
+        font-size: 14px;
+        text-transform: initial;
+        color: vars.$main-color;
+        font-style: italic;
+        font-weight: vars.$ft-light;
+      }
+      .nickname_olobby{
+        font-size: 14px;
+        font-weight: vars.$ft-light;
+      }
+    }
+    .btn__addFriend{
+      background-color: vars.$main-color;
+      border: 1px solid transparent;
+      margin-left: vars.$gutter * 1.5;
+      &:focus{
+        outline: none;
+        box-shadow: none;
+        background-color: vars.$main-color;
+      }
+    }
+  }
+  .modal-body{
+    display: flex;
+    .gamePlayer{
+      div{
+        display: flex;
+        .img{
+          width: 65px;
+          height: 105px;
+          margin-right: vars.$gutter * 0.5;
+          .rounded{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+    .img_plat_modal{
+      height: 40px;
+      width: 40px;
+      margin-right: vars.$gutter;
+      .rounded{
+            width: 100%;
+            height: 100%;
+      }
+    }
+    .friendPlayer{
+      div{
+        display: flex;
+        .img{
+          width: 50px;
+          height: 50px;
+          margin-right: vars.$gutter * 0.5;
+          .rounded-circle{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+    .consolePlayer{
+      div{
+        display: flex;
+        svg{
+          font-size: 50px;
+        }
+      }
+    }
+  }
+  .modal-footer {
+    .description {
+      text-align: left;
+    }
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .cardProfile{
+    margin-left: vars.$gutter;
+    margin-top: 180px;
+  }
+}

@@ -1,0 +1,390 @@
+@use 'src/styles/vars';
+.header{
+  .navbar{
+    background-color: vars.$bg-color;
+    box-shadow: 0px 7px 10px #343133;
+    &-brand{
+      color: white;
+      margin-left: vars.$gutter * 3;
+      &:hover{
+        color: white;
+      }
+    }
+    .btn__login{
+      background-color: vars.$main-color;
+      border: 1px solid transparent;
+      transition: ease-in-out 0.3s;
+      svg{
+        vertical-align: -2px;
+        margin-right: vars.$gutter * 0.5;
+      }
+      &:hover{
+        background-color: transparent;
+        border: 1px solid vars.$main-color;
+        transition: ease-in-out 0.3s;
+        color: vars.$main-color;
+      }
+      &:focus{
+        box-shadow: none;
+        outline: none;
+      }
+    }
+    .form-inline{
+      margin: 0 auto;
+      .form-control{
+        border-radius: 50px;
+        width: 450px;
+        height: 35px;
+      }
+      .btn{
+        background-color: vars.$main-color;
+        border-radius: 100%;
+        border: 1px solid transparent;
+        width: 40px;
+        height: 40px;
+        transition: ease-in-out 0.33s;
+        &:hover{
+          background-color: transparent;
+          border: 1px solid vars.$main-color;
+        }
+        &:focus{
+          box-shadow: none;
+          outline: none;
+        }
+      }
+    }
+    .header__profil{
+      display: flex;
+      margin-right: vars.$gutter;
+      &__notifications{
+        background-color: vars.$main-color;
+        height: 40px;
+        width: 40px;
+        border-radius: 100%;
+        // text-align: center;
+        color: white;
+        // font-size: 1.3rem;
+        margin-right: vars.$gutter * 0.5;
+        margin-top: 10px;
+        border: none;
+        &:focus{
+          box-shadow: none;
+          outline: none;
+        }
+      }
+      .popover{
+        background-color: vars.$bg-color;
+        border: 1px solid vars.$main-color;
+        &-header{
+          background-color: vars.$main-color;
+          color: white;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          font-weight: vars.$ft-medium;
+          font-size: 14px;
+        }
+        &-body{
+          .friend{
+            .profile__friend{
+              margin-top: vars.$gutter;
+              display: flex;
+              &__img{
+                width: 40px;
+                height: 40px;
+                .rounded-circle{
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                }
+              }
+              &__nickname{
+                color: white;
+                margin-left: 10px;
+                margin-top: 8px;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+              }
+            }
+            .accept{
+              background-color: vars.$succes-color;
+              border: 1px solid transparent;
+              transition: ease-in-out;
+              margin-top: vars.$gutter;
+              &:focus{
+                box-shadow: none;
+                outline: none;
+              }
+              &:hover{
+                background-color: transparent;
+                border: 1px solid vars.$succes-color;
+                color: vars.$succes-color;
+              }
+            }
+            .refuse{
+              background-color: vars.$error-color;
+              border: 1px solid transparent;
+              transition: ease-in-out;
+              margin-left: vars.$gutter;
+              margin-top: vars.$gutter;
+              &:focus{
+                box-shadow: none;
+                outline: none;
+              }
+              &:hover{
+                background-color: transparent;
+                border: 1px solid vars.$error-color;
+                color: vars.$error-color;
+              }
+            }
+            &:nth-child(2n+1){
+              // display: none;
+            }
+          }
+        }
+      }
+      .img{
+          width: 60px;
+          height: 60px;
+        .rounded-circle{
+          border: 2px solid vars.$main-color;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          margin-right: vars.$gutter;
+        }
+      }
+      .dropdown{
+        margin-top: 15px;
+        &-toggle{
+          background-color: transparent;
+          border: none;
+          &::after{
+            margin-left: vars.$gutter * 0.7;
+            border-top: .5em solid vars.$main-color;
+            border-right: .5em solid transparent;
+            border-bottom: 0;
+            border-left: .5em solid transparent;
+            vertical-align: .1em;
+          }
+          &:focus{
+            outline: none;
+            box-shadow: none;
+          }
+        }
+        .dropdown-menu{
+          top:50px;
+          left: -70px;
+          .dropdown-item{
+            &:hover{
+              background-color: vars.$main-color;
+              color: white;
+              .nav-item{
+                color: white;
+              }
+            }
+            &:focus{
+              box-shadow: none;
+              outline: none;
+            }
+          }
+          .active{
+            background-color: vars.$main-color;
+          }
+        }
+      }
+    }
+
+    .header__notifications{
+      display: none;
+    }
+
+    .header__profil--responsive{
+      display: none;
+    }
+    .header__friend{
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .header__profil{
+    margin-right: vars.$gutter !important;
+  }
+}
+
+@media screen and (max-width: 768px){
+  .header{
+    .navbar{
+      .form-inline{
+        display: none;
+      }
+      .header__profil{
+        display: none;
+      }
+
+      .header__notifications{
+        display: inline;
+        background-color: vars.$main-color;
+        height: 40px;
+        line-height: 40px;
+        width: 40px;
+        border-radius: 100%;
+        position: relative;
+        text-align: center;
+        color: white;
+        font-size: 1.3rem;
+        margin-left: vars.$gutter * 2;
+        margin-top: 10px;
+        &__number{
+          background-color: white;
+          color: vars.$bg-color;
+          position: absolute;
+          width: 25px;
+          height: 25px;          
+          line-height: 25px;
+          border-radius: 100%;
+          top: -10px;
+          left: -10px;
+          text-align: center;
+          font-size: 1rem;
+        }
+      }
+  
+      .header__profil--responsive{
+        display: flex;
+        .dropdown{
+          margin-top: 15px;
+          .img{
+            width: 60px;
+            height: 60px;
+            .rounded-circle{
+              border: 2px solid vars.$main-color;
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              margin-right: vars.$gutter * 0.5;
+            }
+          }
+          &-toggle{
+            background-color: transparent;
+            border: none;
+            &::after{
+              //margin-left: vars.$gutter * 0.7;
+              border-top: .5em solid vars.$main-color;
+              border-right: .5em solid transparent;
+              border-bottom: 0;
+              border-left: .5em solid transparent;
+              vertical-align: .1em;
+            }
+            &:focus{
+              outline: none;
+              box-shadow: none;
+            }
+          }
+        }
+      }
+      &-collapse{
+        .header__friend{
+          display: block;
+          &__title{
+            color: white;
+            font-weight: vars.$ft-bold;
+            font-size: 16px;
+            margin-top: vars.$gutter * 2;
+            margin-left: vars.$gutter * 1.5;
+          }
+          .test{
+            display: flex;
+            //justify-content: center;
+            flex-flow: wrap;
+          }
+          &__profil{
+            text-align: left;
+            display: flex;
+            margin-top: vars.$gutter * 2;
+            margin-right: vars.$gutter * 2;
+            .img{
+              width: 70px;
+              height: 70px;
+              margin-left: vars.$gutter * 1.5;
+              .rounded-circle{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border: 1px solid vars.$main-color;
+              }
+            }
+            
+            &__nickname{
+              color: white;
+              font-weight: vars.$ft-medium;
+              margin-left: vars.$gutter;
+              margin: 0 0 vars.$gutter * 0.5 vars.$gutter;
+            }
+            &__gamer{
+              margin-left: vars.$gutter;
+              svg{
+                background-color: vars.$main-color;
+                color: white;
+                border-radius: 100%;
+                padding: 5px;
+                width: 25px;
+                height: 25px;
+                margin-right: vars.$gutter * 0.5;
+              }
+            }
+            &__message{
+              svg{
+                background-color: vars.$main-color;
+                color: white;
+                border-radius: 100%;
+                padding: 5px;
+                width: 25px;
+                height: 25px;
+              }
+            }
+          }
+        }
+        .header__game{
+          margin: vars.$gutter * 2;
+          &__title{
+            color: white;
+            font-weight: vars.$ft-bold;
+            font-size: 16px;
+          }
+          div{
+            display: flex;
+            flex-flow: wrap;
+            margin-top: vars.$gutter * 2;
+          }
+          &__img{
+            margin-right: vars.$gutter;
+            margin-bottom: vars.$gutter;
+            width: 90px;
+            height: 120px;
+            .rounded{
+              background-color: white;
+              object-fit: cover;
+              width: 100%;
+              height: 100%;
+            }
+          }
+        }
+        .header__console{
+          margin: vars.$gutter * 2;
+          &__title{
+            color: white;
+            font-weight: vars.$ft-bold;
+            font-size: 16px;
+          }
+          &__link{
+            color: white;
+            font-size: 50px;
+          }
+        }
+      }
+      
+    }
+  }
+}
