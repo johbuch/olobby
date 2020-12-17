@@ -29,7 +29,7 @@ const CardProfile = (props) => {
   return (
     <Col xs={12} md={6} lg={4}>
       <div className="cardProfile">
-        <Card>
+        <Card style={{ width: '18rem' }}>
           <Button className="btn-add-friend"><MdGroupAdd /></Button>
           <Button className="btn-modal" onClick={() => setModalShow(true)}>
             <div className="img-card">
@@ -39,16 +39,19 @@ const CardProfile = (props) => {
           <Card.Body>
             <Card.Title>
               <div>
-                <Image className="img_plat"
-                  src={platform !== null ? platform.image : "https://www.pdvg.it/wp-content/uploads/2020/01/Destiny-2-Australia-SN.jpg" } rounded
-                />{pseudoPlatform}
+                <Image
+                  className="img_plat"
+                  src={platform !== null ? platform.image : 'https://www.pdvg.it/wp-content/uploads/2020/01/Destiny-2-Australia-SN.jpg' } 
+                  rounded
+                />
+                {pseudoPlatform}
               </div>
             </Card.Title>
             <Card.Subtitle className="mb-2 text-muted">{ frequency !== null ? frequency.name : "aucun" }</Card.Subtitle>
             <p>Ces 3 jeux Favoris</p>
             <div className="profileGame">
               {videogames.map((videogame) => (
-                <div className="img">
+                <div className="img" key={videogame.id}>
                   <Image key={videogame.id} src={videogame.image} rounded />
                 </div>
               ))}
@@ -62,9 +65,10 @@ const CardProfile = (props) => {
 };
 
 CardProfile.propTypes = {
-  pseudo: PropTypes.string.isRequired,
+  pseudoPlatform: PropTypes.string,
+  platform: PropTypes.object.isRequired,
   avatar: PropTypes.string,
-  id: PropTypes.number.isRequired,
+  frequency: PropTypes.object.isRequired,
   changeAddFriend: PropTypes.func.isRequired,
   videogames: PropTypes.arrayOf(
     PropTypes.shape({
@@ -76,5 +80,6 @@ CardProfile.propTypes = {
 };
 CardProfile.defaultProps = {
   avatar: '',
+  pseudoPlatform: '',
 };
 export default CardProfile;

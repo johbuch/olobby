@@ -11,16 +11,18 @@ import {
   MdHome,
   MdGames,
   MdImportContacts,
-  MdPerson,
-  MdMessage,
 } from 'react-icons/md';
 import { GiGameConsole } from 'react-icons/gi';
-import { FaPlaystation } from 'react-icons/fa';
 
 // == Import scss
 import './aside.scss';
 
-const Aside = ({ launchFetchUser, user, launchListFriends, friends }) => {
+const Aside = ({
+  launchFetchUser,
+  user,
+  launchListFriends,
+  friends,
+}) => {
   useEffect(() => {
     launchFetchUser();
     launchListFriends();
@@ -80,26 +82,8 @@ const Aside = ({ launchFetchUser, user, launchListFriends, friends }) => {
 Aside.propTypes = {
   launchFetchUser: PropTypes.func.isRequired,
   launchListFriends: PropTypes.func.isRequired,
-  friends: PropTypes.arrayOf(
-    PropTypes.shape({
-      image: PropTypes.string.isRequired,
-      pseudoPlatform: PropTypes.string.isRequired,
-    }).isRequired,
-  ).isRequired,
-  user: PropTypes.objectOf(
-    PropTypes.shape({
-      platform: PropTypes.arrayOf(
-        PropTypes.shape({
-          image: PropTypes.string.isRequired,
-        }).isRequired,
-      ).isRequired,
-      videogames: PropTypes.arrayOf(
-        PropTypes.shape({
-          image: PropTypes.string.isRequired,
-        }).isRequired,
-      ).isRequired,
-    }).isRequired,
-  ).isRequired,
+  friends: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired,
 };
 
 export default Aside;

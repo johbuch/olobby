@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 // == Import Bootstrap
@@ -10,9 +10,12 @@ import Col from 'react-bootstrap/Col';
 import './cardGames.scss';
 
 const CardGames = (props) => {
-
-  const [modalShow, setModalShow] = React.useState(false);
-  const { title, id, image, typeGame, platforms } = props;
+  const {
+    title,
+    image,
+    typeGame,
+    platforms,
+  } = props;
 
   return (
     <Col xs={12} md={8} lg={4}>
@@ -23,13 +26,23 @@ const CardGames = (props) => {
           </div>
           <Card.Body>
             <Card.Title>{title}</Card.Title>
-            <Card.Subtitle className="mb-2 text-muted">{ typeGame !== null ? typeGame.name : "non défini" }</Card.Subtitle>
+            <Card.Subtitle
+              className="mb-2 text-muted"
+            >
+              { typeGame !== null ? typeGame.name : 'non défini' }
+            </Card.Subtitle>
             <p>plateforme(s)</p>
             <div className="profileGame">
               <div className="img_plat">
                 {platforms.map((platform) => (
-                  <Image className="img_plat" src={ platform !== null ? platform.image : "erreur" } key={platform.id} {...platform} rounded />
-                ))}                
+                  <Image
+                    className="img_plat"
+                    src={platform !== null ? platform.image : 'erreur'}
+                    key={platform.id}
+                    {...platform}
+                    rounded
+                  />
+                ))}
               </div>
             </div>
           </Card.Body>
@@ -40,7 +53,27 @@ const CardGames = (props) => {
 };
 
 CardGames.propTypes = {
-  launchFetchGames: PropTypes.func.isRequired,
+  typeGame: PropTypes.object,
+  image: PropTypes.string,
+  title: PropTypes.string,
+  changeAddFriend: PropTypes.func.isRequired,
+  platforms: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string,
+    }).isRequired,
+  ),
+
+};
+CardGames.defaultProps = {
+  image: '',
+  typeGame: '',
+  title: '',
+  platforms: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: '',
+    }),
+  ),
 };
 
 export default CardGames;
