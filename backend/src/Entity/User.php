@@ -144,7 +144,6 @@ class User implements UserInterface
      */
     private $frequency;
 
-    
     public function __construct()
     {
         $this->videogames = new ArrayCollection();
@@ -497,6 +496,4 @@ class User implements UserInterface
 
         return $this;
     }
-
-    
 }

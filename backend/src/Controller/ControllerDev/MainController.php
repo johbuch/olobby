@@ -71,12 +71,9 @@ class MainController extends AbstractController
         $videogames = $videogameRepository->matchV($user->getVideogames()[0]->getId());
         $videogames2 = $videogameRepository->matchV($user->getVideogames()[1]->getId());
 
-        
-
-       
-        dd($user);
+        //dd($user);
         return $this->render('main/test.html.twig', [
-            
+
         ]);
     }
 

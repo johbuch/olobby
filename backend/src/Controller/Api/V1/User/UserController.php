@@ -57,7 +57,7 @@ class UserController extends AbstractController
         ->find($id);
 
         if(!$user) {
-            return new JsonResponse(['msg' => 'Cette Id d\'utilisateur n\'existe pas !'.$id], 404);
+            return new JsonResponse(['msg' => 'Cet Id d\'utilisateur n\'existe pas !'.$id], 404);
         }
 
         $form = $this->createForm(UserType::class, $user);
@@ -92,7 +92,7 @@ class UserController extends AbstractController
        $doctrine->remove($id);
        $doctrine->flush();
 
-       return $this->json(['msg' => 'Cette utilisateur a été supprimé avec succés!'], 200);
+       return $this->json(['msg' => 'Cet utilisateur a été supprimé avec succès!'], 200);
     }
 }
 

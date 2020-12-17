@@ -13,7 +13,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
-
 /**
  * @Route("/api/v1/friends", name="api_v1_friends_")
  */
@@ -24,7 +23,6 @@ class FriendController extends AbstractController
      */
     public function addFriend(Request $request, MailerInterface $mailer): Response
     {
-        
         $json = $request->getContent();
         $friendArray = json_decode($json, true);
         
@@ -60,7 +58,7 @@ class FriendController extends AbstractController
             // envoi de l'email
             $mailer->send($email);
 
-            return $this->json(['msg' => 'Cette utilisateur a bien été ajouté, votre relation est en attente de sa confirmation!'], 200);
+            return $this->json(['msg' => 'Cet utilisateur a bien été ajouté, votre relation est en attente de sa confirmation!'], 200);
         } else {
             // Si le formulaire n'est pas valide (les contraintes de validation ne sont pas respectées)
             // on retourne un code 400 avec un tableau de toutes les erreurs
@@ -134,7 +132,6 @@ class FriendController extends AbstractController
     public function pendingFriendRequestsForConfirmation(FriendRepository $friendRepository, int $id): Response
     {
         $pendingUsers = $friendRepository->pendingFriendRequestsForConfirmation($id);
-
         return $this->json($pendingUsers, 200, [], ['groups' => ['user:dashboard', 'user:friend']]);
     }
 

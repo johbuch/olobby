@@ -19,9 +19,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class UserCrudController extends AbstractCrudController
 {
-    
     private $passwordEncoder;
-
 
     public function __construct(UserPasswordEncoderInterface $passwordEncoder)
     {
@@ -77,7 +75,6 @@ class UserCrudController extends AbstractCrudController
         $entityInstance->setPassword($encodedPassword);
         $entityInstance->setCreatedAt(new \DateTime());
         parent::persistEntity($entityManager,$entityInstance);
-        
     }
 
     /**
@@ -86,10 +83,8 @@ class UserCrudController extends AbstractCrudController
     public function updateEntity(EntityManagerInterface $entityManager, $entityInstance): void
     {
         if($entityInstance->getPlainPassword() !== null && $entityInstance->getPlainPassword() !== ""){
-
             $encodedPassword = $this->passwordEncoder->encodePassword($entityInstance, $entityInstance->getPlainPassword());
             $entityInstance->setPassword($encodedPassword);
-    
         }
 
         $entityInstance->setUpdatedAt(new \DateTime());

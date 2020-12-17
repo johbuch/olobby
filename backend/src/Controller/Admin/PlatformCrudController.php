@@ -35,7 +35,6 @@ class PlatformCrudController extends AbstractCrudController
         return [
             IdField::new('id')->onlyOnIndex(),
             TextField::new('name'),
-            // AssociationField::new('videogames'),
             DateTimeField::new('createdAt')->onlyOnIndex(),
             DateTimeField::new('updatedAt')->onlyOnIndex(),
         ];

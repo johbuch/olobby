@@ -96,10 +96,9 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     public function findAllByPseudo()
     {
         return $this->createQueryBuilder('u')
-        ->orderBy('u.pseudo', 'DESC')
-        ->getQuery()
-        ->getResult()
-        
+            ->orderBy('u.pseudo', 'DESC')
+            ->getQuery()
+            ->getResult()
         ;
     }
 }
