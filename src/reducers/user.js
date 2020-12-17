@@ -27,7 +27,10 @@ const initialState = {
   avatar: '',
   platformsList: [],
   gamesList: [],
-  userInfo: [],
+  userInfo: {
+    videogames: [],
+    platform: [],
+  },
   players: {},
   pseudoPlatform: '',
   description: '',

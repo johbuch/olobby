@@ -10,8 +10,6 @@ import {
   MdHome,
   MdGames,
   MdImportContacts,
-  MdVideogameAsset,
-  MdSupervisorAccount,
 } from 'react-icons/md';
 import { GiGameConsole } from 'react-icons/gi';
 

@@ -18,7 +18,7 @@ const Field = ({
   };
 
   return (
-    <Form.Group controlId="formBasicEmail">
+    <Form.Group>
       <Form.Label>{placeholder}</Form.Label>
       <Form.Control className="input_color" type={type} placeholder={placeholder} onChange={handleChange} value={value} name={name} />
       <Form.Text className="text-muted">
@@ -33,7 +33,7 @@ Field.propTypes = {
   type: PropTypes.string,
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func,
 };
 
 Field.defaultProps = {

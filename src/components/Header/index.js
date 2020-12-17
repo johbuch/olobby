@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
@@ -8,17 +8,21 @@ import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
 import Image from 'react-bootstrap/Image';
 import Dropdown from 'react-bootstrap/Dropdown';
+import Overlay from 'react-bootstrap/Overlay';
+import Popover from 'react-bootstrap/Popover';
 
 import Login from 'src/containers/Login';
 
 import {
   MdSearch,
-  MdNotifications,
+  MdPersonAdd,
   MdPerson,
   MdMessage,
+  MdClose,
 } from 'react-icons/md';
 import { FaPlaystation } from 'react-icons/fa';
 import { BiLogInCircle } from 'react-icons/bi';
+import { GiOctopus } from 'react-icons/gi';
 
 // == Import scss
 import './header.scss';
@@ -28,9 +32,24 @@ const Header = ({
   handleLogout,
   pseudo,
   avatar,
+  launchFetchFriends,
+  friends,
+  acceptFriend,
+  refuseFriend,
 }) => {
+  const [show, setShow] = React.useState(false);
+  const [target, setTarget] = React.useState(null);
+  const ref = React.useRef(null);
+
+  const handleClick = (event) => {
+    setShow(!show);
+    setTarget(event.target);
+  };
   const [modalShow, setModalShow] = React.useState(false);
 
+  useEffect(() => {
+    launchFetchFriends();
+  }, []);
   return (
     <div className="header">
       {isActive && (
@@ -38,7 +57,7 @@ const Header = ({
 
         <div className="header__notifications">
           <span className="header__notifications__number">2</span>
-          <MdNotifications />
+          <MdPersonAdd />
         </div>
 
         <Navbar.Brand href="#home">O'Lobby</Navbar.Brand>
@@ -51,8 +70,6 @@ const Header = ({
               </div>
             </Dropdown.Toggle>
             <Dropdown.Menu>
-              <Dropdown.Item href="#/action-1">Mes amis</Dropdown.Item>
-              <Dropdown.Item href="#/action-1">Mes jeux</Dropdown.Item>
               <Dropdown.Item href="#/action-1">Mon compte</Dropdown.Item>
               <Dropdown.Item href="#/action-2">Se déconnecter</Dropdown.Item>
             </Dropdown.Menu>
@@ -69,9 +86,53 @@ const Header = ({
           </Form>
 
           <div className="header__profil">
-            <div className="header__profil__notifications">
-              <span className="header__profil__notifications__number">2</span>
-              <MdNotifications />
+            <div ref={ref}>
+              <Button className="header__profil__notifications" onClick={handleClick}><MdPersonAdd /></Button>
+              <Overlay
+                show={show}
+                target={target}
+                placement="bottom"
+                container={ref.current}
+                containerPadding={20}
+              >
+                <Popover id="popover-contained">
+                  <Popover.Title as="h3">Mes demandes d'amis</Popover.Title>
+                  <Popover.Content>
+                    {friends.map((friend) => (
+                      <div key={friend.sender.id} className="friend">
+                        <div key={friend.sender.id} className="profile__friend">
+                          <div key={friend.sender.id} className="profile__friend__img">
+                            <Image
+                              src={friend.sender.avatar}
+                              key={friend.sender.id}
+                              roundedCircle
+                            />
+                          </div>
+                          <p className="profile__friend__nickname">{friend.sender.pseudoPlatform}{friend.id}</p>
+                        </div>
+                        <Button
+                          className="accept"
+                          data-val={friend.id}
+                          onClick={(evt) => {
+                            acceptFriend(evt.currentTarget.dataset.val);
+                          }}
+                        >
+                          <GiOctopus />
+                        </Button>
+                        <Button
+                          className="refuse"
+                          data-val={friend.id}
+                          onClick={(evt) => {
+                            refuseFriend(evt.currentTarget.dataset.val);
+                          }}
+                        >
+                          <MdClose />
+                        </Button>
+                      </div>
+                    ))}
+                  </Popover.Content>
+                </Popover>
+              </Overlay>
             </div>
             <div className="img">
               <Image src={avatar} roundedCircle />
@@ -81,9 +142,7 @@ const Header = ({
                 {pseudo}
               </Dropdown.Toggle>
               <Dropdown.Menu>
-                <Dropdown.Item>
-                  <NavLink className="nav-item" to="/mon-compte">Mon compte</NavLink>
-                </Dropdown.Item>
+                <NavLink className="dropdown-item" to="/mon-compte">Mon compte</NavLink>
                 <Dropdown.Item onClick={handleLogout}>Se déconnecter</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
@@ -179,9 +238,26 @@ Header.propTypes = {
   handleLogout: PropTypes.func.isRequired,
   pseudo: PropTypes.string.isRequired,
   avatar: PropTypes.string.isRequired,
+  launchFetchFriends: PropTypes.func.isRequired,
+  acceptFriend: PropTypes.func.isRequired,
+  refuseFriend: PropTypes.func.isRequired,
+  friends: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      pseudoPlatform: PropTypes.string,
+      avatar: PropTypes.string,
+    }).isRequired,
+  ),
 };
 
 Header.defaultProps = {
   isActive: false,
+  friends: PropTypes.arrayOf(
+    PropTypes.shape({
+      pseudoPlatform: '',
+      avatar: '',
+    }).isRequired,
+  ).isRequired,
 };
+
 export default Header;

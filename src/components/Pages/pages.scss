@@ -1,10 +1,45 @@
 @use 'src/styles/vars';
-
-.title_pages{
-    margin-top: 80px;
+.pages{
+  z-index: -99;
+  .BrainhubCarousel__container{
+    margin-left: 200px;
+    width: auto;
+    .BrainhubCarousel{
+      .BrainhubCarousel__trackContainer{
+        ul{
+          width: 1080px;
+          .BrainhubCarouselItem{
+            width: 350px !important;
+            max-width: 350px !important;
+            min-width: 350px !important;
+          }
+        }
+      }
+    }
+  }
+  .title{
+    margin-top: vars.$gutter * 2;
     margin-left: 350px;
     color: white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  &__title{
+    margin-top: 150px;
+    // margin-left: 350px;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    &--top{
+      margin-top: 150px;
+      margin-left: 350px;
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+  }
 }
+
 
 .title_pages2{
     margin-top: 80px;

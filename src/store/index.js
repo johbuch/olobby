@@ -6,6 +6,7 @@ import playersMiddleware from 'src/middlewares/players';
 import registerMiddleware from 'src/middlewares/register';
 import editMiddleware from 'src/middlewares/edit';
 import gamesMiddleware from 'src/middlewares/games';
+import addFriendMiddleware from 'src/middlewares/addFriend';
 
 import reducer from 'src/reducers';
 
@@ -42,6 +43,7 @@ const enhancers = composeWithDevTools(
     registerMiddleware,
     editMiddleware,
     gamesMiddleware,
+    addFriendMiddleware,
     // ... d'autres middlewares
   ),
 );

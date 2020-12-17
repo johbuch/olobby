@@ -1,7 +1,8 @@
 @use 'src/styles/vars';
 
 .cardProfile{
-  margin-top: 100px;
+  margin-top: vars.$gutter * 2;
+  // margin-left: 350px;
   margin-bottom: vars.$gutter * 2;
   .card{
     box-shadow: 3px 3px 8px white;
@@ -11,6 +12,13 @@
       background-color: transparent;
       padding: 0;
       border: none;
+      .img-card{
+        height: 200px;
+        .card-img-top{
+          height: 100%;
+          object-fit: cover;
+        }
+      }
       &:focus{
         box-shadow: none;
         outline: none;

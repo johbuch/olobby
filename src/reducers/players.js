@@ -1,7 +1,11 @@
-import { SAVE_PLAYERS } from 'src/actions/players';
+import { SAVE_PLAYERS, SAVE_MATCHMAKING, SAVE_MATCHMAKING_LEVEL } from 'src/actions/players';
 
 const initialState = {
   playersList: [],
+  matchList: [],
+  matchLevelList: [],
+  platformsList: [],
+  gamesList: [],
 };
 
 const players = (state = initialState, action = {}) => {
@@ -11,7 +15,16 @@ const players = (state = initialState, action = {}) => {
         ...state,
         playersList: action.players,
       };
-
+    case SAVE_MATCHMAKING:
+      return {
+        ...state,
+        matchList: action.matchmaking,
+      };
+    case SAVE_MATCHMAKING_LEVEL:
+      return {
+        ...state,
+        matchLevelList: action.matchmakingLevel,
+      };
     default: return { ...state };
   }
 };

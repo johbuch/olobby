@@ -1,0 +1,73 @@
+@use 'src/styles/vars';
+
+.devs{
+  /* position: relative; */
+  margin-bottom: 6rem;
+  /* left: 0rem; */
+  text-align: center;
+
+  &__3devs{
+    /* position: relative; */
+    /* left: 11rem; */
+    margin-bottom: 5rem;
+  }
+
+  &__title {
+    /* position: relative; */
+    /* left: 45rem; */
+    margin-bottom: 4rem;
+    color: white;
+    font-size: 2rem;
+    font-weight: vars.$ft-bold;
+  }
+
+  &__image1 {
+    /* position: relative; */
+    /* left: 6rem; */
+    height: 230px;
+    border-radius: 100%;
+    margin-bottom: 1.5rem;
+  }
+
+  &__devname1{
+    /* position: relative; */
+    /* left: 11rem; */
+    color: white;
+    font-weight: vars.$ft-bold;
+    font-size: 1.6rem;
+  } 
+
+  &__devdescription1{
+    /* position: relative; */
+    /* left: 3rem; */
+    font-size: 1.1rem;
+    color: white;
+    text-align: center;
+  }
+
+
+  &__image2 {
+    /* position: relative; */
+    /* left: 15rem; */
+    height: 230px;
+    border-radius: 100%;
+    margin-bottom: 1.5rem;
+  }
+
+  &__devname2{
+    /* position: relative; */
+    /* left: 21rem; */
+    color: white;
+    font-weight: vars.$ft-bold;
+    font-size: 1.6rem;
+  } 
+
+  &__devdescription2{
+    /* position: relative; */
+    /* left: 6rem; */
+    font-size: 1.1rem;
+    margin-right: 2rem;
+    color: white;
+    text-align: center;
+  }
+}

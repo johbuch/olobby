@@ -1,15 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import FileInputComponent from 'react-file-input-previews-base64';
-
 import Form from 'react-bootstrap/Form';
 
 // == Import scss
 import '../editProfile.scss';
 
 const ImageEdit = ({
-  value,
   onChange,
 }) => {
   const handleChange = (evt) => {
@@ -28,11 +25,7 @@ const ImageEdit = ({
 };
 
 ImageEdit.propTypes = {
-  value: PropTypes.string,
   onChange: PropTypes.func.isRequired,
 };
 
-ImageEdit.defaultProps = {
-  value: 'Votre Image',
-};
 export default ImageEdit;

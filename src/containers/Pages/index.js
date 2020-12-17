@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { fetchPlayers, fetchGames } from 'src/actions/players';
+import { fetchPlayers, fetchMatchmaking, fetchMatchmakingLevel, fetchGames } from 'src/actions/players';
 
 import pages from 'src/components/Pages';
 
@@ -9,6 +9,8 @@ const mapStateToProps = (state) => ({
   //   return player.name === state.players.search
   // }),
   players: state.players.playersList,
+  matchmaking: state.players.matchList,
+  matchmakingLevel: state.players.matchLevelList,
   games: state.user.gamesList,
   platforms: state.user.platformsList,
 });
@@ -17,11 +19,14 @@ const mapDispatchToProps = (dispatch) => ({
   launchFetchPlayers: () => {
     dispatch(fetchPlayers());
   },
+  launchFetchMatchmaking: () => {
+    dispatch(fetchMatchmaking());
+  },
   launchFetchGames: () => {
     dispatch(fetchGames());
   },
-  launchFetchPlatforms: () => {
-    dispatch(fetchPlatforms());
+  launchFetchMatchmakingLevel: () => {
+    dispatch(fetchMatchmakingLevel());
   },
 });
 
