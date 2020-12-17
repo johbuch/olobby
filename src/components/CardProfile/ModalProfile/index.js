@@ -1,12 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import Form from 'react-bootstrap/Form';
-import Modal from 'react-bootstrap/Modal';
+
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 
 // == Import icons
 import { MdGroupAdd } from 'react-icons/md';
