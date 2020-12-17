@@ -29,8 +29,8 @@ const Olobby = ({ isActive }) => {
       <Header />
       {isActive && (
         <>
-          <Aside />
           <Pages />
+          <Aside />
           <MenuFooter />
         </>
       )}

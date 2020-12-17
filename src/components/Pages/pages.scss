@@ -1,23 +1,30 @@
 @use 'src/styles/vars';
 .pages{
+  z-index: -99;
   .BrainhubCarousel__container{
-    margin-left: 350px;
+    margin-left: 200px;
     width: auto;
     .BrainhubCarousel{
       .BrainhubCarousel__trackContainer{
         ul{
           width: 1080px;
           .BrainhubCarouselItem{
-            width: 500px !important;
-            max-width: 500px !important;
-            min-width: 500px !important;
+            width: 350px !important;
+            max-width: 350px !important;
+            min-width: 350px !important;
           }
         }
       }
     }
   }
-  &__title{
+  .title{
+    margin-top: vars.$gutter;
     margin-left: 350px;
+    color: white;
+  }
+  &__title{
+    margin-top: 150px;
+    // margin-left: 350px;
     color: white;
     &--top{
       margin-top: 150px;
