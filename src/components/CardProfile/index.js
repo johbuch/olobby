@@ -24,13 +24,23 @@ const CardProfile = (props) => {
     videogames,
     avatar,
     frequency,
+    changeAddFriend,
+    id,
   } = props;
 
   return (
     <Col xs={12} md={6} lg={4}>
       <div className="cardProfile">
         <Card style={{ width: '18rem' }}>
-          <Button className="btn-add-friend"><MdGroupAdd /></Button>
+          <Button
+            className="btn-add-friend"
+            data-val={id}
+            onClick={(evt) => {
+              changeAddFriend(evt.currentTarget.dataset.val);
+            }}
+          >
+            <MdGroupAdd />
+          </Button>
           <Button className="btn-modal" onClick={() => setModalShow(true)}>
             <div className="img-card">
               <Card.Img variant="top" src={avatar} />
@@ -70,6 +80,7 @@ CardProfile.propTypes = {
   avatar: PropTypes.string,
   frequency: PropTypes.object.isRequired,
   changeAddFriend: PropTypes.func.isRequired,
+  id: PropTypes.number.isRequired,
   videogames: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
