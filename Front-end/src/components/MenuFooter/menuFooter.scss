@@ -1,0 +1,24 @@
+@use 'src/styles/vars';
+
+.menu-footer{
+  display: none;
+}
+
+
+@media screen and (max-width : 768px){
+  .menu-footer{
+    display: inline;
+    background-color: vars.$main-color;
+    .navbar{
+      background-color: vars.$main-color;
+      .nav-link{
+        color: white;
+        text-align: center;
+        p{
+          font-size: 14px;
+          margin: 0;
+        }
+      }
+    }
+  }
+}
