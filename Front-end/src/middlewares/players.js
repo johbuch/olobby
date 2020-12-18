@@ -45,6 +45,7 @@ const playersMiddleware = (store) => (next) => (action) => {
       })
         .then((response) => {
           store.dispatch(saveMatchMakingLevel(response.data));
+          console.log('TEST', response);
         })
         .catch((error) => {
         });

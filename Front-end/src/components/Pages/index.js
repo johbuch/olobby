@@ -95,7 +95,6 @@ const Pages = ({
           plugins={[
             'arrows',
             {
-              // resolve: slidesToShowPlugin,
               options: {
                 numberOfSlides: 3,
               },

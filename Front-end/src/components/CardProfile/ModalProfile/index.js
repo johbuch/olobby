@@ -53,7 +53,7 @@ const ModalProfile = ({ modalShow, setModalShow, player }) => {
             </Col>
             <Col sm md lg>
               <article className="consolePlayer">
-                <p>Liste des plateformes</p>
+                <p>Sa plateforme</p>
                 <div>
                   <Image className="img_plat_modal"
                     src={platform !== null ? platform.image : "https://www.pdvg.it/wp-content/uploads/2020/01/Destiny-2-Australia-SN.jpg" }

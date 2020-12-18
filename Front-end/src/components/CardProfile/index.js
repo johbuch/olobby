@@ -78,7 +78,7 @@ CardProfile.propTypes = {
   pseudoPlatform: PropTypes.string,
   platform: PropTypes.object.isRequired,
   avatar: PropTypes.string,
-  frequency: PropTypes.object.isRequired,
+  frequency: PropTypes.array.isRequired,
   changeAddFriend: PropTypes.func.isRequired,
   id: PropTypes.number.isRequired,
   videogames: PropTypes.arrayOf(
