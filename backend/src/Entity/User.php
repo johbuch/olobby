@@ -21,13 +21,13 @@ class User implements UserInterface
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups({"platform:dashboard", "user:dashboard", "videogame:dashboard", "matchmaking", "user:friend"})
+     * @Groups({"platform:dashboard", "user:dashboard", "videogame:dashboard", "user:friend"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
-     * @Groups({"platform:dashboard", "user:dashboard", "videogame:dashboard", "matchmaking"})
+     * @Groups({"platform:dashboard", "user:dashboard", "videogame:dashboard"})
      */
     private $email;
 
@@ -47,25 +47,25 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=120)
-     * @Groups({"user:dashboard", "user:friend", "matchmaking"})
+     * @Groups({"user:dashboard", "user:friend"})
      */
     private $pseudo;
 
     /**
      * @ORM\Column(type="text", nullable=true)
-     * @Groups({"user:dashboard", "matchmaking"})
+     * @Groups({"user:dashboard"})
      */
     private $description;
 
     /**
      * @ORM\Column(type="text", nullable=true)
-     * @Groups({"user:dashboard", "matchmaking"})
+     * @Groups({"user:dashboard"})
      */
     private $avatar;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups({"user:dashboard", "matchmaking"})
+     * @Groups({"user:dashboard"})
      */
     private $pseudoPlatform;
 
@@ -77,49 +77,49 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="integer", nullable=true)
-     * @Groups({"user:dashboard", "matchmaking"})
+     * @Groups({"user:dashboard"})
      */
     private $rating;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups({"user:dashboard", "matchmaking"})
+     * @Groups({"user:dashboard"})
      */
     private $youtube;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups({"user:dashboard", "matchmaking"})
+     * @Groups({"user:dashboard"})
      */
     private $twitch;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups({"user:dashboard", "matchmaking"})
+     * @Groups({"user:dashboard"})
      */
     private $discord;
 
     /**
      * @ORM\Column(type="datetime")
-     * @Groups({"user:dashboard", "matchmaking"})
+     * @Groups({"user:dashboard"})
      */
     private $createdAt;
 
     /**
      * @ORM\Column(type="datetime")
-     * @Groups({"user:dashboard", "matchmaking"})
+     * @Groups({"user:dashboard"})
      */
     private $updatedAt;
 
     /**
      * @ORM\ManyToOne(targetEntity=Platform::class, inversedBy="users")
-     * @Groups({"user:dashboard", "matchmaking"})
+     * @Groups({"user:dashboard"})
      */
     private $platform;
 
     /**
      * @ORM\ManyToMany(targetEntity=Videogame::class, inversedBy="users")
-     * @Groups({"user:dashboard", "matchmaking"})
+     * @Groups({"user:dashboard"})
      */
     private $videogames;
 
@@ -140,7 +140,7 @@ class User implements UserInterface
 
     /**
      * @ORM\ManyToOne(targetEntity=Frequency::class, inversedBy="users")
-     * @Groups({"user:dashboard", "matchmaking"})
+     * @Groups("user:dashboard")
      */
     private $frequency;
 

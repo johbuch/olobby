@@ -29,7 +29,7 @@ class MatchmakingController extends AbstractController
         // limite à 10 utilisateurs
         $userList = array_slice($userList, 0, 10);
         
-        return $this->json($userList, 200, [], ['groups' => ['matchmaking']]);
+        return $this->json($userList, 200, [], ['groups' => ['user:dashboard', 'user:friend']]);
     }
 
     /**
@@ -48,6 +48,6 @@ class MatchmakingController extends AbstractController
         // limite à 10 utilisateurs
         $userList = array_slice($userList, 0, 10);
 
-        return $this->json($userList, 200, [], ['groups' => ['matchmaking']]);
+        return $this->json($userList, 200, [], ['groups' => ['user:dashboard', 'user:friend']]);
     }
 }
