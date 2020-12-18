@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
@@ -21,39 +22,8 @@ const Footer = ({ isLogged }) => {
         <Row>
           <Navbar expand="lg">
             <Col sm md lg>
-              <Nav className="flex-column">
-                <Nav.Link href="/home">Conditions générales d'utilisation</Nav.Link>
-                <Nav.Link href="/home">Cookies</Nav.Link>
-                <Nav.Link href="/home">Politique de confidentialité</Nav.Link>
-                <br />
-                <br />
-              </Nav>
-            </Col>
-            <Col sm md lg>
               <Nav defaultActiveKey="none" className="flex-column">
-                <Nav.Link href="/home">Plan du site</Nav.Link>
-                <Nav.Link href="">Qui sommes nous ?</Nav.Link>
-                <Nav.Link href="">Nous contacter</Nav.Link>
-                <br />
-                <br />
-              </Nav>
-            </Col>
-            <Col sm md lg>
-              <Nav className="flex-column">
-                <Nav.Link href="">Annuaire de Joueur</Nav.Link>
-                <Nav.Link href="" >Annuaire de Jeux</Nav.Link>
-                <Nav.Link href="" >Annuaire de Plateforme</Nav.Link>
-                <br />
-                <br />
-              </Nav>
-            </Col>
-            <Col sm md lg>
-              <Nav defaultActiveKey="none" className="flex-column">
-                <Nav.Link href="">Mes Jeux</Nav.Link>
-                <Nav.Link href="">Mes Amis</Nav.Link>
-                <br />
-                <br />
-                <br />
+                <NavLink to="/qui-sommes-nous">Qui sommes nous ?</NavLink>
               </Nav>
             </Col>
           </Navbar>

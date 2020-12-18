@@ -7,6 +7,9 @@ import PropTypes from 'prop-types';
 import CardGames from 'src/components/CardGames';
 import CardProfile from 'src/containers/CardProfile';
 import EditProfile from 'src/containers/EditProfile';
+import Project from 'src/components/Project';
+import Devs from 'src/components/Devs';
+import MainTitle from '../MainTitle';
 
 // == Import Carousel
 import Carousel, { slidesToShowPlugin } from '@brainhubeu/react-carousel';
@@ -176,6 +179,13 @@ const Pages = ({
         path="/mon-compte"
       >
         <EditProfile />
+      </Route>
+      <Route
+        path="/qui-sommes-nous"
+      >
+        <MainTitle />
+        <Project />
+        <Devs />
       </Route>
     </div>
   );

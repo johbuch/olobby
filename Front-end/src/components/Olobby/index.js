@@ -17,10 +17,6 @@ import Pages from 'src/containers/Pages';
 import HeaderHomeDisconnected from 'src/components/HeaderHomeDisconnected';
 import SectionHomeDisconnected from 'src/components/SectionHomeDisconnected';
 
-import Project from 'src/components/Project';
-import Devs from 'src/components/Devs';
-import MainTitle from '../MainTitle';
-
 // == Composant
 const Olobby = ({ isActive }) => (
   <div className="olobby">
@@ -40,11 +36,6 @@ const Olobby = ({ isActive }) => (
     )}
     <Footer />
     <Login />
-    {/*
-    <MainTitle />
-    <Project />
-    <Devs />
-    */}
   </div>
 );
 
