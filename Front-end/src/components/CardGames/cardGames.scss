@@ -1,7 +1,7 @@
 @use 'src/styles/vars';
 
 .cardGames{
-  margin-top: 150px;
+  margin-top: vars.$gutter * 1.5;
   margin-bottom: vars.$gutter * 2;
   .card{
     box-shadow: 3px 3px 8px white;

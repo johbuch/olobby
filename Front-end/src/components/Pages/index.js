@@ -49,12 +49,11 @@ const Pages = ({
         path="/"
         exact
       >
-        <h4 className="pages__title--top">Ces personnes jouent au même jeux que vous</h4>
+        <h4 className="pages__title--top">Ces gamers jouent aux mêmes jeux que toi</h4>
         <Carousel
           plugins={[
             'arrows',
             {
-              // resolve: slidesToShowPlugin,
               options: {
                 numberOfSlides: 3,
               },
@@ -90,7 +89,7 @@ const Pages = ({
             />
           ))}
         </Carousel>
-        <h4 className="title">Ces personnes ont le même niveau que vous</h4>
+        <h4 className="title">Gamers qui jouent autant que toi</h4>
         <Carousel
           plugins={[
             'arrows',
@@ -132,9 +131,10 @@ const Pages = ({
         </Carousel>
       </Route>
       <Route
-        path="/annuaire-de-joueur">
+        path="/annuaire-de-joueur"
+      >
         <Container>
-          <h4 className="pages__title">Annuaire de joueurs</h4>
+          <h4 className="pages__title">Tous les joueurs</h4>
           <Row>
             {players.map((player) => (
               <CardProfile
@@ -148,8 +148,8 @@ const Pages = ({
       <Route
         path="/annuaire-de-jeux"
       >
-        <h4 className="pages__title">Annuaire de jeux</h4>
         <Container>
+          <h4 className="pages__title">Tous les jeux</h4>
           <Row>
             {games.map((game) => (
               <CardGames key={game.id} {...game} />

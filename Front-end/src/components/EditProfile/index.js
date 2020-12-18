@@ -98,7 +98,7 @@ const EditProfile = ({
             </Col>
 
             <Col sm md lg>
-              <p className="editProfile__form__subtitle">Ma plateformes</p>
+              <p className="editProfile__form__subtitle">Ma plateforme</p>
               {platforms.map((platform) => (
                 <Checkbox
                   type="radio"
@@ -113,7 +113,7 @@ const EditProfile = ({
             </Col>
 
             <Col sm md lg>
-              <p className="editProfile__form__subtitle">Mon niveau</p>
+              <p className="editProfile__form__subtitle">Ma fréquence de jeu</p>
               <Form.Check
                 type="radio"
                 label="Joueur occasionnel"
@@ -136,7 +136,6 @@ const EditProfile = ({
           </Row>
           <Row>
             <Col>
-              <Form.Label>Ma description</Form.Label>
               <FieldEdit
                 name="description"
                 placeholder="Votre description"

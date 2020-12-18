@@ -21,6 +21,7 @@ const FieldEdit = ({
 
   return (
     <>
+      <Form.Label>{placeholder}</Form.Label>
       <Form.Control
         type={type}
         placeholder={placeholder}
