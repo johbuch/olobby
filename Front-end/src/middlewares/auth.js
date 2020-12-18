@@ -26,7 +26,6 @@ const authMiddleware = (store) => (next) => (action) => {
             response.data.data.pseudo,
             response.data.data.avatar,
           ));
-          console.log(response);
         })
         .catch((error) => {
           console.warn(error);
