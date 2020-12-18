@@ -17,7 +17,7 @@ import {
 const editMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_GAMES:
-      axios.get('http://ec2-52-3-54-243.compute-1.amazonaws.com/api/v1/videogames', {
+      axios.get('http://ec2-3-83-161-43.compute-1.amazonaws.com/api/v1/videogames', {
         headers: { Authorization: `Bearer ${window.localStorage.getItem('token')}` },
       }, {
         withCredentials: true,
@@ -31,7 +31,7 @@ const editMiddleware = (store) => (next) => (action) => {
       next(action);
       break;
     case FETCH_PLATFORMS:
-      axios.get('http://ec2-52-3-54-243.compute-1.amazonaws.com/api/v1/platforms', {
+      axios.get('http://ec2-3-83-161-43.compute-1.amazonaws.com/api/v1/platforms', {
         headers: { Authorization: `Bearer ${window.localStorage.getItem('token')}` },
       }, {
         withCredentials: true,
@@ -48,7 +48,7 @@ const editMiddleware = (store) => (next) => (action) => {
       const {
         id,
       } = store.getState().user;
-      axios.get(`http://ec2-52-3-54-243.compute-1.amazonaws.com/api/v1/users/${id}`, {
+      axios.get(`http://ec2-3-83-161-43.compute-1.amazonaws.com/api/v1/users/${id}`, {
         headers: { Authorization: `Bearer ${window.localStorage.getItem('token')}` },
       }, {
         withCredentials: true,
@@ -73,7 +73,7 @@ const editMiddleware = (store) => (next) => (action) => {
         checkbox,
         id,
       } = store.getState().user;
-      axios.patch(`http://ec2-52-3-54-243.compute-1.amazonaws.com/api/v1/users/edit/${id}`, {
+      axios.patch(`http://ec2-3-83-161-43.compute-1.amazonaws.com/api/v1/users/edit/${id}`, {
         pseudo,
         pseudoPlatform,
         email,

@@ -5,7 +5,7 @@ import { FETCH_PLAYERS, savePlayers, FETCH_PLAYERS_MATCHMAKING, saveMatchMaking,
 const playersMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_PLAYERS:
-      axios.get('http://ec2-52-3-54-243.compute-1.amazonaws.com/api/v1/users', {
+      axios.get('http://ec2-3-83-161-43.compute-1.amazonaws.com/api/v1/users', {
         headers: { Authorization: `Bearer ${window.localStorage.getItem('token')}` },
       }, {
         withCredentials: true,
@@ -21,7 +21,7 @@ const playersMiddleware = (store) => (next) => (action) => {
       const {
         id,
       } = store.getState().user;
-      axios.get(`http://ec2-52-3-54-243.compute-1.amazonaws.com/api/v1/matchmaking/platformandvideogame/${id}`, {
+      axios.get(`http://ec2-3-83-161-43.compute-1.amazonaws.com/api/v1/matchmaking/platformandvideogame/${id}`, {
         headers: { Authorization: `Bearer ${window.localStorage.getItem('token')}` },
       }, {
         withCredentials: true,
@@ -38,7 +38,7 @@ const playersMiddleware = (store) => (next) => (action) => {
       const {
         id,
       } = store.getState().user;
-      axios.get(`http://ec2-52-3-54-243.compute-1.amazonaws.com/api/v1/matchmaking/frequencyandplatformandvideogame/${id}`, {
+      axios.get(`http://ec2-3-83-161-43.compute-1.amazonaws.com/api/v1/matchmaking/frequencyandplatformandvideogame/${id}`, {
         headers: { Authorization: `Bearer ${window.localStorage.getItem('token')}` },
       }, {
         withCredentials: true,

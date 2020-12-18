@@ -16,7 +16,7 @@ import {
 const addFriendMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case ADD_FRIEND: {
-      axios.post('http://ec2-52-3-54-243.compute-1.amazonaws.com/api/v1/friends/add', {
+      axios.post('http://ec2-3-83-161-43.compute-1.amazonaws.com/api/v1/friends/add', {
         receiver: action.value,
       }, {
         headers: { Authorization: `Bearer ${window.localStorage.getItem('token')}` },
@@ -36,7 +36,7 @@ const addFriendMiddleware = (store) => (next) => (action) => {
       const {
         id,
       } = store.getState().user;
-      axios.get(`http://ec2-52-3-54-243.compute-1.amazonaws.com/api/v1/friends/list/${id}`, {
+      axios.get(`http://ec2-3-83-161-43.compute-1.amazonaws.com/api/v1/friends/list/${id}`, {
         headers: { Authorization: `Bearer ${window.localStorage.getItem('token')}` },
       }, {
         withCredentials: true,
@@ -54,7 +54,7 @@ const addFriendMiddleware = (store) => (next) => (action) => {
       const {
         id,
       } = store.getState().user;
-      axios.get(`http://ec2-52-3-54-243.compute-1.amazonaws.com/api/v1/friends/pending-for-confirmation/${id}`, {
+      axios.get(`http://ec2-3-83-161-43.compute-1.amazonaws.com/api/v1/friends/pending-for-confirmation/${id}`, {
         headers: { Authorization: `Bearer ${window.localStorage.getItem('token')}` },
       }, {
         withCredentials: true,
@@ -69,7 +69,7 @@ const addFriendMiddleware = (store) => (next) => (action) => {
       break;
     }
     case ACCEPT_FRIEND: {
-      axios.patch(`http://ec2-52-3-54-243.compute-1.amazonaws.com/api/v1/friends/accept/${action.value}`, {
+      axios.patch(`http://ec2-3-83-161-43.compute-1.amazonaws.com/api/v1/friends/accept/${action.value}`, {
         id: action.value,
       }, {
         headers: { Authorization: `Bearer ${window.localStorage.getItem('token')}` },
@@ -86,7 +86,7 @@ const addFriendMiddleware = (store) => (next) => (action) => {
       break;
     }
     case REFUSE_FRIEND: {
-      axios.delete(`http://ec2-52-3-54-243.compute-1.amazonaws.com/api/v1/friends/delete/${action.value}`, {
+      axios.delete(`http://ec2-3-83-161-43.compute-1.amazonaws.com/api/v1/friends/delete/${action.value}`, {
         id: action.value,
         headers: { Authorization: `Bearer ${window.localStorage.getItem('token')}` },
       }, {
