@@ -47,6 +47,7 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=120)
+     * @Groups({"user:dashboard", "user:friend"})
      */
     private $pseudo;
 
