@@ -58,7 +58,7 @@ const CardProfile = (props) => {
               </div>
             </Card.Title>
             <Card.Subtitle className="mb-2 text-muted">{ frequency !== null ? frequency.name : 'aucun'}</Card.Subtitle>
-            <p>Ces 3 jeux Favoris</p>
+            <p>Ses jeux</p>
             <div className="profileGame">
               {videogames.map((videogame) => (
                 <div className="img" key={videogame.id}>

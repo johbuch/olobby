@@ -12,7 +12,6 @@ const playersMiddleware = (store) => (next) => (action) => {
       })
         .then((response) => {
           store.dispatch(savePlayers(response.data));
-          console.log('TESTTTT', response);
         })
         .catch((error) => {
         });
@@ -29,7 +28,6 @@ const playersMiddleware = (store) => (next) => (action) => {
       })
         .then((response) => {
           store.dispatch(saveMatchMaking(response.data));
-          console.log('TEST', response);
         })
         .catch((error) => {
         });
@@ -47,7 +45,6 @@ const playersMiddleware = (store) => (next) => (action) => {
       })
         .then((response) => {
           store.dispatch(saveMatchMakingLevel(response.data));
-          console.log('TESTO', response);
         })
         .catch((error) => {
         });
