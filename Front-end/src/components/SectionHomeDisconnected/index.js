@@ -3,6 +3,9 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
+// == Import images
+import imageCardProfile from 'src/assets/images/carte.png';
+
 // == Import scss
 import './sectionhomedisconnected.scss';
 
@@ -10,14 +13,14 @@ const SectionHomeDisconnected = () => (
   <div>
     <section className="section">
       <Container>
-        <div className="section__content1">
+        <div className="section__content">
           <Row>
             <Col sm md lg>
               <div className="section__img">
                 <img
-                  className="section__img__image1"
+                  className="section__img__image"
                   alt="imagesection1"
-                  src='src/assets/carte.png'
+                  src={imageCardProfile}
                 />
               </div>
             </Col>
@@ -27,13 +30,16 @@ const SectionHomeDisconnected = () => (
                 <ul className="section__paragraph">
                   <li>Ajoute la plateforme sur laquelle tu joues</li>
                   <li>Ajoute tes jeux</li>
-                  <li>Précise ta fréquence de jeu, tu joues occasionnellement ou tu te considères comme un No-life assumé</li>
+                  <li>
+                    Précise ta fréquence de jeu, tu joues
+                    occasionnellement ou tu te considères comme un No-life assumé
+                  </li>
                 </ul>
               </div>
             </Col>
           </Row>
         </div>
-        <div className="section__content2">
+        <div className="section__content">
           <Row>
             <Col sm md lg>
               <div className="section__text">
@@ -55,7 +61,7 @@ const SectionHomeDisconnected = () => (
             </Col>
           </Row>
         </div>
-        <div className="section__content2">
+        <div className="section__content">
           <Row>
             <Col sm md lg>
               <div className="section__img">

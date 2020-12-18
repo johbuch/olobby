@@ -53,7 +53,7 @@ const Login = ({
           <div className="div-flipCard">
             <Modal.Header closeButton className="modal__header">
               <Modal.Title id="contained-modal-title-vcenter">
-                O'lobby logo  -  Se connecter à O'Lobby
+                Se connecter O'Lobby
               </Modal.Title>
             </Modal.Header>
             <Modal.Body className="modal__body">
@@ -89,7 +89,7 @@ const Login = ({
           <div className="div-flipCard">
             <Modal.Header closeButton className="modal__header">
               <Modal.Title id="contained-modal-title-vcenter">
-                O'lobby logo  -  S'inscrire à O'Lobby
+                S'inscrire O'Lobby
               </Modal.Title>
             </Modal.Header>
             <Modal.Body className="modal__body">
@@ -114,7 +114,7 @@ const Login = ({
                 <Field
                   name="pseudo"
                   type="text"
-                  placeholder="Votre pseudo"
+                  placeholder="Votre pseudo O'Lobbien"
                   onChange={changeField}
                   value={pseudo}
                 />

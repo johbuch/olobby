@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
+// == Import Bootstrap
 import Navbar from 'react-bootstrap/Navbar';
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
@@ -11,6 +12,10 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import Overlay from 'react-bootstrap/Overlay';
 import Popover from 'react-bootstrap/Popover';
 
+// == Import Image
+import Logo from 'src/assets/images/logo.png';
+
+// == Import
 import Login from 'src/containers/Login';
 
 import {
@@ -60,7 +65,7 @@ const Header = ({
           <MdPersonAdd />
         </div>
 
-        <Navbar.Brand href="#home"><Image src="src/assets/logo.png" /></Navbar.Brand>
+        <Navbar.Brand href="/"><Image src={Logo} rounded /></Navbar.Brand>
 
         <div className="header__profil--responsive">
           <Dropdown>
@@ -221,7 +226,7 @@ const Header = ({
       )}
       {!isActive && (
       <Navbar collapseOnSelect expand="lg" fixed="top" variant="dark">
-        <Navbar.Brand href="#home"><Image src="/Front-end/src/assets/logo.png" /></Navbar.Brand>
+        <Navbar.Brand href="/"><Image src={Logo} rounded /></Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse className="justify-content-end">
           <Button onClick={() => setModalShow(true)} className="btn__login"><BiLogInCircle />S'identifier</Button>
