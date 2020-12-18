@@ -22,7 +22,7 @@ class Frequency
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"user:dashboard", "user:frequency"})
+     * @Groups({"user:dashboard", "user:frequency", "matchmaking"})
      */
     private $name;
 
