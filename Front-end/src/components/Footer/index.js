@@ -23,7 +23,7 @@ const Footer = ({ isLogged }) => {
           <Navbar expand="lg">
             <Col sm md lg>
               <Nav defaultActiveKey="none" className="flex-column">
-                <NavLink to="/qui-sommes-nous">Qui sommes nous ?</NavLink>
+                <NavLink className="nav-link" to="/qui-sommes-nous">Qui sommes nous ?</NavLink>
               </Nav>
             </Col>
           </Navbar>
@@ -32,7 +32,7 @@ const Footer = ({ isLogged }) => {
       <hr />
       <div className="flex-column">
         <p className="col-sm copyright">
-          O'Lobby | Tous droits réservé O'lobby &copy;{new Date().getFullYear()} 
+          O'Lobby | Tous droits réservés O'lobby &copy;{new Date().getFullYear()} 
         </p>
       </div>
     </div>

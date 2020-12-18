@@ -60,7 +60,7 @@ const Header = ({
           <MdPersonAdd />
         </div>
 
-        <Navbar.Brand href="#home">O'Lobby</Navbar.Brand>
+        <Navbar.Brand href="#home"><Image src="src/assets/logo.png" /></Navbar.Brand>
 
         <div className="header__profil--responsive">
           <Dropdown>
@@ -221,7 +221,7 @@ const Header = ({
       )}
       {!isActive && (
       <Navbar collapseOnSelect expand="lg" fixed="top" variant="dark">
-        <Navbar.Brand href="#home">O'Lobby</Navbar.Brand>
+        <Navbar.Brand href="#home"><Image src="/Front-end/src/assets/logo.png" /></Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse className="justify-content-end">
           <Button onClick={() => setModalShow(true)} className="btn__login"><BiLogInCircle />S'identifier</Button>

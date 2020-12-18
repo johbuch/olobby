@@ -13,8 +13,13 @@
   &__paragraph {
     display: inline;
     color: whitesmoke;
-    font-weight: vars.$ft-medium;
-    font-size: 1.1rem;
+    font-weight: vars.$ft-regular;
+    font-size: 16px;
+    list-style-type: circle;
+    li {
+      margin-top: vars.$gutter;
+      margin-left: vars.$gutter;
+    }
   }
 
   &__img{
@@ -28,7 +33,6 @@
   }
 
   &__content2 {
-    margin-top: vars.$gutter * 8;
     margin-bottom: vars.$gutter * 8;
   }
 }

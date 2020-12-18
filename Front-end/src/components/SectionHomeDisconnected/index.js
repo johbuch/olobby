@@ -17,15 +17,18 @@ const SectionHomeDisconnected = () => (
                 <img
                   className="section__img__image1"
                   alt="imagesection1"
-                  src="https://img.huffingtonpost.com/asset/5cf512a3250000310adbe3b0.jpeg?ops=scalefit_960_noupscale"
+                  src='src/assets/carte.png'
                 />
               </div>
             </Col>
             <Col sm md lg>
               <div className="section__text">
-                <h1 className="section__title">O'Lobby, c'est quoi ?</h1>
-                <p className="section__paragraph"> O’Lobby est un réseau social destiné aux joueurs avec peu de relation ou cherchant une meilleure expérience de jeu en trouvant des joueurs qui correspondent à leurs critères. Le joueur pourra se constituer un carnet de profils de joueur plus rapidement qu’en les trouvant seulement en partie et dans son entourage proche.
-                </p>
+                <h1 className="section__title">Crée ton profil de gamer</h1>
+                <ul className="section__paragraph">
+                  <li>Ajoute la plateforme sur laquelle tu joues</li>
+                  <li>Ajoute tes jeux</li>
+                  <li>Précise ta fréquence de jeu, tu joues occasionnellement ou tu te considères comme un No-life assumé</li>
+                </ul>
               </div>
             </Col>
           </Row>
@@ -34,20 +37,11 @@ const SectionHomeDisconnected = () => (
           <Row>
             <Col sm md lg>
               <div className="section__text">
-                <h1 className="section__title">Pourquoi O'Lobby ?</h1>
-                <p className="section__paragraph">
-                  Le matchmaking des jeux vidéos (Fortnite, COD, Apex Legends, GTA...)
-                  en réseau sur les plateformes Playstation, Xbox, PC peut gâcher
-                  l’expérience des utilisateurs de ces jeux et ils ressortent de sessions
-                  de parties déçus du comportement des autres participants (abandon en
-                  cours de jeu, incivisme, non-collaboration), regrettent la
-                  non-équivalence de niveau, sans oublier la barrière de la langue.
-                  <br></br>
-                  <br></br>
-                  O'Lobby permet donc d'améliorer
-                  l’expérience de jeu des joueurs de jeux vidéo en ligne
-                  et aux joueurs d'étendre leur réseau de joueurs.
-                </p>
+                <h1 className="section__title">Rencontre tes futurs amis gamers</h1>
+                <ul className="section__paragraph">
+                  <li>Parcours les profils qui t’intéressent</li>
+                  <li>Ajoute les en ami et pars jouer avec eux</li>
+                </ul>
               </div>
             </Col>
             <Col sm md lg>
@@ -55,8 +49,30 @@ const SectionHomeDisconnected = () => (
                 <img
                   className="section__img__image1"
                   alt="imagesection2"
+                  src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?ixlib=rb-1.2.1&ixid=MXwxM[…]by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1950&q=80"
+                />
+              </div>
+            </Col>
+          </Row>
+        </div>
+        <div className="section__content2">
+          <Row>
+            <Col sm md lg>
+              <div className="section__img">
+                <img
+                  className="section__img__image1"
+                  alt="imagesection2"
                   src="https://ak.picdn.net/shutterstock/videos/1020931030/thumb/1.jpg"
                 />
+              </div>
+            </Col>
+            <Col sm md lg>
+              <div className="section__text">
+                <h1 className="section__title">Matchmaking</h1>
+                <ul className="section__paragraph">
+                  <li>Suggestion de profil de gamers correspondant à tes critères</li>
+                  <li>Fini les parties qui se passent mal avec des joueurs irrespectueux ou qui n’ont pas le même niveau que toi</li>
+                </ul>
               </div>
             </Col>
           </Row>
