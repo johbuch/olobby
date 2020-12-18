@@ -5,6 +5,14 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Image from 'react-bootstrap/Image';
+
+// == Import images
+import corentin from 'src/assets/images/corentin.png';
+import johan from 'src/assets/images/johan.jpeg';
+import maxime from 'src/assets/images/max.jpg';
+import stan from 'src/assets/images/stan.jpg';
+import tristan from 'src/assets/images/tristan.jpeg';
 
 // == Import scss
 import './devs.scss';
@@ -22,11 +30,13 @@ const Devs = () => (
       <div className="devs__3devs">
         <Row>
           <Col sm md lg>
-            <img
-              className="devs__image1"
-              alt="photodetristan"
-              src="https://imagizer.imageshack.com/img923/6249/rVwR5H.png"
-            />
+            <div className="img">
+              <Image
+                alt="photodetristan"
+                src={tristan}
+                roundedCircle
+              />
+            </div>
             <h2 className="devs__devname1">
               Tristan
             </h2>
@@ -38,11 +48,13 @@ const Devs = () => (
             </p>
           </Col>
           <Col sm md lg>
-            <img
-              className="devs__image1"
-              alt="photodemaxime"
-              src="https://imagizer.imageshack.com/img922/7767/k7j6H8.png"
-            />
+            <div className="img">
+              <Image
+                alt="photodemaxime"
+                src={maxime}
+                roundedCircle
+              />
+            </div>
             <h2 className="devs__devname1">
               Maxime
             </h2>
@@ -54,11 +66,13 @@ const Devs = () => (
             </p>
           </Col>
           <Col sm md lg>
-            <img
-              className="devs__image1"
-              alt="photodecorentin"
-              src="https://imagizer.imageshack.com/img922/8421/ptrm9N.png"
-            />
+            <div className="img">
+              <Image
+                alt="photodecorentin"
+                src={corentin}
+                roundedCircle
+              />
+            </div>
             <h2 className="devs__devname1">
               Corentin
             </h2>
@@ -74,11 +88,13 @@ const Devs = () => (
       <div className="devs__2devs">
         <Row>
           <Col sm md lg>
-            <img
-              className="devs__image2"
-              alt="photodejohan"
-              src="https://imagizer.imageshack.com/img923/9006/cjMAsm.png"
-            />
+            <div className="img">
+              <Image
+                alt="photodejohan"
+                src={johan}
+                roundedCircle
+              />
+            </div>
             <h2 className="devs__devname2">
               Johan
             </h2>
@@ -91,13 +107,15 @@ const Devs = () => (
             </p>
           </Col>
           <Col sm md lg>
-            <img
-              className="devs__image2"
-              alt="photodestan"
-              src="https://imagizer.imageshack.com/img924/7536/30rhum.png"
-            />
+            <div className="img">
+              <Image
+                alt="photodestan"
+                src={stan}
+                roundedCircle
+              />
+            </div>
             <h2 className="devs__devname2">
-              Stan
+              Stanislas
             </h2>
             <p className="devs__devdescription2">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.<br></br>

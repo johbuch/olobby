@@ -13,6 +13,13 @@ const Project = () => (
   <div className="project">
     <Container>
       <Row>
+        <Col sm md lg>
+          <div className="maintitle">
+            <h1 className="maintitle__title"> QUI SOMMES NOUS ?</h1>
+          </div>
+        </Col>
+      </Row>
+      <Row>
         <Col>
           <h1 className="project__title">• Le Projet •</h1>
           <p className="project__paragraph">

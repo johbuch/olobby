@@ -9,7 +9,6 @@ import CardProfile from 'src/containers/CardProfile';
 import EditProfile from 'src/containers/EditProfile';
 import Project from 'src/components/Project';
 import Devs from 'src/components/Devs';
-import MainTitle from '../MainTitle';
 
 // == Import Carousel
 import Carousel, { slidesToShowPlugin } from '@brainhubeu/react-carousel';
@@ -182,7 +181,6 @@ const Pages = ({
       <Route
         path="/qui-sommes-nous"
       >
-        <MainTitle />
         <Project />
         <Devs />
       </Route>
