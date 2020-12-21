@@ -117,7 +117,7 @@ const Devs = () => (
               Passioné de jeux vidéos depuis l'enfance,
               j'ai voulu mettre à profit mon passage chez O'clock avec
               un projet qui permettait de répondre à une problématique
-              des joueurs en réseaux, super fière du travail accompli avec l'équipe.
+              des joueurs en réseaux, super fièr du travail accompli avec l'équipe.
             </p>
           </Col>
         </Row>
