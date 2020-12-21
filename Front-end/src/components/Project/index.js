@@ -23,13 +23,17 @@ const Project = () => (
         <Col>
           <h1 className="project__title">• Le Projet •</h1>
           <p className="project__paragraph">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque,
-            placeat tempora sequi vitae fuga saepe, accusamus excepturi corrupti
-            necessitatibus laboriosam labore sed ratione sapiente dignissimos
-            tenetur alias similique non nostrum esse sit? Deleniti,
-            necessitatibus recusandae. Quam quod beatae molestias saepe animi
-            inventore, ullam sint enim ipsum aliquam, vitae laboriosam
-            provident!
+            En jouant depuis plusieurs années aux jeux vidéos en ligne,
+            nous nous sommes rendu compte que la plupart des matchmaking étaient fait au hasard.
+            Lorsque vous lancez une partie, vous êtes donc mis en relation avec
+            des joueurs de tous niveaux, mais aussi avec des joueurs respectueux ou irrespectueux.
+            Votre expérience de jeu peut donc varier totalement d'une partie à l'autre.
+            Ce projet est né d'une volonté d'améliorer l'expérience des joueurs
+            en ligne en suggérant des profils
+            qui répondent aux critères du joueurs. L'utilisateur découvre
+            de nouveaux joueurs qui peuvent devenir des amis mais surtout avec
+            qui il peut jouer sereinement. Nous nous sommes donc retrouvé
+            à 5 développeurs pleinement investi pour faire vivre ce projet.
           </p>
         </Col>
       </Row>
