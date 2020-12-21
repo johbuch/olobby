@@ -32,7 +32,7 @@ const Aside = ({
       <Nav className="flex-column">
         <NavLink className="nav-item" to="/" activeClassName="nav-item-active" exact><MdHome />Accueil</NavLink>
         <NavLink className="nav-item" to="/annuaire-de-joueur" activeClassName="nav-item-active" exact><MdImportContacts />Liste des joueurs</NavLink>
-        <NavLink className="nav-item" to="/annuaire-de-jeux" activeClassName="nav-item-active" ><MdGames />Listes des jeux</NavLink>
+        <NavLink className="nav-item" to="/annuaire-de-jeux" activeClassName="nav-item-active" ><MdGames />Liste des jeux</NavLink>
       </Nav>
       <div className="aside__friend">
         <h5 className="aside__friend__title">Mes Amis</h5>
